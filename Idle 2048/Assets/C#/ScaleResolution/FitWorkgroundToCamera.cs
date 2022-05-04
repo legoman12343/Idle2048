@@ -7,7 +7,7 @@ public class FitWorkgroundToCamera : MonoBehaviour
     void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, 0);
+        transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, 1);
         Vector3 bottomLeft = mainCamera.ViewportToWorldPoint(Vector3.zero) * 100;
         Vector3 topRight = mainCamera.ViewportToWorldPoint(new Vector3(mainCamera.rect.width, mainCamera.rect.height)) * 100;
         Vector3 screenSize = topRight - bottomLeft;
