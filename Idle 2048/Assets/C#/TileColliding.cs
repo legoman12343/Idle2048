@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class TileColliding : MonoBehaviour
 {
-    public bool collider;
+    public bool colliding;
     
-
-    // Update is called once per frame
-    void TriggerEnter(Collider c)
+    void Start()
     {
-        collider = true;
+        colliding = false;
     }
 
-    void TriggerExit(Collider c)
+    // Update is called once per frame
+    void OnTriggerStay(Collider c)
     {
-        collider = false;
+        
+        Debug.Log("ASDFG");
+        colliding = true;
+        
+    }
+
+    void OnTriggerExit(Collider c)
+    {
+
+        colliding = false;
+        
     }
 }
