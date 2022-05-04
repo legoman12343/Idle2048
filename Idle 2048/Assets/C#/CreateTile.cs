@@ -47,7 +47,13 @@ public class CreateTile : MonoBehaviour
     }
 
     public void PlaceTile()
-    {
+    {/*
+        bool check = false;
+        while (!check)
+        {
+            
+            if 
+        }*/
         int random = Random.Range(0, 17);
         Instantiate(tile, tileTransform[random].position, tileTransform[random].rotation);
     }
