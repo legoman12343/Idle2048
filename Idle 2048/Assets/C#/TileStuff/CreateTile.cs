@@ -50,22 +50,25 @@ public class CreateTile : MonoBehaviour
     {
         int random = 1;
         bool check = false;
-        random = Random.Range(0, 16);
-        RaycastHit2D hit = Physics2D.Raycast(tileTransform[random].position, Vector2.up, 0.01f);
-        if (hit.collider != null)
-        {
-            check = true;
-            Debug.Log("HIT");
-        }else
-        {
-            Debug.Log("MISS");
-        }
-        /*
+        
         while (check == false)
         {
+            random = Random.Range(0, 16);
+            RaycastHit2D hit = Physics2D.Raycast(tileTransform[random].position, Vector2.up, 0.001f);
+            if (hit.collider != null)
+            {
+                Debug.Log("HIT");
+            }
+            else
+            {
+                check = true;
+                Debug.Log("MISS");
+            }
+        
+        
             
         }
-        */
+        
         Instantiate(tile, tileTransform[random].position, tileTransform[random].rotation);
     }
 }
