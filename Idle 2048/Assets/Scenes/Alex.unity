@@ -3098,7 +3098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b3f19508922ca43b491598627b027a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 8731905576563101194, guid: 4335593b202dbe647a1fa96c5410b6d8, type: 3}
+  tile: {fileID: 8731905576563101194, guid: 49a7eb6e1027c55488efb7a3cbf2d97f, type: 3}
   tileSpawn1: {fileID: 568539635}
   tileSpawn2: {fileID: 1386729668}
   tileSpawn3: {fileID: 1978386652}
