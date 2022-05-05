@@ -8,6 +8,8 @@ public class ShopButtonPopUp : MonoBehaviour
     public GameObject AscensionTab;
     public GameObject SpecialCurrencyTab;
     public GameObject ExtraAreaTab;
+    public GameObject optionsTab;
+    public GameObject achievementsTab;
     int activeShopTab;
 
   
@@ -25,6 +27,14 @@ public class ShopButtonPopUp : MonoBehaviour
             }
             AscensionTab.SetActive(false);
             SpecialCurrencyTab.SetActive(false);
+            if (optionsTab.active)
+            {
+                optionsTab.SetActive(false);
+            }
+            if (achievementsTab.active)
+            {
+                achievementsTab.SetActive(false);
+            }
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 2)
@@ -39,6 +49,14 @@ public class ShopButtonPopUp : MonoBehaviour
             }
             UpgradeTab.SetActive(false);
             SpecialCurrencyTab.SetActive(false);
+            if (optionsTab.active)
+            {
+                optionsTab.SetActive(false);
+            }
+            if (achievementsTab.active)
+            {
+                achievementsTab.SetActive(false);
+            }
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 3)
@@ -53,12 +71,28 @@ public class ShopButtonPopUp : MonoBehaviour
             }
             UpgradeTab.SetActive(false);
             AscensionTab.SetActive(false);
+            if (optionsTab.active)
+            {
+                optionsTab.SetActive(false);
+            }
+            if (achievementsTab.active)
+            {
+                achievementsTab.SetActive(false);
+            }
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 4)
         {
             if (ExtraAreaTab.active)
             {
+                if (optionsTab.active)
+                {
+                    optionsTab.SetActive(false);
+                }
+                if (achievementsTab.active)
+                {
+                    achievementsTab.SetActive(false);
+                }
                 ExtraAreaTab.SetActive(false);
             }
             else
