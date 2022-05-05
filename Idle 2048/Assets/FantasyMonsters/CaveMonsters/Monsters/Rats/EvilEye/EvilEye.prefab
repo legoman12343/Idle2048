@@ -133,8 +133,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1648961173
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: -573754870320453167, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -217,8 +217,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1648961173
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 8688615278977191630, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -332,8 +332,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1648961173
+  m_SortingLayer: 2
   m_SortingOrder: 30
   m_Sprite: {fileID: 8688615278977191630, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -417,8 +417,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1648961173
+  m_SortingLayer: 2
   m_SortingOrder: 30
   m_Sprite: {fileID: -573754870320453167, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -501,8 +501,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1648961173
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fefe1d76b13a7e14abf83510d6d1eeb6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
@@ -529,7 +529,6 @@ GameObject:
   - component: {fileID: 3535404896899698202}
   - component: {fileID: 4867315556631442157}
   - component: {fileID: 1797487778252940654}
-  - component: {fileID: 4076152042055190876}
   m_Layer: 0
   m_Name: EvilEye
   m_TagString: Untagged
@@ -545,7 +544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5923401707093281111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -643,22 +642,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &4076152042055190876
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5923401707093281111}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3}
-  m_Size: {x: 5, y: 4}
-  m_Direction: 1
 --- !u!1 &6131182453297221300
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,8 +718,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1648961173
+  m_SortingLayer: 2
   m_SortingOrder: 15
   m_Sprite: {fileID: -1828946549344447192, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

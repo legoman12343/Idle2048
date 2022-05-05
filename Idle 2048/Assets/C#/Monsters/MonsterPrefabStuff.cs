@@ -8,16 +8,17 @@ public class MonsterPrefabStuff : MonoBehaviour
 {
     public List<GameObject> prefabList = new List<GameObject>();
     public LevelController level;
+    public Transform monsterSpawnPoint;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        int prefabIndex = UnityEngine.Random.Range(0, prefabList.Count - 1);
-        var monster = Instantiate(prefabList[prefabIndex]);
+        spawnMonster();
     }
 
     public void spawnMonster()
     {
+        int prefabIndex = UnityEngine.Random.Range(0, prefabList.Count - 1);
+        var monster = Instantiate(prefabList[prefabIndex],monsterSpawnPoint.position, Quaternion.identity);
         int health = level.getMonsterHealth();
     }
 }
