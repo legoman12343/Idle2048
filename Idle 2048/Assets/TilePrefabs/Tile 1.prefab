@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4129179395323540218}
   - component: {fileID: 7310483438542465967}
   - component: {fileID: -2121702055029379534}
+  - component: {fileID: 222234370529768047}
   m_Layer: 0
   m_Name: Tile 1
   m_TagString: PrefabTile
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: -965294095
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.6841278, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f5f51eb9bf5ede84f9560ba4afba4fe0, type: 3}
+  m_Color: {r: 1, g: 0.2925181, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,3 +134,16 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &222234370529768047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731905576563101194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde5c7919bd3d4542a57dbf86cb963b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
