@@ -5333,6 +5333,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899231403}
   m_CullTransparentMesh: 1
+--- !u!1 &905804772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 905804773}
+  m_Layer: 0
+  m_Name: MonsterSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &905804773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905804772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3, y: 3.5, z: 20}
+  m_LocalScale: {x: 900, y: 1600.0001, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1628443874}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &908018420
 GameObject:
   m_ObjectHideFlags: 0
@@ -8045,8 +8076,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -965294095
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 400d14b84e191c34ea33eab9983d3103, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10437,6 +10468,7 @@ MonoBehaviour:
   - {fileID: 117150395161187363, guid: 9be81215ad29f7f438264e4851dac964, type: 3}
   - {fileID: 117150395161187363, guid: 1858933b0072d6d4c92be270f75f4ec5, type: 3}
   level: {fileID: 1586629032}
+  monsterSpawnPoint: {fileID: 905804773}
 --- !u!114 &1586629032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10683,6 +10715,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1244269489}
+  - {fileID: 905804773}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
