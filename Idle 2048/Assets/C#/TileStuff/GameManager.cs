@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     private List<Tile> tiles;
     private GameState state;
     private int round;
+    private float travelTime = 0.2f;
 
     private TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
 
@@ -44,6 +46,13 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    void Update()
+    {
+        if (state != GameState.WaitingInput) return;
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) Shift(new Vector2 (-width, 0));
+    }
+
 
     void makeGrid()
     {
@@ -72,6 +81,8 @@ public class GameManager : MonoBehaviour
             {
                 var tile = Instantiate(tilePrefab,node.Pos,Quaternion.identity);
                 tile.init(GetTileTypeValue(Random.value > chance ? startingValue+1 : startingValue));
+                tile.SetTile(node);
+                tiles.Add(tile);
             }
         }
         else
@@ -79,6 +90,38 @@ public class GameManager : MonoBehaviour
             //loose
             Reset();
         }
+
+
+        ChangeState(GameState.WaitingInput);
+
+    }
+
+    void Shift(Vector2 dir) {
+        var orderedTiles = tiles.OrderBy(b => b.Pos.x).ThenBy(b => b.Pos.y).ToList();
+        if (dir == Vector2.right || dir == Vector2.up) orderedTiles.Reverse();
+
+        foreach (var tile in orderedTiles)
+        {
+            var next = tile.Node;
+            do
+            {
+                tile.SetTile(next);
+
+                var possibleNode = GetNodeAtPosition(next.Pos + dir);
+                if (possibleNode != null)
+                {
+                    if (possibleNode.OccupiedTile == null) next = possibleNode;
+                }
+
+            } while (next != tile.Node);
+
+            tile.transform.DOMove(tile.Node.Pos, travelTime);
+        }
+    }
+
+    Node GetNodeAtPosition(Vector2 pos)
+    {
+        return nodes.FirstOrDefault(n => n.Pos == pos);
     }
 
     void Reset()
