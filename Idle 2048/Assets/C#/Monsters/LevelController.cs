@@ -23,4 +23,9 @@ public class LevelController : MonoBehaviour
     {
         level++;
     }
+
+    public int getMonsterHealth()
+    {
+        return level * 10;
+    }
 }
