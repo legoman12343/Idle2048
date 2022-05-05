@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PrefabTile
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,7 @@ TagManager:
     locked: 0
   - name: New Layer 2
     uniqueID: 1648961173
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 4166035561
     locked: 0
