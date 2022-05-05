@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
         if (state != GameState.WaitingInput) return;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow)) Shift(new Vector2 (-width, 0));
+        if (Input.GetKeyDown(KeyCode.RightArrow)) Shift(new Vector2 (width, 0));
+        if (Input.GetKeyDown(KeyCode.UpArrow)) Shift(new Vector2 (0, height));
+        if (Input.GetKeyDown(KeyCode.DownArrow)) Shift(new Vector2 (0, -height));
     }
 
 
@@ -79,10 +82,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (var node in freeNodes.Take(amount))
             {
-                var tile = Instantiate(tilePrefab,node.Pos,Quaternion.identity);
-                tile.init(GetTileTypeValue(Random.value > chance ? startingValue+1 : startingValue));
-                tile.SetTile(node);
-                tiles.Add(tile);
+                spawnTile(node, Random.value > chance ? startingValue + 1 : startingValue);
             }
         }
         else
@@ -96,7 +96,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void spawnTile(Node node, int value)
+    {
+        var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
+        tile.init(GetTileTypeValue(value));
+        tile.SetTile(node);
+        tiles.Add(tile);
+    }
+
     void Shift(Vector2 dir) {
+        ChangeState(GameState.Moving);
         var orderedTiles = tiles.OrderBy(b => b.Pos.x).ThenBy(b => b.Pos.y).ToList();
         if (dir == Vector2.right || dir == Vector2.up) orderedTiles.Reverse();
 
@@ -110,13 +119,51 @@ public class GameManager : MonoBehaviour
                 var possibleNode = GetNodeAtPosition(next.Pos + dir);
                 if (possibleNode != null)
                 {
-                    if (possibleNode.OccupiedTile == null) next = possibleNode;
+                    if(possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value))
+                    {
+                        tile.MergeTile(possibleNode.OccupiedTile);
+                    }
+                    else if (possibleNode.OccupiedTile == null) next = possibleNode;
                 }
 
             } while (next != tile.Node);
 
-            tile.transform.DOMove(tile.Node.Pos, travelTime);
+            
         }
+
+        var sequence = DOTween.Sequence();
+
+        foreach (var tile in orderedTiles)
+        {
+            var movePoint = tile.MergingTile != null ? tile.MergingTile.Node.Pos : tile.Node.Pos;
+
+            sequence.Insert(0, tile.transform.DOMove(movePoint, travelTime));
+        }
+
+        sequence.OnComplete(() =>
+        {
+            foreach (var tile in orderedTiles.Where(b => b.MergingTile != null))
+            {
+                mergeTiles(tile.MergingTile, tile);
+            }
+
+            ChangeState(GameState.SpawningBlocks);
+        });
+
+    }
+
+    void mergeTiles(Tile baseTile, Tile mergingTile)
+    {
+        spawnTile(baseTile.Node, baseTile.value + 1);
+
+        removeTile(baseTile);
+        removeTile(mergingTile);
+    }
+
+    void removeTile(Tile tile)
+    {
+        tiles.Remove(tile);
+        Destroy(tile.gameObject);
     }
 
     Node GetNodeAtPosition(Vector2 pos)

@@ -7,6 +7,8 @@ public class Tile : MonoBehaviour
 {
     public int value;
     public Node Node;
+    public Tile MergingTile;
+    public bool Merging;
     public Vector2 Pos => transform.position;
     [SerializeField] private SpriteRenderer renderer;
     [SerializeField] private TextMeshPro text;
@@ -23,4 +25,15 @@ public class Tile : MonoBehaviour
         Node = node;
         Node.OccupiedTile = this;
     }
+
+    public void MergeTile(Tile tileToMergeWith)
+    {
+        MergingTile = tileToMergeWith;
+
+        Node.OccupiedTile = null;
+
+        tileToMergeWith.Merging = true;
+    }
+
+    public bool canMerge(int Value) => Value == value && !Merging && MergingTile == null;
 }
