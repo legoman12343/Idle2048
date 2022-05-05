@@ -8,7 +8,7 @@ public class CoinsDisplay : MonoBehaviour
 {
 
     public TextMeshProUGUI CoinsDisplayTXT;
-    public int Coins;
+    public long Coins;
 
     // Start is called before the first frame update
     void Start()
