@@ -7,8 +7,10 @@ public class BuyItem : MonoBehaviour
 {
     public int price;
     public CoinsDisplay coinsDisplay;
+    public Ascension ascension;
     public TextMeshProUGUI ItemDisplayTXT;
     public int ItemOwned;
+    public int giveAscensionCoins;
 
     void start()
     {
@@ -21,6 +23,7 @@ public class BuyItem : MonoBehaviour
         {
             coinsDisplay.Coins -= price;
             ItemOwned++;
+            ascension.ascensionCoinsGive += giveAscensionCoins;
             string firstItemTXT = ItemOwned.ToString();
             ItemDisplayTXT.text = firstItemTXT;
         }

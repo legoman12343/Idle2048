@@ -21,6 +21,7 @@ public class CoinsDisplay : MonoBehaviour
     {
         string coinsTXT = FormatNumber(Coins);
         CoinsDisplayTXT.text = coinsTXT;
+        Coins += 10;
     }
 
     string FormatNumber(long num)
