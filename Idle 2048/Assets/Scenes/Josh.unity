@@ -2147,7 +2147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553f52fc4d1a19c41819a361b04eca96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   nodePrefab: {fileID: 1381387192582395177, guid: 9892e05e78a211c40a76ecab9b8d51ce, type: 3}
+=======
+  nodePrefab: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!4 &656283801
 Transform:
   m_ObjectHideFlags: 0

@@ -10,40 +10,64 @@ public class ShopButtonPopUp : MonoBehaviour
     public GameObject ExtraAreaTab;
     int activeShopTab;
 
-    void Start()
-    {
-        activeShopTab = 1;
-    }
-
+  
     void changeShopTab()
     {
         if (activeShopTab == 1)
         {
-            UpgradeTab.SetActive(true);
+            if (UpgradeTab.active)
+            {
+                UpgradeTab.SetActive(false);
+            }
+            else
+            {
+                UpgradeTab.SetActive(true);
+            }
             AscensionTab.SetActive(false);
             SpecialCurrencyTab.SetActive(false);
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 2)
         {
+            if (AscensionTab.active)
+            {
+                AscensionTab.SetActive(false);
+            }
+            else
+            {
+                AscensionTab.SetActive(true);
+            }
             UpgradeTab.SetActive(false);
-            AscensionTab.SetActive(true);
             SpecialCurrencyTab.SetActive(false);
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 3)
         {
+            if (SpecialCurrencyTab.active)
+            {
+                SpecialCurrencyTab.SetActive(false);
+            }
+            else
+            {
+                SpecialCurrencyTab.SetActive(true);
+            }
             UpgradeTab.SetActive(false);
             AscensionTab.SetActive(false);
-            SpecialCurrencyTab.SetActive(true);
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 4)
         {
+            if (ExtraAreaTab.active)
+            {
+                ExtraAreaTab.SetActive(false);
+            }
+            else
+            {
+                ExtraAreaTab.SetActive(true);
+            }
             UpgradeTab.SetActive(false);
             AscensionTab.SetActive(false);
             SpecialCurrencyTab.SetActive(false);
-            ExtraAreaTab.SetActive(true);
         }
     }
 
