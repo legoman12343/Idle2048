@@ -28,6 +28,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         stats.monsterScript = this;
         stats.Init();
         monster[0].GetComponent<Stats>().totalHealth = level.getMonsterHealth();
+        healthBar.isDead = false;
     }
 
     public IEnumerator respawnMonster()

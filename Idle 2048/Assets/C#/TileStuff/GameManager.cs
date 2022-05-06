@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour
     private List<Tile> tiles;
     private GameState state;
     private int round;
+    public HealthBarScript healthBar;
     private float travelTime = 0.2f;
+
 
     private TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
 
@@ -167,6 +169,7 @@ public class GameManager : MonoBehaviour
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
         var newValue = baseTile.value + 1;
+        healthBar.health -= newValue;
         spawnTile(baseTile.Node, newValue);
         //Instantiate(floatingTextPrefab, baseBlock.Pos, Quaternion.identity).Init(newValue);
 

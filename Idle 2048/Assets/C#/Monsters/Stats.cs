@@ -14,10 +14,10 @@ public class Stats : MonoBehaviour
 
     public void Init()
     {
-        totalHealth = 10;
-        currentHealth = 10;
-        healthBar.health = currentHealth;
-        healthBar.slider.maxValue = totalHealth;
+        totalHealth = 150000000;
+        currentHealth = 150000000;
+        healthBar.health = totalHealth;
+        healthBar.totalHealth = totalHealth;
     }
     
     void Update()
@@ -26,7 +26,6 @@ public class Stats : MonoBehaviour
         {
             respawn = true;
             StartCoroutine(monsterScript.respawnMonster());
-            healthBar.isDead = false;
         }        
     }
 }
