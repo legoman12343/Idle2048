@@ -1913,12 +1913,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 10000000
-  coinsDisplay: {fileID: 0}
-  ascension: {fileID: 0}
+  coinsDisplay: {fileID: 533696745}
+  ascension: {fileID: 533696744}
   ItemDisplayTXT: {fileID: 1730396639}
   ItemOwned: 0
-  giveAscensionCoins: 0
-  damage: {fileID: 0}
+  giveAscensionCoins: 100000
+  damage: {fileID: 1223843930}
 --- !u!1 &208995924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,12 +2853,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 10000
-  coinsDisplay: {fileID: 0}
-  ascension: {fileID: 0}
+  coinsDisplay: {fileID: 533696745}
+  ascension: {fileID: 533696744}
   ItemDisplayTXT: {fileID: 372179309}
   ItemOwned: 0
-  giveAscensionCoins: 0
-  damage: {fileID: 0}
+  giveAscensionCoins: 100
+  damage: {fileID: 1223843930}
 --- !u!1 &321161612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6010,12 +6010,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709cf7d9462abd54292c31f3d2d33f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeTab: {fileID: 0}
-  AscensionTab: {fileID: 0}
-  SpecialCurrencyTab: {fileID: 0}
-  ExtraAreaTab: {fileID: 0}
-  optionsTab: {fileID: 0}
-  achievementsTab: {fileID: 0}
+  UpgradeTab: {fileID: 442037123}
+  AscensionTab: {fileID: 173006388}
+  SpecialCurrencyTab: {fileID: 723885520}
+  ExtraAreaTab: {fileID: 390475321}
+  optionsTab: {fileID: 1399340850}
+  achievementsTab: {fileID: 1199133457}
 --- !u!1 &695514332
 GameObject:
   m_ObjectHideFlags: 0
@@ -6100,7 +6100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 533696744}
         m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
         m_MethodName: buyAscension
         m_Mode: 1
@@ -8382,12 +8382,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 100000
-  coinsDisplay: {fileID: 0}
-  ascension: {fileID: 0}
+  coinsDisplay: {fileID: 533696745}
+  ascension: {fileID: 533696744}
   ItemDisplayTXT: {fileID: 1387883448}
   ItemOwned: 0
-  giveAscensionCoins: 0
-  damage: {fileID: 0}
+  giveAscensionCoins: 1000
+  damage: {fileID: 1223843930}
 --- !u!1 &1024128586
 GameObject:
   m_ObjectHideFlags: 0
@@ -8436,12 +8436,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 10
-  coinsDisplay: {fileID: 0}
-  ascension: {fileID: 0}
+  coinsDisplay: {fileID: 533696745}
+  ascension: {fileID: 533696744}
   ItemDisplayTXT: {fileID: 1066380755}
   ItemOwned: 0
-  giveAscensionCoins: 0
-  damage: {fileID: 0}
+  giveAscensionCoins: 1
+  damage: {fileID: 1223843930}
 --- !u!1 &1035854070
 GameObject:
   m_ObjectHideFlags: 0
@@ -8490,12 +8490,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 1000000
-  coinsDisplay: {fileID: 0}
-  ascension: {fileID: 0}
+  coinsDisplay: {fileID: 533696745}
+  ascension: {fileID: 533696744}
   ItemDisplayTXT: {fileID: 1383648071}
   ItemOwned: 0
-  giveAscensionCoins: 0
-  damage: {fileID: 0}
+  giveAscensionCoins: 10000
+  damage: {fileID: 1223843930}
 --- !u!1 &1040095322
 GameObject:
   m_ObjectHideFlags: 0
@@ -9359,12 +9359,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 50
-  coinsDisplay: {fileID: 0}
-  ascension: {fileID: 0}
+  coinsDisplay: {fileID: 533696745}
+  ascension: {fileID: 533696744}
   ItemDisplayTXT: {fileID: 906995325}
   ItemOwned: 0
-  giveAscensionCoins: 0
-  damage: {fileID: 0}
+  giveAscensionCoins: 10
+  damage: {fileID: 1223843930}
 --- !u!1 &1191169295
 GameObject:
   m_ObjectHideFlags: 0
