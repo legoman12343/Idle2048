@@ -63,10 +63,10 @@ public class GameManager : MonoBehaviour
         }
         if (state != GameState.WaitingInput) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) Shift(Leftvec);
-        if (Input.GetKeyDown(KeyCode.RightArrow)) Shift(Rightvec);
-        if (Input.GetKeyDown(KeyCode.UpArrow)) Shift(Upvec);
-        if (Input.GetKeyDown(KeyCode.DownArrow)) Shift(Downvec);
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) { Shift(Leftvec); return; }
+        if (Input.GetKeyDown(KeyCode.RightArrow)) { Shift(Rightvec); return; }
+        if (Input.GetKeyDown(KeyCode.UpArrow)) { Shift(Upvec); return; }
+        if (Input.GetKeyDown(KeyCode.DownArrow)) { Shift(Downvec); return; }
     }
 
 

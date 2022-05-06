@@ -86,6 +86,6 @@ public class HealthBarScript : MonoBehaviour
             return (num / 1000D).ToString("0.##k");
         }
 
-        return num.ToString("#,0");
+        return num.ToString("#.0");
     }
 }

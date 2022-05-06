@@ -10,7 +10,7 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dps = 10000000;
+        dps = 1;
         chageDPS();
     }
 

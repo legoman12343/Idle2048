@@ -11,11 +11,12 @@ public class Stats : MonoBehaviour
     public HealthBarScript healthBar;
     public MonsterPrefabStuff monsterScript;
     private bool respawn = false;
+    public LevelController level;
 
     public void Init()
     {
-        totalHealth = 150000000;
-        currentHealth = 150000000;
+        totalHealth = level.getMonsterHealth();
+        currentHealth = totalHealth;
         healthBar.health = totalHealth;
         healthBar.totalHealth = totalHealth;
     }

@@ -26,13 +26,14 @@ public class MonsterPrefabStuff : MonoBehaviour
         var stats = monster[0].GetComponent<Stats>();
         stats.healthBar = healthBar;
         stats.monsterScript = this;
+        stats.level = level;
         stats.Init();
-        monster[0].GetComponent<Stats>().totalHealth = level.getMonsterHealth();
         healthBar.isDead = false;
     }
 
     public IEnumerator respawnMonster()
     {
+        level.killCount++;
         bool coinsMade = false;
         monster[0].GetComponent<Monster>().Die();
         
