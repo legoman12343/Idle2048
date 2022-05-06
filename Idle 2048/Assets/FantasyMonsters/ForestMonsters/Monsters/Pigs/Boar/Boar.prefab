@@ -504,9 +504,10 @@ GameObject:
   - component: {fileID: 5027785360624418883}
   - component: {fileID: 8316402779051580186}
   - component: {fileID: 8316402779051580189}
+  - component: {fileID: 3156604501957478917}
   m_Layer: 0
   m_Name: Boar
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,6 +619,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3156604501957478917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316402779051580184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839f1fca15f457e4c81dc66f99c1ef48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  coins: 0
+  totalHealth: 0
+  slider: {fileID: 0}
+  damage: {fileID: 0}
 --- !u!1 &8316402779174942823
 GameObject:
   m_ObjectHideFlags: 0

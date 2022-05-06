@@ -129,9 +129,10 @@ GameObject:
   - component: {fileID: 5300789848571724138}
   - component: {fileID: 1028269221959380268}
   - component: {fileID: 6151211889636447822}
+  - component: {fileID: -1654501192401039819}
   m_Layer: 0
   m_Name: BlackBear
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,6 +245,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1654501192401039819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151211889636447821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839f1fca15f457e4c81dc66f99c1ef48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  coins: 0
+  totalHealth: 0
+  slider: {fileID: 0}
+  damage: {fileID: 0}
 --- !u!1 &6151211889641058511
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     {
         int prefabIndex = UnityEngine.Random.Range(0, prefabList.Count - 1);
         var monster = Instantiate(prefabList[prefabIndex],monsterSpawnPoint.position, Quaternion.identity);
-        int health = level.getMonsterHealth();
+        monster.GetComponent<Stats>().totalHealth = level.getMonsterHealth();
     }
 }
     

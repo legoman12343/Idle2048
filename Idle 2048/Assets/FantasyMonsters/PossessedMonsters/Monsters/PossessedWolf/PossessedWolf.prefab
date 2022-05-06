@@ -45,9 +45,10 @@ GameObject:
   - component: {fileID: 4209775714434701848}
   - component: {fileID: 7717109176889143028}
   - component: {fileID: 2342415255017079064}
+  - component: {fileID: -2353560502442992663}
   m_Layer: 0
   m_Name: PossessedWolf
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +161,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2353560502442992663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342415255017079070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839f1fca15f457e4c81dc66f99c1ef48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  coins: 0
+  totalHealth: 0
+  slider: {fileID: 0}
+  damage: {fileID: 0}
 --- !u!1 &2342415255436487117
 GameObject:
   m_ObjectHideFlags: 0

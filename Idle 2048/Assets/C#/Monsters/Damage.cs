@@ -10,7 +10,7 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dps = 0;
+        dps = 1;
     }
 
     // Update is called once per frame

@@ -357,9 +357,10 @@ GameObject:
   - component: {fileID: 1211699911956097999}
   - component: {fileID: 1423470163212545532}
   - component: {fileID: 1423470163212545531}
+  - component: {fileID: -1822212108740272775}
   m_Layer: 0
   m_Name: Duck
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,6 +472,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1822212108740272775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423470163212545534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839f1fca15f457e4c81dc66f99c1ef48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  coins: 0
+  totalHealth: 0
+  slider: {fileID: 0}
+  damage: {fileID: 0}
 --- !u!1 &1785783350246851850
 GameObject:
   m_ObjectHideFlags: 0
