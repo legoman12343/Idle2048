@@ -10,6 +10,7 @@ public class Stats : MonoBehaviour
     public int totalHealth;
     public HealthBarScript healthBar;
     public MonsterPrefabStuff monsterScript;
+    private bool respawn = false;
 
     public void Init()
     {
@@ -21,8 +22,9 @@ public class Stats : MonoBehaviour
     
     void Update()
     {
-        if (healthBar.isDead == true)
+        if (healthBar.isDead == true && respawn == false)
         {
+            respawn = true;
             StartCoroutine(monsterScript.respawnMonster());
             healthBar.isDead = false;
         }        

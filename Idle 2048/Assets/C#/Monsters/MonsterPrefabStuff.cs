@@ -11,6 +11,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     public Transform monsterSpawnPoint;
     private GameObject[] monster;
     public HealthBarScript healthBar;
+    public GameObject coinPrefab;
 
     void Start()
     {
@@ -31,8 +32,23 @@ public class MonsterPrefabStuff : MonoBehaviour
 
     public IEnumerator respawnMonster()
     {
+        bool coinsMade = false;
         monster[0].GetComponent<Monster>().Die();
-        yield return new WaitForSeconds(0.8f);
+        
+        if (coinsMade == false)
+        {
+            int range = Random.Range(4, 7);
+            for (int i = 0; i < range; i++)
+            {
+                Vector3 vec = monsterSpawnPoint.position;
+                vec.y += 0.5f;
+                Instantiate(coinPrefab, vec, Quaternion.identity);
+            }
+            coinsMade = true;
+        }
+        
+        
+        yield return new WaitForSeconds(1.1f);
         Destroy(monster[0]);
         spawnMonster();
     }
