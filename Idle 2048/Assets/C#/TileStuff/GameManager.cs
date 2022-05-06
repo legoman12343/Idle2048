@@ -1,10 +1,11 @@
-using System.Collections;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Node nodePrefab;
     [SerializeField] private Tile tilePrefab;
     [SerializeField] private List<TileType> types;
+    [SerializeField] private FloatingText floatingTextPrefab;
     public float chance;
     public int startingValue;
     private List<Node> nodes;
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        if(tiles.Count() == 0)
+        {
+            round = 0;
+            ChangeState(GameState.SpawningBlocks);
+        }
         if (state != GameState.WaitingInput) return;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow)) Shift(Leftvec);
@@ -160,11 +167,8 @@ public class GameManager : MonoBehaviour
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
         var newValue = baseTile.value + 1;
-
-        //Instantiate(_mergeEffectPrefab, baseBlock.Pos, Quaternion.identity);
-        //Instantiate(_floatingTextPrefab, baseBlock.Pos, Quaternion.identity).Init(newValue);
-
         spawnTile(baseTile.Node, newValue);
+        //Instantiate(floatingTextPrefab, baseBlock.Pos, Quaternion.identity).Init(newValue);
 
         removeTile(baseTile);
         removeTile(mergingTile);
@@ -183,7 +187,11 @@ public class GameManager : MonoBehaviour
 
     void Reset()
     {
-        Debug.Log("sdf");
+        while(tiles.Count != 0)
+        {
+            removeTile(tiles[0]);
+            Debug.Log("REMOVE");
+        }
     }
 }
 

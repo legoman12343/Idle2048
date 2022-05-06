@@ -10,14 +10,15 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dps = 1;
+        dps = 4;
+        chageDPS();
     }
 
     // Update is called once per frame
-    void Update()
+    void chageDPS()
     {
-
-        dpsCounter.text = FormatNumber(dps);
+        string t = FormatNumber(dps);
+        dpsCounter.text = t;
     }
 
     string FormatNumber(long num)
@@ -40,5 +41,12 @@ public class Damage : MonoBehaviour
         }
 
         return num.ToString("#,0");
+    }
+
+    public void addDPS(long n)
+    {
+        Debug.Log(n);
+        dps += n;
+        chageDPS();
     }
 }
