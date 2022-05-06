@@ -43,7 +43,7 @@ public class HealthBarScript : MonoBehaviour
         }
         else
         {
-            healthString = FormatNumber((long)health);
+            healthString = FormatNumber(health);
         }
         if (!healthString.Contains("."))
         {
@@ -61,12 +61,12 @@ public class HealthBarScript : MonoBehaviour
             }
         }
 
-        string total = FormatNumber((long)totalHealth);
+        string total = FormatNumber(totalHealth);
 
         healthCounter.text = healthString + "/" + total;
     }
 
-    string FormatNumber(long num)
+    string FormatNumber(float num)
     {
         if (num >= 100000000)
         {
@@ -85,7 +85,10 @@ public class HealthBarScript : MonoBehaviour
         {
             return (num / 1000D).ToString("0.##k");
         }
-
-        return num.ToString("#.0");
+        if (num >= 1000)
+        {
+            return num.ToString("#,0");
+        }
+        return num.ToString("0.#");
     }
 }

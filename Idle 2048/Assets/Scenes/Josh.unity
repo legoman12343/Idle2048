@@ -11952,10 +11952,11 @@ MonoBehaviour:
     colour: {r: 0.76862746, g: 0.16470589, b: 0.03529412, a: 1}
   - value: 11
     colour: {r: 0.827451, g: 0.23529412, b: 0.9254902, a: 1}
-  floatingTextPrefab: {fileID: 0}
+  floatingTextPrefab: {fileID: 6659222384162558875, guid: 59759bb6b03cbaa4dbf3c4a2c0d825b8, type: 3}
   chance: 0.8
   startingValue: 1
   healthBar: {fileID: 1600886275}
+  endPoint: {fileID: 645297067}
 --- !u!1 &1629373811
 GameObject:
   m_ObjectHideFlags: 0

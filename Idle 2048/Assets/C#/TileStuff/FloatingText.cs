@@ -7,15 +7,18 @@ using UnityEngine;
 public class FloatingText : MonoBehaviour
 {
     private TextMeshPro _text;
-    private float _fadeTime = 1;
+    private float travelTime = 1.3f;
+    public Transform endPoint;
+
     public void Init(int value)
     {
+        _text = GetComponent<TextMeshPro>();
+        Debug.Log("INIT");
         _text.text = value.ToString();
 
         var sequence = DOTween.Sequence();
 
-        sequence.Insert(0, _text.DOFade(0, _fadeTime));
-        sequence.Insert(0, _text.transform.DOMove(_text.transform.position + Vector3.up, _fadeTime));
+        sequence.Insert(0, _text.transform.DOMove(endPoint.position, travelTime).SetEase(Ease.InQuad));
 
         sequence.OnComplete(() => Destroy(gameObject));
     }

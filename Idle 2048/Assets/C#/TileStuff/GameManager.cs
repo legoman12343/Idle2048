@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Node nodePrefab;
     [SerializeField] private Tile tilePrefab;
     [SerializeField] private List<TileType> types;
-    [SerializeField] private FloatingText floatingTextPrefab;
+    public GameObject floatingTextPrefab;
     public float chance;
     public int startingValue;
     private List<Node> nodes;
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private int round;
     public HealthBarScript healthBar;
     private float travelTime = 0.2f;
+    public Transform endPoint;
 
 
     private TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -169,9 +170,12 @@ public class GameManager : MonoBehaviour
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
         var newValue = baseTile.value + 1;
-        healthBar.health -= newValue;
+        StartCoroutine(damageMonster(newValue));
         spawnTile(baseTile.Node, newValue);
-        //Instantiate(floatingTextPrefab, baseBlock.Pos, Quaternion.identity).Init(newValue);
+        var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
+        var floatingScript = text.GetComponent<FloatingText>();
+        floatingScript.endPoint = endPoint;
+        floatingScript.Init(newValue);
 
         removeTile(baseTile);
         removeTile(mergingTile);
@@ -195,6 +199,12 @@ public class GameManager : MonoBehaviour
             removeTile(tiles[0]);
             Debug.Log("REMOVE");
         }
+    }
+
+    public IEnumerator damageMonster(int v)
+    {
+        yield return new WaitForSeconds(1.3f);
+        healthBar.health -= v;
     }
 }
 
