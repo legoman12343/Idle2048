@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 {
     private float width = 1.7f;
     private float height = 1.7f;
+    private Vector2 Rightvec = new Vector2(1.7f, 0);
+    private Vector2 Leftvec = new Vector2(-1.7f, 0);
+    private Vector2 Upvec = new Vector2(0, 1.7f);
+    private Vector2 Downvec = new Vector2(0, -1.7f);
     [SerializeField] private Node nodePrefab;
     [SerializeField] private Tile tilePrefab;
     [SerializeField] private List<TileType> types;
@@ -50,10 +54,10 @@ public class GameManager : MonoBehaviour
     {
         if (state != GameState.WaitingInput) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) Shift(new Vector2 (-width, 0));
-        if (Input.GetKeyDown(KeyCode.RightArrow)) Shift(new Vector2 (width, 0));
-        if (Input.GetKeyDown(KeyCode.UpArrow)) Shift(new Vector2 (0, height));
-        if (Input.GetKeyDown(KeyCode.DownArrow)) Shift(new Vector2 (0, -height));
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) Shift(Leftvec);
+        if (Input.GetKeyDown(KeyCode.RightArrow)) Shift(Rightvec);
+        if (Input.GetKeyDown(KeyCode.UpArrow)) Shift(Upvec);
+        if (Input.GetKeyDown(KeyCode.DownArrow)) Shift(Downvec);
     }
 
 
@@ -87,7 +91,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //loose
             Reset();
         }
 
@@ -95,6 +98,7 @@ public class GameManager : MonoBehaviour
         ChangeState(GameState.WaitingInput);
 
     }
+
 
     void spawnTile(Node node, int value)
     {
@@ -107,7 +111,7 @@ public class GameManager : MonoBehaviour
     void Shift(Vector2 dir) {
         ChangeState(GameState.Moving);
         var orderedTiles = tiles.OrderBy(b => b.Pos.x).ThenBy(b => b.Pos.y).ToList();
-        if (dir == Vector2.right || dir == Vector2.up) orderedTiles.Reverse();
+        if (dir == Rightvec || dir == Upvec) orderedTiles.Reverse();
 
         foreach (var tile in orderedTiles)
         {
@@ -122,13 +126,13 @@ public class GameManager : MonoBehaviour
                     if(possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value))
                     {
                         tile.MergeTile(possibleNode.OccupiedTile);
+                        
                     }
                     else if (possibleNode.OccupiedTile == null) next = possibleNode;
                 }
 
             } while (next != tile.Node);
 
-            
         }
 
         var sequence = DOTween.Sequence();
@@ -137,12 +141,13 @@ public class GameManager : MonoBehaviour
         {
             var movePoint = tile.MergingTile != null ? tile.MergingTile.Node.Pos : tile.Node.Pos;
 
-            sequence.Insert(0, tile.transform.DOMove(movePoint, travelTime));
+            sequence.Insert(0, tile.transform.DOMove(movePoint, travelTime).SetEase(Ease.InQuad));
         }
 
         sequence.OnComplete(() =>
         {
-            foreach (var tile in orderedTiles.Where(b => b.MergingTile != null))
+            var MergeTiles = orderedTiles.Where(b => b.MergingTile != null).ToList();
+            foreach (var tile in MergeTiles)
             {
                 mergeTiles(tile.MergingTile, tile);
             }
@@ -154,7 +159,12 @@ public class GameManager : MonoBehaviour
 
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
-        spawnTile(baseTile.Node, baseTile.value + 1);
+        var newValue = baseTile.value + 1;
+
+        //Instantiate(_mergeEffectPrefab, baseBlock.Pos, Quaternion.identity);
+        //Instantiate(_floatingTextPrefab, baseBlock.Pos, Quaternion.identity).Init(newValue);
+
+        spawnTile(baseTile.Node, newValue);
 
         removeTile(baseTile);
         removeTile(mergingTile);
@@ -173,7 +183,7 @@ public class GameManager : MonoBehaviour
 
     void Reset()
     {
-
+        Debug.Log("sdf");
     }
 }
 
