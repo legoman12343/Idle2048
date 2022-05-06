@@ -2641,6 +2641,7 @@ MonoBehaviour:
   - {fileID: 117150395161187363, guid: 1858933b0072d6d4c92be270f75f4ec5, type: 3}
   level: {fileID: 363031669}
   monsterSpawnPoint: {fileID: 1488213136}
+  healthBar: {fileID: 1832085186}
 --- !u!114 &363031669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12659,6 +12660,7 @@ MonoBehaviour:
   slider: {fileID: 1832085187}
   damage: {fileID: 363031670}
   health: 0
+  isDead: 0
 --- !u!114 &1832085187
 MonoBehaviour:
   m_ObjectHideFlags: 0

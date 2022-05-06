@@ -8,17 +8,20 @@ public class HealthBarScript : MonoBehaviour
     public Slider slider;
     public Damage damage;
     public float health;
+    public bool isDead;
+
 
     void Start()
     {
         var t = Time.deltaTime;
+        isDead = false;
     }
     void FixedUpdate()
     {
         health -= (float)damage.dps * Time.deltaTime;
-        if (health <= 0)
+        if (health <= 0 && isDead == false)
         {
-            health = 10;
+            isDead = true;
         }
         slider.value = health;
 

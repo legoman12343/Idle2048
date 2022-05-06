@@ -9,13 +9,22 @@ public class Stats : MonoBehaviour
     public int coins;
     public int totalHealth;
     public HealthBarScript healthBar;
+    public MonsterPrefabStuff monsterScript;
 
-    void Start()
+    public void Init()
     {
         totalHealth = 10;
         currentHealth = 10;
         healthBar.health = currentHealth;
         healthBar.slider.maxValue = totalHealth;
     }
-
+    
+    void Update()
+    {
+        if (healthBar.isDead == true)
+        {
+            StartCoroutine(monsterScript.respawnMonster());
+            healthBar.isDead = false;
+        }        
+    }
 }
