@@ -10,9 +10,11 @@ public class ShopButtonPopUp : MonoBehaviour
     public GameObject ExtraAreaTab;
     public GameObject optionsTab;
     public GameObject achievementsTab;
+    public GameObject GearPanel;
+    public GameObject UpgradePanel;
     int activeShopTab;
 
-  
+
     void changeShopTab()
     {
         if (activeShopTab == 1)
@@ -27,14 +29,19 @@ public class ShopButtonPopUp : MonoBehaviour
             }
             AscensionTab.SetActive(false);
             SpecialCurrencyTab.SetActive(false);
-            if (optionsTab.active)
-            {
-                optionsTab.SetActive(false);
-            }
-            if (achievementsTab.active)
-            {
-                achievementsTab.SetActive(false);
-            }
+            optionsTab.SetActive(false);
+            achievementsTab.SetActive(false);
+            ExtraAreaTab.SetActive(false);
+        }
+        else if (activeShopTab == 5)
+        {
+
+            UpgradeTab.SetActive(true);
+
+            AscensionTab.SetActive(false);
+            SpecialCurrencyTab.SetActive(false);
+            optionsTab.SetActive(false);
+            achievementsTab.SetActive(false);
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 2)
@@ -49,14 +56,8 @@ public class ShopButtonPopUp : MonoBehaviour
             }
             UpgradeTab.SetActive(false);
             SpecialCurrencyTab.SetActive(false);
-            if (optionsTab.active)
-            {
-                optionsTab.SetActive(false);
-            }
-            if (achievementsTab.active)
-            {
-                achievementsTab.SetActive(false);
-            }
+            optionsTab.SetActive(false);
+            achievementsTab.SetActive(false);
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 3)
@@ -71,28 +72,16 @@ public class ShopButtonPopUp : MonoBehaviour
             }
             UpgradeTab.SetActive(false);
             AscensionTab.SetActive(false);
-            if (optionsTab.active)
-            {
-                optionsTab.SetActive(false);
-            }
-            if (achievementsTab.active)
-            {
-                achievementsTab.SetActive(false);
-            }
+            optionsTab.SetActive(false);
+            achievementsTab.SetActive(false);
             ExtraAreaTab.SetActive(false);
         }
         else if (activeShopTab == 4)
         {
             if (ExtraAreaTab.active)
             {
-                if (optionsTab.active)
-                {
-                    optionsTab.SetActive(false);
-                }
-                if (achievementsTab.active)
-                {
-                    achievementsTab.SetActive(false);
-                }
+                optionsTab.SetActive(false);
+                achievementsTab.SetActive(false);
                 ExtraAreaTab.SetActive(false);
             }
             else
@@ -128,4 +117,11 @@ public class ShopButtonPopUp : MonoBehaviour
         activeShopTab = 4;
         changeShopTab();
     }
+
+    public void OpenGearTab()
+    {
+        activeShopTab = 5;
+        changeShopTab();
+    }
+
 }
