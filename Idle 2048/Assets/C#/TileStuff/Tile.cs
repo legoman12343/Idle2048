@@ -89,6 +89,7 @@ public class Tile : MonoBehaviour
 
     public void updateNumber()
     {
+        Debug.Log("UP NUM");
         text.text = value.ToString();
         renderer.color = gm.types[value-1].colour;
     }
