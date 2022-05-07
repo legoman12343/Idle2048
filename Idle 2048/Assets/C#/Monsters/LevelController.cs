@@ -9,19 +9,21 @@ public class LevelController : MonoBehaviour
     public TextMeshProUGUI killCountText;
     public int level;
     public int killCount;
+    public int requiredKills;
     // Start is called before the first frame update
     void Start()
     {
+        requiredKills = 10;
         killCount = 0;
-        level = 1;
+        level = 9;
         levelCount.text = level.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        killCountText.text = killCount.ToString() + "/10";
-        if (killCount == 10)
+        killCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
+        if (killCount == requiredKills)
         {
             level++;
             levelCount.text = level.ToString();
@@ -33,5 +35,10 @@ public class LevelController : MonoBehaviour
     public int getMonsterHealth()
     {
         return level * 10;
+    }
+
+    public int getMonsterCoins()
+    {
+        return level;
     }
 }

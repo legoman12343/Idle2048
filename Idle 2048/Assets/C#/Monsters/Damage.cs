@@ -6,22 +6,21 @@ using TMPro;
 public class Damage : MonoBehaviour
 {
     public TextMeshProUGUI dpsCounter;
-    public long dps;
+    public List<float> itemDamage;
     // Start is called before the first frame update
     void Start()
     {
-        dps = 1;
         chageDPS();
     }
 
     // Update is called once per frame
     void chageDPS()
     {
-        string t = FormatNumber(dps);
+        string t = FormatNumber(getDPS());
         dpsCounter.text = t;
     }
 
-    string FormatNumber(long num)
+    string FormatNumber(float num)
     {
         if (num >= 100000000)
         {
@@ -40,13 +39,26 @@ public class Damage : MonoBehaviour
             return (num / 1000D).ToString("0.##k");
         }
 
-        return num.ToString("#,0");
+        return num.ToString("0.#");
     }
 
-    public void addDPS(long n)
+    public void addDPS(float n, int index)
     {
-        Debug.Log(n);
-        dps += n;
+        itemDamage[index] += n;
         chageDPS();
+    }
+
+    public void setDPS(float n, int index)
+    {
+        itemDamage[index] = n;
+        chageDPS();
+    }
+
+    public float getDPS()
+    {
+        float total = 1f;
+        foreach(int i in itemDamage)
+            total += i;
+        return (float)total;
     }
 }

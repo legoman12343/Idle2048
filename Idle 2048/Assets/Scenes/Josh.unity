@@ -406,13 +406,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acb54b6203372c4e840ee55baf457f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 10
+  price: 5
   coinsDisplay: {fileID: 1712789410}
   ascension: {fileID: 1712789409}
   ItemDisplayTXT: {fileID: 436386870}
+  priceText: {fileID: 1006870400}
   ItemOwned: 0
   giveAscensionCoins: 1
+  dpsValue: 1
   damage: {fileID: 1491838976}
+  itemNumber: 0
 --- !u!1 &39711118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,9 +2251,12 @@ MonoBehaviour:
   coinsDisplay: {fileID: 1712789410}
   ascension: {fileID: 1712789409}
   ItemDisplayTXT: {fileID: 359751170}
+  priceText: {fileID: 1544263122}
   ItemOwned: 0
   giveAscensionCoins: 100
+  dpsValue: 0
   damage: {fileID: 1491838976}
+  itemNumber: 2
 --- !u!1 &315455906
 GameObject:
   m_ObjectHideFlags: 0
@@ -7007,7 +7013,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100M
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9101,9 +9107,12 @@ MonoBehaviour:
   coinsDisplay: {fileID: 1712789410}
   ascension: {fileID: 1712789409}
   ItemDisplayTXT: {fileID: 1699323879}
+  priceText: {fileID: 675172999}
   ItemOwned: 0
   giveAscensionCoins: 1000
+  dpsValue: 0
   damage: {fileID: 1491838976}
+  itemNumber: 3
 --- !u!1 &1333497253
 GameObject:
   m_ObjectHideFlags: 0
@@ -9412,9 +9421,12 @@ MonoBehaviour:
   coinsDisplay: {fileID: 1712789410}
   ascension: {fileID: 1712789409}
   ItemDisplayTXT: {fileID: 315455909}
+  priceText: {fileID: 1052687899}
   ItemOwned: 0
   giveAscensionCoins: 10
+  dpsValue: 12
   damage: {fileID: 1491838976}
+  itemNumber: 1
 --- !u!1 &1371718733
 GameObject:
   m_ObjectHideFlags: 0
@@ -9884,35 +9896,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0281c136c2405e4db10b14ec61e1162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabList:
+  monsterPrefabList:
+  - {fileID: 5923401707093281111, guid: 7a00bcee877dfcc4a9be832ef88b6c0c, type: 3}
   - {fileID: 2069015975501184387, guid: c4de079c74bed7f4ab57a0f99dd7bf90, type: 3}
   - {fileID: 6151211889636447821, guid: e3eddc37ccc1b03419ba416707f6bf21, type: 3}
+  - {fileID: 3393446993597103771, guid: 94d855cd30a54134f88efc35d8913d90, type: 3}
   - {fileID: 8316402779051580184, guid: 66d06955add7a4a43b42d57062b569ea, type: 3}
   - {fileID: 5771025906570419322, guid: d1756faa7a52eab409ef106000b28405, type: 3}
-  - {fileID: 117150395161187363, guid: 8a4bb90ee871d4f46ab03692b617c9ce, type: 3}
-  - {fileID: 117150395161187363, guid: 882efb70f3ba0194cad0695302ae5810, type: 3}
-  - {fileID: 117150395161187363, guid: 0dd5eb7ecd7cd994b9ec1c4a6501b9bc, type: 3}
-  - {fileID: 117150395161187363, guid: e929733112a256249a575ed7ae32b6d7, type: 3}
   - {fileID: 5771025906570419322, guid: 790076bada949b041a1d6f86f6d53995, type: 3}
   - {fileID: 5771025906570419322, guid: 698e2748641ae0f47a3d5e3dd06609e4, type: 3}
   - {fileID: 117150395161187363, guid: 10b703a09b8106a44b1bdf7c1df0596d, type: 3}
   - {fileID: 5771025906570419322, guid: 6bfd714c0cba44246ac50edff9504c3d, type: 3}
   - {fileID: 117150395161187363, guid: 0feb8791e58a8ea428a6410cc627a1af, type: 3}
   - {fileID: 5923401707093281111, guid: 4b16dd11cac072d4a920f58a91f97e75, type: 3}
-  - {fileID: 117150395161187363, guid: dec989f69a977904190b28c5301c2055, type: 3}
   - {fileID: 1423470163212545534, guid: a840026ad20d41440818b895b39707ff, type: 3}
   - {fileID: 5923401707093281111, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
   - {fileID: 8316402779051580184, guid: 17604d0d3ebe43444b280559823d67af, type: 3}
   - {fileID: 117150395161187363, guid: 9a843c02ea378b5479a1f1b2cc4f44df, type: 3}
   - {fileID: 117150395161187363, guid: 2b5371ce0e89b0544941743176d63e14, type: 3}
-  - {fileID: 117150395161187363, guid: 2a4a4c054d7b22c468007cc1b9e9059a, type: 3}
   - {fileID: 5771025906570419322, guid: 917c62cb18828b74f9d5b1adba8a411c, type: 3}
-  - {fileID: 117150395161187363, guid: a62b250ac02770349b6765791549fbcf, type: 3}
   - {fileID: 5771025906570419322, guid: 619586f8135ac564a84506d20ca18a8c, type: 3}
   - {fileID: 4410210566636767940, guid: 0b0656b4f1f318f42ac02ac03752e701, type: 3}
   - {fileID: 5923401707093281111, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
   - {fileID: 117150395161187363, guid: e8cdf896591e1b54691320d947658554, type: 3}
-  - {fileID: 117150395161187363, guid: dce772e443df16443a5103f9fa7d1567, type: 3}
   - {fileID: 8316402779051580184, guid: c5d243e3b47d4c840a281b7f47cd9480, type: 3}
   - {fileID: 117150395161187363, guid: aeda42e2e1d524241b9f0b6f06652de3, type: 3}
   - {fileID: 5296977109030576814, guid: 2f743aaed25d2db479943c51cc052e35, type: 3}
@@ -9927,18 +9933,28 @@ MonoBehaviour:
   - {fileID: 5771025906570419322, guid: 48fb138254009d848982b13be4abef85, type: 3}
   - {fileID: 117150395161187363, guid: 202a64aca3ce5744d9842f460b8f59ed, type: 3}
   - {fileID: 5771025906570419322, guid: de79d9226946d6140bb85bb9df9f4953, type: 3}
-  - {fileID: 117150395161187363, guid: 13c8d084bda939e44ad19967dbedeeea, type: 3}
   - {fileID: 3431526414540065748, guid: d5beda1937ed44d46abb6cbc0641d432, type: 3}
   - {fileID: 5923401707093281111, guid: a19d67483ac7cc342a3f73356bf26a0c, type: 3}
   - {fileID: 117150395161187363, guid: fea6bde0a78eadf459b05701d9fa5369, type: 3}
   - {fileID: 3393446993597103771, guid: 08a2b9609e4295145bff3ffe38472b0e, type: 3}
-  - {fileID: 117150395161187363, guid: bec986bb8d064c84b9f9401668eef940, type: 3}
   - {fileID: 117150395161187363, guid: 9be81215ad29f7f438264e4851dac964, type: 3}
   - {fileID: 117150395161187363, guid: 1858933b0072d6d4c92be270f75f4ec5, type: 3}
+  bossPrefabList:
+  - {fileID: 117150395161187363, guid: 8a4bb90ee871d4f46ab03692b617c9ce, type: 3}
+  - {fileID: 117150395161187363, guid: 882efb70f3ba0194cad0695302ae5810, type: 3}
+  - {fileID: 117150395161187363, guid: 0dd5eb7ecd7cd994b9ec1c4a6501b9bc, type: 3}
+  - {fileID: 117150395161187363, guid: e929733112a256249a575ed7ae32b6d7, type: 3}
+  - {fileID: 117150395161187363, guid: dec989f69a977904190b28c5301c2055, type: 3}
+  - {fileID: 117150395161187363, guid: 2a4a4c054d7b22c468007cc1b9e9059a, type: 3}
+  - {fileID: 117150395161187363, guid: dce772e443df16443a5103f9fa7d1567, type: 3}
+  - {fileID: 117150395161187363, guid: a62b250ac02770349b6765791549fbcf, type: 3}
+  - {fileID: 117150395161187363, guid: 13c8d084bda939e44ad19967dbedeeea, type: 3}
+  - {fileID: 117150395161187363, guid: bec986bb8d064c84b9f9401668eef940, type: 3}
   level: {fileID: 1491838975}
   monsterSpawnPoint: {fileID: 2013439119}
   healthBar: {fileID: 1371718734}
   coinPrefab: {fileID: 4219024757806239257, guid: 18c3ae65eb64d744cbb3404d006b2b0a, type: 3}
+  moneyScript: {fileID: 1712789410}
 --- !u!114 &1491838975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9955,6 +9971,7 @@ MonoBehaviour:
   killCountText: {fileID: 106438623}
   level: 0
   killCount: 0
+  requiredKills: 0
 --- !u!114 &1491838976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9968,7 +9985,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dpsCounter: {fileID: 1050889395}
-  dps: 0
+  itemDamage:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!1 &1493574562
 GameObject:
   m_ObjectHideFlags: 0
@@ -10751,9 +10776,12 @@ MonoBehaviour:
   coinsDisplay: {fileID: 1712789410}
   ascension: {fileID: 1712789409}
   ItemDisplayTXT: {fileID: 1588665478}
+  priceText: {fileID: 2030034783}
   ItemOwned: 0
   giveAscensionCoins: 100000
+  dpsValue: 0
   damage: {fileID: 1491838976}
+  itemNumber: 5
 --- !u!1 &1622394624
 GameObject:
   m_ObjectHideFlags: 0
@@ -12406,7 +12434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100M
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13154,9 +13182,12 @@ MonoBehaviour:
   coinsDisplay: {fileID: 1712789410}
   ascension: {fileID: 1712789409}
   ItemDisplayTXT: {fileID: 443213051}
+  priceText: {fileID: 307447514}
   ItemOwned: 0
   giveAscensionCoins: 10000
+  dpsValue: 0
   damage: {fileID: 1491838976}
+  itemNumber: 4
 --- !u!1 &1845840717
 GameObject:
   m_ObjectHideFlags: 0
@@ -13561,7 +13592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100M
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14767,7 +14798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100M
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

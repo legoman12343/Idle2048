@@ -197,7 +197,6 @@ public class GameManager : MonoBehaviour
         while(tiles.Count != 0)
         {
             removeTile(tiles[0]);
-            Debug.Log("REMOVE");
         }
     }
 

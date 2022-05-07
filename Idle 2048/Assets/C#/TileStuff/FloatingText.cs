@@ -13,7 +13,7 @@ public class FloatingText : MonoBehaviour
     public void Init(int value)
     {
         _text = GetComponent<TextMeshPro>();
-        Debug.Log("INIT");
+        
         _text.text = value.ToString();
 
         var sequence = DOTween.Sequence();

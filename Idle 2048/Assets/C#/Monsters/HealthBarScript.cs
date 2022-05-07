@@ -19,11 +19,12 @@ public class HealthBarScript : MonoBehaviour
     {
         var t = Time.deltaTime;
         isDead = false;
+        health = 10;
        
     }
     void FixedUpdate()
     {
-        health -= (float)damage.dps * Time.deltaTime;
+        health -= (float)damage.getDPS() * Time.deltaTime;
         if (health <= 0 && isDead == false)
         {
             isDead = true;
