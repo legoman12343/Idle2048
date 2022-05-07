@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShopButtonPopUp : MonoBehaviour
 {
     public GameObject UpgradeTab;
+    public GameObject QuestTab;
     public GameObject AscensionTab;
     public GameObject SpecialCurrencyTab;
     public GameObject ExtraAreaTab;
@@ -44,12 +45,14 @@ public class ShopButtonPopUp : MonoBehaviour
                         GearPanel.SetActive(true);
                     }
                 }
+                QuestTab.SetActive(false);
                 HealthBar.SetActive(true);
                 AscensionTab.SetActive(false);
                 SpecialCurrencyTab.SetActive(false);
                 optionsTab.SetActive(false);
                 achievementsTab.SetActive(false);
                 ExtraAreaTab.SetActive(false);
+                
                 break;
             case 2:
                 if (AscensionTab.active)
@@ -62,6 +65,7 @@ public class ShopButtonPopUp : MonoBehaviour
                 }
                 HealthBar.SetActive(true);
                 UpgradeTab.SetActive(false);
+                QuestTab.SetActive(false);
                 SpecialCurrencyTab.SetActive(false);
                 optionsTab.SetActive(false);
                 achievementsTab.SetActive(false);
@@ -78,6 +82,7 @@ public class ShopButtonPopUp : MonoBehaviour
                 }
                 HealthBar.SetActive(true);
                 UpgradeTab.SetActive(false);
+                QuestTab.SetActive(false);
                 AscensionTab.SetActive(false);
                 optionsTab.SetActive(false);
                 achievementsTab.SetActive(false);
@@ -97,6 +102,7 @@ public class ShopButtonPopUp : MonoBehaviour
                     ExtraAreaTab.SetActive(true);
                 }
                 UpgradeTab.SetActive(false);
+                QuestTab.SetActive(false);
                 AscensionTab.SetActive(false);
                 SpecialCurrencyTab.SetActive(false);
                 break;
@@ -111,6 +117,21 @@ public class ShopButtonPopUp : MonoBehaviour
                     UpgradePanel.SetActive(false);
                     GearPanel.SetActive(true);
                 }
+                break;
+            case 6:
+                if (QuestTab.active)
+                {
+                    QuestTab.SetActive(false);
+                }
+                else
+                {
+                    QuestTab.SetActive(true);
+                }
+                HealthBar.SetActive(true);
+                UpgradeTab.SetActive(false);
+                SpecialCurrencyTab.SetActive(false);
+                optionsTab.SetActive(false);
+                achievementsTab.SetActive(false);
                 break;
         }
     }
@@ -150,6 +171,12 @@ public class ShopButtonPopUp : MonoBehaviour
     {
         activeUpgradePanel = 1;
         activeShopTab = 5;
+        changeShopTab();
+    }
+
+    public void OpenQuestTab()
+    {
+        activeShopTab = 6;
         changeShopTab();
     }
 
