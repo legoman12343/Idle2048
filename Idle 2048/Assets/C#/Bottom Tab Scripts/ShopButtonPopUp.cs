@@ -130,6 +130,7 @@ public class ShopButtonPopUp : MonoBehaviour
                 HealthBar.SetActive(true);
                 UpgradeTab.SetActive(false);
                 SpecialCurrencyTab.SetActive(false);
+                AscensionTab.SetActive(false);
                 optionsTab.SetActive(false);
                 achievementsTab.SetActive(false);
                 break;
