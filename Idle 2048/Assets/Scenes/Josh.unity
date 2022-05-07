@@ -2842,105 +2842,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140320822}
   m_CullTransparentMesh: 1
---- !u!1 &141743466
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 141743467}
-  - component: {fileID: 141743469}
-  - component: {fileID: 141743468}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &141743467
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141743466}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8319855, y: -2.5686617, z: 0.8688636}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 185625060}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &141743468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141743466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dbba5143913acb4d85ef3c520828b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gems: 0
-  gemText: {fileID: 1597304219}
---- !u!114 &141743469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141743466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 553f52fc4d1a19c41819a361b04eca96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodePrefab: {fileID: 1381387192582395177, guid: 9892e05e78a211c40a76ecab9b8d51ce, type: 3}
-  tilePrefab: {fileID: 78530102212695371, guid: 49a7eb6e1027c55488efb7a3cbf2d97f, type: 3}
-  types:
-  - value: 0
-    colour: {r: 1, g: 1, b: 1, a: 1}
-  - value: 1
-    colour: {r: 0.8745098, g: 0.4, b: 0.7372549, a: 1}
-  - value: 2
-    colour: {r: 0.3764706, g: 0.7372549, b: 0.25882354, a: 1}
-  - value: 3
-    colour: {r: 0.22745098, g: 0.72156864, b: 0.79607844, a: 1}
-  - value: 4
-    colour: {r: 0.21176471, g: 0.5019608, b: 0.85882354, a: 1}
-  - value: 5
-    colour: {r: 0.9098039, g: 0.4117647, b: 0.2784314, a: 1}
-  - value: 6
-    colour: {r: 0.54509807, g: 0.5019608, b: 0.9843137, a: 1}
-  - value: 7
-    colour: {r: 0.5188679, g: 0.32073247, b: 0.18356177, a: 1}
-  - value: 8
-    colour: {r: 1, g: 0.6784314, b: 0.16078432, a: 1}
-  - value: 9
-    colour: {r: 0.99607843, g: 0.39215687, b: 0.44705883, a: 1}
-  - value: 10
-    colour: {r: 0.76862746, g: 0.16470589, b: 0.03529412, a: 1}
-  - value: 11
-    colour: {r: 0.827451, g: 0.23529412, b: 0.9254902, a: 1}
-  floatingTextPrefab: {fileID: 6659222384162558875, guid: 59759bb6b03cbaa4dbf3c4a2c0d825b8, type: 3}
-  chance: 0.8
-  startingValue: 1
-  healthBar: {fileID: 765019255}
-  endPoint: {fileID: 896917310}
-  crateChance: 0.5
-  crateSprite: {fileID: 21300000, guid: c30527770d066a543b6f7f63b25df35b, type: 3}
-  moneyScript: {fileID: 16762668}
-  level: {fileID: 808632682}
-  gems: {fileID: 141743468}
-  monster: {fileID: 808632681}
-  coinMultiplierText: {fileID: 1987656986}
-  damageMultiplierText: {fileID: 243246304}
 --- !u!1 &146031420
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,8 +3936,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 16762670}
-  - {fileID: 141743467}
   - {fileID: 808632680}
+  - {fileID: 633643141}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10601,6 +10502,123 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632615489}
   m_CullTransparentMesh: 1
+--- !u!1 &633643138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633643141}
+  - component: {fileID: 633643140}
+  - component: {fileID: 633643139}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &633643139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633643138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbba5143913acb4d85ef3c520828b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gems: 0
+  gemText: {fileID: 1597304219}
+--- !u!114 &633643140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633643138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553f52fc4d1a19c41819a361b04eca96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodePrefab: {fileID: 1381387192582395177, guid: 9892e05e78a211c40a76ecab9b8d51ce, type: 3}
+  tilePrefab: {fileID: 78530102212695371, guid: 49a7eb6e1027c55488efb7a3cbf2d97f, type: 3}
+  types:
+  - value: 0
+    colour: {r: 1, g: 1, b: 1, a: 1}
+  - value: 1
+    colour: {r: 0.8745098, g: 0.4, b: 0.7372549, a: 1}
+  - value: 2
+    colour: {r: 0.3764706, g: 0.7372549, b: 0.25882354, a: 1}
+  - value: 3
+    colour: {r: 0.22745098, g: 0.72156864, b: 0.79607844, a: 1}
+  - value: 4
+    colour: {r: 0.21176471, g: 0.5019608, b: 0.85882354, a: 1}
+  - value: 5
+    colour: {r: 0.9098039, g: 0.4117647, b: 0.2784314, a: 1}
+  - value: 6
+    colour: {r: 0.54509807, g: 0.5019608, b: 0.9843137, a: 1}
+  - value: 7
+    colour: {r: 0.5188679, g: 0.32073247, b: 0.18356177, a: 1}
+  - value: 8
+    colour: {r: 1, g: 0.6784314, b: 0.16078432, a: 1}
+  - value: 9
+    colour: {r: 0.99607843, g: 0.39215687, b: 0.44705883, a: 1}
+  - value: 10
+    colour: {r: 0.76862746, g: 0.16470589, b: 0.03529412, a: 1}
+  - value: 11
+    colour: {r: 0.827451, g: 0.23529412, b: 0.9254902, a: 1}
+  - value: 12
+    colour: {r: 0.5803922, g: 0.7019608, b: 0.99215686, a: 1}
+  - value: 13
+    colour: {r: 0.8962264, g: 0.61472344, b: 0.36779106, a: 1}
+  - value: 14
+    colour: {r: 0.9716981, g: 0.33376616, b: 0.2704254, a: 1}
+  - value: 15
+    colour: {r: 0.5288306, g: 0.16300285, b: 0.9339623, a: 1}
+  - value: 16
+    colour: {r: 0.47047585, g: 0.7735849, b: 0.4488252, a: 1}
+  - value: 17
+    colour: {r: 0.9622642, g: 0.8865438, b: 0.4221253, a: 1}
+  - value: 18
+    colour: {r: 0.6, g: 0.99607843, b: 1, a: 1}
+  - value: 19
+    colour: {r: 0.8962264, g: 0.14796188, b: 0.46389574, a: 1}
+  - value: 20
+    colour: {r: 1, g: 0.8901961, b: 0, a: 1}
+  floatingTextPrefab: {fileID: 6659222384162558875, guid: 59759bb6b03cbaa4dbf3c4a2c0d825b8, type: 3}
+  chance: 0.8
+  startingValue: 1
+  healthBar: {fileID: 765019255}
+  endPoint: {fileID: 896917310}
+  crateChance: 0.5
+  crateSprite: {fileID: 21300000, guid: c30527770d066a543b6f7f63b25df35b, type: 3}
+  moneyScript: {fileID: 16762668}
+  level: {fileID: 808632682}
+  gems: {fileID: 633643139}
+  monster: {fileID: 808632681}
+  coinMultiplierText: {fileID: 1987656986}
+  damageMultiplierText: {fileID: 243246304}
+--- !u!4 &633643141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633643138}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.8319855, y: -2.5686617, z: 0.8688636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 185625060}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636935487
 GameObject:
   m_ObjectHideFlags: 0
@@ -13448,7 +13466,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 185625060}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &808632681
 MonoBehaviour:
