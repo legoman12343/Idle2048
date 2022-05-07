@@ -15,7 +15,7 @@ public class LevelController : MonoBehaviour
     {
         requiredKills = 10;
         killCount = 0;
-        level = 9;
+        level = 1;
         levelCount.text = level.ToString();
     }
 
