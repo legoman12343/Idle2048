@@ -21,9 +21,9 @@ public class CoinScript : MonoBehaviour
         
         do
         {
-            x = Random.Range(-1.2f, 1.2f);
-        } while (x < 1f && x > -1f);
-        y = Random.Range(1.5f, 2.5f);
+            x = Random.Range(-1f, 1f);
+        } while (x < 0.5f && x > -0.5f);
+        y = Random.Range(11.5f, 13.5f);
 
         force = new Vector2(x,y);
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
