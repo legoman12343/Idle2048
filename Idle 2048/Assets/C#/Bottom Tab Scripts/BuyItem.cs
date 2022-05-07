@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class BuyItem : MonoBehaviour
@@ -10,7 +11,8 @@ public class BuyItem : MonoBehaviour
     public CoinsDisplay coinsDisplay;
     public Ascension ascension;
     public TextMeshProUGUI ItemDisplayTXT;
-    public TextMeshProUGUI priceText;
+    public Text priceText;
+    public Text DPStext;
     public int ItemOwned;
     public int giveAscensionCoins;
     public float dpsValue;
@@ -81,5 +83,6 @@ public class BuyItem : MonoBehaviour
     public void updatePrice()
     {
         priceText.text = FormatNumber(price) + " Coins";
+        DPStext.text = FormatNumber(dpsValue);
     }
 }

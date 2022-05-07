@@ -13,7 +13,7 @@ public class CoinsDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Coins = 100000;
+        Coins = 0;
         string coinsTXT = FormatNumber(Coins);
         CoinsDisplayTXT.text = coinsTXT;
     }
