@@ -15,6 +15,13 @@ public class Tile : MonoBehaviour
     [SerializeField] private TextMeshPro text;
     public Sprite crateSprite;
     public GameManager gm;
+    public MonsterPrefabStuff monsterScript;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+            StartCoroutine(DPSMultiplier());
+    }
 
     public void init(TileType type)
     {
@@ -65,12 +72,12 @@ public class Tile : MonoBehaviour
                 }
             case < 0.3f:
                 {
-                    gm.giveCoinBoost();
+                    StartCoroutine(coinMultiplier());
                     break;
                 }
             case < 0.5f:
                 {
-                    gm.giveDPSBoost();
+                    StartCoroutine(DPSMultiplier());
                     break;
                 }
             case < 0.7f:
@@ -92,4 +99,17 @@ public class Tile : MonoBehaviour
         renderer.color = gm.GetTileTypeValue(value).colour;
     }
 
+    private IEnumerator coinMultiplier()
+    {
+        monsterScript.multiplier += 1;
+        yield return new WaitForSeconds(30f);
+        monsterScript.multiplier -= 1;
+    }
+
+    private IEnumerator DPSMultiplier()
+    {
+        monsterScript.healthBar.multiplier += 1;
+        yield return new WaitForSeconds(30f);
+        monsterScript.healthBar.multiplier -= 1;
+    }
 }

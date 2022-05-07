@@ -14,11 +14,13 @@ public class MonsterPrefabStuff : MonoBehaviour
     public HealthBarScript healthBar;
     public GameObject coinPrefab;
     public CoinsDisplay moneyScript;
+    public int multiplier;
 
     void Start()
     {
         monster = new GameObject[1];
         spawnMonster();
+        multiplier = 1;
     }
 
     public void spawnMonster()
@@ -70,7 +72,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         
         
         yield return new WaitForSeconds(1.1f);
-        moneyScript.addCoins(monster[0].GetComponent<Stats>().coins);
+        moneyScript.addCoins(monster[0].GetComponent<Stats>().coins * multiplier);
         Destroy(monster[0]);
         spawnMonster();
     }

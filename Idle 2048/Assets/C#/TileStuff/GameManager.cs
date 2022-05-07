@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public CoinsDisplay moneyScript;
     public LevelController level;
     public Gems gems;
+    public MonsterPrefabStuff monster;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) { Shift(Rightvec); return; }
         if (Input.GetKeyDown(KeyCode.UpArrow)) { Shift(Upvec); return; }
         if (Input.GetKeyDown(KeyCode.DownArrow)) { Shift(Downvec); return; }
-        if (Input.GetKeyDown(KeyCode.D)) { giveGems(); return; }
+        
     }
 
 
@@ -127,6 +128,7 @@ public class GameManager : MonoBehaviour
             tile.init(GetTileTypeValue(0));
             tile.gm = this;
             tile.SetTile(node);
+            tile.monsterScript = monster;
             tiles.Add(tile);
             crate = true;
         }
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
             tile.init(GetTileTypeValue(value));
             tile.gm = this;
             tile.SetTile(node);
+            tile.monsterScript = monster;
             tiles.Add(tile);
         }
         
@@ -232,11 +235,6 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         healthBar.health -= v;
-    }
-
-    public void giveCoinBoost()
-    {
-
     }
 
     public void DoubleTiles()

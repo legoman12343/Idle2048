@@ -17,11 +17,12 @@ public class Stats : MonoBehaviour
 
     public void Init()
     {
+        coins = level.getMonsterCoins();
         totalHealth = level.getMonsterHealth();
         if(totalHealth < 1)
         {
             totalHealth = 10;
-            coins = level.getMonsterCoins();
+            coins = 1;
         }
         if (boss == true)
         {
