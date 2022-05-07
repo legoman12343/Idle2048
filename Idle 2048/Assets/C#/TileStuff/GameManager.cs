@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private Vector2 Downvec = new Vector2(0, -1.7f);
     [SerializeField] private Node nodePrefab;
     [SerializeField] private Tile tilePrefab;
-    [SerializeField] private List<TileType> types;
+    [SerializeField] public List<TileType> types;
     public GameObject floatingTextPrefab;
     public float chance;
     public int startingValue;
@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     public HealthBarScript healthBar;
     private float travelTime = 0.2f;
     public Transform endPoint;
+    public float crateChance;
+    private bool crate;
+    public Sprite crateSprite;
+    public CoinsDisplay moneyScript;
+    public LevelController level;
 
 
     private TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -68,6 +73,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) { Shift(Rightvec); return; }
         if (Input.GetKeyDown(KeyCode.UpArrow)) { Shift(Upvec); return; }
         if (Input.GetKeyDown(KeyCode.DownArrow)) { Shift(Downvec); return; }
+        if (Input.GetKeyDown(KeyCode.D)) { DoubleTiles(); return; }
     }
 
 
@@ -96,7 +102,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (var node in freeNodes.Take(amount))
             {
-                spawnTile(node, Random.value > chance ? startingValue + 1 : startingValue);
+                spawnTile(node, Random.value > chance ? startingValue + 1 : startingValue, false);
             }
         }
         else
@@ -110,12 +116,26 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void spawnTile(Node node, int value)
+    void spawnTile(Node node, int value, bool merging)
     {
-        var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
-        tile.init(GetTileTypeValue(value));
-        tile.SetTile(node);
-        tiles.Add(tile);
+        if (Random.value < crateChance && crate == false && merging == false)
+        {
+            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
+            tile.setCrateSprite(crateSprite);
+            tile.init(GetTileTypeValue(0));
+            tile.SetTile(node);
+            tiles.Add(tile);
+            crate = true;
+        }
+        else
+        {
+            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
+            tile.init(GetTileTypeValue(value));
+            tile.SetTile(node);
+            tiles.Add(tile);
+        }
+        
+        
     }
 
     void Shift(Vector2 dir) {
@@ -171,7 +191,7 @@ public class GameManager : MonoBehaviour
     {
         var newValue = baseTile.value + 1;
         StartCoroutine(damageMonster(newValue));
-        spawnTile(baseTile.Node, newValue);
+        spawnTile(baseTile.Node, newValue, true);
         var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
         var floatingScript = text.GetComponent<FloatingText>();
         floatingScript.endPoint = endPoint;
@@ -183,6 +203,10 @@ public class GameManager : MonoBehaviour
 
     void removeTile(Tile tile)
     {
+        if (tile.value == 0)
+        {
+            crate = false;
+        }
         tiles.Remove(tile);
         Destroy(tile.gameObject);
     }
@@ -205,6 +229,40 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
         healthBar.health -= v;
     }
+
+    public void giveCoinBoost()
+    {
+
+    }
+
+    public void DoubleTiles()
+    {
+        
+        foreach (var tile in tiles)
+        {
+            if (tile.value != 0)
+            {
+                tile.value++;
+                tile.updateNumber();
+            }
+        }
+    }
+
+    public void giveGems()
+    {
+
+    }
+
+    public void giveCoins()
+    {
+        moneyScript.addCoins(level.getMonsterCoins() * 10);
+    }
+
+    public void giveDPSBoost()
+    {
+
+    }
+
 }
 
 [Serializable]
