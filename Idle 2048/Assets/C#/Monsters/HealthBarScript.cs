@@ -54,11 +54,9 @@ public class HealthBarScript : MonoBehaviour
             }
             else 
             {
-                Debug.Log(healthString);
                 string letter = healthString[healthString.Length - 1].ToString();
                 healthString = healthString.Remove(healthString.Length - 1, 1);
                 healthString += ".0" + letter;
-                Debug.Log(healthString);
             }
         }
 

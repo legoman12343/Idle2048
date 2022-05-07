@@ -14,11 +14,10 @@ public class Tile : MonoBehaviour
     [SerializeField] private SpriteRenderer renderer;
     [SerializeField] private TextMeshPro text;
     public Sprite crateSprite;
-    private GameManager gm;
+    public GameManager gm;
 
     public void init(TileType type)
     {
-        gm = GetComponent<GameManager>();
         value = type.value;
         renderer.color = type.colour;
         if (value == 0)
@@ -89,9 +88,8 @@ public class Tile : MonoBehaviour
 
     public void updateNumber()
     {
-        Debug.Log("UP NUM");
         text.text = value.ToString();
-        renderer.color = gm.types[value-1].colour;
+        renderer.color = gm.GetTileTypeValue(value).colour;
     }
 
 }

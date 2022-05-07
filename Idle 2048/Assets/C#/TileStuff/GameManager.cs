@@ -33,9 +33,11 @@ public class GameManager : MonoBehaviour
     public Sprite crateSprite;
     public CoinsDisplay moneyScript;
     public LevelController level;
+    public Gems gems;
 
 
-    private TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
+    public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
+    
 
     void Start()
     {
@@ -73,7 +75,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) { Shift(Rightvec); return; }
         if (Input.GetKeyDown(KeyCode.UpArrow)) { Shift(Upvec); return; }
         if (Input.GetKeyDown(KeyCode.DownArrow)) { Shift(Downvec); return; }
-        if (Input.GetKeyDown(KeyCode.D)) { DoubleTiles(); return; }
+        if (Input.GetKeyDown(KeyCode.D)) { giveGems(); return; }
     }
 
 
@@ -123,6 +125,7 @@ public class GameManager : MonoBehaviour
             var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
             tile.setCrateSprite(crateSprite);
             tile.init(GetTileTypeValue(0));
+            tile.gm = this;
             tile.SetTile(node);
             tiles.Add(tile);
             crate = true;
@@ -131,6 +134,7 @@ public class GameManager : MonoBehaviour
         {
             var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
             tile.init(GetTileTypeValue(value));
+            tile.gm = this;
             tile.SetTile(node);
             tiles.Add(tile);
         }
@@ -237,9 +241,10 @@ public class GameManager : MonoBehaviour
 
     public void DoubleTiles()
     {
-        
+        Debug.Log(tiles.Count);
         foreach (var tile in tiles)
         {
+            
             if (tile.value != 0)
             {
                 tile.value++;
@@ -250,7 +255,7 @@ public class GameManager : MonoBehaviour
 
     public void giveGems()
     {
-
+        gems.addGems(1);
     }
 
     public void giveCoins()
