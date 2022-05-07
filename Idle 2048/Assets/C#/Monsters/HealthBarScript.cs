@@ -14,18 +14,16 @@ public class HealthBarScript : MonoBehaviour
     public TextMeshProUGUI healthCounter;
     public float totalHealth;
     public List<string> numbers;
-    public int multiplier;
 
     void Start()
     {
         var t = Time.deltaTime;
         isDead = false;
         health = 10;
-        multiplier = 1;
     }
     void FixedUpdate()
     {
-        health -= (float)damage.getDPS() * multiplier * Time.deltaTime;
+        health -= (float)damage.getDPS() * damage.multiplier * Time.deltaTime;
         if (health <= 0 && isDead == false)
         {
             isDead = true;

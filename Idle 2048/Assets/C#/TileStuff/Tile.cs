@@ -16,11 +16,19 @@ public class Tile : MonoBehaviour
     public Sprite crateSprite;
     public GameManager gm;
     public MonsterPrefabStuff monsterScript;
+    public bool temp = true;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-            StartCoroutine(DPSMultiplier());
+        if (temp == true)
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine(DPSMultiplier());
+
+                temp = false;
+            }
+        }
     }
 
     public void init(TileType type)
@@ -101,15 +109,19 @@ public class Tile : MonoBehaviour
 
     private IEnumerator coinMultiplier()
     {
+        gm.coinMultiplierText.SetActive(true);
         monsterScript.multiplier += 1;
         yield return new WaitForSeconds(30f);
+        gm.coinMultiplierText.SetActive(false);
         monsterScript.multiplier -= 1;
     }
 
     private IEnumerator DPSMultiplier()
     {
-        monsterScript.healthBar.multiplier += 1;
+        gm.damageMultiplierText.SetActive(true);
+        monsterScript.healthBar.damage.changeMultiplier(1);
         yield return new WaitForSeconds(30f);
-        monsterScript.healthBar.multiplier -= 1;
+        gm.damageMultiplierText.SetActive(false);
+        monsterScript.healthBar.damage.changeMultiplier(-1);
     }
 }

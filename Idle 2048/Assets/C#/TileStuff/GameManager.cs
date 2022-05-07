@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public LevelController level;
     public Gems gems;
     public MonsterPrefabStuff monster;
+    public GameObject coinMultiplierText;
+    public GameObject damageMultiplierText;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
