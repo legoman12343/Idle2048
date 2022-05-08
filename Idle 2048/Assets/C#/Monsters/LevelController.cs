@@ -20,6 +20,7 @@ public class LevelController : MonoBehaviour
     {
         ProgressMode = true;
         requiredKills = 10;
+        levelMax = 1;
         killCount = 0;
         level = 1;
         levelCount.text = level.ToString();
@@ -38,37 +39,43 @@ public class LevelController : MonoBehaviour
 
                 level++;
 
-                if (level == levelMax) forwardsButton.SetActive(false);
-
                 levelCount.text = level.ToString();
 
-                if (level == levelMax) killCount = 0;
+                checkButtons();
             }
         }
     }
 
-    public void progressionMode()
+    void checkButtons()
     {
-        if (ProgressMode) ProgressMode = false;
-        else ProgressMode = true;
+        if (level == 1) backButton.SetActive(false);
+        else backButton.SetActive(true);
+        if (level == levelMax) forwardsButton.SetActive(false);
+        else forwardsButton.SetActive(true);
     }
 
     public void decreaseLevel()
     {
         level--;
+        levelCount.text = level.ToString();
         killCount = 10;
+        killCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
         ProgressMode = false;
         forwardsButton.SetActive(true);
-        if (level == 1) backButton.SetActive(false);
-        else backButton.SetActive(true);
-        MonsterScript.DecreaseLevel();
+        StartCoroutine (MonsterScript.DecreaseLevel());
+        checkButtons();
     }
 
     public void increaseLevel()
     {
         level++;
-        killCount = 10;
-        MonsterScript.respawnMonster();
+        levelCount.text = level.ToString();
+        if (level != levelMax) killCount = 10;
+        else killCount = 0;
+        ProgressMode = false;
+        killCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
+        StartCoroutine (MonsterScript.IncreaseLevel());
+        checkButtons();
     }
 
     public int getMonsterHealth()
