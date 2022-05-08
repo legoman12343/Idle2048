@@ -16,6 +16,7 @@ public class ShopButtonPopUp : MonoBehaviour
     public GameObject HealthBar;
     int activeShopTab;
     int activeUpgradePanel;
+    public Swipe swipe;
 
     void Start()
     {
@@ -32,9 +33,11 @@ public class ShopButtonPopUp : MonoBehaviour
                     GearPanel.SetActive(false);
                     UpgradePanel.SetActive(false);
                     UpgradeTab.SetActive(false);
+                    swipe.canSwipe = true;
                 }
                 else
                 {
+                    swipe.canSwipe = false;
                     UpgradeTab.SetActive(true);
                     if (activeUpgradePanel == 1)
                     {
@@ -43,50 +46,57 @@ public class ShopButtonPopUp : MonoBehaviour
                     else
                     {
                         GearPanel.SetActive(true);
+                        QuestTab.SetActive(false);
+                        HealthBar.SetActive(true);
+                        AscensionTab.SetActive(false);
+                        SpecialCurrencyTab.SetActive(false);
+                        optionsTab.SetActive(false);
+                        achievementsTab.SetActive(false);
+                        ExtraAreaTab.SetActive(false);
                     }
                 }
-                QuestTab.SetActive(false);
-                HealthBar.SetActive(true);
-                AscensionTab.SetActive(false);
-                SpecialCurrencyTab.SetActive(false);
-                optionsTab.SetActive(false);
-                achievementsTab.SetActive(false);
-                ExtraAreaTab.SetActive(false);
+                
                 
                 break;
             case 2:
                 if (AscensionTab.active)
                 {
                     AscensionTab.SetActive(false);
+                    swipe.canSwipe = true;
                 }
                 else
                 {
+                    swipe.canSwipe = false;
                     AscensionTab.SetActive(true);
+                    HealthBar.SetActive(true);
+                    UpgradeTab.SetActive(false);
+                    QuestTab.SetActive(false);
+                    SpecialCurrencyTab.SetActive(false);
+                    optionsTab.SetActive(false);
+                    achievementsTab.SetActive(false);
+                    ExtraAreaTab.SetActive(false);
                 }
-                HealthBar.SetActive(true);
-                UpgradeTab.SetActive(false);
-                QuestTab.SetActive(false);
-                SpecialCurrencyTab.SetActive(false);
-                optionsTab.SetActive(false);
-                achievementsTab.SetActive(false);
-                ExtraAreaTab.SetActive(false);
+                
                 break;
             case 3:
                 if (SpecialCurrencyTab.active)
                 {
                     SpecialCurrencyTab.SetActive(false);
+                    swipe.canSwipe = true;
                 }
                 else
                 {
+                    swipe.canSwipe = false;
                     SpecialCurrencyTab.SetActive(true);
+                    HealthBar.SetActive(true);
+                    UpgradeTab.SetActive(false);
+                    QuestTab.SetActive(false);
+                    AscensionTab.SetActive(false);
+                    optionsTab.SetActive(false);
+                    achievementsTab.SetActive(false);
+                    ExtraAreaTab.SetActive(false);
                 }
-                HealthBar.SetActive(true);
-                UpgradeTab.SetActive(false);
-                QuestTab.SetActive(false);
-                AscensionTab.SetActive(false);
-                optionsTab.SetActive(false);
-                achievementsTab.SetActive(false);
-                ExtraAreaTab.SetActive(false);
+                
                 break;
             case 4:
                 if (ExtraAreaTab.active)
@@ -95,25 +105,30 @@ public class ShopButtonPopUp : MonoBehaviour
                     optionsTab.SetActive(false);
                     achievementsTab.SetActive(false);
                     ExtraAreaTab.SetActive(false);
+                    swipe.canSwipe = true;
                 }
                 else
                 {
+                    swipe.canSwipe = false;
                     HealthBar.SetActive(false);
                     ExtraAreaTab.SetActive(true);
+                    UpgradeTab.SetActive(false);
+                    QuestTab.SetActive(false);
+                    AscensionTab.SetActive(false);
+                    SpecialCurrencyTab.SetActive(false);
                 }
-                UpgradeTab.SetActive(false);
-                QuestTab.SetActive(false);
-                AscensionTab.SetActive(false);
-                SpecialCurrencyTab.SetActive(false);
+                
                 break;
             case 5:
                 if (activeUpgradePanel == 1)
                 {
                     UpgradePanel.SetActive(true);
                     GearPanel.SetActive(false);
+                    swipe.canSwipe = true;
                 }
                 else
                 {
+                    swipe.canSwipe = false;
                     UpgradePanel.SetActive(false);
                     GearPanel.SetActive(true);
                 }
@@ -122,17 +137,21 @@ public class ShopButtonPopUp : MonoBehaviour
                 if (QuestTab.active)
                 {
                     QuestTab.SetActive(false);
+                    swipe.canSwipe = true;
                 }
                 else
                 {
+                    swipe.canSwipe = false;
+                    HealthBar.SetActive(true);
                     QuestTab.SetActive(true);
+                    UpgradeTab.SetActive(false);
+                    SpecialCurrencyTab.SetActive(false);
+                    AscensionTab.SetActive(false);
+                    optionsTab.SetActive(false);
+                    achievementsTab.SetActive(false);
+                    
                 }
-                HealthBar.SetActive(true);
-                UpgradeTab.SetActive(false);
-                SpecialCurrencyTab.SetActive(false);
-                AscensionTab.SetActive(false);
-                optionsTab.SetActive(false);
-                achievementsTab.SetActive(false);
+                
                 break;
         }
     }

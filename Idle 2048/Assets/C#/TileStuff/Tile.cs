@@ -19,6 +19,7 @@ public class Tile : MonoBehaviour
     public MonsterPrefabStuff monsterScript;
     public Vector2 dir;
     public int crateHitCount;
+    public bool silver;
 
     public void init(TileType type)
     {
@@ -64,37 +65,72 @@ public class Tile : MonoBehaviour
         crateSprite2 = c;
     }
 
-    public void crateReward(Sprite c)
+    public void crateReward()
     {
-        switch (Random.value)
+        if (silver)
         {
-            case < 0.05f:
-                {
-                    gm.giveGems();
-                    break;
-                }
-            case < 0.3f:
-                {
-                    StartCoroutine(coinMultiplier());
-                    break;
-                }
-            case < 0.5f:
-                {
-                    StartCoroutine(DPSMultiplier());
-                    break;
-                }
-            case < 0.7f:
-                {
-                    gm.DoubleTiles();
-                    break;
-                }
-            case < 2.0f:
-                {
-                    gm.giveCoins();
-                    break;
-                }
+            switch (Random.value)
+            {
+                case < 0.05f:
+                    {
+                        gm.giveGems(2);
+                        break;
+                    }
+                case < 0.3f:
+                    {
+                        StartCoroutine(coinMultiplier(60f));
+                        break;
+                    }
+                case < 0.5f:
+                    {
+                        StartCoroutine(DPSMultiplier(60f));
+                        break;
+                    }
+                case < 0.7f:
+                    {
+                        gm.DoubleTiles(2);
+                        break;
+                    }
+                case < 2.0f:
+                    {
+                        gm.giveCoins(20);
+                        break;
+                    }
+            }
+        }
+        else
+        {
+            switch (Random.value)
+            {
+                case < 0.05f:
+                    {
+                        gm.giveGems(1);
+                        break;
+                    }
+                case < 0.3f:
+                    {
+                        StartCoroutine(coinMultiplier(30f));
+                        break;
+                    }
+                case < 0.5f:
+                    {
+                        StartCoroutine(DPSMultiplier(30f));
+                        break;
+                    }
+                case < 0.7f:
+                    {
+                        gm.DoubleTiles(1);
+                        break;
+                    }
+                case < 2.0f:
+                    {
+                        gm.giveCoins(10);
+                        break;
+                    }
+            }
         }
     }
+
 
     public void updateNumber()
     {
@@ -102,26 +138,27 @@ public class Tile : MonoBehaviour
         renderer.color = gm.GetTileTypeValue(value).colour;
     }
 
-    private IEnumerator coinMultiplier()
+    private IEnumerator coinMultiplier(float time)
     {
         gm.coinMultiplierText.SetActive(true);
         monsterScript.multiplier += 1;
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(time);
         gm.coinMultiplierText.SetActive(false);
         monsterScript.multiplier -= 1;
     }
 
-    private IEnumerator DPSMultiplier()
+    private IEnumerator DPSMultiplier(float time)
     {
         gm.damageMultiplierText.SetActive(true);
         monsterScript.healthBar.damage.changeMultiplier(1);
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(time);
         gm.damageMultiplierText.SetActive(false);
         monsterScript.healthBar.damage.changeMultiplier(-1);
     }
 
     public void DestroyCrate()
     {
+        crateReward();
         StartCoroutine(crateAnimation());
     }
 

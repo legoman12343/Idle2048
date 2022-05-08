@@ -3777,6 +3777,7 @@ Transform:
   - {fileID: 16762670}
   - {fileID: 808632680}
   - {fileID: 633643141}
+  - {fileID: 1385590161}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10847,12 +10848,18 @@ MonoBehaviour:
   crateChance: 0.5
   crateSprite: {fileID: 21300000, guid: c30527770d066a543b6f7f63b25df35b, type: 3}
   crateSprite2: {fileID: 21300000, guid: a8ed3e8e1d0204740ad04854a0f4e05c, type: 3}
+  silverCrateSprite: {fileID: 21300000, guid: 12427755c5117ae40b5ff36b826f6210, type: 3}
+  silverCrateSprite2: {fileID: 21300000, guid: a6af18c62b7a9db48a1c6e1c26177e20, type: 3}
   moneyScript: {fileID: 16762668}
   level: {fileID: 808632682}
   gems: {fileID: 633643139}
   monster: {fileID: 808632681}
   coinMultiplierText: {fileID: 1987656986}
   damageMultiplierText: {fileID: 243246304}
+  hasMoved: 0
+  direction: {x: 0, y: 0}
+  mergeUpgradeChance: 0.5
+  silverCrateCount: 0
 --- !u!4 &633643141
 Transform:
   m_ObjectHideFlags: 0
@@ -21594,6 +21601,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374073076}
   m_CullTransparentMesh: 1
+--- !u!1 &1385590160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1385590161}
+  - component: {fileID: 1385590162}
+  m_Layer: 0
+  m_Name: Swipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1385590161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385590160}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.9731596, y: -4.620822, z: -0.22186053}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 185625060}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385590162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385590160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9685c3003700f774c93e3068fac1ee53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 633643140}
+  canSwipe: 0
 --- !u!1 &1389022613
 GameObject:
   m_ObjectHideFlags: 0
@@ -29171,6 +29224,7 @@ MonoBehaviour:
   GearPanel: {fileID: 748863494}
   UpgradePanel: {fileID: 710403455}
   HealthBar: {fileID: 1788881534}
+  swipe: {fileID: 1385590162}
 --- !u!1 &1922873401
 GameObject:
   m_ObjectHideFlags: 0

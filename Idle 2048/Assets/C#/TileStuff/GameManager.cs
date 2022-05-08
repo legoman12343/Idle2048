@@ -11,13 +11,13 @@ public class GameManager : MonoBehaviour
 {
     private float width = 1.7f;
     private float height = 1.7f;
+    [SerializeField] private Node nodePrefab;
+    [SerializeField] private Tile tilePrefab;
+    [SerializeField] public List<TileType> types;
     private Vector2 Rightvec = new Vector2(1.7f, 0);
     private Vector2 Leftvec = new Vector2(-1.7f, 0);
     private Vector2 Upvec = new Vector2(0, 1.7f);
     private Vector2 Downvec = new Vector2(0, -1.7f);
-    [SerializeField] private Node nodePrefab;
-    [SerializeField] private Tile tilePrefab;
-    [SerializeField] public List<TileType> types;
     public GameObject floatingTextPrefab;
     public float chance;
     public int startingValue;
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private bool crate;
     public Sprite crateSprite;
     public Sprite crateSprite2;
+    public Sprite silverCrateSprite;
+    public Sprite silverCrateSprite2;
     public CoinsDisplay moneyScript;
     public LevelController level;
     public Gems gems;
@@ -39,6 +41,10 @@ public class GameManager : MonoBehaviour
     public GameObject coinMultiplierText;
     public GameObject damageMultiplierText;
     private IEnumerator coroutine;
+    public bool hasMoved;
+    public Vector2 direction;
+    public float mergeUpgradeChance = 0f;
+    public int silverCrateCount = 0;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -46,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        silverCrateCount = 2;
+        hasMoved = false;
         ChangeState(GameState.createLevel);
     }
 
@@ -75,12 +83,19 @@ public class GameManager : MonoBehaviour
             ChangeState(GameState.SpawningBlocks);
         }
         if (state != GameState.WaitingInput) return;
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) { Shift(Leftvec); return; }
-        if (Input.GetKeyDown(KeyCode.RightArrow)) { Shift(Rightvec); return; }
-        if (Input.GetKeyDown(KeyCode.UpArrow)) { Shift(Upvec); return; }
-        if (Input.GetKeyDown(KeyCode.DownArrow)) { Shift(Downvec); return; }
-        
+        if (hasMoved)
+        {
+            hasMoved = false;
+            Shift(direction);
+            return;
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow)) { Shift(Upvec);return; }
+            if (Input.GetKeyDown(KeyCode.DownArrow)) { Shift(Downvec);return; }
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) { Shift(Leftvec);return; }
+            if (Input.GetKeyDown(KeyCode.RightArrow)) { Shift(Rightvec);return; }
+        }
     }
 
 
@@ -128,8 +143,20 @@ public class GameManager : MonoBehaviour
         if (Random.value < crateChance && crate == false && merging == false)
         {
             var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
-            tile.setCrateSprite(crateSprite);
-            tile.setCrateSprite2(crateSprite2);
+            if (silverCrateCount > 0)
+            {
+                silverCrateCount--;
+                tile.silver = true;
+                tile.setCrateSprite(silverCrateSprite);
+                tile.setCrateSprite2(silverCrateSprite2);
+            }
+            else
+            {
+                tile.silver = false;
+                tile.setCrateSprite(crateSprite);
+                tile.setCrateSprite2(crateSprite2);
+            }
+            
             tile.init(GetTileTypeValue(0));
             tile.gm = this;
             tile.SetTile(node);
@@ -225,7 +252,7 @@ public class GameManager : MonoBehaviour
 
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
-        var newValue = baseTile.value + 1;
+        var newValue = baseTile.value + (Random.value < mergeUpgradeChance ? 2 : 1);
         StartCoroutine(damageMonster(newValue));
         spawnTile(baseTile.Node, newValue, true);
         var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
@@ -266,27 +293,26 @@ public class GameManager : MonoBehaviour
         healthBar.health -= v;
     }
 
-    public void DoubleTiles()
+    public void DoubleTiles(int n)
     {
         foreach (var tile in tiles)
         {
-            
             if (tile.value != 0)
             {
-                tile.value++;
+                tile.value += n;
                 tile.updateNumber();
             }
         }
     }
 
-    public void giveGems()
+    public void giveGems(int n)
     {
-        gems.addGems(1);
+        gems.addGems(n);
     }
 
-    public void giveCoins()
+    public void giveCoins(int n)
     {
-        moneyScript.addCoins(level.getMonsterCoins() * 10);
+        moneyScript.addCoins(level.getMonsterCoins() * n);
     }
 
     public void giveDPSBoost()
