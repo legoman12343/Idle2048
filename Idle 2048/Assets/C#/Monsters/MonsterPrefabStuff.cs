@@ -22,6 +22,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     public int multiplier;
     bool backLevel;
     private Vector3 spawnPoint;
+    public Quests quest;
 
     void Start()
     {
@@ -91,6 +92,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     {
         if (level.level == level.levelMax && level.killCount != level.requiredKills) level.killCount++;
         level.LevelUpdate();
+        quest.updateKillMonstersQuest(1);
         bool coinsMade = false;
         //death animation script
         monster[0].GetComponent<Monster>().Die();
