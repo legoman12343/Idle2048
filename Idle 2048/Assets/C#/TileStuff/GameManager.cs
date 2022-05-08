@@ -31,12 +31,14 @@ public class GameManager : MonoBehaviour
     public float crateChance;
     private bool crate;
     public Sprite crateSprite;
+    public Sprite crateSprite2;
     public CoinsDisplay moneyScript;
     public LevelController level;
     public Gems gems;
     public MonsterPrefabStuff monster;
     public GameObject coinMultiplierText;
     public GameObject damageMultiplierText;
+    private IEnumerator coroutine;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -127,6 +129,7 @@ public class GameManager : MonoBehaviour
         {
             var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
             tile.setCrateSprite(crateSprite);
+            tile.setCrateSprite2(crateSprite2);
             tile.init(GetTileTypeValue(0));
             tile.gm = this;
             tile.SetTile(node);
@@ -151,9 +154,12 @@ public class GameManager : MonoBehaviour
         ChangeState(GameState.Moving);
         var orderedTiles = tiles.OrderBy(b => b.Pos.x).ThenBy(b => b.Pos.y).ToList();
         if (dir == Rightvec || dir == Upvec) orderedTiles.Reverse();
-
+        int count;
+        bool crateHits;
         foreach (var tile in orderedTiles)
         {
+            crateHits = false; 
+            count = 0;
             var next = tile.Node;
             do
             {
@@ -162,12 +168,33 @@ public class GameManager : MonoBehaviour
                 var possibleNode = GetNodeAtPosition(next.Pos + dir);
                 if (possibleNode != null)
                 {
-                    if(possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value))
+                    if (possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value))
                     {
                         tile.MergeTile(possibleNode.OccupiedTile);
-                        
+
                     }
-                    else if (possibleNode.OccupiedTile == null) next = possibleNode;
+                    else if (possibleNode.OccupiedTile == null)
+                    {
+                        next = possibleNode;
+                        count++;
+                    }
+                }
+                if (tile.value == 0 && count > 1)
+                {
+                    if (!crateHits) { tile.crateHitCount++; crateHits = true; } 
+                    if (tile.crateHitCount == 2)
+                    {
+                        tile.Node.OccupiedTile = null;
+                        tile.dir = dir;
+                        tiles.Remove(tile);
+                        tile.DestroyCrate();
+                        crate = false;
+                    }
+                    else if(tile.crateHitCount == 1)
+                    {
+                        StartCoroutine(tile.changeCrateImage());
+                    }
+                    
                 }
 
             } while (next != tile.Node);
@@ -235,13 +262,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator damageMonster(int v)
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.6f);
         healthBar.health -= v;
     }
 
     public void DoubleTiles()
     {
-        Debug.Log(tiles.Count);
         foreach (var tile in tiles)
         {
             

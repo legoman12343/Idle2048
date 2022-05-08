@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4523226228175924866}
   - component: {fileID: 78530102212695371}
+  - component: {fileID: 3294602587998992660}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -47,8 +48,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  Node: {fileID: 0}
+  MergingTile: {fileID: 0}
+  Merging: 0
   renderer: {fileID: 4523226229229496160}
   text: {fileID: 7056857309489227765}
+  crateSprite: {fileID: 0}
+  gm: {fileID: 0}
+  monsterScript: {fileID: 0}
+  temp: 1
+--- !u!50 &3294602587998992660
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523226228175924865}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4523226229229496166
 GameObject:
   m_ObjectHideFlags: 0

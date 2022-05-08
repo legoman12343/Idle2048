@@ -14,25 +14,15 @@ public class Tile : MonoBehaviour
     [SerializeField] private SpriteRenderer renderer;
     [SerializeField] private TextMeshPro text;
     public Sprite crateSprite;
+    public Sprite crateSprite2;
     public GameManager gm;
     public MonsterPrefabStuff monsterScript;
-    public bool temp = true;
-
-    void Update()
-    {
-        if (temp == true)
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                StartCoroutine(DPSMultiplier());
-
-                temp = false;
-            }
-        }
-    }
+    public Vector2 dir;
+    public int crateHitCount;
 
     public void init(TileType type)
     {
+        crateHitCount = 0;
         value = type.value;
         renderer.color = type.colour;
         if (value == 0)
@@ -67,6 +57,11 @@ public class Tile : MonoBehaviour
     public void setCrateSprite(Sprite c)
     {
         crateSprite = c;
+    }
+
+    public void setCrateSprite2(Sprite c)
+    {
+        crateSprite2 = c;
     }
 
     public void crateReward(Sprite c)
@@ -123,5 +118,28 @@ public class Tile : MonoBehaviour
         yield return new WaitForSeconds(30f);
         gm.damageMultiplierText.SetActive(false);
         monsterScript.healthBar.damage.changeMultiplier(-1);
+    }
+
+    public void DestroyCrate()
+    {
+        StartCoroutine(crateAnimation());
+    }
+
+    private IEnumerator crateAnimation()
+    {
+        renderer.sortingOrder = 10;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.simulated = true;
+        rb.AddForce(new Vector2(dir.x,dir.y*2), ForceMode2D.Impulse);
+        if (dir.y != 0) { rb.AddTorque(100 * (Random.value > 0.5f ? 1 : -1) * (30 * Mathf.Deg2Rad)); }
+        else { rb.AddTorque(100 * (dir.x > 0 ? -1 : 1) * (30 * Mathf.Deg2Rad)); }
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    }
+
+    public IEnumerator changeCrateImage()
+    {
+        yield return new WaitForSeconds(0.2f);
+        renderer.sprite = crateSprite2;
     }
 }
