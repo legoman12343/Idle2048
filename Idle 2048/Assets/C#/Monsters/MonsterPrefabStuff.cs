@@ -89,7 +89,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     //coroutine for death
     public IEnumerator respawnMonster()
     {
-        if (level.level == level.levelMax) level.killCount++;
+        if (level.level == level.levelMax && level.killCount != level.requiredKills) level.killCount++;
         level.LevelUpdate();
         bool coinsMade = false;
         //death animation script
@@ -117,7 +117,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         var deadMonster = monster[0];
         deadMonster.transform.DOMove(monsterSpawnPointLeft.position, 1f);
         spawnMonster();
-        if (level.level == level.levelMax && level.killCount == level.requiredKills) level.killCount = 0;
+        if (level.level == level.levelMax && level.killCount == level.requiredKills && level.ProgressMode == true) level.killCount = 0;
         level.LevelUpdate();
         yield return new WaitForSeconds(1f);
         //destroy obj

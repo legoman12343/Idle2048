@@ -14,6 +14,7 @@ public class LevelController : MonoBehaviour
     public bool ProgressMode;
     public GameObject forwardsButton;
     public GameObject backButton;
+    public GameObject progressModeCancel;
     public MonsterPrefabStuff MonsterScript;
     // Start is called before the first frame update
     void Start()
@@ -61,6 +62,7 @@ public class LevelController : MonoBehaviour
         killCount = 10;
         killCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
         ProgressMode = false;
+        progressModeCancel.SetActive(true);
         forwardsButton.SetActive(true);
         StartCoroutine (MonsterScript.DecreaseLevel());
         checkButtons();
@@ -72,10 +74,28 @@ public class LevelController : MonoBehaviour
         levelCount.text = level.ToString();
         if (level != levelMax) killCount = 10;
         else killCount = 0;
-        ProgressMode = false;
+        if (level == levelMax)
+        {
+            ProgressMode = true;
+            progressModeCancel.SetActive(false);
+        }
         killCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
         StartCoroutine (MonsterScript.IncreaseLevel());
         checkButtons();
+    }
+
+    public void progressModeToggle()
+    {
+        if (ProgressMode)
+        {
+            ProgressMode = false;
+            progressModeCancel.SetActive(true);
+        }
+        else
+        {
+            ProgressMode = true;
+            progressModeCancel.SetActive(false);
+        }
     }
 
     public int getMonsterHealth()
