@@ -47,8 +47,11 @@ public class Damage : MonoBehaviour
         {
             return (num / 1000D).ToString("0.##k");
         }
-
-        return num.ToString("0.#");
+        if (num >= 1000)
+        {
+            return num.ToString("#,0");
+        }
+        return num.ToString("0.##");
     }
 
     public void addDPS(float n, int index)
@@ -66,9 +69,8 @@ public class Damage : MonoBehaviour
     public float getDPS()
     {
         float total = 1f;
-        foreach(int i in itemDamage)
+        foreach(float i in itemDamage)
             total += i;
-        
-        return (float)(total * multiplier);
+        return total * multiplier;
     }
 }

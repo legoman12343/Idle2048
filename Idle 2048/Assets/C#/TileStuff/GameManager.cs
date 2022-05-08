@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public HealthBarScript healthBar;
     private float travelTime = 0.2f;
     public Transform endPoint;
-    public float crateChance;
+    public float crateChance = 0.0f;
     private bool crate;
     public Sprite crateSprite;
     public Sprite crateSprite2;

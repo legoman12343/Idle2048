@@ -43,13 +43,13 @@ public class ShopButtonPopUp : MonoBehaviour
                     }
                     else
                     {
-                        GearPanel.SetActive(true);
-                        QuestTab.SetActive(false);
-                        HealthBar.SetActive(true);
-                        AscensionTab.SetActive(false);
-                        SpecialCurrencyTab.SetActive(false);
-                        ExtraAreaTab.SetActive(false);
+                        GearPanel.SetActive(true);                        
                     }
+                    QuestTab.SetActive(false);
+                    HealthBar.SetActive(true);
+                    AscensionTab.SetActive(false);
+                    SpecialCurrencyTab.SetActive(false);
+                    ExtraAreaTab.SetActive(false);
                 }
                 
                 

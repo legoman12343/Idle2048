@@ -9,21 +9,24 @@ public class BuyItem : MonoBehaviour
 {
     public float price;
     public CoinsDisplay coinsDisplay;
-    public Ascension ascension;
     public TextMeshProUGUI ItemDisplayTXT;
     public Text priceText;
     public Text DPStext;
     public int ItemOwned;
-    public int giveAscensionCoins;
     public float dpsValue;
     public Damage damage;
-    private float increment;
+    private float DPSincrement;
+    private float priceIncrement;
     public int itemNumber;
+    private bool bought;
+    public GameManager gm;
 
     void Start()
     {
+        bought = false;
         ItemOwned = 0;
-        increment = 1.05f;
+        priceIncrement = 1.05f;
+        DPSincrement = 1.02f;
         updatePrice();
     }
 
@@ -32,24 +35,25 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             int temp;
-            damage.setDPS((dpsValue + ItemOwned) * increment, itemNumber);
+            damage.addDPS(dpsValue, itemNumber);
             coinsDisplay.addCoins(-price);
             ItemOwned++;
-            ascension.ascensionCoinsGive += giveAscensionCoins;
+            dpsValue *= DPSincrement;
             string firstItemTXT = ItemOwned.ToString();
-            ItemDisplayTXT.text = firstItemTXT;
+            //ItemDisplayTXT.text = firstItemTXT;
+            /*
             if (dpsValue.ToString().Contains("."))
             {
                 temp = (int)Math.Ceiling(dpsValue);
                 dpsValue = (float)temp;
-            }
+            } */
             
-            price *= increment;
+            price *= priceIncrement;
             if (price.ToString().Contains("."))
             {
                 temp = (int)Math.Ceiling(price);
                 price = (float)temp;
-            }
+            } 
             updatePrice();
             
         }
@@ -58,7 +62,6 @@ public class BuyItem : MonoBehaviour
     {
         if (num >= 100000000)
         {
-
             return (num / 1000000D).ToString("0.#M");
         }
         if (num >= 1000000)
@@ -77,12 +80,34 @@ public class BuyItem : MonoBehaviour
         {
             return num.ToString("#,0");
         }
-        return num.ToString("0.#");
+        return num.ToString("0.##");
     }
 
     public void updatePrice()
     {
         priceText.text = FormatNumber(price) + " Coins";
         DPStext.text = FormatNumber(dpsValue);
+    }
+
+    public void buyCrate()
+    {
+        if(bought == false && coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            priceText.text = "Bought";
+            bought = true;
+            gm.crateChance = 0.05f;
+        }        
+    }
+
+    public void mergeTileLevel()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            price *= 100000;
+            updatePrice();
+            gm.mergeUpgradeChance += 0.1f;
+        }
     }
 }
