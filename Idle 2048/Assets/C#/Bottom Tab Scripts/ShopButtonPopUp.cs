@@ -9,8 +9,6 @@ public class ShopButtonPopUp : MonoBehaviour
     public GameObject AscensionTab;
     public GameObject SpecialCurrencyTab;
     public GameObject ExtraAreaTab;
-    public GameObject optionsTab;
-    public GameObject achievementsTab;
     public GameObject GearPanel;
     public GameObject UpgradePanel;
     public GameObject HealthBar;
@@ -50,8 +48,6 @@ public class ShopButtonPopUp : MonoBehaviour
                         HealthBar.SetActive(true);
                         AscensionTab.SetActive(false);
                         SpecialCurrencyTab.SetActive(false);
-                        optionsTab.SetActive(false);
-                        achievementsTab.SetActive(false);
                         ExtraAreaTab.SetActive(false);
                     }
                 }
@@ -72,8 +68,6 @@ public class ShopButtonPopUp : MonoBehaviour
                     UpgradeTab.SetActive(false);
                     QuestTab.SetActive(false);
                     SpecialCurrencyTab.SetActive(false);
-                    optionsTab.SetActive(false);
-                    achievementsTab.SetActive(false);
                     ExtraAreaTab.SetActive(false);
                 }
                 
@@ -92,8 +86,6 @@ public class ShopButtonPopUp : MonoBehaviour
                     UpgradeTab.SetActive(false);
                     QuestTab.SetActive(false);
                     AscensionTab.SetActive(false);
-                    optionsTab.SetActive(false);
-                    achievementsTab.SetActive(false);
                     ExtraAreaTab.SetActive(false);
                 }
                 
@@ -102,8 +94,6 @@ public class ShopButtonPopUp : MonoBehaviour
                 if (ExtraAreaTab.active)
                 {
                     HealthBar.SetActive(true);
-                    optionsTab.SetActive(false);
-                    achievementsTab.SetActive(false);
                     ExtraAreaTab.SetActive(false);
                     swipe.canSwipe = true;
                 }
@@ -128,9 +118,9 @@ public class ShopButtonPopUp : MonoBehaviour
                 }
                 else
                 {
-                    swipe.canSwipe = false;
                     UpgradePanel.SetActive(false);
                     GearPanel.SetActive(true);
+                    swipe.canSwipe = false;
                 }
                 break;
             case 6:
@@ -147,9 +137,8 @@ public class ShopButtonPopUp : MonoBehaviour
                     UpgradeTab.SetActive(false);
                     SpecialCurrencyTab.SetActive(false);
                     AscensionTab.SetActive(false);
-                    optionsTab.SetActive(false);
-                    achievementsTab.SetActive(false);
-                    
+                    ExtraAreaTab.SetActive(false);
+
                 }
                 
                 break;
