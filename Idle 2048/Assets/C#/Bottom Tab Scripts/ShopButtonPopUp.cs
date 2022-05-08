@@ -12,6 +12,8 @@ public class ShopButtonPopUp : MonoBehaviour
     public GameObject GearPanel;
     public GameObject UpgradePanel;
     public GameObject HealthBar;
+    public GameObject ProgessSwitchButton;
+    public GameObject ButtonsBoarder;
     int activeShopTab;
     int activeUpgradePanel;
     public Swipe swipe;
@@ -28,6 +30,7 @@ public class ShopButtonPopUp : MonoBehaviour
             case 1:
                 if (UpgradeTab.active)
                 {
+                    ButtonsBoarder.SetActive(true);
                     GearPanel.SetActive(false);
                     UpgradePanel.SetActive(false);
                     UpgradeTab.SetActive(false);
@@ -45,8 +48,10 @@ public class ShopButtonPopUp : MonoBehaviour
                     {
                         GearPanel.SetActive(true);                        
                     }
+                    ButtonsBoarder.SetActive(false);
                     QuestTab.SetActive(false);
                     HealthBar.SetActive(true);
+                    ProgessSwitchButton.SetActive(true);
                     AscensionTab.SetActive(false);
                     SpecialCurrencyTab.SetActive(false);
                     ExtraAreaTab.SetActive(false);
@@ -57,14 +62,17 @@ public class ShopButtonPopUp : MonoBehaviour
             case 2:
                 if (AscensionTab.active)
                 {
+                    ButtonsBoarder.SetActive(true);
                     AscensionTab.SetActive(false);
                     swipe.canSwipe = true;
                 }
                 else
                 {
+                    ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     AscensionTab.SetActive(true);
                     HealthBar.SetActive(true);
+                    ProgessSwitchButton.SetActive(true);
                     UpgradeTab.SetActive(false);
                     QuestTab.SetActive(false);
                     SpecialCurrencyTab.SetActive(false);
@@ -75,14 +83,17 @@ public class ShopButtonPopUp : MonoBehaviour
             case 3:
                 if (SpecialCurrencyTab.active)
                 {
+                    ButtonsBoarder.SetActive(true);
                     SpecialCurrencyTab.SetActive(false);
                     swipe.canSwipe = true;
                 }
                 else
                 {
+                    ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     SpecialCurrencyTab.SetActive(true);
                     HealthBar.SetActive(true);
+                    ProgessSwitchButton.SetActive(true);
                     UpgradeTab.SetActive(false);
                     QuestTab.SetActive(false);
                     AscensionTab.SetActive(false);
@@ -93,14 +104,18 @@ public class ShopButtonPopUp : MonoBehaviour
             case 4:
                 if (ExtraAreaTab.active)
                 {
+                    ButtonsBoarder.SetActive(true);
                     HealthBar.SetActive(true);
+                    ProgessSwitchButton.SetActive(true);
                     ExtraAreaTab.SetActive(false);
                     swipe.canSwipe = true;
                 }
                 else
                 {
+                    ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     HealthBar.SetActive(false);
+                    ProgessSwitchButton.SetActive(false);
                     ExtraAreaTab.SetActive(true);
                     UpgradeTab.SetActive(false);
                     QuestTab.SetActive(false);
@@ -126,13 +141,16 @@ public class ShopButtonPopUp : MonoBehaviour
             case 6:
                 if (QuestTab.active)
                 {
+                    ButtonsBoarder.SetActive(true);
                     QuestTab.SetActive(false);
                     swipe.canSwipe = true;
                 }
                 else
                 {
+                    ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     HealthBar.SetActive(true);
+                    ProgessSwitchButton.SetActive(true);
                     QuestTab.SetActive(true);
                     UpgradeTab.SetActive(false);
                     SpecialCurrencyTab.SetActive(false);
