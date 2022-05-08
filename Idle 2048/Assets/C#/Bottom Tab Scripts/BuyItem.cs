@@ -9,7 +9,7 @@ public class BuyItem : MonoBehaviour
 {
     public float price;
     public CoinsDisplay coinsDisplay;
-    public TextMeshProUGUI ItemDisplayTXT;
+    public Text ItemDisplayTXT;
     public Text priceText;
     public Text DPStext;
     public int ItemOwned;
@@ -28,6 +28,7 @@ public class BuyItem : MonoBehaviour
     {
         bought = false;
         ItemOwned = 0;
+        ItemDisplayTXT.text = "X " + ItemOwned.ToString();
         priceIncrement = 1.05f;
         DPSincrement = 1.02f;
         updatePrice();
@@ -42,8 +43,7 @@ public class BuyItem : MonoBehaviour
             coinsDisplay.addCoins(-price);
             ItemOwned++;
             dpsValue *= DPSincrement;
-            string firstItemTXT = ItemOwned.ToString();
-            //ItemDisplayTXT.text = firstItemTXT;
+            ItemDisplayTXT.text = "X " + ItemOwned.ToString();
             /*
             if (dpsValue.ToString().Contains("."))
             {
