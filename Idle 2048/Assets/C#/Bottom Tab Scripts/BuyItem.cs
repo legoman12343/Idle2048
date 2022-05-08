@@ -20,6 +20,9 @@ public class BuyItem : MonoBehaviour
     public int itemNumber;
     private bool bought;
     public GameManager gm;
+    public int upgradeNum;
+    public bool upgrade;
+    public GameObject panel;
 
     void Start()
     {
@@ -54,8 +57,13 @@ public class BuyItem : MonoBehaviour
                 temp = (int)Math.Ceiling(price);
                 price = (float)temp;
             } 
-            updatePrice();
+            if(upgrade)
+                updatePriceUpgrades();
+            else
+                updatePrice();
             
+
+
         }
     }
     string FormatNumber(float num)
@@ -87,6 +95,13 @@ public class BuyItem : MonoBehaviour
     {
         priceText.text = FormatNumber(price) + " Coins";
         DPStext.text = FormatNumber(dpsValue);
+        coinsDisplay.prices[upgradeNum-1] = (int)price;
+    }
+
+    public void updatePriceUpgrades()
+    {
+        priceText.text = FormatNumber(price) + " Coins";
+        coinsDisplay.pricesUpgrades[upgradeNum - 1] = (int)price;
     }
 
     public void buyCrate()
@@ -97,6 +112,10 @@ public class BuyItem : MonoBehaviour
             priceText.text = "Bought";
             bought = true;
             gm.crateChance = 0.05f;
+            int index = coinsDisplay.pricesUpgrades.Find(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            panel.SetActive(false);
         }        
     }
 
@@ -108,6 +127,8 @@ public class BuyItem : MonoBehaviour
             price *= 100000;
             updatePrice();
             gm.mergeUpgradeChance += 0.1f;
+            coinsDisplay.addCoins(0);
         }
     }
+
 }

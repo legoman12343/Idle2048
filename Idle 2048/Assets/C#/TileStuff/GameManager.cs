@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator coroutine;
     public bool hasMoved;
     public Vector2 direction;
-    public float mergeUpgradeChance = 0f;
+    public float mergeUpgradeChance;
     public int silverCrateCount = 0;
 
 
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        mergeUpgradeChance = 0.0f;
         silverCrateCount = 2;
         hasMoved = false;
         ChangeState(GameState.createLevel);

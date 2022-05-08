@@ -9,6 +9,12 @@ public class CoinsDisplay : MonoBehaviour
 
     public TextMeshProUGUI CoinsDisplayTXT;
     public float Coins;
+    public List<int> prices;
+    public List<Image> colours;
+    public List<int> pricesUpgrades;
+    public List<Image> coloursUpgrades;
+    public Color red;
+    public Color green;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +22,7 @@ public class CoinsDisplay : MonoBehaviour
         Coins = 0;
         string coinsTXT = FormatNumber(Coins);
         CoinsDisplayTXT.text = coinsTXT;
+        updateButtons();
     }
 
     // Update is called once per frame
@@ -51,6 +58,7 @@ public class CoinsDisplay : MonoBehaviour
         Coins += n;
         string coinsTXT = FormatNumber(Coins);
         CoinsDisplayTXT.text = coinsTXT;
+        updateButtons();
     }
 
     public void addCoins(float n)
@@ -58,5 +66,27 @@ public class CoinsDisplay : MonoBehaviour
         Coins += n;
         string coinsTXT = FormatNumber(Coins);
         CoinsDisplayTXT.text = coinsTXT;
+        updateButtons();
     }
+
+    public void updateButtons()
+    {
+        for (int i = 0; i < prices.Count; i++)
+        {
+            if(Coins >= prices[i])
+                colours[i].color = green;
+            else
+                colours[i].color = red;
+        }
+
+        for (int i = 0; i < pricesUpgrades.Count; i++)
+        {
+            if (Coins >= pricesUpgrades[i])
+                coloursUpgrades[i].color = green;
+            else
+                coloursUpgrades[i].color = red;
+        }
+    }
+
 }
+
