@@ -38,7 +38,7 @@ public class LevelController : MonoBehaviour
         killSlider.value = killCount;
         if (ProgressMode == true)
         {
-            if (killCount == requiredKills || (level % 10 == 0 && killCount == 1))
+            if (killCount == requiredKills)
             {
                 if (level == levelMax) levelMax++;
 
