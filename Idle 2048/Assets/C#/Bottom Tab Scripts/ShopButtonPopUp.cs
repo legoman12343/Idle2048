@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopButtonPopUp : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class ShopButtonPopUp : MonoBehaviour
     public GameObject HealthBar;
     public GameObject ProgessSwitchButton;
     public GameObject ButtonsBoarder;
+    public Sprite Open;
+    public Sprite Close;
+    public GameObject Shop;
+    public GameObject Quests;
+    public GameObject Ascension;
+    public GameObject GemShop;
+    public GameObject Extra;
     int activeShopTab;
     int activeUpgradePanel;
     public Swipe swipe;
@@ -30,6 +38,7 @@ public class ShopButtonPopUp : MonoBehaviour
             case 1:
                 if (UpgradeTab.active)
                 {
+                    Shop.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(true);
                     GearPanel.SetActive(false);
                     UpgradePanel.SetActive(false);
@@ -38,6 +47,11 @@ public class ShopButtonPopUp : MonoBehaviour
                 }
                 else
                 {
+                    Shop.GetComponent<Image>().sprite = Open;
+                    Ascension.GetComponent<Image>().sprite = Close;
+                    GemShop.GetComponent<Image>().sprite = Close;
+                    Extra.GetComponent<Image>().sprite = Close;
+                    Quests.GetComponent<Image>().sprite = Close;
                     swipe.canSwipe = false;
                     UpgradeTab.SetActive(true);
                     if (activeUpgradePanel == 1)
@@ -62,12 +76,18 @@ public class ShopButtonPopUp : MonoBehaviour
             case 2:
                 if (AscensionTab.active)
                 {
+                    Ascension.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(true);
                     AscensionTab.SetActive(false);
                     swipe.canSwipe = true;
                 }
                 else
                 {
+                    Ascension.GetComponent<Image>().sprite = Open;
+                    Shop.GetComponent<Image>().sprite = Close;
+                    GemShop.GetComponent<Image>().sprite = Close;
+                    Extra.GetComponent<Image>().sprite = Close;
+                    Quests.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     AscensionTab.SetActive(true);
@@ -83,12 +103,18 @@ public class ShopButtonPopUp : MonoBehaviour
             case 3:
                 if (SpecialCurrencyTab.active)
                 {
+                    GemShop.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(true);
                     SpecialCurrencyTab.SetActive(false);
                     swipe.canSwipe = true;
                 }
                 else
                 {
+                    GemShop.GetComponent<Image>().sprite = Open;
+                    Shop.GetComponent<Image>().sprite = Close;
+                    Ascension.GetComponent<Image>().sprite = Close;
+                    Extra.GetComponent<Image>().sprite = Close;
+                    Quests.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     SpecialCurrencyTab.SetActive(true);
@@ -104,6 +130,7 @@ public class ShopButtonPopUp : MonoBehaviour
             case 4:
                 if (ExtraAreaTab.active)
                 {
+                    Extra.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(true);
                     HealthBar.SetActive(true);
                     ProgessSwitchButton.SetActive(true);
@@ -112,6 +139,11 @@ public class ShopButtonPopUp : MonoBehaviour
                 }
                 else
                 {
+                    Extra.GetComponent<Image>().sprite = Open;
+                    Shop.GetComponent<Image>().sprite = Close;
+                    Ascension.GetComponent<Image>().sprite = Close;
+                    GemShop.GetComponent<Image>().sprite = Close;
+                    Quests.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     HealthBar.SetActive(false);
@@ -141,12 +173,18 @@ public class ShopButtonPopUp : MonoBehaviour
             case 6:
                 if (QuestTab.active)
                 {
+                    Quests.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(true);
                     QuestTab.SetActive(false);
                     swipe.canSwipe = true;
                 }
                 else
                 {
+                    Quests.GetComponent<Image>().sprite = Open;
+                    Shop.GetComponent<Image>().sprite = Close;
+                    Ascension.GetComponent<Image>().sprite = Close;
+                    GemShop.GetComponent<Image>().sprite = Close;
+                    Extra.GetComponent<Image>().sprite = Close;
                     ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     HealthBar.SetActive(true);
