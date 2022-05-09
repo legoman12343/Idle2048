@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3823d31680f0a04d85a9b602d22e554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinsDisplayTXT: {fileID: 0}
+  CoinsDisplayTXT: {fileID: 962285402}
   Coins: 0
   prices: 0500000032000000d007000000000000000000000000000000000000
   colours:
@@ -23625,8 +23625,8 @@ MonoBehaviour:
   level: {fileID: 1881953733}
   gems: {fileID: 1380787456}
   monster: {fileID: 1881953732}
-  coinMultiplierText: {fileID: 0}
-  damageMultiplierText: {fileID: 0}
+  coinMultiplierText: {fileID: 1316281949}
+  damageMultiplierText: {fileID: 1661397630}
   hasMoved: 0
   direction: {x: 0, y: 0}
   mergeUpgradeChance: 0
@@ -23635,7 +23635,7 @@ MonoBehaviour:
   randomShift: 0
   randomShiftTimer: 0
   button: {fileID: 1684080561}
-  buttonDisabled: {fileID: 0}
+  buttonDisabled: {fileID: 1251779043}
 --- !u!114 &1380787456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23649,7 +23649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gems: 0
-  gemText: {fileID: 0}
+  gemText: {fileID: 521948306}
 --- !u!4 &1380787457
 Transform:
   m_ObjectHideFlags: 0
