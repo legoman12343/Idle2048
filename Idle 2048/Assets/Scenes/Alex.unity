@@ -23156,7 +23156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8df67737897e444887072ec1981d57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dpsCounter: {fileID: 0}
+  dpsCounter: {fileID: 776752690}
   itemDamage:
   - 0
   - 0
@@ -23254,7 +23254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4346a4f80fabd4497ae5da99c885d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCount: {fileID: 0}
+  levelCount: {fileID: 164304820}
   killCountText: {fileID: 0}
   level: 0
   levelMax: 0
@@ -23265,6 +23265,7 @@ MonoBehaviour:
   backButton: {fileID: 1395050763}
   progressModeCancel: {fileID: 79072019}
   MonsterScript: {fileID: 1380473617}
+  slider: {fileID: 0}
 --- !u!4 &1380473619
 Transform:
   m_ObjectHideFlags: 0
