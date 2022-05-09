@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         {
             for (int y = 0; y < 4; y++)
             {
-                var node = Instantiate(nodePrefab,new Vector2(x*width - 5f,y* height-2f),Quaternion.identity);
+                var node = Instantiate(nodePrefab,new Vector2(x*width - 5f,y* height-1.8f),Quaternion.identity);
                 nodes.Add(node);
             }
         }
