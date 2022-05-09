@@ -28,10 +28,15 @@ public class BuyItem : MonoBehaviour
     {
         bought = false;
         ItemOwned = 0;
+        if(!upgrade)
         ItemDisplayTXT.text = "X " + ItemOwned.ToString();
         priceIncrement = 1.05f;
         DPSincrement = 1.02f;
+        if (upgrade)
+            updatePriceUpgrades();
+        else
         updatePrice();
+        
     }
 
     public void buyItem()
@@ -44,12 +49,6 @@ public class BuyItem : MonoBehaviour
             ItemOwned++;
             dpsValue *= DPSincrement;
             ItemDisplayTXT.text = "X " + ItemOwned.ToString();
-            /*
-            if (dpsValue.ToString().Contains("."))
-            {
-                temp = (int)Math.Ceiling(dpsValue);
-                dpsValue = (float)temp;
-            } */
             
             price *= priceIncrement;
             if (price.ToString().Contains("."))
@@ -112,7 +111,7 @@ public class BuyItem : MonoBehaviour
             priceText.text = "Bought";
             bought = true;
             gm.crateChance = 0.05f;
-            int index = coinsDisplay.pricesUpgrades.Find(x => x == price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
             coinsDisplay.pricesUpgrades.RemoveAt(index);
             coinsDisplay.coloursUpgrades.RemoveAt(index);
             panel.SetActive(false);
@@ -124,10 +123,29 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
             price *= 100000;
-            updatePrice();
+            updatePriceUpgrades();
             gm.mergeUpgradeChance += 0.1f;
-            coinsDisplay.addCoins(0);
+        }
+    }
+
+    public void automationUpgrade()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            Debug.Log(index);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            bought = true;
+            gm.randomShift = true;
+            gm.showButton();
+            gm.randomShiftTimer = 3f;
+            panel.SetActive(false);
         }
     }
 

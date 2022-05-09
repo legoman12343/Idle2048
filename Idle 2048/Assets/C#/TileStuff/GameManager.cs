@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
     public float mergeUpgradeChance;
     public int silverCrateCount = 0;
     public Quests quest;
+    public bool randomShift = false;
+    public float randomShiftTimer = 0f;
+    private bool buttonOn = false;
+    public GameObject button;
+    public GameObject buttonDisabled;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -56,6 +61,7 @@ public class GameManager : MonoBehaviour
         mergeUpgradeChance = 0.0f;
         hasMoved = false;
         ChangeState(GameState.createLevel);
+        button.SetActive(false);
     }
 
     private void ChangeState(GameState newState)
@@ -322,6 +328,64 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+
+
+    private IEnumerator automation()
+    {
+        while (randomShift && buttonOn)
+        {
+            switch (Random.Range(0, 4))
+            {
+                case 0:
+                    {
+                        Shift(Upvec);
+                        break;
+                    }
+                case 1:
+                    {
+                        Shift(Rightvec);
+                        break;
+                    }
+                case 2:
+                    {
+                        Shift(Leftvec);
+                        break;
+                    }
+                case 3:
+                    {
+                        Shift(Downvec);
+                        break;
+                    }
+            }
+
+            yield return new WaitForSeconds(randomShiftTimer);
+        }
+        
+    }
+
+    public void updateButton()
+    {
+        if (buttonOn == true)
+        {
+            buttonOn = false;
+            buttonDisabled.SetActive(true);
+        }
+        else
+        {
+            buttonOn = true;
+            StartCoroutine(automation());
+        }
+    }
+
+    public void showButton()
+    {
+        button.SetActive(true);
+        buttonDisabled.SetActive(false);
+    }
+
+
+    
 
 }
 

@@ -23,6 +23,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     bool backLevel;
     private Vector3 spawnPoint;
     public Quests quest;
+    bool duck;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         spawnMonster();
         //coin multiplier for crates
         multiplier = 1;
+        duck = false;
     }
 
     public void spawnMonster()
@@ -52,7 +54,9 @@ public class MonsterPrefabStuff : MonoBehaviour
         }
         else
         {//spawn normal monster
-            int prefabIndex = UnityEngine.Random.Range(0, monsterPrefabList.Count - 1);
+            int prefabIndex = Random.Range(0, monsterPrefabList.Count - 1);
+            if (prefabIndex == 12)
+                duck = true;
             monster[0] = Instantiate(monsterPrefabList[prefabIndex], spawnPoint, Quaternion.identity);
             monster[0].GetComponent<Stats>().boss = false;
             level.requiredKills = 10;
@@ -94,6 +98,8 @@ public class MonsterPrefabStuff : MonoBehaviour
         if (level.level == level.levelMax && level.killCount != level.requiredKills) level.killCount++;
         level.LevelUpdate();
         bool coinsMade = false;
+        if (duck) { quest.updateDuckQuest(1); duck = false; }
+            
         //death animation script
         monster[0].GetComponent<Monster>().Die();
         //make coins splash

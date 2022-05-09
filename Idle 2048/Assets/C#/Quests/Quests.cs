@@ -17,6 +17,8 @@ public class Quests : MonoBehaviour
     private int tileLevelTarget;
     private int crateCount;
     private int crateTarget;
+    private int duckCount;
+    private int duckTarget;
 
     void Start()
     {
@@ -25,6 +27,38 @@ public class Quests : MonoBehaviour
         initMergeDamage();
         initTileLevel();
         initOpenCrates();
+        initDuckQuest();
+    }
+
+    private void initDuckQuest()
+    {
+        duckCount = 0;
+        duckTarget = 10;
+        progressbars[5].slider.maxValue = duckTarget;
+        progressbars[5].slider.value = 0;
+        progressbars[5].button.SetActive(false);
+        progressbars[5].text.text = duckCount.ToString() + " of " + duckTarget.ToString();
+    }
+
+    public void updateDuckQuest(int n)
+    {
+        duckCount = n;
+        progressbar bar = progressbars[5];
+        bar.slider.value = duckCount;
+        bar.text.text = duckCount.ToString() + " of " + duckTarget.ToString();
+        if (duckTarget <= duckCount && bar.state == 0)
+        {
+            bar.sliderParent.SetActive(false);
+            bar.button.SetActive(true);
+            bar.state = 1;
+
+        }
+    }
+
+    public void claimDuckQuest()
+    {
+        //unlock upgrade
+        progressbars[5].tab.SetActive(false);
     }
 
     private void initOpenCrates()
