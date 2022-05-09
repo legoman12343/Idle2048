@@ -12897,13 +12897,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709cf7d9462abd54292c31f3d2d33f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeTab: {fileID: 0}
-  QuestTab: {fileID: 0}
-  AscensionTab: {fileID: 0}
-  SpecialCurrencyTab: {fileID: 0}
-  ExtraAreaTab: {fileID: 0}
-  GearPanel: {fileID: 0}
-  UpgradePanel: {fileID: 0}
+  UpgradeTab: {fileID: 786085786}
+  QuestTab: {fileID: 1541513831}
+  AscensionTab: {fileID: 2086999876}
+  SpecialCurrencyTab: {fileID: 566778734}
+  ExtraAreaTab: {fileID: 1120721605}
+  GearPanel: {fileID: 807780067}
+  UpgradePanel: {fileID: 281267416}
   HealthBar: {fileID: 458226655}
   ProgessSwitchButton: {fileID: 132925764}
   ButtonsBoarder: {fileID: 1353360359}
@@ -12914,9 +12914,9 @@ MonoBehaviour:
   Ascension: {fileID: 120388652}
   GemShop: {fileID: 516261303}
   Extra: {fileID: 2049972269}
-  UpgradeTitle: {fileID: 0}
-  GearTitle: {fileID: 0}
-  swipe: {fileID: 0}
+  UpgradeTitle: {fileID: 1322216319}
+  GearTitle: {fileID: 1400898890}
+  swipe: {fileID: 546599993}
 --- !u!1 &573034516
 GameObject:
   m_ObjectHideFlags: 0
