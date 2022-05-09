@@ -52,7 +52,9 @@ public class Stats : MonoBehaviour
                 quest.updateKillBossQuest(1);
             }
             else
+            {
                 quest.updateKillMonstersQuest(1);
+            }
             StartCoroutine(monsterScript.respawnMonster());
         }        
     }

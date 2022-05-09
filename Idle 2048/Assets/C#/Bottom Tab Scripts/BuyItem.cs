@@ -15,7 +15,6 @@ public class BuyItem : MonoBehaviour
     public int ItemOwned;
     public float dpsValue;
     public Damage damage;
-    private float DPSincrement;
     private float priceIncrement;
     public int itemNumber;
     private bool bought;
@@ -23,15 +22,18 @@ public class BuyItem : MonoBehaviour
     public int upgradeNum;
     public bool upgrade;
     public GameObject panel;
+    public float baseDamage;
+    public float multiplier;
 
     void Start()
     {
+        multiplier = 1f;
+        baseDamage = dpsValue;
         bought = false;
         ItemOwned = 0;
         if(!upgrade)
         ItemDisplayTXT.text = "X " + ItemOwned.ToString();
         priceIncrement = 1.05f;
-        DPSincrement = 1.02f;
         if (upgrade)
             updatePriceUpgrades();
         else
@@ -47,7 +49,7 @@ public class BuyItem : MonoBehaviour
             damage.addDPS(dpsValue, itemNumber);
             coinsDisplay.addCoins(-price);
             ItemOwned++;
-            dpsValue *= DPSincrement;
+            dpsValue = baseDamage * ItemOwned * multiplier;
             ItemDisplayTXT.text = "X " + ItemOwned.ToString();
             
             price *= priceIncrement;
