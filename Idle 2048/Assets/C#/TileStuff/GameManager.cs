@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     private bool buttonOn = false;
     public GameObject button;
     public GameObject buttonDisabled;
+    public GameObject buttonObj;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
         mergeUpgradeChance = 0.0f;
         hasMoved = false;
         ChangeState(GameState.createLevel);
-        button.SetActive(false);
+        buttonObj.SetActive(false);
     }
 
     private void ChangeState(GameState newState)
@@ -380,8 +381,10 @@ public class GameManager : MonoBehaviour
 
     public void showButton()
     {
-        button.SetActive(true);
+        buttonObj.SetActive(true);
         buttonDisabled.SetActive(false);
+        buttonOn = true;
+        StartCoroutine(automation());
     }
 
 
