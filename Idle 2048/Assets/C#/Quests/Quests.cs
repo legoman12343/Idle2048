@@ -1,31 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Quests : MonoBehaviour
 {
-    public List<Image> buttons;
-    public List<progressbar> progressbars;
+    [SerializeField] public List<progressbar> progressbars;
     private int monsterKillCount;
     private int monsterKillTarget;
 
     void Start()
     {
-        monsterKillCount = 0;
-        monsterKillTarget = 100;        
+        initKillMonsters();
     }
 
-
+    private void initKillMonsters()
+    {
+        monsterKillCount = 0;
+        monsterKillTarget = 2;
+        progressbars[0].slider.maxValue = monsterKillTarget;
+        progressbars[0].slider.value = 0;
+        progressbars[0].button.SetActive(false);
+        progressbars[0].text.text = monsterKillCount.ToString() + " of " + monsterKillTarget.ToString();
+    }
 
     public void updateKillMonstersQuest(int n)
     {
         monsterKillCount += n;
         progressbar bar = progressbars[0];
         bar.slider.value = monsterKillCount;
+        bar.text.text = monsterKillCount.ToString() + " of " + monsterKillTarget.ToString();
         if(monsterKillTarget <= monsterKillCount && bar.state == 0)
         {
-            bar.slider.GetComponent<GameObject>().SetActive(false);
+            bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
         }
@@ -38,8 +46,14 @@ public class Quests : MonoBehaviour
     }
 }
 
+
+
+
+[Serializable]
 public struct progressbar
 {
+    public Text text;
+    public GameObject sliderParent;
     public GameObject tab;
     public GameObject button;
     public Slider slider;
