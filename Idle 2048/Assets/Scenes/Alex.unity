@@ -4407,7 +4407,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1298470759}
         m_TargetAssemblyTypeName: ShopButtonPopUp, Assembly-CSharp
         m_MethodName: OpenGearTab
         m_Mode: 1
@@ -7132,7 +7132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &414719034
 Transform:
   m_ObjectHideFlags: 0
@@ -22532,7 +22532,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1298470759}
         m_TargetAssemblyTypeName: ShopButtonPopUp, Assembly-CSharp
         m_MethodName: OpenUpgradePanel
         m_Mode: 1
@@ -23945,11 +23945,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709cf7d9462abd54292c31f3d2d33f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeTab: {fileID: 1472334648}
-  QuestTab: {fileID: 1206500916}
-  AscensionTab: {fileID: 1135589189}
-  SpecialCurrencyTab: {fileID: 1493986733}
-  ExtraAreaTab: {fileID: 129748124}
+  UpgradeTab: {fileID: 1074499419}
+  QuestTab: {fileID: 755640915}
+  AscensionTab: {fileID: 1260511527}
+  SpecialCurrencyTab: {fileID: 1798277330}
+  ExtraAreaTab: {fileID: 1440909005}
   GearPanel: {fileID: 414719033}
   UpgradePanel: {fileID: 1116681364}
   HealthBar: {fileID: 1579562450}
