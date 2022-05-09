@@ -63,6 +63,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         stats.healthBar = healthBar;
         stats.monsterScript = this;
         stats.level = level;
+        stats.quest = quest;
         healthBar.isDead = false;
         stats.Init();
         monster[0].transform.DOMove(monsterBattlePoint.position, 1f);
@@ -92,7 +93,6 @@ public class MonsterPrefabStuff : MonoBehaviour
     {
         if (level.level == level.levelMax && level.killCount != level.requiredKills) level.killCount++;
         level.LevelUpdate();
-        quest.updateKillMonstersQuest(1);
         bool coinsMade = false;
         //death animation script
         monster[0].GetComponent<Monster>().Die();

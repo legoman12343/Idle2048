@@ -14,6 +14,7 @@ public class Stats : MonoBehaviour
     public LevelController level;
     public bool boss;
     private IEnumerator coroutine;
+    public Quests quest;
 
     public void Init()
     {
@@ -48,7 +49,10 @@ public class Stats : MonoBehaviour
             if (boss == true)
             {
                 StopCoroutine(coroutine);
+                quest.updateKillBossQuest(1);
             }
+            else
+                quest.updateKillMonstersQuest(1);
             StartCoroutine(monsterScript.respawnMonster());
         }        
     }
