@@ -27324,6 +27324,8 @@ MonoBehaviour:
   Ascension: {fileID: 950758154}
   GemShop: {fileID: 2102064882}
   Extra: {fileID: 232923863}
+  UpgradeTitle: {fileID: 411039090}
+  GearTitle: {fileID: 1939163308}
   swipe: {fileID: 1626032912}
 --- !u!4 &1623382012
 Transform:
