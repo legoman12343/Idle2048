@@ -24,9 +24,9 @@ public class LevelController : MonoBehaviour
     {
         ProgressMode = true;
         requiredKills = 10;
-        levelMax = 9;
-        killCount = 9;
-        level = 9;
+        levelMax = 1;
+        killCount = 0;
+        level = 1;
         levelCountCurrent.text = level.ToString();
         levelCountNext.text = (level + 1).ToString();
         killSlider.value = killCount;
@@ -107,11 +107,26 @@ public class LevelController : MonoBehaviour
 
     public int getMonsterHealth()
     {
-        return level * 10;
+        if (level <= 140)
+        {
+            double temp = Convert.ToDouble(level);
+            return (int)Math.Ceiling((10.00 *( temp - 1.00 + Math.Pow(1.55, temp - 1.00))));
+        }
+        else
+        {
+            double temp = Convert.ToDouble(level);
+            return (int)Math.Ceiling((10.00 * (139.00 + Math.Pow(1.55, 139.00) * Math.Pow(1.145, (temp - 140.00)))));
+        }
     }
 
     public int getMonsterCoins()
     {
-        return level;
+        int temp = (int)Math.Ceiling(Convert.ToDouble(getMonsterHealth() / 15));
+        if(temp > 0)
+        {
+            return temp;
+        }
+        return 1;
+        
     }
 }
