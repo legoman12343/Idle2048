@@ -2046,6 +2046,8 @@ MonoBehaviour:
   upgradeNum: 4
   upgrade: 0
   panel: {fileID: 2024765416}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &119992818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2679,7 +2681,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 148761487}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: increaseLevel
         m_Mode: 1
@@ -7079,6 +7081,8 @@ MonoBehaviour:
   upgradeNum: 2
   upgrade: 0
   panel: {fileID: 1126590159}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &414403255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7810,6 +7814,8 @@ MonoBehaviour:
   upgradeNum: 1
   upgrade: 1
   panel: {fileID: 689054291}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &465559734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10782,6 +10788,8 @@ MonoBehaviour:
   upgradeNum: 12
   upgrade: 0
   panel: {fileID: 1878646448}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &609326103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11447,6 +11455,8 @@ MonoBehaviour:
   upgradeNum: 3
   upgrade: 1
   panel: {fileID: 985538790}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &650293528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12978,6 +12988,8 @@ MonoBehaviour:
   upgradeNum: 2
   upgrade: 1
   panel: {fileID: 988391206}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &744203144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13601,6 +13613,8 @@ MonoBehaviour:
   upgradeNum: 3
   upgrade: 0
   panel: {fileID: 195756875}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &756027949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19270,6 +19284,8 @@ MonoBehaviour:
   upgradeNum: 1
   upgrade: 0
   panel: {fileID: 0}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &1063255175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22410,6 +22426,8 @@ MonoBehaviour:
   upgradeNum: 8
   upgrade: 0
   panel: {fileID: 1572661648}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &1217183304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23766,7 +23784,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 148761487}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: progressModeToggle
         m_Mode: 1
@@ -25516,6 +25534,8 @@ MonoBehaviour:
   upgradeNum: 5
   upgrade: 0
   panel: {fileID: 2043229541}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &1393831398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28615,6 +28635,8 @@ MonoBehaviour:
   upgradeNum: 9
   upgrade: 0
   panel: {fileID: 395627447}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &1545934825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29754,6 +29776,8 @@ MonoBehaviour:
   upgradeNum: 4
   upgrade: 1
   panel: {fileID: 1342446717}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &1591670148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31985,6 +32009,8 @@ MonoBehaviour:
   upgradeNum: 11
   upgrade: 0
   panel: {fileID: 768652996}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &1750843468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32225,6 +32251,8 @@ MonoBehaviour:
   upgradeNum: 7
   upgrade: 0
   panel: {fileID: 93595109}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &1758740585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35527,6 +35555,8 @@ MonoBehaviour:
   upgradeNum: 6
   upgrade: 0
   panel: {fileID: 1175118703}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &1928540706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37988,6 +38018,8 @@ MonoBehaviour:
   upgradeNum: 10
   upgrade: 0
   panel: {fileID: 298240957}
+  baseDamage: 0
+  multiplier: 0
 --- !u!114 &2043653476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40036,7 +40068,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 148761487}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: decreaseLevel
         m_Mode: 1

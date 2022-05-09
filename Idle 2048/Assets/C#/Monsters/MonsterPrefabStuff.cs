@@ -51,6 +51,7 @@ public class MonsterPrefabStuff : MonoBehaviour
             monster[0] = Instantiate(bossPrefabList[prefabIndex], spawnPoint, Quaternion.identity);
             monster[0].GetComponent<Stats>().boss = true;
             level.requiredKills = 1;
+            level.killSlider.maxValue = 1;
         }
         else
         {//spawn normal monster
@@ -60,6 +61,7 @@ public class MonsterPrefabStuff : MonoBehaviour
             monster[0] = Instantiate(monsterPrefabList[prefabIndex], spawnPoint, Quaternion.identity);
             monster[0].GetComponent<Stats>().boss = false;
             level.requiredKills = 10;
+            level.killSlider.maxValue = 10;
 
         }
         //set monster values
@@ -124,8 +126,8 @@ public class MonsterPrefabStuff : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
         var deadMonster = monster[0];
         deadMonster.transform.DOMove(monsterSpawnPointLeft.position, 1f);
-        spawnMonster();
         if (level.level == level.levelMax && level.killCount == level.requiredKills && level.ProgressMode == true) level.killCount = 0;
+        spawnMonster();
         level.LevelUpdate();
         yield return new WaitForSeconds(1f);
         //destroy obj

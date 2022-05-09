@@ -24,9 +24,9 @@ public class LevelController : MonoBehaviour
     {
         ProgressMode = true;
         requiredKills = 10;
-        levelMax = 1;
-        killCount = 0;
-        level = 1;
+        levelMax = 9;
+        killCount = 9;
+        level = 9;
         levelCountCurrent.text = level.ToString();
         levelCountNext.text = (level + 1).ToString();
         killSlider.value = killCount;
@@ -36,6 +36,8 @@ public class LevelController : MonoBehaviour
     public void LevelUpdate()
     {
         killSlider.value = killCount;
+        levelCountCurrent.text = level.ToString();
+        levelCountNext.text = (level + 1).ToString();
         if (ProgressMode == true)
         {
             if (killCount == requiredKills)
@@ -43,9 +45,6 @@ public class LevelController : MonoBehaviour
                 if (level == levelMax) levelMax++;
 
                 level++;
-
-                levelCountCurrent.text = level.ToString();
-                levelCountNext.text = (level + 1).ToString();
 
                 checkButtons();
             }
