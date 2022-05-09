@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public Vector2 direction;
     public float mergeUpgradeChance;
     public int silverCrateCount = 0;
+    public Quests quest;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -53,7 +54,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         mergeUpgradeChance = 0.0f;
-        silverCrateCount = 2;
         hasMoved = false;
         ChangeState(GameState.createLevel);
     }
@@ -254,6 +254,8 @@ public class GameManager : MonoBehaviour
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
         var newValue = baseTile.value + (Random.value < mergeUpgradeChance ? 2 : 1);
+        quest.updateMergeDamage(newValue);
+        quest.updateTileLevel(newValue);
         StartCoroutine(damageMonster(newValue));
         spawnTile(baseTile.Node, newValue, true);
         var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);

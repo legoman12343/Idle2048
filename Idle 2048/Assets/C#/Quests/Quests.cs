@@ -11,14 +11,117 @@ public class Quests : MonoBehaviour
     private int monsterKillTarget;
     private int bossKillCount;
     private int bossKillTarget;
+    private int mergeDamage;
+    private int mergeDamageTarget;
+    private int tileLevel;
+    private int tileLevelTarget;
+    private int crateCount;
+    private int crateTarget;
 
     void Start()
     {
         initKillMonsters();
         initKillBoss();
+        initMergeDamage();
+        initTileLevel();
+        initOpenCrates();
     }
 
-    private void initKillBoss()
+    private void initOpenCrates()
+    {
+        crateCount = 0;
+        crateTarget = 20;
+        progressbars[4].slider.maxValue = crateTarget;
+        progressbars[4].slider.value = 0;
+        progressbars[4].button.SetActive(false);
+        progressbars[4].text.text = crateCount.ToString() + " of " + crateTarget.ToString();
+    }
+
+    public void updateOpenCrates(int n)
+    {
+        crateCount = n;
+        progressbar bar = progressbars[4];
+        bar.slider.value = crateCount;
+        bar.text.text = crateCount.ToString() + " of " + crateTarget.ToString();
+        if (crateTarget <= crateCount && bar.state == 0)
+        {
+            bar.sliderParent.SetActive(false);
+            bar.button.SetActive(true);
+            bar.state = 1;
+
+        }
+    }
+
+    public void claimOpenCrates()
+    {
+        //unlock upgrade
+        progressbars[4].tab.SetActive(false);
+    }
+
+    private void initTileLevel()
+    {
+        tileLevel = 0;
+        tileLevelTarget = 10;
+        progressbars[3].slider.maxValue = tileLevelTarget;
+        progressbars[3].slider.value = 0;
+        progressbars[3].button.SetActive(false);
+        progressbars[3].text.text = tileLevel.ToString() + " of " + tileLevelTarget.ToString();
+    }
+
+    public void updateTileLevel(int n)
+    {
+        if (tileLevel < n)
+        {
+            tileLevel = n;
+            progressbar bar = progressbars[3];
+            bar.slider.value = tileLevel;
+            bar.text.text = tileLevel.ToString() + " of " + tileLevelTarget.ToString();
+            if (tileLevelTarget <= tileLevel && bar.state == 0)
+            {
+                bar.sliderParent.SetActive(false);
+                bar.button.SetActive(true);
+                bar.state = 1;
+            }
+        }
+    }
+
+    public void claimTileLevel()
+    {
+        //unlock upgrade
+        progressbars[3].tab.SetActive(false);
+    }
+
+    private void initMergeDamage()
+    {
+        mergeDamage = 0;
+        mergeDamageTarget = 1000;
+        progressbars[2].slider.maxValue = mergeDamageTarget;
+        progressbars[2].slider.value = 0;
+        progressbars[2].button.SetActive(false);
+        progressbars[2].text.text = mergeDamage.ToString() + " of " + mergeDamageTarget.ToString();
+    }
+
+    public void updateMergeDamage(int n)
+    {
+        mergeDamage += n;
+        progressbar bar = progressbars[2];
+        bar.slider.value = mergeDamage;
+        bar.text.text = mergeDamage.ToString() + " of " + mergeDamageTarget.ToString();
+        if (mergeDamageTarget <= mergeDamage && bar.state == 0)
+        {
+            bar.sliderParent.SetActive(false);
+            bar.button.SetActive(true);
+            bar.state = 1;
+        }
+    }
+
+    public void claimMergeDamage()
+    {
+        //unlock upgrade
+        progressbars[2].tab.SetActive(false);
+    }
+
+        private void initKillBoss()
     {
         bossKillCount = 0;
         bossKillTarget = 5;
@@ -78,9 +181,6 @@ public class Quests : MonoBehaviour
         progressbars[0].tab.SetActive(false);
     }
 }
-
-
-
 
 [Serializable]
 public struct progressbar
