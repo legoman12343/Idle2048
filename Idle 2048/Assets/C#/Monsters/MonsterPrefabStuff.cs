@@ -103,7 +103,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         //death animation script
         monster[0].GetComponent<Monster>().Die();
         //make coins splash
-        if (coinsMade == false)
+        if (coinsMade == false && monster[0].GetComponent<Stats>().coins > 0)
         {
             int range = Random.Range(5, 8);
             if ( level.level < range)

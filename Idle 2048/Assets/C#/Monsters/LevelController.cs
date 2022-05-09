@@ -7,8 +7,8 @@ using TMPro;
 
 public class LevelController : MonoBehaviour
 {
-    public TextMeshProUGUI levelCount;
-    public TextMeshProUGUI killCountText;
+    public TextMeshProUGUI levelCountCurrent;
+    public TextMeshProUGUI levelCountNext;
     public int level;
     public int levelMax;
     public int killCount;
@@ -18,32 +18,34 @@ public class LevelController : MonoBehaviour
     public GameObject backButton;
     public GameObject progressModeCancel;
     public MonsterPrefabStuff MonsterScript;
-    public Slider slider;
+    public Slider killSlider;
     // Start is called before the first frame update
     void Start()
     {
         ProgressMode = true;
         requiredKills = 10;
-        levelMax = 1;
-        killCount = 0;
-        level = 1;
-        //////levelCount.text = level.ToString();
-        /////illCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
+        levelMax = 9;
+        killCount = 9;
+        level = 9;
+        levelCountCurrent.text = level.ToString();
+        levelCountNext.text = (level + 1).ToString();
+        killSlider.value = killCount;
     }
 
     // Update is called once per frame
     public void LevelUpdate()
     {
-        ////////killCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
+        killSlider.value = killCount;
         if (ProgressMode == true)
         {
-            if (killCount == requiredKills)
+            if (killCount == requiredKills || (level % 10 == 0 && killCount == 1))
             {
                 if (level == levelMax) levelMax++;
 
                 level++;
 
-                //levelCount.text = level.ToString();
+                levelCountCurrent.text = level.ToString();
+                levelCountNext.text = (level + 1).ToString();
 
                 checkButtons();
             }
@@ -61,9 +63,10 @@ public class LevelController : MonoBehaviour
     public void decreaseLevel()
     {
         level--;
-        ////////levelCount.text = level.ToString();
+        levelCountCurrent.text = level.ToString();
+        levelCountNext.text = (level + 1).ToString();
         killCount = 10;
-        ////////killCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
+        killSlider.value = killCount;
         ProgressMode = false;
         progressModeCancel.SetActive(true);
         forwardsButton.SetActive(true);
@@ -74,7 +77,8 @@ public class LevelController : MonoBehaviour
     public void increaseLevel()
     {
         level++;
-        //////////levelCount.text = level.ToString();
+        levelCountCurrent.text = level.ToString();
+        levelCountNext.text = (level + 1).ToString();
         if (level != levelMax) killCount = 10;
         else killCount = 0;
         if (level == levelMax)
@@ -82,7 +86,7 @@ public class LevelController : MonoBehaviour
             ProgressMode = true;
             progressModeCancel.SetActive(false);
         }
-        //////////killCountText.text = killCount.ToString() + "/" + requiredKills.ToString();
+        killSlider.value = killCount;
         StartCoroutine (MonsterScript.IncreaseLevel());
         checkButtons();
     }

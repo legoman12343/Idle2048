@@ -61,7 +61,6 @@ public class Stats : MonoBehaviour
     {
         yield return new WaitForSeconds(30);
         coins = 0;
-        respawn = true;
-
+        StartCoroutine(monsterScript.respawnMonster());
     }
 }
