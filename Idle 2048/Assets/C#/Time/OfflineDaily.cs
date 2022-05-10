@@ -23,7 +23,7 @@ public class OfflineDaily : MonoBehaviour
 		oldtime = DateTime.Now;
 		claimDailyReward = false;
 		multiplier = 0.2f;
-		offlineEarnings();
+		//offlineEarnings();
 	}
 	//dailyreward
 	void FixedUpdate()
@@ -48,7 +48,6 @@ public class OfflineDaily : MonoBehaviour
 			{
 				claimDailyReward = true;
 			}
-
 		}
 	}
 
@@ -57,6 +56,7 @@ public class OfflineDaily : MonoBehaviour
 		bool completed = false;
 		while (!completed)
 		{
+			completed = true;
 			if (WorldTimeAPI.Instance.IsTimeLodaed)
 			{/*
 				DateTime currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
@@ -68,7 +68,7 @@ public class OfflineDaily : MonoBehaviour
 				money = (int)Math.Ceiling(kills * level.getMonsterCoins() * multiplier); */
 				money = 1000;
 				wang.text = money.ToString();
-				completed = true;
+				
 			}
 		}
 	}
@@ -82,7 +82,6 @@ public class OfflineDaily : MonoBehaviour
 
 	public void claimEarningsVideo()
 	{
-		
 		money *= 2;
 		doubleButton.GetComponent<Image>().sprite = greyButton;
 		doubleButton.GetComponent<Button>().interactable = false;
