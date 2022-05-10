@@ -140,7 +140,6 @@ public class BuyItem : MonoBehaviour
         {
             coinsDisplay.addCoins(-price);
             int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
-            Debug.Log(index);
             coinsDisplay.pricesUpgrades.RemoveAt(index);
             coinsDisplay.coloursUpgrades.RemoveAt(index);
             bought = true;
@@ -150,5 +149,48 @@ public class BuyItem : MonoBehaviour
             panel.SetActive(false);
         }
     }
+
+    public void IncreaseDPS()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            bought = true;
+            damage.changeMultiplier(0.1f);
+            panel.SetActive(false);
+        }
+    }
+
+    public void swordMultiplier()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            bought = true;
+            damage.changeItemMultiplier(0,1f);
+            panel.SetActive(false);
+        }
+    }
+
+    public void instantCrate()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            bought = true;
+            gm.instantCrateChance = 0.1f;
+            panel.SetActive(false);
+        }
+    }
+
 
 }

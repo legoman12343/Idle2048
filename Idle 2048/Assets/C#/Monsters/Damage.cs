@@ -7,11 +7,16 @@ public class Damage : MonoBehaviour
 {
     public TextMeshProUGUI dpsCounter;
     public List<float> itemDamage;
-    public int multiplier;
+    public List<float> itemMultipliers;
+    public float multiplier;
     // Start is called before the first frame update
     void Start()
     {
-        multiplier = 1;
+        multiplier = 1.0f;
+        for (int i = 0; i < itemDamage.Count; i++)
+        {
+            itemMultipliers.Add(1f);
+        }
         changeDPS();
     }
 
@@ -22,11 +27,19 @@ public class Damage : MonoBehaviour
         dpsCounter.text = t;
     }
 
-    public void changeMultiplier(int n)
+    
+
+    public void changeItemMultiplier(int i, float n)
+    {
+        itemMultipliers[i] += n;
+        changeDPS();
+    }
+
+
+    public void changeMultiplier(float n)
     {
         multiplier += n;
         changeDPS();
-        Debug.Log(multiplier);
     }
 
     string FormatNumber(float num)
@@ -71,6 +84,11 @@ public class Damage : MonoBehaviour
         float total = 1f;
         foreach(float i in itemDamage)
             total += i;
+
+        for (int i = 0; i < itemDamage.Count; i++)
+        {
+            total += itemDamage[i] * itemMultipliers[0];
+        }
         return total * multiplier;
     }
 }

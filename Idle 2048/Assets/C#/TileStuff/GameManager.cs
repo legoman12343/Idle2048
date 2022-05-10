@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     public GameObject button;
     public GameObject buttonDisabled;
     public GameObject buttonObj;
+    public float instantCrateChance;
+    private bool previousCrate;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -59,6 +61,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        previousCrate = false;
+        instantCrateChance = 0f;
         mergeUpgradeChance = 0.0f;
         hasMoved = false;
         ChangeState(GameState.createLevel);
@@ -139,17 +143,15 @@ public class GameManager : MonoBehaviour
         {
             Reset();
         }
-
-
         ChangeState(GameState.WaitingInput);
-
     }
 
 
     void spawnTile(Node node, int value, bool merging)
     {
-        if (Random.value < crateChance && crate == false && merging == false)
+        if ((Random.value < crateChance || (Random.value < instantCrateChance && previousCrate)) && crate == false && merging == false)
         {
+            previousCrate = false;
             var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
             if (silverCrateCount > 0)
             {
@@ -279,6 +281,7 @@ public class GameManager : MonoBehaviour
         if (tile.value == 0)
         {
             crate = false;
+            previousCrate = true;
         }
         tiles.Remove(tile);
         Destroy(tile.gameObject);
@@ -325,10 +328,11 @@ public class GameManager : MonoBehaviour
         moneyScript.addCoins(level.getMonsterCoins() * n);
     }
 
+    /*
     public void giveDPSBoost()
     {
-
-    }
+        damage.multiplier += 1;
+    }*/
 
 
 
