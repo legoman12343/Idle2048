@@ -19,6 +19,9 @@ public class LevelController : MonoBehaviour
     public GameObject progressModeCancel;
     public MonsterPrefabStuff MonsterScript;
     public Slider killSlider;
+    public Sprite Complete;
+    public Sprite notComplete;
+    public GameObject levelCountNextOb;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,38 +49,38 @@ public class LevelController : MonoBehaviour
 
                 level++;
 
-                checkButtons();
+                UpdateStuff();
             }
         }
     }
 
-    void checkButtons()
+    void UpdateStuff()
     {
         if (level == 1) backButton.SetActive(false);
         else backButton.SetActive(true);
         if (level == levelMax) forwardsButton.SetActive(false);
         else forwardsButton.SetActive(true);
+        if (level < levelMax) levelCountNextOb.GetComponent<Image>().sprite = Complete;
+        else levelCountNextOb.GetComponent<Image>().sprite = notComplete;
+        levelCountCurrent.text = level.ToString();
+        levelCountNext.text = (level + 1).ToString();
     }
 
     public void decreaseLevel()
     {
-        level--;
-        levelCountCurrent.text = level.ToString();
-        levelCountNext.text = (level + 1).ToString();
+        level--;  
         killCount = 10;
         killSlider.value = killCount;
         ProgressMode = false;
         progressModeCancel.SetActive(true);
         forwardsButton.SetActive(true);
         StartCoroutine (MonsterScript.DecreaseLevel());
-        checkButtons();
+        UpdateStuff();
     }
 
     public void increaseLevel()
     {
         level++;
-        levelCountCurrent.text = level.ToString();
-        levelCountNext.text = (level + 1).ToString();
         if (level != levelMax) killCount = 10;
         else killCount = 0;
         if (level == levelMax)
@@ -87,7 +90,7 @@ public class LevelController : MonoBehaviour
         }
         killSlider.value = killCount;
         StartCoroutine (MonsterScript.IncreaseLevel());
-        checkButtons();
+        UpdateStuff();
     }
 
     public void progressModeToggle()
