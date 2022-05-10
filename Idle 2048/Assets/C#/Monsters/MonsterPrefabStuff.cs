@@ -24,6 +24,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     private Vector3 spawnPoint;
     public Quests quest;
     bool duck;
+    public bool bossDead;
 
     void Start()
     {
@@ -97,8 +98,9 @@ public class MonsterPrefabStuff : MonoBehaviour
     //coroutine for death
     public IEnumerator respawnMonster()
     {
-        if (level.level == level.levelMax && level.killCount != level.requiredKills) level.killCount++;
+        if (level.level == level.levelMax && level.killCount != level.requiredKills && bossDead) level.killCount++;
         level.LevelUpdate();
+        bossDead = true;
         bool coinsMade = false;
         if (duck) { quest.updateDuckQuest(1); duck = false; }
             

@@ -63,6 +63,7 @@ public class Stats : MonoBehaviour
     {
         yield return new WaitForSeconds(30);
         coins = 0;
+        monsterScript.bossDead = false;
         StartCoroutine(monsterScript.respawnMonster());
     }
 }

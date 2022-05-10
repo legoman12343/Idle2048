@@ -24,6 +24,7 @@ public class BuyItem : MonoBehaviour
     public GameObject panel;
     public float baseDamage;
     public float multiplier;
+    public AdManager ads;
 
     void Start()
     {
@@ -116,9 +117,12 @@ public class BuyItem : MonoBehaviour
             int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
             coinsDisplay.pricesUpgrades.RemoveAt(index);
             coinsDisplay.coloursUpgrades.RemoveAt(index);
+            StartCoroutine(ads.showCrateAd());
             panel.SetActive(false);
         }        
     }
+
+    
 
     public void mergeTileLevel()
     {
