@@ -79,12 +79,12 @@ public class Tile : MonoBehaviour
                     }
                 case < 0.3f:
                     {
-                        StartCoroutine(coinMultiplier(60f));
+                        coinMultiplier(60f);
                         break;
                     }
                 case < 0.5f:
                     {
-                        StartCoroutine(DPSMultiplier(60f));
+                        DPSMultiplier(60f);
                         break;
                     }
                 case < 0.7f:
@@ -110,12 +110,12 @@ public class Tile : MonoBehaviour
                     }
                 case < 0.3f:
                     {
-                        StartCoroutine(coinMultiplier(30f));
+                        coinMultiplier(30f);
                         break;
                     }
                 case < 0.5f:
                     {
-                        StartCoroutine(DPSMultiplier(30f));
+                        DPSMultiplier(30f);
                         break;
                     }
                 case < 0.7f:
@@ -139,22 +139,14 @@ public class Tile : MonoBehaviour
         renderer.color = gm.GetTileTypeValue(value).colour;
     }
 
-    private IEnumerator coinMultiplier(float time)
+    private void coinMultiplier(float time)
     {
-        gm.coinMultiplierText.SetActive(true);
-        monsterScript.multiplier += 1;
-        yield return new WaitForSeconds(time);
-        gm.coinMultiplierText.SetActive(false);
-        monsterScript.multiplier -= 1;
+        StartCoroutine(gm.coinMultiplier(time));
     }
 
-    private IEnumerator DPSMultiplier(float time)
+    private void DPSMultiplier(float time)
     {
-        gm.damageMultiplierText.SetActive(true);
-        monsterScript.healthBar.damage.changeMultiplier(1);
-        yield return new WaitForSeconds(time);
-        gm.damageMultiplierText.SetActive(false);
-        monsterScript.healthBar.damage.changeMultiplier(-1);
+        StartCoroutine(gm.DPSMultiplier(time));
     }
 
     public void DestroyCrate()

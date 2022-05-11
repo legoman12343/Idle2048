@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private GameState state;
     private int round;
     public HealthBarScript healthBar;
-    private float travelTime = 0.2f;
+    public float travelTime = 0.2f;
     public Transform endPoint;
     public float crateChance = 0.0f;
     private bool crate;
@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     public GameObject buttonObj;
     public float instantCrateChance;
     private bool previousCrate;
+    public int tileValue;
+    public int mergeDamageMultiplier = 0;
 
 
     public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        tileValue = 1;
         previousCrate = false;
         instantCrateChance = 0f;
         mergeUpgradeChance = 0.0f;
@@ -79,7 +82,7 @@ public class GameManager : MonoBehaviour
                 makeGrid();
                 break;
             case GameState.SpawningBlocks:
-                SpawnTiles(round++ == 0 ? 2 : 1);
+                SpawnTiles(round++ == 0 ? tileValue +1 : tileValue);
                 break;
             case GameState.WaitingInput:
                 break;
@@ -263,7 +266,7 @@ public class GameManager : MonoBehaviour
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
         var newValue = baseTile.value + (Random.value < mergeUpgradeChance ? 2 : 1);
-        quest.updateMergeDamage(newValue);
+        quest.updateMergeDamage(newValue + mergeDamageMultiplier);
         quest.updateTileLevel(newValue);
         StartCoroutine(damageMonster(newValue));
         spawnTile(baseTile.Node, newValue, true);
@@ -391,8 +394,26 @@ public class GameManager : MonoBehaviour
         StartCoroutine(automation());
     }
 
+    public IEnumerator DPSMultiplier(float time)
+    {
+        damageMultiplierText.SetActive(true);
+        monster.healthBar.damage.changeMultiplier(1);
+        yield return new WaitForSeconds(time);
+        damageMultiplierText.SetActive(false);
+        monster.healthBar.damage.changeMultiplier(-1);
+    }
 
-    
+    public IEnumerator coinMultiplier(float time)
+    {
+        coinMultiplierText.SetActive(true);
+        monster.multiplier += 1;
+        yield return new WaitForSeconds(time);
+        coinMultiplierText.SetActive(false);
+        monster.multiplier -= 1;
+    }
+
+
+
 
 }
 
