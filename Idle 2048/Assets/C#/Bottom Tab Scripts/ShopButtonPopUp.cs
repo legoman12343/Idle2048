@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ShopButtonPopUp : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class ShopButtonPopUp : MonoBehaviour
     public GameObject HealthBar;
     public GameObject ProgessSwitchButton;
     public GameObject ButtonsBoarder;
+    public GameObject UpgradeWindow;
+    public GameObject AscensionWindow;
+    public GameObject QuestWindow;
+    public GameObject GemWindow;
+    public GameObject ExtraWindow;
     public Sprite Open;
     public Sprite Close;
     public GameObject Shop;
@@ -30,10 +36,19 @@ public class ShopButtonPopUp : MonoBehaviour
     public Swipe swipe;
     private Color32 Dark = new Color32(164, 164, 164, 255);
     private Color32 Light = new Color32(255, 255, 255, 255);
+    public GameObject ShopEnd;
+    public GameObject ShopEndAscension;
+    public GameObject ShopStart;
+    private Vector3 startPoint;
+    private Vector3 endPointAscension;
+    private Vector3 endPoint;
 
     void Start()
     {
         activeUpgradePanel = 2;
+        endPoint = ShopEnd.transform.position;
+        endPointAscension = ShopEndAscension.transform.position;
+        startPoint = ShopStart.transform.position;
     }
 
     void changeShopTab()
@@ -90,6 +105,7 @@ public class ShopButtonPopUp : MonoBehaviour
                     Shop.GetComponent<Image>().sprite = Open;
                     swipe.canSwipe = false;
                     UpgradeTab.SetActive(true);
+                    UpgradeWindow.transform.position = startPoint;
                     ButtonsBoarder.SetActive(false);
                     if (activeUpgradePanel == 1)
                     {
@@ -103,18 +119,23 @@ public class ShopButtonPopUp : MonoBehaviour
                         GearTitle.GetComponent<Image>().color = Light;
                         GearPanel.SetActive(true);
                     }
+                    UpgradeWindow.transform.DOMove(endPoint, 0.2f);
                     break;
                 case 2:
                     Ascension.GetComponent<Image>().sprite = Open;
                     ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     AscensionTab.SetActive(true);
+                    AscensionWindow.transform.position = startPoint;
+                    AscensionWindow.transform.DOMove(endPointAscension, 0.2f);
                     break;
                 case 3:
                     GemShop.GetComponent<Image>().sprite = Open;
                     ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     SpecialCurrencyTab.SetActive(true);
+                    GemWindow.transform.position = startPoint;
+                    GemWindow.transform.DOMove(endPoint, 0.2f);
                     break;
                 case 4:
                     Extra.GetComponent<Image>().sprite = Open;
@@ -123,6 +144,8 @@ public class ShopButtonPopUp : MonoBehaviour
                     HealthBar.SetActive(false);
                     ProgessSwitchButton.SetActive(false);
                     ExtraAreaTab.SetActive(true);
+                    ExtraWindow.transform.position = startPoint;
+                    ExtraWindow.transform.DOMove(endPointAscension, 0.2f);
                     break;
                 case 5:
                     if (activeUpgradePanel == 1)
@@ -147,6 +170,8 @@ public class ShopButtonPopUp : MonoBehaviour
                     ButtonsBoarder.SetActive(false);
                     swipe.canSwipe = false;
                     QuestTab.SetActive(true);
+                    QuestWindow.transform.position = startPoint;
+                    QuestWindow.transform.DOMove(endPoint, 0.2f);
                     break;
             }
         }

@@ -18,16 +18,19 @@ public class OfflineDaily : MonoBehaviour
 	public Sprite greyButton;
 	public GameObject doubleButton;
 	public GameObject dailyTab;
+	public GameObject dailyWindow;
+	public GameObject offlineScaleWindow;
 	public GameObject dailyClaimButton;
 	public GameObject dailyAlertButton;
 	public Text wang;
 	[SerializeField] private List<Rewards> rewards;
 	[SerializeField] private List<RectTransform> positions;
 	public GameManager gm;
+	private Vector3 windowScale;
 
 	void Start()
 	{
-		
+		windowScale = new Vector3(1f, 2.17875f, 1f);
 		dailyAlertButton.SetActive(true);
 		offlineWindow.SetActive(true);
 		oldtime = DateTime.Now;
@@ -89,7 +92,12 @@ public class OfflineDaily : MonoBehaviour
 	{
 		moneyScript.Coins += money;
 		money = 0;
-		offlineWindow.SetActive(false);
+		LeanTween.scale(offlineScaleWindow, Vector2.zero, 0.2f).setOnComplete(deactivateOffline);
+	}
+
+	public void deactivateOffline()
+	{
+		offlineScaleWindow.SetActive(false);
 	}
 
 	public void claimEarningsVideo()
@@ -197,16 +205,20 @@ public class OfflineDaily : MonoBehaviour
 
 	public void closeDaily()
 	{
-		dailyTab.transform.LeanScale(Vector2.zero, 0.8f).setEaseInBack();
-		//dailyTab.SetActive(false);
+		Debug.Log("close daily");
+		LeanTween.scale(dailyWindow, Vector2.zero, 0.2f).setOnComplete(deactivate);
 	}
+
+	public void deactivate()
+	{
+		dailyTab.SetActive(false);
+	}
+		
 
 	public void openDailyAlert()
 	{
 		dailyTab.SetActive(true);
-		dailyTab.transform.localScale = Vector2.zero;
-		dailyTab.transform.LeanScale(Vector2.one, 0.8f);
-		
+		LeanTween.scale(dailyWindow, windowScale, 0.2f);
 	}
 
 }

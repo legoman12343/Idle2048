@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Stats : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Stats : MonoBehaviour
     public bool boss;
     private IEnumerator coroutine;
     public Quests quest;
+    public TextMeshProUGUI timerText;
+    private float timer;
 
     public void Init()
     {
@@ -29,6 +32,7 @@ public class Stats : MonoBehaviour
         {
             totalHealth *= 10;
             coins = level.getMonsterCoins() * 5;
+            timerText.gameObject.SetActive(true);
         }
         currentHealth = totalHealth;
         healthBar.health = totalHealth;
@@ -48,6 +52,7 @@ public class Stats : MonoBehaviour
             respawn = true;
             if (boss == true)
             {
+                timerText.gameObject.SetActive(false);
                 StopCoroutine(coroutine);
                 quest.updateKillBossQuest(1);
             }
@@ -61,9 +66,16 @@ public class Stats : MonoBehaviour
 
     public IEnumerator bossTimer()
     {
-        yield return new WaitForSeconds(30);
-        coins = 0;
-        monsterScript.bossDead = false;
+        timer -= Time.deltaTime;
+        timer = 30f;
+        while (timer>0)
+        {
+            timer -= 0.1f;
+            timerText.text = timer.ToString("0.##") + "/30";
+            yield return new WaitForSeconds(0.1f);
+        }
+        timerText.gameObject.SetActive(false);
         StartCoroutine(monsterScript.respawnMonster());
+        
     }
 }

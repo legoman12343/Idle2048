@@ -4,6 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using Assets.FantasyMonsters.Scripts;
 using DG.Tweening;
+using TMPro;
 
 public class MonsterPrefabStuff : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     public Quests quest;
     bool duck;
     public bool bossDead;
+    public TextMeshProUGUI timerText;
 
     void Start()
     {
@@ -50,7 +52,9 @@ public class MonsterPrefabStuff : MonoBehaviour
         {
             int prefabIndex = UnityEngine.Random.Range(0, bossPrefabList.Count - 1);
             monster[0] = Instantiate(bossPrefabList[prefabIndex], spawnPoint, Quaternion.identity);
-            monster[0].GetComponent<Stats>().boss = true;
+            var s = monster[0].GetComponent<Stats>();
+            s.boss = true;
+            s.timerText = timerText;
             level.requiredKills = 1;
             level.killSlider.maxValue = 1;
         }

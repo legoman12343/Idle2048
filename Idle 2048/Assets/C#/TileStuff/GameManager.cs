@@ -265,7 +265,7 @@ public class GameManager : MonoBehaviour
 
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
-        var newValue = baseTile.value + (Random.value < mergeUpgradeChance ? 2 : 1);
+        var newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
         quest.updateMergeDamage(newValue + mergeDamageMultiplier);
         quest.updateTileLevel(newValue);
         StartCoroutine(damageMonster(newValue));
@@ -305,7 +305,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator damageMonster(int v)
     {
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(1f);
         healthBar.health -= v;
     }
 

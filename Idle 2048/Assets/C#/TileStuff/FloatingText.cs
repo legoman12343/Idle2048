@@ -7,7 +7,7 @@ using UnityEngine;
 public class FloatingText : MonoBehaviour
 {
     private TextMeshPro _text;
-    private float travelTime = 1.6f;
+    private float travelTime = 1.0f;
     public Transform endPoint;
 
     public void Init(int value)
