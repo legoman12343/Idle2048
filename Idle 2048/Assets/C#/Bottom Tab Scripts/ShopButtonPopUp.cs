@@ -40,7 +40,6 @@ public class ShopButtonPopUp : MonoBehaviour
     {
         if(!UpgradeTab.activeSelf && !QuestTab.activeSelf && !AscensionTab.activeSelf && !SpecialCurrencyTab.activeSelf && !ExtraAreaTab.activeSelf)
         {
-            Debug.Log("ASDa");
             lastButton = 0;
         }
         if (activeShopTab != 5)
