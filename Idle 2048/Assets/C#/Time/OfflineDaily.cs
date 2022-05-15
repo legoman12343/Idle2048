@@ -8,7 +8,6 @@ using System.Linq;
 public class OfflineDaily : MonoBehaviour
 {
 	private DateTime oldtime;
-	public bool claimDailyReward;
 	public LevelController level;
 	public Damage damage;
 	public AdManager ads;
@@ -19,29 +18,35 @@ public class OfflineDaily : MonoBehaviour
 	public Sprite greyButton;
 	public GameObject doubleButton;
 	public GameObject dailyTab;
+	public GameObject dailyClaimButton;
+	public GameObject dailyAlertButton;
 	public Text wang;
 	[SerializeField] private List<Rewards> rewards;
+	[SerializeField] private List<RectTransform> positions;
 	public GameManager gm;
 
 	void Start()
 	{
+		
+		dailyAlertButton.SetActive(true);
 		offlineWindow.SetActive(true);
 		oldtime = DateTime.Now;
-		claimDailyReward = false;
 		multiplier = 0.2f;
 		offlineEarnings();
+		InvokeRepeating("CheckDailyReward", 0f, 2f);		
 	}
 	//dailyreward
-	void FixedUpdate()
+	
+	void CheckDailyReward()
 	{
 		int nextDay;
 		if (WorldTimeAPI.Instance.IsTimeLodaed)
 		{
 			DateTime currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
 
-			int dayOFYear = currentDateTime.DayOfYear;
+			int dayOFYear = oldtime.DayOfYear;
 
-			if (dayOFYear == 365 && DateTime.IsLeapYear(currentDateTime.Year) || dayOFYear == 366)
+			if (dayOFYear == 365 && DateTime.IsLeapYear(currentDateTime.Year) == false || dayOFYear == 366)
 			{
 				nextDay = 1;
 			}
@@ -50,13 +55,14 @@ public class OfflineDaily : MonoBehaviour
 				nextDay = oldtime.DayOfYear + 1;
 			}
 
-			if (nextDay > dayOFYear || ((nextDay == 1) && (oldtime.DayOfYear == 365 || oldtime.DayOfYear == 366)))
+			if (nextDay == currentDateTime.DayOfYear)
 			{
-				claimDailyReward = true;
+				dailyAlertButton.SetActive(true);
+				dailyClaimButton.SetActive(true);
 			}
 		}
 	}
-
+	
 	public IEnumerator offlineEarnings()
 	{
 		bool completed = false;
@@ -95,6 +101,7 @@ public class OfflineDaily : MonoBehaviour
 
 	public void claimDailyRewardFunc()
 	{
+		dailyAlertButton.SetActive(false);
 		Rewards reward = rewards[0];
 		switch (reward.Type)
 		{
@@ -153,9 +160,17 @@ public class OfflineDaily : MonoBehaviour
 					break;
 				}
 		}
-
+		dailyClaimButton.SetActive(false);
 		rewards.RemoveAt(0);
-		rewards.Insert(rewards.Count - 1, reward);
+		rewards.Insert(rewards.Count, reward);
+		Vector3 pos = positions[positions.Count - 1].anchoredPosition;
+		Vector3 lastPos;
+		for (int i = 0; i < positions.Count; i++)
+		{
+			lastPos = positions[i].anchoredPosition;
+			positions[i].anchoredPosition = pos;
+			pos = lastPos;
+		}
 
 	}
 
@@ -182,8 +197,18 @@ public class OfflineDaily : MonoBehaviour
 
 	public void closeDaily()
 	{
-		dailyTab.SetActive(false);
+		dailyTab.transform.LeanScale(Vector2.zero, 0.8f).setEaseInBack();
+		//dailyTab.SetActive(false);
 	}
+
+	public void openDailyAlert()
+	{
+		dailyTab.SetActive(true);
+		dailyTab.transform.localScale = Vector2.zero;
+		dailyTab.transform.LeanScale(Vector2.one, 0.8f);
+		
+	}
+
 }
 
 public enum RewardType
