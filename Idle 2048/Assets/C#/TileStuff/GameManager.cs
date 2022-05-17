@@ -315,7 +315,7 @@ public class GameManager : MonoBehaviour
         {
             if (tile.value != 0)
             {
-                tile.value += tile.value;
+                tile.value *= 2;
                 tile.updateNumber();
             }
         }

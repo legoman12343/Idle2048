@@ -27,6 +27,7 @@ public class OfflineDaily : MonoBehaviour
 	[SerializeField] private List<RectTransform> positions;
 	public GameManager gm;
 	private Vector3 windowScale;
+	public NotificationAnimation dailyAnimation;
 
 	void Start()
 	{
@@ -36,8 +37,26 @@ public class OfflineDaily : MonoBehaviour
 		oldtime = DateTime.Now;
 		multiplier = 0.2f;
 		offlineEarnings();
-		InvokeRepeating("CheckDailyReward", 0f, 2f);		
+		InvokeRepeating("CheckDailyReward", 0f, 2f);
+		StartCoroutine(initAnimation());
 	}
+
+	IEnumerator initAnimation()
+	{
+		bool c = false;
+		while (!c)
+		{
+			yield return new WaitForSeconds(0.5f);
+			Debug.Log("DSFAFGAGADFVESRTG");
+			c = dailyAnimation.startAnimation();
+			
+		}
+	}
+	
+
+
+
+
 	//dailyreward
 	
 	void CheckDailyReward()
@@ -61,6 +80,7 @@ public class OfflineDaily : MonoBehaviour
 			if (nextDay == currentDateTime.DayOfYear)
 			{
 				dailyAlertButton.SetActive(true);
+				dailyAnimation.startAnimation();
 				dailyClaimButton.SetActive(true);
 			}
 		}
@@ -110,6 +130,7 @@ public class OfflineDaily : MonoBehaviour
 	public void claimDailyRewardFunc()
 	{
 		dailyAlertButton.SetActive(false);
+		dailyAnimation.stopAnimation();
 		Rewards reward = rewards[0];
 		switch (reward.Type)
 		{

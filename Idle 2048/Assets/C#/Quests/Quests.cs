@@ -19,6 +19,7 @@ public class Quests : MonoBehaviour
     private int crateTarget;
     private int duckCount;
     private int duckTarget;
+    public NotificationAnimation questAnimation;
 
     void Start()
     {
@@ -51,7 +52,7 @@ public class Quests : MonoBehaviour
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
-
+            questAnimation.startAnimation();
         }
     }
 
@@ -59,6 +60,7 @@ public class Quests : MonoBehaviour
     {
         //unlock upgrade
         progressbars[5].tab.SetActive(false);
+        questAnimation.stopAnimation();
     }
 
     private void initOpenCrates()
@@ -82,7 +84,7 @@ public class Quests : MonoBehaviour
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
-
+            questAnimation.startAnimation();
         }
     }
 
@@ -90,12 +92,13 @@ public class Quests : MonoBehaviour
     {
         //unlock upgrade
         progressbars[4].tab.SetActive(false);
+        questAnimation.stopAnimation();
     }
 
     private void initTileLevel()
     {
         tileLevel = 0;
-        tileLevelTarget = 10;
+        tileLevelTarget = 1024;
         progressbars[3].slider.maxValue = tileLevelTarget;
         progressbars[3].slider.value = 0;
         progressbars[3].button.SetActive(false);
@@ -115,6 +118,7 @@ public class Quests : MonoBehaviour
                 bar.sliderParent.SetActive(false);
                 bar.button.SetActive(true);
                 bar.state = 1;
+                questAnimation.startAnimation();
             }
         }
     }
@@ -123,6 +127,7 @@ public class Quests : MonoBehaviour
     {
         //unlock upgrade
         progressbars[3].tab.SetActive(false);
+        questAnimation.stopAnimation();
     }
 
     private void initMergeDamage()
@@ -146,6 +151,7 @@ public class Quests : MonoBehaviour
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
+            questAnimation.startAnimation();
         }
     }
 
@@ -153,6 +159,7 @@ public class Quests : MonoBehaviour
     {
         //unlock upgrade
         progressbars[2].tab.SetActive(false);
+        questAnimation.stopAnimation();
     }
 
         private void initKillBoss()
@@ -176,6 +183,7 @@ public class Quests : MonoBehaviour
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
+            questAnimation.startAnimation();
         }
     }
 
@@ -183,6 +191,7 @@ public class Quests : MonoBehaviour
     {
         //unlock upgrade
         progressbars[1].tab.SetActive(false);
+        questAnimation.stopAnimation();
     }
 
     private void initKillMonsters()
@@ -206,6 +215,7 @@ public class Quests : MonoBehaviour
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
+            questAnimation.startAnimation();
         }
     }
 
@@ -213,6 +223,7 @@ public class Quests : MonoBehaviour
     {
         //unlock upgrade
         progressbars[0].tab.SetActive(false);
+        questAnimation.stopAnimation();
     }
 }
 

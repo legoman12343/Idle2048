@@ -15,6 +15,8 @@ public class CoinsDisplay : MonoBehaviour
     public List<Image> coloursUpgrades;
     public Color red;
     public Color green;
+    public NotificationAnimation upgradeAnimation;
+    public Damage damage;
 
     // Start is called before the first frame update
     void Start()
@@ -71,10 +73,18 @@ public class CoinsDisplay : MonoBehaviour
 
     public void updateButtons()
     {
+        bool check = false;
         for (int i = 0; i < prices.Count; i++)
         {
-            if(Coins >= prices[i])
+            if (Coins >= prices[i])
+            {
                 colours[i].color = green;
+                if (damage.itemDamage[i] == 0)
+                {
+                    check = true;
+                }
+            }
+            
             else
                 colours[i].color = red;
         }
@@ -82,10 +92,18 @@ public class CoinsDisplay : MonoBehaviour
         for (int i = 0; i < pricesUpgrades.Count; i++)
         {
             if (Coins >= pricesUpgrades[i])
+            {
                 coloursUpgrades[i].color = green;
+                check = true;
+            }
             else
                 coloursUpgrades[i].color = red;
         }
+
+        if (check)
+            upgradeAnimation.startAnimation();
+        else
+            upgradeAnimation.stopAnimation();
     }
 
 }

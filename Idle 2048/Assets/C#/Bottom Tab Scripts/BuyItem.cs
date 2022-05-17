@@ -25,6 +25,7 @@ public class BuyItem : MonoBehaviour
     public float baseDamage;
     public float multiplier;
     public AdManager ads;
+    public NotificationAnimation upgradeAnimation;
 
     void Start()
     {

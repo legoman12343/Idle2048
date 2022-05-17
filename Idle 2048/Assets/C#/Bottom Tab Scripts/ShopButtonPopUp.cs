@@ -42,6 +42,7 @@ public class ShopButtonPopUp : MonoBehaviour
     private Vector3 startPoint;
     private Vector3 endPointAscension;
     private Vector3 endPoint;
+    public NotificationAnimation upgradeAnimation;
 
     void Start()
     {
@@ -120,6 +121,7 @@ public class ShopButtonPopUp : MonoBehaviour
                         GearPanel.SetActive(true);
                     }
                     UpgradeWindow.transform.DOMove(endPoint, 0.2f);
+                    upgradeAnimation.stopAnimation();
                     break;
                 case 2:
                     Ascension.GetComponent<Image>().sprite = Open;
