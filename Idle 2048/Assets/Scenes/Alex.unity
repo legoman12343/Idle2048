@@ -298,7 +298,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6124866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton3b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6124866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,7 +432,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7262097}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton1b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7262097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1637,7 +1661,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 26658643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: DPSButton6b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &26658643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,7 +1956,7 @@ GameObject:
   - component: {fileID: 34902685}
   - component: {fileID: 34902684}
   m_Layer: 5
-  m_Name: 'PopUp '
+  m_Name: PopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3748,7 +3784,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 65341293}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton11b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &65341293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4098,7 +4146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Crate Maximum
 --- !u!222 &70198746
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5616,7 +5664,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8695,7 +8743,7 @@ RectTransform:
   m_GameObject: {fileID: 175469270}
   m_LocalRotation: {x: -0, y: -0, z: 0.90817505, w: -0.41859072}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1529670979}
@@ -10515,7 +10563,7 @@ GameObject:
   - component: {fileID: 199121609}
   - component: {fileID: 199121608}
   m_Layer: 5
-  m_Name: 'PopUp '
+  m_Name: PopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12785,7 +12833,7 @@ GameObject:
   - component: {fileID: 232685199}
   - component: {fileID: 232685198}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14857,7 +14905,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 265963901}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton2b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &265963901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16121,7 +16181,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 291775269}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton6b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &291775269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17834,7 +17906,7 @@ GameObject:
   - component: {fileID: 331486272}
   - component: {fileID: 331486271}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18923,7 +18995,7 @@ RectTransform:
   m_GameObject: {fileID: 351421631}
   m_LocalRotation: {x: -0, y: -0, z: 0.99708474, w: -0.07630264}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 133006122}
@@ -19272,7 +19344,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 359976698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: moneyButton3b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &359976698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21286,7 +21370,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 391504906}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton5b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &391504906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21775,7 +21871,7 @@ RectTransform:
   m_GameObject: {fileID: 402739141}
   m_LocalRotation: {x: -0, y: -0, z: 0.99998313, w: 0.0058150473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 718584270}
@@ -22036,7 +22132,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Damage Buff
 --- !u!222 &404486357
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22720,7 +22816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -15}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426803295
@@ -26154,7 +26250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 482963845}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton13b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &482963845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26571,7 +26679,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 486685000}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton3b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &486685000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26809,7 +26929,7 @@ RectTransform:
   m_GameObject: {fileID: 491899808}
   m_LocalRotation: {x: -0, y: -0, z: 0.9985978, w: -0.052937485}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1007938871}
@@ -27260,7 +27380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &494413950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27350,7 +27470,7 @@ RectTransform:
   m_GameObject: {fileID: 495260055}
   m_LocalRotation: {x: -0.09254996, y: 0.041490182, z: -0.061758436, w: 0.9929245}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 77214896}
@@ -28342,7 +28462,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 513462405}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: DPSButton1b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &513462405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28799,7 +28931,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Speed
 --- !u!222 &515934554
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29376,7 +29508,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 528602508}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton10b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &528602508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29664,7 +29808,7 @@ RectTransform:
   m_GameObject: {fileID: 537992517}
   m_LocalRotation: {x: -0, y: -0, z: -0.98669297, w: -0.162595}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1463976994}
@@ -30512,7 +30656,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 553478257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton7b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &553478257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31567,7 +31723,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 578317864}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: moneyButton2b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &578317864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32161,7 +32329,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 586568058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton12b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &586568058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33237,7 +33417,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 603926054}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: DPSButton7b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &603926054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34139,7 +34331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Level
 --- !u!222 &628328084
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35242,7 +35434,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Money Buff
 --- !u!222 &641896694
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35562,7 +35754,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Level
 --- !u!222 &645258675
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36707,7 +36899,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Damage Buff
 --- !u!222 &670898745
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37487,7 +37679,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 684829690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton8b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &684829690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38301,7 +38505,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 696421576}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton8b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &696421576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40167,7 +40383,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 734586012}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton4b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &734586012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40641,7 +40869,7 @@ RectTransform:
   m_GameObject: {fileID: 740615099}
   m_LocalRotation: {x: -0, y: -0, z: -0.7174568, w: -0.69660306}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1764397822}
@@ -40974,7 +41202,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Damage Buff
 --- !u!222 &741616170
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41312,7 +41540,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 747105919}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton5b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &747105919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43005,7 +43245,7 @@ RectTransform:
   m_GameObject: {fileID: 786287057}
   m_LocalRotation: {x: -0, y: -0, z: 0.63828784, w: 0.7697978}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 960975746}
@@ -44163,7 +44403,7 @@ RectTransform:
   m_GameObject: {fileID: 813972535}
   m_LocalRotation: {x: -0, y: -0, z: -0.99587923, w: 0.090689205}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 56871676}
@@ -46224,7 +46464,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Damage Buff
 --- !u!222 &847213296
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46504,7 +46744,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 849253615}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton2b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &849253615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49373,7 +49625,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 906270827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: DPSButton3b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &906270827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49495,7 +49759,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 906739046}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton9b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &906739046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49975,7 +50251,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Crate Maximum
 --- !u!222 &911837406
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51903,7 +52179,7 @@ GameObject:
   - component: {fileID: 942592912}
   - component: {fileID: 942592910}
   m_Layer: 5
-  m_Name: 'DButton 1   '
+  m_Name: DButton 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57643,7 +57919,7 @@ RectTransform:
   m_GameObject: {fileID: 1036440666}
   m_LocalRotation: {x: -0, y: -0, z: -0.7834562, w: -0.621447}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 913621013}
@@ -57825,7 +58101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Criticial Chance
 --- !u!222 &1037752133
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -60588,7 +60864,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Money Buff
 --- !u!222 &1095906309
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62691,7 +62967,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Damage Buff
 --- !u!222 &1134030600
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -65741,7 +66017,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 28.846157, y: -21.922932}
-  m_SizeDelta: {x: 15.561959, y: 75}
+  m_SizeDelta: {x: 16.98113, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188573456
 MonoBehaviour:
@@ -67772,7 +68048,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1224520861}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: moneyButton5b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1224520861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69081,7 +69369,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Level
 --- !u!222 &1237794923
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -69173,7 +69461,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1239693010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: moneyButton1b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1239693010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70010,7 +70310,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1250137142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton6b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1250137142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70323,7 +70635,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Damage & Money!
 --- !u!222 &1256878400
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -70804,7 +71116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Money Buff
 --- !u!222 &1265946854
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -71541,7 +71853,7 @@ RectTransform:
   m_GameObject: {fileID: 1280821187}
   m_LocalRotation: {x: -0, y: -0, z: 0.7595455, w: 0.65045416}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1580913831}
@@ -71911,7 +72223,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Level
 --- !u!222 &1283225263
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -72490,7 +72802,7 @@ GameObject:
   - component: {fileID: 1291319399}
   - component: {fileID: 1291319398}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72827,7 +73139,7 @@ RectTransform:
   m_GameObject: {fileID: 1299253060}
   m_LocalRotation: {x: -0, y: -0, z: -0.993334, w: 0.11527183}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.35, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2041227874}
@@ -73384,7 +73696,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2.5}
-  m_SizeDelta: {x: 236.02306, y: 75}
+  m_SizeDelta: {x: 242.58759, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317271837
 MonoBehaviour:
@@ -73463,7 +73775,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Criticial Chance
 --- !u!222 &1317271841
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -74551,7 +74863,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1343179704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: tileButton9b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1343179704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76042,7 +76366,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2.5}
-  m_SizeDelta: {x: 242.58759, y: 75}
+  m_SizeDelta: {x: 310.51212, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384944647
 MonoBehaviour:
@@ -76121,7 +76445,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Damage & Money!
 --- !u!222 &1384944651
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -77680,7 +78004,7 @@ GameObject:
   - component: {fileID: 1405772297}
   - component: {fileID: 1405772295}
   m_Layer: 5
-  m_Name: 'MButton 1  '
+  m_Name: MButton 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79818,7 +80142,7 @@ RectTransform:
   m_GameObject: {fileID: 1463129258}
   m_LocalRotation: {x: -0, y: -0, z: -0.95263207, w: -0.30412534}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1441779867}
@@ -86040,7 +86364,7 @@ RectTransform:
   m_GameObject: {fileID: 1578544124}
   m_LocalRotation: {x: -0, y: -0, z: -0.87775636, w: -0.47910735}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 572789069}
@@ -86187,7 +86511,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579902938}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton7b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1579902938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88409,7 +88745,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1608133448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: moneyButton4b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1608133448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89137,7 +89485,7 @@ RectTransform:
   m_GameObject: {fileID: 1621909131}
   m_LocalRotation: {x: -0, y: -0, z: -0.87504846, w: 0.4840353}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 849078545}
@@ -91752,7 +92100,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1671882129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: DPSButton2b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1671882129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93565,7 +93925,7 @@ GameObject:
   - component: {fileID: 1692826258}
   - component: {fileID: 1692826257}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95262,7 +95622,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Grid Size!
 --- !u!222 &1714999586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -95522,7 +95882,7 @@ GameObject:
   - component: {fileID: 1720636484}
   - component: {fileID: 1720636483}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96312,7 +96672,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Weakened Crates
 --- !u!222 &1732535058
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -97393,7 +97753,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Money Buff
 --- !u!222 &1750785354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -97632,7 +97992,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Level
 --- !u!222 &1754058123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -100076,7 +100436,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -41.95297, y: -16.108042}
-  m_SizeDelta: {x: 15.561959, y: 75}
+  m_SizeDelta: {x: 16.98113, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802316771
 MonoBehaviour:
@@ -100190,7 +100550,7 @@ RectTransform:
   m_GameObject: {fileID: 1803892115}
   m_LocalRotation: {x: -0, y: -0, z: -0.96392137, w: 0.26618725}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 284062689}
@@ -100516,7 +100876,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 6.237071}
-  m_SizeDelta: {x: 25.936598, y: 75}
+  m_SizeDelta: {x: 26.684635, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1811413421
 MonoBehaviour:
@@ -100869,7 +101229,7 @@ GameObject:
   - component: {fileID: 1819623155}
   - component: {fileID: 1819623154}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101279,7 +101639,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1822292300}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: DPSButton4b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1822292300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101752,7 +102124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Damage Buff
 --- !u!222 &1827894227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -102004,7 +102376,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 25, y: 2.5}
-  m_SizeDelta: {x: 176.36887, y: 75}
+  m_SizeDelta: {x: 177.08894, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1840865530
 MonoBehaviour:
@@ -102290,7 +102662,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1846423406}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: DPSButton5b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1846423406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103427,7 +103811,7 @@ RectTransform:
   m_GameObject: {fileID: 1860456673}
   m_LocalRotation: {x: -0, y: -0, z: 0.13526136, w: 0.99081}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 783779752}
@@ -103955,7 +104339,7 @@ GameObject:
   - component: {fileID: 1872976708}
   - component: {fileID: 1872976707}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104969,7 +105353,7 @@ GameObject:
   - component: {fileID: 1887171658}
   - component: {fileID: 1887171657}
   m_Layer: 5
-  m_Name: 'Image  '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108411,7 +108795,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1948737965}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton4b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1948737965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108822,7 +109218,7 @@ GameObject:
   - component: {fileID: 1966516545}
   - component: {fileID: 1966516544}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109724,7 +110120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1983122903}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton11b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1983122903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110721,7 +111129,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Level
 --- !u!222 &1995489810
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -110961,7 +111369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2001122874
 RectTransform:
   m_ObjectHideFlags: 0
@@ -114633,7 +115041,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Level
 --- !u!222 &2052274377
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -115737,7 +116145,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Tile Speed
 --- !u!222 &2066114869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -115964,7 +116372,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2067092790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1811724081}
+        m_TargetAssemblyTypeName: Ascension, Assembly-CSharp
+        m_MethodName: crateButton10b
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2067092790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116315,7 +116735,7 @@ GameObject:
   - component: {fileID: 2072113049}
   - component: {fileID: 2072113048}
   m_Layer: 5
-  m_Name: 'Image '
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118117,7 +118537,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2.5}
-  m_SizeDelta: {x: 242.58759, y: 75}
+  m_SizeDelta: {x: 281.4016, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2103585518
 MonoBehaviour:
@@ -118196,7 +118616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crate Chance
+  m_Text: Criticial Chance
 --- !u!222 &2103585522
 CanvasRenderer:
   m_ObjectHideFlags: 0

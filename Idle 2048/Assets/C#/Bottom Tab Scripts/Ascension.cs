@@ -26,6 +26,13 @@ public class Ascension : MonoBehaviour
     private int cost;
     private float timer;
 
+    private bool biggerGridUnlock1 = false;
+    private bool biggerGridUnlock2 = false;
+    private bool tileLevelUnlock1 = false;
+    private bool tileLevelUnlock2 = false;
+    private bool moneyDamageUnlock1 = false;
+    private bool moneyDamageUnlock2 = false;
+
     //ascension buttons
     public void openAscensionPopUp()
     {
@@ -180,7 +187,37 @@ public class Ascension : MonoBehaviour
         lastButton = 2;
     }
     public void tileButton2b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[18], buttonList[1]));
+            tempObject = SliderList[20].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[22].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[24].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[7].GetComponent<Image>().color = RedButton;
+            buttonList[7].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[7].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[10].GetComponent<Image>().color = RedButton;
+            buttonList[10].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[10].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[11].GetComponent<Image>().color = RedButton;
+            buttonList[11].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[11].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[8].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[9].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[1].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[1].SetActive(false);
+        }
     }
     public void tileButton3a() {
         currentButton = 3;
@@ -188,7 +225,23 @@ public class Ascension : MonoBehaviour
         lastButton = 3;
     }
     public void tileButton3b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[12], buttonList[2]));
+            tempObject = SliderList[14].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[4].GetComponent<Image>().color = RedButton;
+            buttonList[4].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[4].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[3].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[2].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[2].SetActive(false);
+        }
     }
     public void tileButton4a() {
         currentButton = 4;
@@ -196,7 +249,29 @@ public class Ascension : MonoBehaviour
         lastButton = 4;
     }
     public void tileButton4b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[13], buttonList[3]));
+            tempObject = SliderList[15].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[16].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[5].GetComponent<Image>().color = RedButton;
+            buttonList[5].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[5].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[6].GetComponent<Image>().color = RedButton;
+            buttonList[6].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[6].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[4].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[3].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[3].SetActive(false);
+        }
     }
     public void tileButton5a() {
         currentButton = 5;
@@ -204,7 +279,25 @@ public class Ascension : MonoBehaviour
         lastButton = 5;
     }
     public void tileButton5b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[14], buttonList[4]));
+            tempObject = SliderList[17].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[7].GetComponent<Image>().color = RedButton;
+            buttonList[7].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[7].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[5].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[6].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[4].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[4].SetActive(false);
+        }
     }
     public void tileButton6a() {
         currentButton = 6;
@@ -212,7 +305,15 @@ public class Ascension : MonoBehaviour
         lastButton = 6;
     }
     public void tileButton6b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[15], buttonList[5]));
+            tempObject = buttonList[5].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[5].SetActive(false);
+        }
     }
     public void tileButton7a() {
         currentButton = 7;
@@ -220,15 +321,38 @@ public class Ascension : MonoBehaviour
         lastButton = 7;
     }
     public void tileButton7b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[16], buttonList[6]));
+            tempObject = buttonList[6].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[6].SetActive(false);
+            biggerGridUnlock1 = true;
+        }
     }
     public void tileButton8a() {
         currentButton = 8;
         openAndClose();
         lastButton = 8;
+        if (biggerGridUnlock1 && biggerGridUnlock2)
+        {
+            tempObject = buttonList[7].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+        }
     }
     public void tileButton8b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[17], buttonList[7]));
+            StartCoroutine(buyAnimation(SliderList[20], buttonList[7]));
+            tempObject = buttonList[7].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[7].SetActive(false);
+        }
     }
     public void tileButton9a() {
         currentButton = 9;
@@ -236,7 +360,16 @@ public class Ascension : MonoBehaviour
         lastButton = 9;
     }
     public void tileButton9b() {
-   
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[19], buttonList[8]));
+            tempObject = buttonList[8].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[8].SetActive(false);
+            biggerGridUnlock2 = true;
+        }
     }
     public void tileButton10a() {
         currentButton = 10;
@@ -244,7 +377,27 @@ public class Ascension : MonoBehaviour
         lastButton = 10;
     }
     public void tileButton10b() {
-     
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[21], buttonList[9]));
+            tempObject = SliderList[23].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[25].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[12].GetComponent<Image>().color = RedButton;
+            buttonList[12].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[12].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[10].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[11].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[9].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[9].SetActive(false);
+        }
     }
     public void tileButton11a() {
         currentButton = 11;
@@ -252,7 +405,16 @@ public class Ascension : MonoBehaviour
         lastButton = 11;
     }
     public void tileButton11b() {
-  
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[24], buttonList[10]));
+            tempObject = buttonList[10].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[10].SetActive(false);
+            tileLevelUnlock1 = true;
+        }
     }
     public void tileButton12a() {
         currentButton = 12;
@@ -260,15 +422,38 @@ public class Ascension : MonoBehaviour
         lastButton = 12;
     }
     public void tileButton12b() {
- 
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[22], buttonList[11]));
+            tempObject = buttonList[11].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[11].SetActive(false);
+            tileLevelUnlock2 = true;
+        }
     }
     public void tileButton13a() {
         currentButton = 13;
         openAndClose();
         lastButton = 13;
+        if (tileLevelUnlock1 && tileLevelUnlock2)
+        {
+            tempObject = buttonList[12].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+        }
     }
     public void tileButton13b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[25], buttonList[12]));
+            StartCoroutine(buyAnimation(SliderList[23], buttonList[12]));
+            tempObject = buttonList[12].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[12].SetActive(false);
+        }
     }
     //money buttons
     public void moneyButton1a() {
@@ -277,7 +462,41 @@ public class Ascension : MonoBehaviour
         lastButton = 14;
     }
     public void moneyButton1b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[26], buttonList[13]));
+            tempObject = SliderList[28].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[29].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[30].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[31].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[15].GetComponent<Image>().color = RedButton;
+            buttonList[15].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[15].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[16].GetComponent<Image>().color = RedButton;
+            buttonList[16].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[16].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[17].GetComponent<Image>().color = RedButton;
+            buttonList[17].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[17].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[24].GetComponent<Image>().color = RedButton;
+            buttonList[24].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[24].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[14].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[13].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[13].SetActive(false);
+        }
     }
     public void moneyButton2a() {
         currentButton = 15;
@@ -285,7 +504,22 @@ public class Ascension : MonoBehaviour
         lastButton = 15;
     }
     public void moneyButton2b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[27], buttonList[14]));
+            tempObject = buttonList[15].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[16].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[17].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[14].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[14].SetActive(false);
+            moneyDamageUnlock1 = true;
+        }
     }
     public void moneyButton3a() {
         currentButton = 16;
@@ -293,7 +527,15 @@ public class Ascension : MonoBehaviour
         lastButton = 16;
     }
     public void moneyButton3b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[28], buttonList[15]));
+            tempObject = buttonList[15].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[15].SetActive(false);
+        }
     }
     public void moneyButton4a() {
         currentButton = 17;
@@ -301,7 +543,15 @@ public class Ascension : MonoBehaviour
         lastButton = 17;
     }
     public void moneyButton4b() {
-        
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[29], buttonList[16]));
+            tempObject = buttonList[16].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[16].SetActive(false);
+        }
     }
     public void moneyButton5a() {
         currentButton = 18;
@@ -309,7 +559,15 @@ public class Ascension : MonoBehaviour
         lastButton = 18;
     }
     public void moneyButton5b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[30], buttonList[17]));
+            tempObject = buttonList[17].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[17].SetActive(false);
+        }
     }
     //DPS buttons
     public void DPSButton1a() {
@@ -318,7 +576,23 @@ public class Ascension : MonoBehaviour
         lastButton = 19;
     }
     public void DPSButton1b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[32], buttonList[18]));
+            tempObject = SliderList[34].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[20].GetComponent<Image>().color = RedButton;
+            buttonList[20].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[20].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[19].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[18].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[18].SetActive(false);
+        }
     }
     public void DPSButton2a() {
         currentButton = 20;
@@ -326,7 +600,23 @@ public class Ascension : MonoBehaviour
         lastButton = 20;
     }
     public void DPSButton2b() {
-   
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[33], buttonList[19]));
+            tempObject = SliderList[35].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[21].GetComponent<Image>().color = RedButton;
+            buttonList[21].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[21].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[20].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[19].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[19].SetActive(false);
+        }
     }
     public void DPSButton3a() {
         currentButton = 21;
@@ -334,7 +624,29 @@ public class Ascension : MonoBehaviour
         lastButton = 21;
     }
     public void DPSButton3b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[34], buttonList[20]));
+            tempObject = SliderList[36].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[37].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[22].GetComponent<Image>().color = RedButton;
+            buttonList[22].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[22].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[24].GetComponent<Image>().color = RedButton;
+            buttonList[24].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[24].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[21].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[20].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[20].SetActive(false);
+        }
     }
     public void DPSButton4a() {
         currentButton = 22;
@@ -342,7 +654,24 @@ public class Ascension : MonoBehaviour
         lastButton = 22;
     }
     public void DPSButton4b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[35], buttonList[21]));
+            tempObject = SliderList[38].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[23].GetComponent<Image>().color = RedButton;
+            buttonList[23].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[23].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[22].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[21].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[21].SetActive(false);
+            moneyDamageUnlock2 = true;
+        }
     }
     public void DPSButton5a() {
         currentButton = 23;
@@ -350,7 +679,17 @@ public class Ascension : MonoBehaviour
         lastButton = 23;
     }
     public void DPSButton5b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[37], buttonList[22]));
+            tempObject = buttonList[23].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[22].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[22].SetActive(false);
+        }
     }
     public void DPSButton6a() {
         currentButton = 24;
@@ -358,15 +697,37 @@ public class Ascension : MonoBehaviour
         lastButton = 24;
     }
     public void DPSButton6b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[38], buttonList[23]));
+            tempObject = buttonList[23].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[23].SetActive(false);
+        }
     }
     public void DPSButton7a() {
         currentButton = 25;
         openAndClose();
         lastButton = 25;
+        if (moneyDamageUnlock1 && moneyDamageUnlock2)
+        {
+            tempObject = buttonList[24].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+        }
     }
     public void DPSButton7b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[36], buttonList[24]));
+            StartCoroutine(buyAnimation(SliderList[31], buttonList[24]));
+            tempObject = buttonList[24].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[24].SetActive(false);
+        }
     }
     //crate buttons
     public void crateButton1a() {
@@ -375,7 +736,23 @@ public class Ascension : MonoBehaviour
         lastButton = 26;
     }
     public void crateButton1b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[0], buttonList[25]));
+            tempObject = SliderList[2].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[27].GetComponent<Image>().color = RedButton;
+            buttonList[27].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[27].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[26].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[25].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[25].SetActive(false);
+        }
     }
     public void crateButton2a() {
         currentButton = 27;
@@ -383,7 +760,23 @@ public class Ascension : MonoBehaviour
         lastButton = 27;
     }
     public void crateButton2b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[1], buttonList[26]));
+            tempObject = SliderList[3].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[28].GetComponent<Image>().color = RedButton;
+            buttonList[28].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[28].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[27].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[26].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[26].SetActive(false);
+        }
     }
     public void crateButton3a() {
         currentButton = 28;
@@ -391,7 +784,23 @@ public class Ascension : MonoBehaviour
         lastButton = 28;
     }
     public void crateButton3b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[2], buttonList[27]));
+            tempObject = SliderList[4].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[29].GetComponent<Image>().color = RedButton;
+            buttonList[29].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[29].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[28].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[27].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[27].SetActive(false);
+        }
     }
     public void crateButton4a() {
         currentButton = 29;
@@ -399,7 +808,23 @@ public class Ascension : MonoBehaviour
         lastButton = 29;
     }
     public void crateButton4b() {
-
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[3], buttonList[28]));
+            tempObject = SliderList[5].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[30].GetComponent<Image>().color = RedButton;
+            buttonList[30].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[30].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[29].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[28].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[28].SetActive(false);
+        }
     }
     public void crateButton5a() {
         currentButton = 30;
@@ -407,55 +832,153 @@ public class Ascension : MonoBehaviour
         lastButton = 30;
     }
     public void crateButton5b() {
- 
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[4], buttonList[29]));
+            tempObject = SliderList[6].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[9].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[31].GetComponent<Image>().color = RedButton;
+            buttonList[31].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[31].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[34].GetComponent<Image>().color = RedButton;
+            buttonList[34].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[34].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[30].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[29].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[29].SetActive(false);
+        }
     }
     public void crateButton6a() {
         currentButton = 31;
         openAndClose();
         lastButton = 31;
     }
-    public void crateButton6b() { 
-    
+    public void crateButton6b() {
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[5], buttonList[30]));
+            tempObject = SliderList[7].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[8].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject = SliderList[10].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            buttonList[32].GetComponent<Image>().color = RedButton;
+            buttonList[32].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[32].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[33].GetComponent<Image>().color = RedButton;
+            buttonList[33].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[33].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            buttonList[35].GetComponent<Image>().color = RedButton;
+            buttonList[35].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[35].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[31].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[34].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[30].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[30].SetActive(false);
+        }
     }
     public void crateButton7a() {
         currentButton = 32;
         openAndClose();
         lastButton = 32;
     }
-    public void crateButton7b() { 
-    
+    public void crateButton7b() {
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[6], buttonList[31]));
+            tempObject = buttonList[32].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[33].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[31].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[31].SetActive(false);
+        }
     }
     public void crateButton8a() {
         currentButton = 33;
         openAndClose();
         lastButton = 33;
     }
-    public void crateButton8b() { 
-    
+    public void crateButton8b() {
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[7], buttonList[32]));
+            tempObject = buttonList[32].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[32].SetActive(false);
+        }
     }
     public void crateButton9a() {
         currentButton = 34;
         openAndClose();
         lastButton = 34;
     }
-    public void crateButton9b() { 
-    
+    public void crateButton9b() {
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[8], buttonList[33]));
+            tempObject = buttonList[33].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[33].SetActive(false);
+        }
     }
     public void crateButton10a() {
         currentButton = 35;
         openAndClose();
         lastButton = 35;
     }
-    public void crateButton10b() { 
-    
+    public void crateButton10b() {
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[9], buttonList[34]));
+            tempObject = buttonList[35].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(true);
+            tempObject = buttonList[34].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[34].SetActive(false);
+        }
     }
     public void crateButton11a() {
         currentButton = 36;
         openAndClose();
         lastButton = 36;
     }
-    public void crateButton11b() { 
-    
+    public void crateButton11b() {
+        cost = 1;
+        if (ascensionCoinsHave >= cost)
+        {
+            ascensionCoinsHave -= cost;
+            StartCoroutine(buyAnimation(SliderList[10], buttonList[35]));
+            tempObject = buttonList[35].transform.Find("PopUp/Button_Confirm").gameObject;
+            tempObject.SetActive(false);
+            popUpList[35].SetActive(false);
+        }
     }
    
  
