@@ -10,10 +10,9 @@ public class Ascension : MonoBehaviour
 
     [SerializeField] public List<GameObject> popUpList;
     [SerializeField] public List<Image> buttonList;
-    private Color32 Green = new Color32(26, 210, 11, 255);
-    private Color32 RedButton = new Color32(138, 28, 28, 255);
-    private Color32 RedSlider = new Color32(185, 55, 34, 255);
-    private Color32 Grey = new Color32(12, 17, 17, 255);
+    private Color32 Green = new Color32(37, 166, 12, 255);
+    private Color32 RedButton = new Color32(178, 18, 18, 255);
+    private Color32 RedSlider = new Color32(212, 27, 27, 255);
     [SerializeField] public List<Slider> SliderList;
     private int lastButton;
     private int currentButton;
@@ -25,6 +24,7 @@ public class Ascension : MonoBehaviour
     private GameObject tempObject;
     private int cost;
     private float timer;
+    public Sprite redSliderSprite;
 
     private bool biggerGridUnlock1 = false;
     private bool biggerGridUnlock2 = false;
@@ -56,14 +56,19 @@ public class Ascension : MonoBehaviour
                 firstAscension = false;
                 tempObject = SliderList[1].transform.Find("Background").gameObject;
                 tempObject.GetComponent<Image>().color = RedSlider;
+                tempObject.GetComponent<Image>().sprite = redSliderSprite;
                 tempObject = SliderList[12].transform.Find("Background").gameObject;
                 tempObject.GetComponent<Image>().color = RedSlider;
+                tempObject.GetComponent<Image>().sprite = redSliderSprite;
                 tempObject = SliderList[18].transform.Find("Background").gameObject;
                 tempObject.GetComponent<Image>().color = RedSlider;
+                tempObject.GetComponent<Image>().sprite = redSliderSprite;
                 tempObject = SliderList[27].transform.Find("Background").gameObject;
                 tempObject.GetComponent<Image>().color = RedSlider;
+                tempObject.GetComponent<Image>().sprite = redSliderSprite;
                 tempObject = SliderList[33].transform.Find("Background").gameObject;
                 tempObject.GetComponent<Image>().color = RedSlider;
+                tempObject.GetComponent<Image>().sprite = redSliderSprite;
                 buttonList[1].GetComponent<Image>().color = RedButton;
                 buttonList[1].GetComponent<Button>().interactable = true;
                 tempObject = buttonList[1].transform.Find("Image").gameObject;
@@ -156,10 +161,13 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[11], buttonList[0]));
             tempObject = SliderList[19].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[21].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[13].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[3].GetComponent<Image>().color = RedButton;
             buttonList[3].GetComponent<Button>().interactable = true;
             tempObject = buttonList[3].transform.Find("Image").gameObject;
@@ -194,10 +202,13 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[18], buttonList[1]));
             tempObject = SliderList[20].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[22].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[24].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[7].GetComponent<Image>().color = RedButton;
             buttonList[7].GetComponent<Button>().interactable = true;
             tempObject = buttonList[7].transform.Find("Image").gameObject;
@@ -232,6 +243,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[12], buttonList[2]));
             tempObject = SliderList[14].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[4].GetComponent<Image>().color = RedButton;
             buttonList[4].GetComponent<Button>().interactable = true;
             tempObject = buttonList[4].transform.Find("Image").gameObject;
@@ -256,8 +268,10 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[13], buttonList[3]));
             tempObject = SliderList[15].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[16].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[5].GetComponent<Image>().color = RedButton;
             buttonList[5].GetComponent<Button>().interactable = true;
             tempObject = buttonList[5].transform.Find("Image").gameObject;
@@ -286,6 +300,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[14], buttonList[4]));
             tempObject = SliderList[17].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[7].GetComponent<Image>().color = RedButton;
             buttonList[7].GetComponent<Button>().interactable = true;
             tempObject = buttonList[7].transform.Find("Image").gameObject;
@@ -384,8 +399,10 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[21], buttonList[9]));
             tempObject = SliderList[23].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[25].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[12].GetComponent<Image>().color = RedButton;
             buttonList[12].GetComponent<Button>().interactable = true;
             tempObject = buttonList[12].transform.Find("Image").gameObject;
@@ -469,12 +486,16 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[26], buttonList[13]));
             tempObject = SliderList[28].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[29].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[30].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[31].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[15].GetComponent<Image>().color = RedButton;
             buttonList[15].GetComponent<Button>().interactable = true;
             tempObject = buttonList[15].transform.Find("Image").gameObject;
@@ -583,6 +604,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[32], buttonList[18]));
             tempObject = SliderList[34].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[20].GetComponent<Image>().color = RedButton;
             buttonList[20].GetComponent<Button>().interactable = true;
             tempObject = buttonList[20].transform.Find("Image").gameObject;
@@ -607,6 +629,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[33], buttonList[19]));
             tempObject = SliderList[35].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[21].GetComponent<Image>().color = RedButton;
             buttonList[21].GetComponent<Button>().interactable = true;
             tempObject = buttonList[21].transform.Find("Image").gameObject;
@@ -631,8 +654,10 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[34], buttonList[20]));
             tempObject = SliderList[36].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[37].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[22].GetComponent<Image>().color = RedButton;
             buttonList[22].GetComponent<Button>().interactable = true;
             tempObject = buttonList[22].transform.Find("Image").gameObject;
@@ -661,6 +686,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[35], buttonList[21]));
             tempObject = SliderList[38].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[23].GetComponent<Image>().color = RedButton;
             buttonList[23].GetComponent<Button>().interactable = true;
             tempObject = buttonList[23].transform.Find("Image").gameObject;
@@ -743,6 +769,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[0], buttonList[25]));
             tempObject = SliderList[2].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[27].GetComponent<Image>().color = RedButton;
             buttonList[27].GetComponent<Button>().interactable = true;
             tempObject = buttonList[27].transform.Find("Image").gameObject;
@@ -767,6 +794,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[1], buttonList[26]));
             tempObject = SliderList[3].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[28].GetComponent<Image>().color = RedButton;
             buttonList[28].GetComponent<Button>().interactable = true;
             tempObject = buttonList[28].transform.Find("Image").gameObject;
@@ -791,6 +819,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[2], buttonList[27]));
             tempObject = SliderList[4].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[29].GetComponent<Image>().color = RedButton;
             buttonList[29].GetComponent<Button>().interactable = true;
             tempObject = buttonList[29].transform.Find("Image").gameObject;
@@ -815,6 +844,7 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[3], buttonList[28]));
             tempObject = SliderList[5].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[30].GetComponent<Image>().color = RedButton;
             buttonList[30].GetComponent<Button>().interactable = true;
             tempObject = buttonList[30].transform.Find("Image").gameObject;
@@ -839,8 +869,10 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[4], buttonList[29]));
             tempObject = SliderList[6].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[9].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[31].GetComponent<Image>().color = RedButton;
             buttonList[31].GetComponent<Button>().interactable = true;
             tempObject = buttonList[31].transform.Find("Image").gameObject;
@@ -869,10 +901,13 @@ public class Ascension : MonoBehaviour
             StartCoroutine(buyAnimation(SliderList[5], buttonList[30]));
             tempObject = SliderList[7].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[8].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = SliderList[10].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             buttonList[32].GetComponent<Image>().color = RedButton;
             buttonList[32].GetComponent<Button>().interactable = true;
             tempObject = buttonList[32].transform.Find("Image").gameObject;
