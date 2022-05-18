@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Security.Cryptography;
 using TMPro;
+using System.Threading;
 
 public class Ascension : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class Ascension : MonoBehaviour
     private bool tileLevelUnlock2 = false;
     private bool moneyDamageUnlock1 = false;
     private bool moneyDamageUnlock2 = false;
+
+    private bool tileLevelUnlock = false;
+    private bool biggerGridUnlock = false;
+
 
     //ascension buttons
     public void openAscensionPopUp()
@@ -138,6 +143,18 @@ public class Ascension : MonoBehaviour
             yield return new WaitForSeconds(0.0001f);
         }
         _button.color = Green;
+        if (tileLevelUnlock1 && tileLevelUnlock2 && tileLevelUnlock == false)
+        {
+            tileLevelUnlock = true;
+            StartCoroutine(buyAnimation(SliderList[23], buttonList[37]));
+            StartCoroutine(buyAnimation(SliderList[25], buttonList[37]));
+        }
+        if (biggerGridUnlock1 && biggerGridUnlock2 && biggerGridUnlock == false)
+        {
+            biggerGridUnlock = true;
+            StartCoroutine(buyAnimation(SliderList[17], buttonList[38]));
+            StartCoroutine(buyAnimation(SliderList[20], buttonList[38]));
+        }
     }
 
     private void openAndClose()
@@ -200,6 +217,7 @@ public class Ascension : MonoBehaviour
         {
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[18], buttonList[1]));
+            buttonList[38].GetComponent<Image>().color = RedButton;
             tempObject = SliderList[20].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
             tempObject.GetComponent<Image>().sprite = redSliderSprite;
@@ -209,10 +227,6 @@ public class Ascension : MonoBehaviour
             tempObject = SliderList[24].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
             tempObject.GetComponent<Image>().sprite = redSliderSprite;
-            buttonList[7].GetComponent<Image>().color = RedButton;
-            buttonList[7].GetComponent<Button>().interactable = true;
-            tempObject = buttonList[7].transform.Find("Image").gameObject;
-            tempObject.SetActive(true);
             buttonList[10].GetComponent<Image>().color = RedButton;
             buttonList[10].GetComponent<Button>().interactable = true;
             tempObject = buttonList[10].transform.Find("Image").gameObject;
@@ -298,13 +312,10 @@ public class Ascension : MonoBehaviour
         {
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[14], buttonList[4]));
+            buttonList[38].GetComponent<Image>().color = RedButton;
             tempObject = SliderList[17].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
             tempObject.GetComponent<Image>().sprite = redSliderSprite;
-            buttonList[7].GetComponent<Image>().color = RedButton;
-            buttonList[7].GetComponent<Button>().interactable = true;
-            tempObject = buttonList[7].transform.Find("Image").gameObject;
-            tempObject.SetActive(true);
             tempObject = buttonList[5].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
             tempObject = buttonList[6].transform.Find("PopUp/Button_Confirm").gameObject;
@@ -339,12 +350,16 @@ public class Ascension : MonoBehaviour
         cost = 1;
         if (ascensionCoinsHave >= cost)
         {
+            biggerGridUnlock1 = true;
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[16], buttonList[6]));
             tempObject = buttonList[6].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
+            buttonList[7].GetComponent<Image>().color = RedButton;
+            buttonList[7].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[7].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
             popUpList[6].SetActive(false);
-            biggerGridUnlock1 = true;
         }
     }
     public void tileButton8a() {
@@ -362,8 +377,7 @@ public class Ascension : MonoBehaviour
         if (ascensionCoinsHave >= cost)
         {
             ascensionCoinsHave -= cost;
-            StartCoroutine(buyAnimation(SliderList[17], buttonList[7]));
-            StartCoroutine(buyAnimation(SliderList[20], buttonList[7]));
+            StartCoroutine(buyAnimation(SliderList[40], buttonList[7]));
             tempObject = buttonList[7].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[7].SetActive(false);
@@ -378,12 +392,19 @@ public class Ascension : MonoBehaviour
         cost = 1;
         if (ascensionCoinsHave >= cost)
         {
+            biggerGridUnlock2 = true;
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[19], buttonList[8]));
             tempObject = buttonList[8].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
+            tempObject = SliderList[40].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
+            buttonList[7].GetComponent<Image>().color = RedButton;
+            buttonList[7].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[7].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
             popUpList[8].SetActive(false);
-            biggerGridUnlock2 = true;
         }
     }
     public void tileButton10a() {
@@ -403,10 +424,7 @@ public class Ascension : MonoBehaviour
             tempObject = SliderList[25].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
             tempObject.GetComponent<Image>().sprite = redSliderSprite;
-            buttonList[12].GetComponent<Image>().color = RedButton;
-            buttonList[12].GetComponent<Button>().interactable = true;
-            tempObject = buttonList[12].transform.Find("Image").gameObject;
-            tempObject.SetActive(true);
+            buttonList[37].GetComponent<Image>().color = RedButton;
             tempObject = buttonList[10].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
             tempObject = buttonList[11].transform.Find("PopUp/Button_Confirm").gameObject;
@@ -425,12 +443,19 @@ public class Ascension : MonoBehaviour
         cost = 1;
         if (ascensionCoinsHave >= cost)
         {
+            tileLevelUnlock1 = true;
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[24], buttonList[10]));
             tempObject = buttonList[10].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
+            buttonList[12].GetComponent<Image>().color = RedButton;
+            buttonList[12].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[12].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = SliderList[39].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             popUpList[10].SetActive(false);
-            tileLevelUnlock1 = true;
         }
     }
     public void tileButton12a() {
@@ -442,12 +467,19 @@ public class Ascension : MonoBehaviour
         cost = 1;
         if (ascensionCoinsHave >= cost)
         {
+            tileLevelUnlock2 = true;
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[22], buttonList[11]));
             tempObject = buttonList[11].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
+            buttonList[12].GetComponent<Image>().color = RedButton;
+            buttonList[12].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[12].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = SliderList[39].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             popUpList[11].SetActive(false);
-            tileLevelUnlock2 = true;
         }
     }
     public void tileButton13a() {
@@ -465,8 +497,7 @@ public class Ascension : MonoBehaviour
         if (ascensionCoinsHave >= cost)
         {
             ascensionCoinsHave -= cost;
-            StartCoroutine(buyAnimation(SliderList[25], buttonList[12]));
-            StartCoroutine(buyAnimation(SliderList[23], buttonList[12]));
+            StartCoroutine(buyAnimation(SliderList[39], buttonList[12]));
             tempObject = buttonList[12].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[12].SetActive(false);
