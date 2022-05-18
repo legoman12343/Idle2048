@@ -3,45 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ability1 : MonoBehaviour
+public class Ability3 : MonoBehaviour
 {
 
     private float activeTimer = 10f;
     private float cooldownTimer;
 
-    public Image img;
     public Slider slider;
     public GameObject ability;
-    public float sliderMax = 600f;
+    public float sliderMax = 2f;
     private bool bought = false;
     private bool active = false;
-
-    public GameObject fill;
+    public GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
+        sliderMax = 2f;
         slider.maxValue = sliderMax;
         ability.SetActive(false);
+        buyAbility3();
     }
 
     private IEnumerator cooldownAbility()
     {
         slider.maxValue = sliderMax;
         cooldownTimer -= Time.deltaTime;
-        cooldownTimer = sliderMax;
-
-        while (cooldownTimer < 600)
+        cooldownTimer = 0f;
+        while (cooldownTimer < sliderMax)
         {
-            cooldownTimer += Time.deltaTime;
+            cooldownTimer += 0.5f;
             slider.value = cooldownTimer;
             yield return new WaitForSeconds(0.5f);
         }
         active = true;
-        fill.SetActive(false);
     }
 
-    public void pressAbility1()
+    public void pressAbility3()
     {
         StartCoroutine(startAbility());
     }
@@ -51,7 +49,7 @@ public class Ability1 : MonoBehaviour
     {
         if (active)
         {
-            fill.SetActive(true);
+            gm.mergeUpgradeChance += 1f;
             slider.maxValue = 10f;
             active = false;
             activeTimer -= Time.deltaTime;
@@ -59,16 +57,17 @@ public class Ability1 : MonoBehaviour
             slider.value = 10f;
             while (activeTimer > 0)
             {
+                activeTimer -= 0.01f;
                 slider.value = activeTimer;
-                activeTimer -= Time.deltaTime;
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.01f);
             }
-            StartCoroutine(cooldownAbility);
+            gm.mergeUpgradeChance -= 1f;
+            StartCoroutine(cooldownAbility());
         }
     }
 
 
-    public void buyAbility1()
+    public void buyAbility3()
     {
         ability.SetActive(true);
         bought = true;
