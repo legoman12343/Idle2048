@@ -9,16 +9,22 @@ public class Quests : MonoBehaviour
     [SerializeField] public List<progressbar> progressbars;
     private int monsterKillCount;
     private int monsterKillTarget;
+    private bool monsterKillCompleted;
     private int bossKillCount;
     private int bossKillTarget;
+    private bool bossKillCompleted;
     private int mergeDamage;
     private int mergeDamageTarget;
+    private bool mergeDamageCompleted;
     private int tileLevel;
     private int tileLevelTarget;
+    private bool tileLevelCompleted;
     private int crateCount;
     private int crateTarget;
+    private bool crateCompleted;
     private int duckCount;
     private int duckTarget;
+    private bool duckCompleted;
     public NotificationAnimation questAnimation;
 
     void Start()
@@ -39,6 +45,7 @@ public class Quests : MonoBehaviour
         progressbars[5].slider.value = 0;
         progressbars[5].button.SetActive(false);
         progressbars[5].text.text = duckCount.ToString() + " of " + duckTarget.ToString();
+        duckCompleted = false;
     }
 
     public void updateDuckQuest(int n)
@@ -47,12 +54,13 @@ public class Quests : MonoBehaviour
         progressbar bar = progressbars[5];
         bar.slider.value = duckCount;
         bar.text.text = duckCount.ToString() + " of " + duckTarget.ToString();
-        if (duckTarget <= duckCount && bar.state == 0)
+        if (duckTarget <= duckCount && bar.state == 0 && !duckCompleted)
         {
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
             questAnimation.startAnimation();
+            duckCompleted = true;
         }
     }
 
@@ -71,6 +79,7 @@ public class Quests : MonoBehaviour
         progressbars[4].slider.value = 0;
         progressbars[4].button.SetActive(false);
         progressbars[4].text.text = crateCount.ToString() + " of " + crateTarget.ToString();
+        crateCompleted = false;
     }
 
     public void updateOpenCrates(int n)
@@ -79,12 +88,13 @@ public class Quests : MonoBehaviour
         progressbar bar = progressbars[4];
         bar.slider.value = crateCount;
         bar.text.text = crateCount.ToString() + " of " + crateTarget.ToString();
-        if (crateTarget <= crateCount && bar.state == 0)
+        if (crateTarget <= crateCount && bar.state == 0 && !crateCompleted)
         {
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
             questAnimation.startAnimation();
+            crateCompleted = true;
         }
     }
 
@@ -103,6 +113,7 @@ public class Quests : MonoBehaviour
         progressbars[3].slider.value = 0;
         progressbars[3].button.SetActive(false);
         progressbars[3].text.text = tileLevel.ToString() + " of " + tileLevelTarget.ToString();
+        tileLevelCompleted = false;
     }
 
     public void updateTileLevel(int n)
@@ -113,12 +124,13 @@ public class Quests : MonoBehaviour
             progressbar bar = progressbars[3];
             bar.slider.value = tileLevel;
             bar.text.text = tileLevel.ToString() + " of " + tileLevelTarget.ToString();
-            if (tileLevelTarget <= tileLevel && bar.state == 0)
+            if (tileLevelTarget <= tileLevel && bar.state == 0 && !tileLevelCompleted)
             {
                 bar.sliderParent.SetActive(false);
                 bar.button.SetActive(true);
                 bar.state = 1;
                 questAnimation.startAnimation();
+                tileLevelCompleted = true;
             }
         }
     }
@@ -138,6 +150,7 @@ public class Quests : MonoBehaviour
         progressbars[2].slider.value = 0;
         progressbars[2].button.SetActive(false);
         progressbars[2].text.text = mergeDamage.ToString() + " of " + mergeDamageTarget.ToString();
+        mergeDamageCompleted = false;
     }
 
     public void updateMergeDamage(int n)
@@ -146,12 +159,13 @@ public class Quests : MonoBehaviour
         progressbar bar = progressbars[2];
         bar.slider.value = mergeDamage;
         bar.text.text = mergeDamage.ToString() + " of " + mergeDamageTarget.ToString();
-        if (mergeDamageTarget <= mergeDamage && bar.state == 0)
+        if (mergeDamageTarget <= mergeDamage && bar.state == 0 && !mergeDamageCompleted)
         {
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
             questAnimation.startAnimation();
+            mergeDamageCompleted = true;
         }
     }
 
@@ -170,6 +184,7 @@ public class Quests : MonoBehaviour
         progressbars[1].slider.value = 0;
         progressbars[1].button.SetActive(false);
         progressbars[1].text.text = bossKillCount.ToString() + " of " + bossKillTarget.ToString();
+        bossKillCompleted = false;
     }
 
     public void updateKillBossQuest(int n)
@@ -178,12 +193,13 @@ public class Quests : MonoBehaviour
         progressbar bar = progressbars[1];
         bar.slider.value = bossKillCount;
         bar.text.text = bossKillCount.ToString() + " of " + bossKillTarget.ToString();
-        if (bossKillTarget <= bossKillCount && bar.state == 0)
+        if (bossKillTarget <= bossKillCount && bar.state == 0 && !bossKillCompleted)
         {
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
             questAnimation.startAnimation();
+            bossKillCompleted = true;
         }
     }
 
@@ -202,6 +218,7 @@ public class Quests : MonoBehaviour
         progressbars[0].slider.value = 0;
         progressbars[0].button.SetActive(false);
         progressbars[0].text.text = monsterKillCount.ToString() + " of " + monsterKillTarget.ToString();
+        monsterKillCompleted = false;
     }
 
     public void updateKillMonstersQuest(int n)
@@ -210,12 +227,13 @@ public class Quests : MonoBehaviour
         progressbar bar = progressbars[0];
         bar.slider.value = monsterKillCount;
         bar.text.text = monsterKillCount.ToString() + " of " + monsterKillTarget.ToString();
-        if(monsterKillTarget <= monsterKillCount && bar.state == 0)
+        if(monsterKillTarget <= monsterKillCount && bar.state == 0 && !monsterKillCompleted)
         {
             bar.sliderParent.SetActive(false);
             bar.button.SetActive(true);
             bar.state = 1;
             questAnimation.startAnimation();
+            monsterKillCompleted=true;
         }
     }
 

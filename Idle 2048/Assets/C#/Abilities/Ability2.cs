@@ -23,7 +23,6 @@ public class Ability2 : MonoBehaviour
         sliderMax = 2f;
         slider.maxValue = sliderMax;
         ability.SetActive(false);
-        buyAbility2();
     }
 
     private IEnumerator cooldownAbility()

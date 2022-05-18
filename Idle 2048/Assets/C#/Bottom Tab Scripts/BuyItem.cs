@@ -26,6 +26,9 @@ public class BuyItem : MonoBehaviour
     public float multiplier;
     public AdManager ads;
     public NotificationAnimation upgradeAnimation;
+    public Ability1 ability1;
+    public Ability2 ability2;
+    public Ability3 ability3;
 
     void Start()
     {
@@ -193,6 +196,45 @@ public class BuyItem : MonoBehaviour
             coinsDisplay.coloursUpgrades.RemoveAt(index);
             bought = true;
             gm.instantCrateChance = 0.1f;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyAbility1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            ability1.buyAbility1();
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyAbility2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            ability2.buyAbility2();
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyAbility3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            ability3.buyAbility3();
             panel.SetActive(false);
         }
     }

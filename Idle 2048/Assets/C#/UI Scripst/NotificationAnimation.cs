@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NorificationAnimation : MonoBehaviour
+public class NotificationAnimation : MonoBehaviour
 {
     public GameObject icon;
     public Vector3 originalScale;
     private IEnumerator routine;
+    private bool check = false;
 
     void Start()
     {
@@ -18,22 +19,31 @@ public class NorificationAnimation : MonoBehaviour
     {
         while(true)
         {
-            LeanTween.scale(icon, originalScale/4, 0.2f);
-            yield return new WaitForSeconds(0.25f);
-            LeanTween.scale(icon, originalScale, 0.2f);
-            yield return new WaitForSeconds(0.25f);
+            LeanTween.scale(icon, originalScale*0.65f, 0.4f);
+            yield return new WaitForSeconds(0.5f);
+            LeanTween.scale(icon, originalScale, 0.4f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
-    public void startAnimation()
+    public bool startAnimation()
     {
-        icon.SetActive(true);
-        StartCoroutine(routine);
+        if (check = false)
+        {
+            icon.SetActive(true);
+            StartCoroutine(routine);
+            check = true;
+            return true;
+        }
+        return false;
     }
 
     public void stopAnimation()
     {
-        StopCoroutine(routine);
-        icon.SetActive(false);
+        if (check == true)
+        {
+            StopCoroutine(routine);
+            icon.SetActive(false);
+        }
     }
 }
