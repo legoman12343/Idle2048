@@ -62,8 +62,6 @@ public class LevelController : MonoBehaviour
         else forwardsButton.SetActive(true);
         if (level < levelMax) levelCountNextOb.GetComponent<Image>().sprite = Complete;
         else levelCountNextOb.GetComponent<Image>().sprite = notComplete;
-        levelCountCurrent.text = level.ToString();
-        levelCountNext.text = (level + 1).ToString();
     }
 
     public void decreaseLevel()
@@ -76,6 +74,8 @@ public class LevelController : MonoBehaviour
         forwardsButton.SetActive(true);
         StartCoroutine (MonsterScript.DecreaseLevel());
         UpdateStuff();
+        levelCountCurrent.text = level.ToString();
+        levelCountNext.text = (level + 1).ToString();
     }
 
     public void increaseLevel()
@@ -91,6 +91,8 @@ public class LevelController : MonoBehaviour
         killSlider.value = killCount;
         StartCoroutine (MonsterScript.IncreaseLevel());
         UpdateStuff();
+        levelCountCurrent.text = level.ToString();
+        levelCountNext.text = (level + 1).ToString();
     }
 
     public void progressModeToggle()
