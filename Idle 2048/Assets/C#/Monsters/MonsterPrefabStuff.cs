@@ -15,7 +15,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     public Transform monsterSpawnPointRight;
     public Transform monsterBattlePoint;
     public Transform monsterSpawnPointLeft;
-    private GameObject[] monster;
+    private List<GameObject> monster = new List<GameObject>();
     public HealthBarScript healthBar;
     //coin splash
     public GameObject coinPrefab;
@@ -31,7 +31,6 @@ public class MonsterPrefabStuff : MonoBehaviour
     void Start()
     {
         backLevel = false;
-        monster = new GameObject[1];
         spawnMonster();
         //coin multiplier for crates
         multiplier = 1;
@@ -51,8 +50,8 @@ public class MonsterPrefabStuff : MonoBehaviour
         if (level.level % 10 == 0 && level.level > 9)
         {
             int prefabIndex = UnityEngine.Random.Range(0, bossPrefabList.Count - 1);
-            monster[0] = Instantiate(bossPrefabList[prefabIndex], spawnPoint, Quaternion.identity);
-            var s = monster[0].GetComponent<Stats>();
+            monster.Add(Instantiate(bossPrefabList[prefabIndex], spawnPoint, Quaternion.identity));
+            var s = monster[monster.Count - 1].GetComponent<Stats>();
             s.boss = true;
             s.timerText = timerText;
             level.requiredKills = 1;
@@ -63,21 +62,21 @@ public class MonsterPrefabStuff : MonoBehaviour
             int prefabIndex = Random.Range(0, monsterPrefabList.Count - 1);
             if (prefabIndex == 12)
                 duck = true;
-            monster[0] = Instantiate(monsterPrefabList[prefabIndex], spawnPoint, Quaternion.identity);
-            monster[0].GetComponent<Stats>().boss = false;
+            monster.Add(Instantiate(monsterPrefabList[prefabIndex], spawnPoint, Quaternion.identity));
+            monster[monster.Count - 1].GetComponent<Stats>().boss = false;
             level.requiredKills = 10;
             level.killSlider.maxValue = 10;
 
         }
         //set monster values
-        var stats = monster[0].GetComponent<Stats>();
+        var stats = monster[monster.Count - 1].GetComponent<Stats>();
         stats.healthBar = healthBar;
         stats.monsterScript = this;
         stats.level = level;
         stats.quest = quest;
         healthBar.isDead = false;
         stats.Init();
-        monster[0].transform.DOMove(monsterBattlePoint.position, 1f);
+        monster[monster.Count - 1].transform.DOMove(monsterBattlePoint.position, 1f);
     }
 
     public IEnumerator DecreaseLevel()
@@ -87,6 +86,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         backLevel = true;
         spawnMonster();
         yield return new WaitForSeconds(1f);
+        monster.Remove(deadMonster);
         Destroy(deadMonster);
     }
 
@@ -96,6 +96,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         deadMonster.transform.DOMove(monsterSpawnPointLeft.position, 1f);
         spawnMonster();
         yield return new WaitForSeconds(1f);
+        monster.Remove(deadMonster);
         Destroy(deadMonster);
     }
 
@@ -129,6 +130,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         //add coins to total
         moneyScript.addCoins(monster[0].GetComponent<Stats>().coins * multiplier);
         //wait
+        
         yield return new WaitForSeconds(1.1f);
         var deadMonster = monster[0];
         deadMonster.transform.DOMove(monsterSpawnPointLeft.position, 1f);
@@ -137,7 +139,11 @@ public class MonsterPrefabStuff : MonoBehaviour
         level.LevelUpdate();
         yield return new WaitForSeconds(1f);
         //destroy obj
-        Destroy(deadMonster);
+        while(monster.Count > 1)
+        {
+            Destroy(monster[0]);
+            monster.RemoveAt(0);
+        }
     }
 
 
