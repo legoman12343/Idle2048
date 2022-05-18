@@ -75,6 +75,7 @@ public class Stats : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         timerText.gameObject.SetActive(false);
+        monsterScript.bossDead = false;
         StartCoroutine(monsterScript.respawnMonster());
         
     }

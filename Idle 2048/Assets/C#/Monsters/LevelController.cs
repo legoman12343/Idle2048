@@ -66,8 +66,9 @@ public class LevelController : MonoBehaviour
 
     public void decreaseLevel()
     {
-        level--;  
-        killCount = 10;
+        level--;
+        if (level % 10 == 0) killCount = 1;
+        else killCount = 10;
         killSlider.value = killCount;
         ProgressMode = false;
         progressModeCancel.SetActive(true);
@@ -81,7 +82,8 @@ public class LevelController : MonoBehaviour
     public void increaseLevel()
     {
         level++;
-        if (level != levelMax) killCount = 10;
+        if (level != levelMax && level % 10 == 0) killCount = 1;
+        else if (level != levelMax && level % 10 != 0) killCount = 10;
         else killCount = 0;
         if (level == levelMax)
         {
