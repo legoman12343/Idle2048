@@ -47,7 +47,6 @@ public class OfflineDaily : MonoBehaviour
 		while (!c)
 		{
 			yield return new WaitForSeconds(0.5f);
-			Debug.Log("DSFAFGAGADFVESRTG");
 			c = dailyAnimation.startAnimation();
 			
 		}
