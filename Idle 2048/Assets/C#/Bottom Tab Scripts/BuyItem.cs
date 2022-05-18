@@ -54,6 +54,22 @@ public class BuyItem : MonoBehaviour
             damage.addDPS(dpsValue, itemNumber);
             coinsDisplay.addCoins(-price);
             ItemOwned++;
+            if(ItemOwned == 10)
+            {
+                damage.gearUpgrades[((itemNumber+1) * 4) - 4].SetActive(true);
+            }else if (ItemOwned == 25)
+            {
+                damage.gearUpgrades[((itemNumber+1) * 4) - 3].SetActive(true);
+            }
+            else if (ItemOwned == 50)
+            {
+                damage.gearUpgrades[((itemNumber+1) * 4) - 2].SetActive(true);
+            }
+            else if (ItemOwned == 100)
+            {
+                damage.gearUpgrades[((itemNumber+1) * 4) - 1].SetActive(true);
+            }
+
             dpsValue = baseDamage * ItemOwned * multiplier;
             ItemDisplayTXT.text = "X " + ItemOwned.ToString();
             
@@ -238,6 +254,632 @@ public class BuyItem : MonoBehaviour
             panel.SetActive(false);
         }
     }
+    //item upgrades
+    public void buyI1U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[0] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI1U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[0] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI1U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[0] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI1U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[0] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI2U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[1] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI2U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[1] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI2U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[1] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI2U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[1] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI3U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[2] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI3U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[2] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI3U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[2] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI3U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[2] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI4U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[3] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI4U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[3] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI4U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[3] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI4U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[3] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI5U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[4] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI5U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[4] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI5U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[4] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI5U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[4] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI6U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[5] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI6U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[5] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI6U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[5] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI6U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[5] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI7U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[6] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI7U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[6] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI7U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[6] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI7U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[6] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI8U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[7] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI8U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[7] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI8U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[7] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI8U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[7] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI9U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[8] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI9U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[8] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI9U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[8] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI9U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[8] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI10U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[9] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI10U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[9] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI10U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[9] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI10U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[9] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI11U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[10] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI11U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[10] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI11U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[10] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI11U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[10] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI12U1()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[11] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI12U2()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[11] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI12U3()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[11] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+    public void buyI12U4()
+    {
+        if (coinsDisplay.Coins >= price)
+        {
+            coinsDisplay.addCoins(-price);
+            int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
+            coinsDisplay.pricesUpgrades.RemoveAt(index);
+            coinsDisplay.coloursUpgrades.RemoveAt(index);
+            damage.itemMultipliers[11] *= 2;
+            panel.SetActive(false);
+        }
+    }
+
+
 
 
 }
