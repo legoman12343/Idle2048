@@ -268,7 +268,7 @@ public class GameManager : MonoBehaviour
         var newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
         quest.updateMergeDamage(newValue + mergeDamageMultiplier);
         quest.updateTileLevel(newValue);
-        StartCoroutine(damageMonster(newValue));
+        //StartCoroutine(damageMonster(newValue * (Random.value <  ? 2 : 1)));
         spawnTile(baseTile.Node, newValue, true);
         var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
         var floatingScript = text.GetComponent<FloatingText>();
