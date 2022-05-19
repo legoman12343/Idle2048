@@ -254,7 +254,9 @@ public class BuyItem : MonoBehaviour
             panel.SetActive(false);
         }
     }
-    //item upgrades
+    //-------------------------------------------------------//
+    //--------------------item upgrades----------------------//
+    //-------------------------------------------------------//
     public void buyI1U1()
     {
         if (coinsDisplay.Coins >= price)

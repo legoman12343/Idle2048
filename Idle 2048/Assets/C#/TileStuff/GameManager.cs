@@ -295,6 +295,7 @@ public class GameManager : MonoBehaviour
         return nodes.FirstOrDefault(n => n.Pos == pos);
     }
 
+
     void Reset()
     {
         while(tiles.Count != 0)
