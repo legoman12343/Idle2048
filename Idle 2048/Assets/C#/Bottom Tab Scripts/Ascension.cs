@@ -36,6 +36,7 @@ public class Ascension : MonoBehaviour
 
     private bool tileLevelUnlock = false;
     private bool biggerGridUnlock = false;
+    private bool moneyDamageUnlock = false;
 
 
     //ascension buttons
@@ -154,6 +155,12 @@ public class Ascension : MonoBehaviour
             biggerGridUnlock = true;
             StartCoroutine(buyAnimation(SliderList[17], buttonList[38]));
             StartCoroutine(buyAnimation(SliderList[20], buttonList[38]));
+        }
+        if (moneyDamageUnlock1 && moneyDamageUnlock2 && moneyDamageUnlock == false)
+        {
+            moneyDamageUnlock = true;
+            StartCoroutine(buyAnimation(SliderList[31], buttonList[39]));
+            StartCoroutine(buyAnimation(SliderList[36], buttonList[39]));
         }
     }
 
@@ -515,6 +522,7 @@ public class Ascension : MonoBehaviour
         {
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[26], buttonList[13]));
+            buttonList[39].GetComponent<Image>().color = RedButton;
             tempObject = SliderList[28].transform.Find("Background").gameObject;
             tempObject.GetComponent<Image>().color = RedSlider;
             tempObject.GetComponent<Image>().sprite = redSliderSprite;
@@ -539,10 +547,6 @@ public class Ascension : MonoBehaviour
             buttonList[17].GetComponent<Button>().interactable = true;
             tempObject = buttonList[17].transform.Find("Image").gameObject;
             tempObject.SetActive(true);
-            buttonList[24].GetComponent<Image>().color = RedButton;
-            buttonList[24].GetComponent<Button>().interactable = true;
-            tempObject = buttonList[24].transform.Find("Image").gameObject;
-            tempObject.SetActive(true);
             tempObject = buttonList[14].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
             tempObject = buttonList[13].transform.Find("PopUp/Button_Confirm").gameObject;
@@ -559,10 +563,18 @@ public class Ascension : MonoBehaviour
         cost = 1;
         if (ascensionCoinsHave >= cost)
         {
+            moneyDamageUnlock1 = true;
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[27], buttonList[14]));
             tempObject = buttonList[15].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
+            buttonList[24].GetComponent<Image>().color = RedButton;
+            buttonList[24].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[24].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = SliderList[41].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = buttonList[16].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
             tempObject = buttonList[17].transform.Find("PopUp/Button_Confirm").gameObject;
@@ -570,7 +582,6 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[14].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[14].SetActive(false);
-            moneyDamageUnlock1 = true;
         }
     }
     public void moneyButton3a() {
@@ -693,10 +704,7 @@ public class Ascension : MonoBehaviour
             buttonList[22].GetComponent<Button>().interactable = true;
             tempObject = buttonList[22].transform.Find("Image").gameObject;
             tempObject.SetActive(true);
-            buttonList[24].GetComponent<Image>().color = RedButton;
-            buttonList[24].GetComponent<Button>().interactable = true;
-            tempObject = buttonList[24].transform.Find("Image").gameObject;
-            tempObject.SetActive(true);
+            buttonList[39].GetComponent<Image>().color = RedButton;
             tempObject = buttonList[21].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
             tempObject = buttonList[20].transform.Find("PopUp/Button_Confirm").gameObject;
@@ -713,6 +721,7 @@ public class Ascension : MonoBehaviour
         cost = 1;
         if (ascensionCoinsHave >= cost)
         {
+            moneyDamageUnlock2 = true;
             ascensionCoinsHave -= cost;
             StartCoroutine(buyAnimation(SliderList[35], buttonList[21]));
             tempObject = SliderList[38].transform.Find("Background").gameObject;
@@ -722,12 +731,18 @@ public class Ascension : MonoBehaviour
             buttonList[23].GetComponent<Button>().interactable = true;
             tempObject = buttonList[23].transform.Find("Image").gameObject;
             tempObject.SetActive(true);
+            buttonList[24].GetComponent<Image>().color = RedButton;
+            buttonList[24].GetComponent<Button>().interactable = true;
+            tempObject = buttonList[24].transform.Find("Image").gameObject;
+            tempObject.SetActive(true);
+            tempObject = SliderList[41].transform.Find("Background").gameObject;
+            tempObject.GetComponent<Image>().color = RedSlider;
+            tempObject.GetComponent<Image>().sprite = redSliderSprite;
             tempObject = buttonList[22].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
             tempObject = buttonList[21].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[21].SetActive(false);
-            moneyDamageUnlock2 = true;
         }
     }
     public void DPSButton5a() {
@@ -779,8 +794,7 @@ public class Ascension : MonoBehaviour
         if (ascensionCoinsHave >= cost)
         {
             ascensionCoinsHave -= cost;
-            StartCoroutine(buyAnimation(SliderList[36], buttonList[24]));
-            StartCoroutine(buyAnimation(SliderList[31], buttonList[24]));
+            StartCoroutine(buyAnimation(SliderList[41], buttonList[24]));
             tempObject = buttonList[24].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[24].SetActive(false);
