@@ -20,7 +20,7 @@ public class Swipe : MonoBehaviour
 
     void Start()
     {
-        dragDistance = Screen.height * 15 / 100;
+        dragDistance = Screen.height * 15 / 200;
         canSwipe = true;
     }
 

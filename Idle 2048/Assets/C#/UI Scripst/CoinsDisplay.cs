@@ -25,7 +25,7 @@ public class CoinsDisplay : MonoBehaviour
         Coins = 0;
         string coinsTXT = fn.formatNumber(Coins,true);
         CoinsDisplayTXT.text = coinsTXT;
-        updateButtons();
+        StartCoroutine(updateButtons());
     }
 
 
@@ -34,7 +34,7 @@ public class CoinsDisplay : MonoBehaviour
         Coins += n;
         string coinsTXT = fn.formatNumber(Coins,true);
         CoinsDisplayTXT.text = coinsTXT;
-        updateButtons();
+        StartCoroutine(updateButtons());
     }
 
     public void addCoins(float n)
@@ -42,10 +42,10 @@ public class CoinsDisplay : MonoBehaviour
         Coins += n;
         string coinsTXT = fn.formatNumber(Coins,true);
         CoinsDisplayTXT.text = coinsTXT;
-        updateButtons();
+        StartCoroutine(updateButtons());
     }
 
-    public void updateButtons()
+    public IEnumerator updateButtons()
     {
         bool check = false;
         for (int i = 0; i < prices.Count; i++)
@@ -78,6 +78,8 @@ public class CoinsDisplay : MonoBehaviour
             upgradeAnimation.startAnimation();
         else
             upgradeAnimation.stopAnimation();
+
+        yield return null;
     }
 
 }
