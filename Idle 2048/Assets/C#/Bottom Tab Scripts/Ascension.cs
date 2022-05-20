@@ -31,6 +31,7 @@ public class Ascension : MonoBehaviour
     public MonsterPrefabStuff monsterPrefabStuff;
     public BuyItem buyItem;
     public Damage damageScript;
+    public FormatNumber formatNumber;
 
     private bool biggerGridUnlock1 = false;
     private bool biggerGridUnlock2 = false;
@@ -50,7 +51,7 @@ public class Ascension : MonoBehaviour
         currentButton = 37;
         openAndClose();
         lastButton = 37;
-        string ascensionCoinsToGetString = FormatNumber(ascensionCoinsToGet);
+        string ascensionCoinsToGetString = formatNumber.formatNumber(ascensionCoinsToGet, false);  
         ascensionCoinsToGetDisplay.text = ascensionCoinsToGetString;
     }
     public void buyAscension()
@@ -118,27 +119,7 @@ public class Ascension : MonoBehaviour
 
     string FormatNumber(float num)
     {
-        if (num >= 100000000)
-        {
-            return (num / 1000000D).ToString("0.#M");
-        }
-        if (num >= 1000000)
-        {
-            return (num / 1000000D).ToString("0.##M");
-        }
-        if (num >= 100000)
-        {
-            return (num / 1000D).ToString("0.#k");
-        }
-        if (num >= 10000)
-        {
-            return (num / 1000D).ToString("0.##k");
-        }
-        if (num >= 1000)
-        {
-            return num.ToString("#,0");
-        }
-        return num.ToString("0.#");
+        return formatNumber.formatNumber(num, true);
     }
 
     private IEnumerator buyAnimation(Slider _slider, Image _button)
@@ -891,6 +872,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[25].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[25].SetActive(false);
+
+            buyItem.upCrateChance(0.01f);
         }
     }
     public void crateButton2a() {
@@ -916,6 +899,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[26].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[26].SetActive(false);
+
+            buyItem.upCrateChance(0.01f);
         }
     }
     public void crateButton3a() {
@@ -941,6 +926,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[27].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[27].SetActive(false);
+
+            buyItem.upCrateChance(0.01f);
         }
     }
     public void crateButton4a() {
@@ -966,6 +953,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[28].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[28].SetActive(false);
+
+            buyItem.upCrateChance(0.02f);
         }
     }
     public void crateButton5a() {
@@ -998,6 +987,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[29].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[29].SetActive(false);
+
+            buyItem.upCrateChance(0.02f);
         }
     }
     public void crateButton6a() {
@@ -1039,6 +1030,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[30].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[30].SetActive(false);
+
+            buyItem.upCrateChance(0.02f);
         }
     }
     public void crateButton7a() {
@@ -1059,6 +1052,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[31].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[31].SetActive(false);
+
+            buyItem.upCrateChance(0.03f);
         }
     }
     public void crateButton8a() {
@@ -1109,6 +1104,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[34].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[34].SetActive(false);
+
+            buyItem.upCrateChance(0.05f);
         }
     }
     public void crateButton11a() {

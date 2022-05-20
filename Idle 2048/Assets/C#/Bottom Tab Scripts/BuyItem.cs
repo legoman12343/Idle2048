@@ -32,6 +32,7 @@ public class BuyItem : MonoBehaviour
     float originalPrice;
     float discount = 1.0f;
     public FormatNumber fn;
+    private float crateChanceStart;
 
     void Start()
     {
@@ -116,7 +117,8 @@ public class BuyItem : MonoBehaviour
             coinsDisplay.addCoins(-price);
             priceText.text = "Bought";
             bought = true;
-            gm.crateChance = 0.05f;
+            crateChanceStart += 0.01f;
+            gm.crateChance = crateChanceStart;
             int index = coinsDisplay.pricesUpgrades.FindIndex(x => x == price);
             coinsDisplay.pricesUpgrades.RemoveAt(index);
             coinsDisplay.coloursUpgrades.RemoveAt(index);
@@ -125,7 +127,11 @@ public class BuyItem : MonoBehaviour
         }        
     }
 
-    
+    public void upCrateChance(float chance)
+    {
+        if (bought) gm.crateChance += chance;
+        else crateChanceStart += chance;
+    }
 
     public void mergeTileLevel()
     {
