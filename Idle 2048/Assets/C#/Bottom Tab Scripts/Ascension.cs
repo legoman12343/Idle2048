@@ -26,6 +26,7 @@ public class Ascension : MonoBehaviour
     private int cost;
     private float timer;
     public Sprite redSliderSprite;
+    public float discount;
 
     public GameManager gameManager;
     public MonsterPrefabStuff monsterPrefabStuff;
@@ -617,7 +618,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[15].SetActive(false);
 
-            //buyItem.updateDiscount(-0.1f);
+            discount += 0.1f;
         }
     }
     public void moneyButton4a() {
@@ -1070,6 +1071,9 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[32].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[32].SetActive(false);
+
+            gameManager.crate += 1;
+            gameManager.crateMax += 1;
         }
     }
     public void crateButton9a() {
@@ -1086,6 +1090,9 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[33].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[33].SetActive(false);
+
+            gameManager.crate += 1;
+            gameManager.crateMax += 1;
         }
     }
     public void crateButton10a() {

@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour
     public Vector2 dir;
     public int crateHitCount;
     public bool silver;
+    public bool broken = false;
 
     public void init(TileType type)
     {

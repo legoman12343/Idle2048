@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour
     public HealthBarScript healthBar;
     public float travelTime;
     public Transform endPoint;
-    public float crateChance = 0.0f;
-    private bool crate;
+    public float crateChance;
+    public int crate;
+    public int crateMax;
     public Sprite crateSprite;
     public Sprite crateSprite2;
     public Sprite silverCrateSprite;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
     public bool hitCrit;
     private float tempCoinMult;
     public float ASMultiplier;
+    public Ascension ascension;
 
 
     public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
@@ -67,6 +69,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        crateChance = 1.0f;
+        crateMax = 1;
+        crate = 1;
         ASMultiplier = 0.0f;
         travelTime = 0.2f;
         tileValue = 1;
@@ -159,7 +164,7 @@ public class GameManager : MonoBehaviour
 
     void spawnTile(Node node, float value, bool merging)
     {
-        if ((Random.value < crateChance || (Random.value < instantCrateChance && previousCrate)) && crate == false && merging == false)
+        if ((Random.value < crateChance || (Random.value < instantCrateChance && previousCrate)) && crate != 0 && merging == false)
         {
             previousCrate = false;
             var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
@@ -182,7 +187,7 @@ public class GameManager : MonoBehaviour
             tile.SetTile(node);
             tile.monsterScript = monster;
             tiles.Add(tile);
-            crate = true;
+            crate -= 1;
         }
         else
         {
@@ -215,10 +220,9 @@ public class GameManager : MonoBehaviour
                 var possibleNode = GetNodeAtPosition(next.Pos + dir);
                 if (possibleNode != null)
                 {
-                    if (possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value))
+                    if (possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value) && tile.value != 0)
                     {
                         tile.MergeTile(possibleNode.OccupiedTile);
-
                     }
                     else if (possibleNode.OccupiedTile == null)
                     {
@@ -229,19 +233,19 @@ public class GameManager : MonoBehaviour
                 if (tile.value == 0 && count > 1)
                 {
                     if (!crateHits) { tile.crateHitCount++; crateHits = true; } 
-                    if (tile.crateHitCount == 2)
+                    if (tile.crateHitCount == 2 && !tile.broken)
                     {
+                        tile.broken = true;
                         tile.Node.OccupiedTile = null;
                         tile.dir = dir;
                         tiles.Remove(tile);
                         tile.DestroyCrate();
-                        crate = false;
+                        crate += 1;
                     }
                     else if(tile.crateHitCount == 1)
                     {
                         StartCoroutine(tile.changeCrateImage());
                     }
-                    
                 }
 
             } while (next != tile.Node);
@@ -272,29 +276,28 @@ public class GameManager : MonoBehaviour
 
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
-        float newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
-        quest.updateMergeDamage(newValue + mergeDamageMultiplier);
-        quest.updateTileLevel(newValue);
-        spawnTile(baseTile.Node, newValue, true);
-        if (Random.value < criticalHitChance) hitCrit = true;
-        else hitCrit = false;
-        if (hitCrit) newValue *= 5;
-        newValue += ASMultiplier;
-        StartCoroutine(damageMonster(newValue));
-        var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
-        var floatingScript = text.GetComponent<FloatingText>();
-        floatingScript.endPoint = endPoint;
-        floatingScript.Init(newValue, hitCrit);
+            float newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
+            quest.updateMergeDamage(newValue + mergeDamageMultiplier);
+            quest.updateTileLevel(newValue);
+            spawnTile(baseTile.Node, newValue, true);
+            if (Random.value < criticalHitChance) hitCrit = true;
+            else hitCrit = false;
+            if (hitCrit) newValue *= 5;
+            newValue += ASMultiplier;
+            StartCoroutine(damageMonster(newValue));
+            var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
+            var floatingScript = text.GetComponent<FloatingText>();
+            floatingScript.endPoint = endPoint;
+            floatingScript.Init(newValue, hitCrit);
 
-        removeTile(baseTile);
-        removeTile(mergingTile);
+            removeTile(mergingTile);
+            removeTile(baseTile);
     }
 
     void removeTile(Tile tile)
     {
         if (tile.value == 0)
         {
-            crate = false;
             previousCrate = true;
         }
         tiles.Remove(tile);
@@ -313,6 +316,7 @@ public class GameManager : MonoBehaviour
         {
             removeTile(tiles[0]);
         }
+        crate = crateMax;
     }
 
     public IEnumerator damageMonster(float v)
