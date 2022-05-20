@@ -29,9 +29,13 @@ public class BuyItem : MonoBehaviour
     public Ability1 ability1;
     public Ability2 ability2;
     public Ability3 ability3;
+    float originalPrice;
+    float discount = 1.0f;
+    public FormatNumber fn;
 
     void Start()
     {
+        originalPrice = price;
         multiplier = 1f;
         baseDamage = dpsValue;
         bought = false;
@@ -43,7 +47,13 @@ public class BuyItem : MonoBehaviour
             updatePriceUpgrades();
         else
         updatePrice();
-        
+
+    }
+
+    public void updateDiscount(float d)
+    {
+        discount += d;
+        price = originalPrice * discount;
     }
 
     public void buyItem()
@@ -83,46 +93,19 @@ public class BuyItem : MonoBehaviour
                 updatePriceUpgrades();
             else
                 updatePrice();
-            
-
-
         }
-    }
-    string FormatNumber(float num)
-    {
-        if (num >= 100000000)
-        {
-            return (num / 1000000D).ToString("0.#M");
-        }
-        if (num >= 1000000)
-        {
-            return (num / 1000000D).ToString("0.##M");
-        }
-        if (num >= 100000)
-        {
-            return (num / 1000D).ToString("0.#k");
-        }
-        if (num >= 10000)
-        {
-            return (num / 1000D).ToString("0.##k");
-        }
-        if (num >= 1000)
-        {
-            return num.ToString("#,0");
-        }
-        return num.ToString("0.##");
     }
 
     public void updatePrice()
     {
-        priceText.text = FormatNumber(price) + " Coins";
-        DPStext.text = FormatNumber(dpsValue);
+        priceText.text = fn.formatNumber(price, false).ToString() + " Coins";
+        DPStext.text = fn.formatNumber(dpsValue,false).ToString();
         coinsDisplay.prices[upgradeNum-1] = (int)price;
     }
 
     public void updatePriceUpgrades()
     {
-        priceText.text = FormatNumber(price) + " Coins";
+        priceText.text = fn.formatNumber(price,false) + " Coins";
         coinsDisplay.pricesUpgrades[upgradeNum - 1] = (int)price;
     }
 
