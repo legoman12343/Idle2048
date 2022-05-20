@@ -28,7 +28,7 @@ public class NotificationAnimation : MonoBehaviour
 
     public bool startAnimation()
     {
-        if (check = false)
+        if (check == false)
         {
             icon.SetActive(true);
             StartCoroutine(routine);

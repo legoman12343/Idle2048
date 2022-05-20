@@ -5,6 +5,7 @@ using TMPro;
 
 public class Damage : MonoBehaviour
 {
+    public FormatNumber fn;
     public TextMeshProUGUI dpsCounter;
     public List<float> itemDamage;
     public List<float> itemMultipliers;
@@ -26,12 +27,11 @@ public class Damage : MonoBehaviour
     // Update is called once per frame
     void changeDPS()
     {
-        string t = FormatNumber(getDPS());
+        string t = fn.formatNumber(getDPS(),true);
         dpsCounter.text = t;
     }
 
     
-
     public void changeItemMultiplier(int i, float n)
     {
         itemMultipliers[i] += n;
@@ -50,30 +50,6 @@ public class Damage : MonoBehaviour
         changeDPS();
     }
 
-    string FormatNumber(float num)
-    {
-        if (num >= 100000000)
-        {
-            return (num / 1000000D).ToString("0.#M");
-        }
-        if (num >= 1000000)
-        {
-            return (num / 1000000D).ToString("0.##M");
-        }
-        if (num >= 100000)
-        {
-            return (num / 1000D).ToString("0.#k");
-        }
-        if (num >= 10000)
-        {
-            return (num / 1000D).ToString("0.##k");
-        }
-        if (num >= 1000)
-        {
-            return num.ToString("#,0");
-        }
-        return num.ToString("0.##");
-    }
 
     public void addDPS(float n, int index)
     {

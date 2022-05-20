@@ -99,8 +99,8 @@ public class BuyItem : MonoBehaviour
 
     public void updatePrice()
     {
-        priceText.text = fn.formatNumber(price, false).ToString() + " Coins";
-        DPStext.text = fn.formatNumber(dpsValue,false).ToString();
+        priceText.text = fn.formatNumber(price, false) + " Coins";
+        DPStext.text = fn.formatNumber(dpsValue,false);
         coinsDisplay.prices[upgradeNum-1] = (int)price;
     }
 

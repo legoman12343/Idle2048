@@ -48,8 +48,9 @@ public class OfflineDaily : MonoBehaviour
 		{
 			yield return new WaitForSeconds(0.5f);
 			c = dailyAnimation.startAnimation();
-			
+
 		}
+		
 	}
 	
 
