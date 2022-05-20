@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     private float tempCoinMult;
     public float ASMultiplier;
     public Ascension ascension;
-    public Transform resObject;
+    public RectTransform gridBackground;
 
 
     public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
@@ -139,11 +139,21 @@ public class GameManager : MonoBehaviour
         round = 0;
         nodes = new List<Node>();
         tiles = new List<Tile>();
+
+        var tempNode = Instantiate(nodePrefab, new Vector2(0, 0), Quaternion.identity, gridBackground);
+
+        float w = gridBackground.rect.width;
+        float half = tempNode.GetComponent<RectTransform>().rect.width / 2;
+
+        float gap = (w - half * 8) / 5;
+
+        Destroy(tempNode);
+
         for (int x = 0; x < 4; x++)
         {
             for (int y = 0; y < 4; y++)
             {
-                var node = Instantiate(nodePrefab,new Vector2(x* width - 5f,y* height - 1.8f),Quaternion.identity, resObject);
+                var node = Instantiate(nodePrefab, new Vector2(gap * x + (half * -1) + (2 * x * half), gap * y + (half * -1) + (2 * y * half)), Quaternion.identity, gridBackground);
                 nodes.Add(node);
             }
         }
@@ -175,7 +185,7 @@ public class GameManager : MonoBehaviour
         if ((Random.value < crateChance || (Random.value < instantCrateChance && previousCrate)) && crate != 0 && merging == false)
         {
             previousCrate = false;
-            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity, resObject);
+            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity, gridBackground);
             if (silverCrateCount > 0)
             {
                 silverCrateCount--;
@@ -199,7 +209,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity, resObject);
+            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity, gridBackground);
             tile.init(GetTileTypeValue(value));
             tile.gm = this;
             tile.SetTile(node);
