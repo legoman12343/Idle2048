@@ -9,15 +9,15 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    private float width = 1.7f;
-    private float height = 1.7f;
+    private float width;
+    private float height;
     [SerializeField] private Node nodePrefab;
     [SerializeField] private Tile tilePrefab;
     [SerializeField] public List<TileType> types;
-    private Vector2 Rightvec = new Vector2(1.7f, 0);
-    private Vector2 Leftvec = new Vector2(-1.7f, 0);
-    private Vector2 Upvec = new Vector2(0, 1.7f);
-    private Vector2 Downvec = new Vector2(0, -1.7f);
+    private Vector2 Rightvec;
+    private Vector2 Leftvec;
+    private Vector2 Upvec;
+    private Vector2 Downvec;
     public GameObject floatingTextPrefab;
     public float chance;
     public int startingValue;
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     private float tempCoinMult;
     public float ASMultiplier;
     public Ascension ascension;
+    public Transform resObject;
 
 
     public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
@@ -69,6 +70,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        width = (Screen.width / 220f);
+        height = (Screen.height / 330);
+        Rightvec = new Vector2(width, 0);
+        Leftvec = new Vector2(-width, 0);
+        Upvec = new Vector2(0, height);
+        Downvec = new Vector2(0, -height);
+
         crateChance = 1.0f;
         crateMax = 1;
         crate = 1;
@@ -135,7 +143,7 @@ public class GameManager : MonoBehaviour
         {
             for (int y = 0; y < 4; y++)
             {
-                var node = Instantiate(nodePrefab,new Vector2(x* (Screen.width / 220f) - 5f,y* (Screen.height / 330) -1.8f),Quaternion.identity);
+                var node = Instantiate(nodePrefab,new Vector2(x* width - 5f,y* height - 1.8f),Quaternion.identity, resObject);
                 nodes.Add(node);
             }
         }
@@ -167,7 +175,7 @@ public class GameManager : MonoBehaviour
         if ((Random.value < crateChance || (Random.value < instantCrateChance && previousCrate)) && crate != 0 && merging == false)
         {
             previousCrate = false;
-            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
+            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity, resObject);
             if (silverCrateCount > 0)
             {
                 silverCrateCount--;
@@ -191,7 +199,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
+            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity, resObject);
             tile.init(GetTileTypeValue(value));
             tile.gm = this;
             tile.SetTile(node);

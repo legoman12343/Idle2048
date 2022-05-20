@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4523226228175924865}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6629999, y: 2.5920002, z: -4.5806084}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.5806084}
+  m_LocalScale: {x: 0.001757, y: 0.000987, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4523226229229496167}
@@ -54,9 +54,13 @@ MonoBehaviour:
   renderer: {fileID: 4523226229229496160}
   text: {fileID: 7056857309489227765}
   crateSprite: {fileID: 0}
+  crateSprite2: {fileID: 0}
   gm: {fileID: 0}
   monsterScript: {fileID: 0}
-  temp: 1
+  dir: {x: 0, y: 0}
+  crateHitCount: 0
+  silver: 0
+  broken: 0
 --- !u!50 &3294602587998992660
 Rigidbody2D:
   serializedVersion: 4
@@ -103,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4523226229229496166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.007, z: 4.5806084}
+  m_LocalPosition: {x: 0, y: 0, z: 4.5806084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -197,7 +201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.03, y: 0.017476797}
+  m_AnchoredPosition: {x: -0.029, y: 0.011}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6918069954016805855
