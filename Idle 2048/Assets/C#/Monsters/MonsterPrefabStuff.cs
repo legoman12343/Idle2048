@@ -20,7 +20,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     //coin splash
     public GameObject coinPrefab;
     public CoinsDisplay moneyScript;
-    public int multiplier;
+    public float multiplier;
     bool backLevel;
     private Vector3 spawnPoint;
     public Quests quest;

@@ -9,10 +9,12 @@ public class Damage : MonoBehaviour
     public List<float> itemDamage;
     public List<float> itemMultipliers;
     public float multiplier;
+    public float ASmultiplier;
     [SerializeField] public List<GameObject> gearUpgrades;
     // Start is called before the first frame update
     void Start()
     {
+        ASmultiplier = 1f;
         multiplier = 1f;
         for (int i = 0; i < itemDamage.Count; i++)
         {
@@ -36,6 +38,11 @@ public class Damage : MonoBehaviour
         changeDPS();
     }
 
+    public void changeASMulitplier(float n)
+    {
+        ASmultiplier += n;
+        changeDPS();
+    }
 
     public void changeMultiplier(float n)
     {
@@ -90,6 +97,6 @@ public class Damage : MonoBehaviour
         {
             total += itemDamage[i] * itemMultipliers[0];
         }
-        return total * multiplier;
+        return total * multiplier * ASmultiplier;
     }
 }

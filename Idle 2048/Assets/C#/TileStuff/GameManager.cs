@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private GameState state;
     private int round;
     public HealthBarScript healthBar;
-    public float travelTime = 0.2f;
+    public float travelTime;
     public Transform endPoint;
     public float crateChance = 0.0f;
     private bool crate;
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public bool hasMoved;
     public Vector2 direction;
     public float mergeUpgradeChance;
+    public float criticalHitChance;
     public int silverCrateCount = 0;
     public Quests quest;
     public bool randomShift = false;
@@ -56,17 +57,23 @@ public class GameManager : MonoBehaviour
     private bool previousCrate;
     public int tileValue;
     public int mergeDamageMultiplier = 0;
+    public bool hitCrit;
+    private float tempCoinMult;
+    public float ASMultiplier;
 
 
-    public TileType GetTileTypeValue(int value) => types.First(types => types.value == value);
+    public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
     
 
     void Start()
     {
+        ASMultiplier = 0.0f;
+        travelTime = 0.2f;
         tileValue = 1;
         previousCrate = false;
         instantCrateChance = 0f;
         mergeUpgradeChance = 0.0f;
+        criticalHitChance = 0.0f;
         hasMoved = false;
         ChangeState(GameState.createLevel);
         buttonObj.SetActive(false);
@@ -139,7 +146,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (var node in freeNodes.Take(amount))
             {
-                spawnTile(node, Random.value > chance ? startingValue + 1 : startingValue, false);
+                spawnTile(node, Random.value > chance ? startingValue * 2 : startingValue, false);
             }
         }
         else
@@ -150,7 +157,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void spawnTile(Node node, int value, bool merging)
+    void spawnTile(Node node, float value, bool merging)
     {
         if ((Random.value < crateChance || (Random.value < instantCrateChance && previousCrate)) && crate == false && merging == false)
         {
@@ -265,15 +272,19 @@ public class GameManager : MonoBehaviour
 
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
-        var newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
+        float newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
         quest.updateMergeDamage(newValue + mergeDamageMultiplier);
         quest.updateTileLevel(newValue);
-        //StartCoroutine(damageMonster(newValue * (Random.value <  ? 2 : 1)));
         spawnTile(baseTile.Node, newValue, true);
+        if (Random.value < criticalHitChance) hitCrit = true;
+        else hitCrit = false;
+        if (hitCrit) newValue *= 5;
+        newValue += ASMultiplier;
+        StartCoroutine(damageMonster(newValue));
         var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
         var floatingScript = text.GetComponent<FloatingText>();
         floatingScript.endPoint = endPoint;
-        floatingScript.Init(newValue);
+        floatingScript.Init(newValue, hitCrit);
 
         removeTile(baseTile);
         removeTile(mergingTile);
@@ -304,7 +315,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator damageMonster(int v)
+    public IEnumerator damageMonster(float v)
     {
         yield return new WaitForSeconds(1f);
         healthBar.health -= v;
@@ -406,11 +417,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator coinMultiplier(float time)
     {
+        tempCoinMult = monster.multiplier;
         coinMultiplierText.SetActive(true);
-        monster.multiplier += 1;
+        monster.multiplier *= 2;
         yield return new WaitForSeconds(time);
         coinMultiplierText.SetActive(false);
-        monster.multiplier -= 1;
+        monster.multiplier = tempCoinMult;
     }
 
 

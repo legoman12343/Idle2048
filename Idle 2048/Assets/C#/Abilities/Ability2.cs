@@ -16,6 +16,7 @@ public class Ability2 : MonoBehaviour
     private bool bought = false;
     private bool active = false;
     public GameManager gm;
+    private float tempSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +50,8 @@ public class Ability2 : MonoBehaviour
     {
         if (active)
         {
-            gm.travelTime -= 0.15f;
+            tempSpeed = gm.travelTime;
+            gm.travelTime = 0.03f;
             slider.maxValue = 10f;
             active = false;
             activeTimer -= Time.deltaTime;
@@ -61,7 +63,7 @@ public class Ability2 : MonoBehaviour
                 slider.value = activeTimer;
                 yield return new WaitForSeconds(0.01f);
             }
-            gm.travelTime += 0.15f;
+            gm.travelTime = tempSpeed;
             StartCoroutine(cooldownAbility());
         }
     }

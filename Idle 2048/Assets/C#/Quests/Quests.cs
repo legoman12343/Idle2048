@@ -13,10 +13,10 @@ public class Quests : MonoBehaviour
     private int bossKillCount;
     private int bossKillTarget;
     private bool bossKillCompleted;
-    private int mergeDamage;
+    private float mergeDamage;
     private int mergeDamageTarget;
     private bool mergeDamageCompleted;
-    private int tileLevel;
+    private float tileLevel;
     private int tileLevelTarget;
     private bool tileLevelCompleted;
     private int crateCount;
@@ -116,7 +116,7 @@ public class Quests : MonoBehaviour
         tileLevelCompleted = false;
     }
 
-    public void updateTileLevel(int n)
+    public void updateTileLevel(float n)
     {
         if (tileLevel < n)
         {
@@ -153,7 +153,7 @@ public class Quests : MonoBehaviour
         mergeDamageCompleted = false;
     }
 
-    public void updateMergeDamage(int n)
+    public void updateMergeDamage(float n)
     {
         mergeDamage += n;
         progressbar bar = progressbars[2];

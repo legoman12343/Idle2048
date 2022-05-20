@@ -27,6 +27,11 @@ public class Ascension : MonoBehaviour
     private float timer;
     public Sprite redSliderSprite;
 
+    public GameManager gameManager;
+    public MonsterPrefabStuff monsterPrefabStuff;
+    public BuyItem buyItem;
+    public Damage damageScript;
+
     private bool biggerGridUnlock1 = false;
     private bool biggerGridUnlock2 = false;
     private bool tileLevelUnlock1 = false;
@@ -211,6 +216,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[0].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[0].SetActive(false);
+
+            gameManager.startingValue += 3;
         }
     }
     public void tileButton2a() {
@@ -249,6 +256,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[1].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[1].SetActive(false);
+
+            gameManager.startingValue *= 2;
         }
     }
     public void tileButton3a() {
@@ -274,6 +283,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[2].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[2].SetActive(false);
+
+            gameManager.criticalHitChance += 0.03f;
         }
     }
     public void tileButton4a() {
@@ -306,6 +317,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[3].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[3].SetActive(false);
+
+            gameManager.criticalHitChance += 0.05f;
         }
     }
     public void tileButton5a() {
@@ -330,6 +343,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[4].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[4].SetActive(false);
+
+            gameManager.startingValue *= 8;
         }
     }
     public void tileButton6a() {
@@ -346,6 +361,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[5].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[5].SetActive(false);
+
+            gameManager.travelTime -= 0.05f;
         }
     }
     public void tileButton7a() {
@@ -367,6 +384,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[7].transform.Find("Image").gameObject;
             tempObject.SetActive(true);
             popUpList[6].SetActive(false);
+
+            gameManager.criticalHitChance += 0.10f;
         }
     }
     public void tileButton8a() {
@@ -388,6 +407,10 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[7].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[7].SetActive(false);
+
+            //-----------//
+            //Large Grid//
+            //----------//
         }
     }
     public void tileButton9a() {
@@ -412,6 +435,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[7].transform.Find("Image").gameObject;
             tempObject.SetActive(true);
             popUpList[8].SetActive(false);
+
+            gameManager.travelTime -= 0.05f;
         }
     }
     public void tileButton10a() {
@@ -439,6 +464,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[9].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[9].SetActive(false);
+
+            gameManager.startingValue *= 8;
         }
     }
     public void tileButton11a() {
@@ -463,6 +490,8 @@ public class Ascension : MonoBehaviour
             tempObject.GetComponent<Image>().color = RedSlider;
             tempObject.GetComponent<Image>().sprite = redSliderSprite;
             popUpList[10].SetActive(false);
+
+            gameManager.startingValue *= 16;
         }
     }
     public void tileButton12a() {
@@ -487,6 +516,8 @@ public class Ascension : MonoBehaviour
             tempObject.GetComponent<Image>().color = RedSlider;
             tempObject.GetComponent<Image>().sprite = redSliderSprite;
             popUpList[11].SetActive(false);
+
+            gameManager.startingValue *= 16;
         }
     }
     public void tileButton13a() {
@@ -508,6 +539,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[12].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[12].SetActive(false);
+
+            gameManager.startingValue *= 32;
         }
     }
     //money buttons
@@ -552,6 +585,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[13].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[13].SetActive(false);
+
+            monsterPrefabStuff.multiplier += 0.1f;
         }
     }
     public void moneyButton2a() {
@@ -582,6 +617,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[14].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[14].SetActive(false);
+
+            monsterPrefabStuff.multiplier += 0.15f;
         }
     }
     public void moneyButton3a() {
@@ -598,6 +635,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[15].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[15].SetActive(false);
+
+            //buyItem.updateDiscount(-0.1f);
         }
     }
     public void moneyButton4a() {
@@ -614,6 +653,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[16].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[16].SetActive(false);
+
+            monsterPrefabStuff.multiplier += 0.2f;
         }
     }
     public void moneyButton5a() {
@@ -630,6 +671,10 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[17].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[17].SetActive(false);
+
+            monsterPrefabStuff.multiplier += 0.25f;
+            damageScript.changeASMulitplier(0.25f);
+            gameManager.ASMultiplier += 0.25f;
         }
     }
     //DPS buttons
@@ -656,6 +701,9 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[18].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[18].SetActive(false);
+
+            damageScript.changeASMulitplier(0.1f);
+            gameManager.ASMultiplier += 0.1f;
         }
     }
     public void DPSButton2a() {
@@ -681,6 +729,9 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[19].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[19].SetActive(false);
+
+            damageScript.changeASMulitplier(0.20f);
+            gameManager.ASMultiplier += 0.20f;
         }
     }
     public void DPSButton3a() {
@@ -710,6 +761,9 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[20].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[20].SetActive(false);
+
+            damageScript.changeASMulitplier(0.25f);
+            gameManager.ASMultiplier += 0.25f;
         }
     }
     public void DPSButton4a() {
@@ -743,6 +797,9 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[21].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[21].SetActive(false);
+
+            damageScript.changeASMulitplier(0.50f);
+            gameManager.ASMultiplier += 0.50f;
         }
     }
     public void DPSButton5a() {
@@ -761,6 +818,9 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[22].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[22].SetActive(false);
+
+            damageScript.changeASMulitplier(1f);
+            gameManager.ASMultiplier += 1f;
         }
     }
     public void DPSButton6a() {
@@ -777,6 +837,9 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[23].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[23].SetActive(false);
+
+            damageScript.changeASMulitplier(2f);
+            gameManager.ASMultiplier += 2f;
         }
     }
     public void DPSButton7a() {
@@ -798,6 +861,10 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[24].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[24].SetActive(false);
+
+            damageScript.changeASMulitplier(0.5f);
+            gameManager.ASMultiplier += 0.5f;
+            monsterPrefabStuff.multiplier += 0.5f;
         }
     }
     //crate buttons
