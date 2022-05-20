@@ -148,18 +148,16 @@ public class GameManager : MonoBehaviour
         float w = v[2].x - v[1].x;
         float half = 0.71f;
         float gap = (w - half * 8) / 5;
-        Debug.Log(Screen.width);
-        Debug.Log(Screen.height);
         for (int x = 1; x < 5; x++)
         {
             for (int y = 1; y < 5; y++)
             {
                 var node = Instantiate(nodePrefab, new Vector2(gap * x + ((2 * x) - 1)*half + v[0].x, gap * y + ((2 * y) - 1) * half + v[0].y), Quaternion.identity);
-                Transform transform = node.GetComponent<RectTransform>();
+                RectTransform transform = node.GetComponent<RectTransform>();
                 var a = (transform.localScale.x / Screen.width)* Screen.width;
                 var b = (transform.localScale.y / Screen.height)*Screen.height;
                 transform.localScale = new Vector3(a, b, transform.localScale.z);
-                transform.size = new Vector2((Screen.width / 100) * 20,(Screen.width / 100) * 20); 
+                transform.sizeDelta = new Vector2((Screen.width / 100) * 20,(Screen.width / 100) * 20); 
                 nodes.Add(node);
             }
         }
@@ -211,11 +209,11 @@ public class GameManager : MonoBehaviour
             tile.SetTile(node);
             tile.monsterScript = monster;
             crate -= 1;
-            Transform transform = tile.GetComponent<RectTransform>();
+            RectTransform transform = tile.GetComponent<RectTransform>();
             var a = transform.localScale.x / Screen.width;
             var b = transform.localScale.y / Screen.height;
             transform.localScale = new Vector3(a, b, transform.localScale.z);
-            transform.size = new Vector2((Screen.width / 100) * 17.46f, (Screen.width / 100) * 17.46f);
+            transform.sizeDelta = new Vector2((Screen.width / 100) * 17.46f, (Screen.width / 100) * 17.46f);
             tiles.Add(tile);
         }
         else
@@ -225,11 +223,11 @@ public class GameManager : MonoBehaviour
             tile.gm = this;
             tile.SetTile(node);
             tile.monsterScript = monster;
-            Transform transform = tile.GetComponent<RectTransform>();
+            RectTransform transform = tile.GetComponent<RectTransform>();
             var a = transform.localScale.x / Screen.width;
             var b = transform.localScale.y / Screen.height;
             transform.localScale = new Vector3(a, b, transform.localScale.z);
-            transform.size = new Vector2((Screen.width / 100) * 17.46f, (Screen.width / 100) * 17.46f);
+            transform.sizeDelta = new Vector2((Screen.width / 100) * 17.46f, (Screen.width / 100) * 17.46f);
             tiles.Add(tile);
         }
         
