@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     public float ASMultiplier;
     public Ascension ascension;
     public RectTransform gridBackground;
+    public RectTransform resWorkAround;
 
 
     public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
@@ -140,20 +141,25 @@ public class GameManager : MonoBehaviour
         nodes = new List<Node>();
         tiles = new List<Tile>();
 
-        var tempNode = Instantiate(nodePrefab, new Vector2(0, 0), Quaternion.identity, gridBackground);
+        Vector3[] v = new Vector3[4];
+        gridBackground.GetWorldCorners(v);
 
-        float w = gridBackground.rect.width;
-        float half = tempNode.GetComponent<RectTransform>().rect.width / 2;
 
+        float w = v[2].x - v[1].x;
+        float half = 0.71f;
         float gap = (w - half * 8) / 5;
-
-        Destroy(tempNode);
-
-        for (int x = 0; x < 4; x++)
+        Debug.Log(Screen.width);
+        Debug.Log(Screen.height);
+        for (int x = 1; x < 5; x++)
         {
-            for (int y = 0; y < 4; y++)
+            for (int y = 1; y < 5; y++)
             {
-                var node = Instantiate(nodePrefab, new Vector2(gap * x + (half * -1) + (2 * x * half), gap * y + (half * -1) + (2 * y * half)), Quaternion.identity, gridBackground);
+                var node = Instantiate(nodePrefab, new Vector2(gap * x + ((2 * x) - 1)*half + v[0].x, gap * y + ((2 * y) - 1) * half + v[0].y), Quaternion.identity);
+                Transform transform = node.GetComponent<RectTransform>();
+                var a = (transform.localScale.x / Screen.width)* Screen.width;
+                var b = (transform.localScale.y / Screen.height)*Screen.height;
+                transform.localScale = new Vector3(a, b, transform.localScale.z);
+                transform.size = new Vector2((Screen.width / 100) * 20,(Screen.width / 100) * 20); 
                 nodes.Add(node);
             }
         }
@@ -185,7 +191,7 @@ public class GameManager : MonoBehaviour
         if ((Random.value < crateChance || (Random.value < instantCrateChance && previousCrate)) && crate != 0 && merging == false)
         {
             previousCrate = false;
-            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity, gridBackground);
+            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
             if (silverCrateCount > 0)
             {
                 silverCrateCount--;
@@ -204,16 +210,26 @@ public class GameManager : MonoBehaviour
             tile.gm = this;
             tile.SetTile(node);
             tile.monsterScript = monster;
-            tiles.Add(tile);
             crate -= 1;
+            Transform transform = tile.GetComponent<RectTransform>();
+            var a = transform.localScale.x / Screen.width;
+            var b = transform.localScale.y / Screen.height;
+            transform.localScale = new Vector3(a, b, transform.localScale.z);
+            transform.size = new Vector2((Screen.width / 100) * 17.46f, (Screen.width / 100) * 17.46f);
+            tiles.Add(tile);
         }
         else
         {
-            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity, gridBackground);
+            var tile = Instantiate(tilePrefab, node.Pos, Quaternion.identity);
             tile.init(GetTileTypeValue(value));
             tile.gm = this;
             tile.SetTile(node);
             tile.monsterScript = monster;
+            Transform transform = tile.GetComponent<RectTransform>();
+            var a = transform.localScale.x / Screen.width;
+            var b = transform.localScale.y / Screen.height;
+            transform.localScale = new Vector3(a, b, transform.localScale.z);
+            transform.size = new Vector2((Screen.width / 100) * 17.46f, (Screen.width / 100) * 17.46f);
             tiles.Add(tile);
         }
         
