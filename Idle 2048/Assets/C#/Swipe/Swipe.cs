@@ -17,10 +17,11 @@ public class Swipe : MonoBehaviour
     private int dragDistance;
 
     public bool canSwipe;
+    private bool hasMoved = false;
 
     void Start()
     {
-        dragDistance = Screen.height * 15 / 200;
+        dragDistance = Screen.height * 10 / 500;
         canSwipe = true;
     }
 
@@ -36,7 +37,7 @@ public class Swipe : MonoBehaviour
             {
                 startPos = Input.GetTouch(0).position;
             }
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && !hasMoved)
             {
 
                 endPos = Input.GetTouch(0).position;
@@ -45,26 +46,33 @@ public class Swipe : MonoBehaviour
                 {
                     gm.direction = Leftvec;
                     gm.hasMoved = true;
+                    hasMoved = true;
                 }
                 else if (startPos.x < endPos.x && endPos.x - startPos.x > dragDistance)
                 {
                     gm.direction = Rightvec;
                     gm.hasMoved = true;
+                    hasMoved = true;
                 }
                 else if (startPos.y > endPos.y && startPos.y - endPos.y > dragDistance)
                 {
                     gm.direction = Downvec;
                     gm.hasMoved = true;
+                    hasMoved = true;
                 }
                 else if (startPos.y < endPos.y && endPos.y - startPos.y > dragDistance)
                 {
                     gm.direction = Upvec;
                     gm.hasMoved = true;
+                    hasMoved = true;
                 }
 
 
 
 
+            } else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                hasMoved = false;
             }
         }
     }

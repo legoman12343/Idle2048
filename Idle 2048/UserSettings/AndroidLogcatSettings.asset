@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "1A131FDF6004JB",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 14889,
+        "processId": 22937,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -18,6 +18,72 @@
             "deviceId": "1A131FDF6004JB",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 14889,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 17979,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 18605,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 19134,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 19559,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 19966,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 20299,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 20959,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21335,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21794,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22219,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22937,
             "exited": false
         }
     ],
