@@ -28,6 +28,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     public bool bossDead;
     public TextMeshProUGUI timerText;
     public bool giveMoney;
+    public AudioSource deathSound;
 
     void Start()
     {
