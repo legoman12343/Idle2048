@@ -18,6 +18,7 @@ public class Stats : MonoBehaviour
     public Quests quest;
     public TextMeshProUGUI timerText;
     private float timer;
+    public AudioSource deathSound;
 
     public void Init()
     {
@@ -43,6 +44,7 @@ public class Stats : MonoBehaviour
         {
             StartCoroutine(coroutine);
         }
+        monsterScript.deathSound = deathSound;
     }
     
     void Update()

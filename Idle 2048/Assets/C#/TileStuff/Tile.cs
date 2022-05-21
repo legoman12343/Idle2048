@@ -22,7 +22,9 @@ public class Tile : MonoBehaviour
     public bool silver;
     public bool broken = false;
     public ParticleSystem particles;
+    public ParticleSystem crateDestroyParticles;
     private ParticleSystem.EmissionModule em;
+    private ParticleSystem.EmissionModule crateEm;
     public float dur;
 
     public void init(TileType type)
@@ -39,6 +41,7 @@ public class Tile : MonoBehaviour
             text.text = value.ToString();
         }
         em = particles.emission;
+        crateEm = crateDestroyParticles.emission;
     }
 
     public void SetTile(Node node)
@@ -181,13 +184,21 @@ public class Tile : MonoBehaviour
         rb.AddForce(new Vector2(dir.x,dir.y*2), ForceMode2D.Impulse);
         if (dir.y != 0) { rb.AddTorque(100 * (Random.value > 0.5f ? 1 : -1) * (30 * Mathf.Deg2Rad)); }
         else { rb.AddTorque(100 * (dir.x > 0 ? -1 : 1) * (30 * Mathf.Deg2Rad)); }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.2f);
+        crateEm.enabled = true;
+        crateDestroyParticles.Play();
+        yield return new WaitForSeconds(2.8f);
         Destroy(gameObject);
     }
 
     public IEnumerator changeCrateImage()
     {
         yield return new WaitForSeconds(0.2f);
+        crateEm.enabled = true;
+        crateDestroyParticles.Play();
         renderer.sprite = crateSprite2;
+        yield return new WaitForSeconds(dur);
+        crateEm.enabled = false;
+
     }
 }
