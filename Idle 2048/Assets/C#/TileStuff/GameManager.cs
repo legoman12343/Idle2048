@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     {
         round = 0;
         gridSizeUp = false;
-        crateChance = 1.0f;
+        crateChance = 0f;
         crateMax = 1;
         crate = 1;
         ASMultiplier = 0.0f;

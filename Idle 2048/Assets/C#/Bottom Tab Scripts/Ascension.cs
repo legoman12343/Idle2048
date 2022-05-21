@@ -31,6 +31,7 @@ public class Ascension : MonoBehaviour
     public GameManager gameManager;
     public MonsterPrefabStuff monsterPrefabStuff;
     public BuyItem buyItem;
+    public BuyItem buyItemCrate;
     public Damage damageScript;
     public FormatNumber formatNumber;
 
@@ -873,7 +874,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[25].SetActive(false);
 
-            buyItem.upCrateChance(0.01f);
+            buyItemCrate.upCrateChance(0.01f);
         }
     }
     public void crateButton2a() {
@@ -900,7 +901,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[26].SetActive(false);
 
-            buyItem.upCrateChance(0.01f);
+            buyItemCrate.upCrateChance(0.01f);
         }
     }
     public void crateButton3a() {
@@ -927,7 +928,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[27].SetActive(false);
 
-            buyItem.upCrateChance(0.01f);
+            buyItemCrate.upCrateChance(0.01f);
         }
     }
     public void crateButton4a() {
@@ -954,7 +955,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[28].SetActive(false);
 
-            buyItem.upCrateChance(0.02f);
+            buyItemCrate.upCrateChance(0.02f);
         }
     }
     public void crateButton5a() {
@@ -988,7 +989,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[29].SetActive(false);
 
-            buyItem.upCrateChance(0.02f);
+            buyItemCrate.upCrateChance(0.02f);
         }
     }
     public void crateButton6a() {
@@ -1031,7 +1032,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[30].SetActive(false);
 
-            buyItem.upCrateChance(0.02f);
+            buyItemCrate.upCrateChance(0.02f);
         }
     }
     public void crateButton7a() {
@@ -1053,7 +1054,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[31].SetActive(false);
 
-            buyItem.upCrateChance(0.03f);
+            buyItemCrate.upCrateChance(0.03f);
         }
     }
     public void crateButton8a() {
@@ -1111,7 +1112,7 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[34].SetActive(false);
 
-            buyItem.upCrateChance(0.05f);
+            buyItemCrate.upCrateChance(0.05f);
         }
     }
     public void crateButton11a() {

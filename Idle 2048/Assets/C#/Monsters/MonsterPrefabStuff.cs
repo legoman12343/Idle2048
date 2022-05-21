@@ -27,6 +27,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     bool duck;
     public bool bossDead;
     public TextMeshProUGUI timerText;
+    public bool giveMoney;
 
     void Start()
     {
@@ -112,7 +113,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         //death animation script
         monster[0].GetComponent<Monster>().Die();
         //make coins splash
-        if (coinsMade == false && monster[0].GetComponent<Stats>().coins > 0)
+        if (coinsMade == false && monster[0].GetComponent<Stats>().coins > 0 && giveMoney)
         {
             int range = Random.Range(5, 8);
             if ( level.level < range)
@@ -126,11 +127,11 @@ public class MonsterPrefabStuff : MonoBehaviour
                 Instantiate(coinPrefab, vec, Quaternion.identity);
             }
             coinsMade = true;
+            //add coins to total
+            moneyScript.addCoins(monster[0].GetComponent<Stats>().coins * multiplier);
         }
-        //add coins to total
-        moneyScript.addCoins(monster[0].GetComponent<Stats>().coins * multiplier);
-        //wait
         
+        //wait
         yield return new WaitForSeconds(1.1f);
         var deadMonster = monster[0];
         deadMonster.transform.DOMove(monsterSpawnPointLeft.position, 1f);

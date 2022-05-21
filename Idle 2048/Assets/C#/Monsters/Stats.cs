@@ -60,6 +60,7 @@ public class Stats : MonoBehaviour
             {
                 quest.updateKillMonstersQuest(1);
             }
+            monsterScript.giveMoney = true;
             StartCoroutine(monsterScript.respawnMonster());
         }        
     }
@@ -76,6 +77,7 @@ public class Stats : MonoBehaviour
         }
         timerText.gameObject.SetActive(false);
         monsterScript.bossDead = false;
+        monsterScript.giveMoney = false;
         StartCoroutine(monsterScript.respawnMonster());
         
     }
