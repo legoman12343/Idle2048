@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
     public RectTransform gridBackground;
     public RectTransform resWorkAround;
     public bool gridSizeUp;
+    public AudioSource moveTileSound;
+    public AudioSource combineTileSound;
 
 
     public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
@@ -297,6 +299,7 @@ public class GameManager : MonoBehaviour
     void Shift(Vector2 dir)
     {
         ChangeState(GameState.Moving);
+        bool merge = false;
         var orderedTiles = tiles.OrderBy(b => b.Pos.x).ThenBy(b => b.Pos.y).ToList();
         if (dir == Rightvec || dir == Upvec) orderedTiles.Reverse();
         int count;
@@ -319,6 +322,7 @@ public class GameManager : MonoBehaviour
                     if (possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value) && tile.value != 0) 
                     {
                         tile.MergeTile(possibleNode.OccupiedTile);
+                        merge = true;
                     }
                     else if (possibleNode.OccupiedTile == null)
                     {
@@ -378,7 +382,11 @@ public class GameManager : MonoBehaviour
 
             ChangeState(GameState.SpawningBlocks);
         });
-
+        if(merge)
+        {
+            combineTileSound.Play();
+        }
+        moveTileSound.Play();
     }
 
     void mergeTiles(Tile baseTile, Tile mergingTile)
