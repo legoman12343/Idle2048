@@ -390,9 +390,8 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[7].SetActive(false);
 
-            //-----------//
-            //Large Grid//
-            //----------//
+            gameManager.gridSizeUp = true;
+            gameManager.makeGrid();
         }
     }
     public void tileButton9a() {
