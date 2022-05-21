@@ -41,13 +41,12 @@ public class BuyItem : MonoBehaviour
         baseDamage = dpsValue;
         bought = false;
         ItemOwned = 0;
-        if(!upgrade)
-        ItemDisplayTXT.text = "X " + ItemOwned.ToString();
+        if(!upgrade) ItemDisplayTXT.text = "X " + ItemOwned.ToString();
+
         priceIncrement = 1.05f;
-        if (upgrade)
-            updatePriceUpgrades();
-        else
-        updatePrice();
+
+        if (upgrade) updatePriceUpgrades();
+        else updatePrice();
 
     }
 

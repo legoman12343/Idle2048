@@ -21,6 +21,7 @@ public class Tile : MonoBehaviour
     public int crateHitCount;
     public bool silver;
     public bool broken = false;
+    public ParticleSystem particles;
 
     public void init(TileType type)
     {
@@ -52,6 +53,22 @@ public class Tile : MonoBehaviour
         Node.OccupiedTile = null;
 
         tileToMergeWith.Merging = true;
+        
+    }
+
+    public void startParticles()
+    {
+        StartCoroutine(playParticles());
+    }
+
+    IEnumerator playParticles()
+    {
+        var em = particles.emission;
+        var dur = particles.duration;
+        em.enabled = true;
+
+        yield return new WaitForSeconds(dur);
+        em.enabled = false;
     }
 
     public bool canMerge(int Value) => Value == value && !Merging && MergingTile == null;
