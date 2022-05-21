@@ -288,7 +288,7 @@ public class GameManager : MonoBehaviour
                 transform.sizeDelta = new Vector2((Screen.width / 100) * 20, (Screen.width / 100) * 20);
             }
             tiles.Add(tile);
-            tile.startParticles();
+            if (merging)tile.startParticles();
         }
         
         
@@ -305,6 +305,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < orderedTiles.Count; i++)
         {
             var tile = orderedTiles[i];
+            var tileLast = orderedTiles[i];
+            if (i > 0) tileLast = orderedTiles[i - 1];
             crateHits = false;
             count = 0;
             var next = tile.Node;
@@ -319,7 +321,7 @@ public class GameManager : MonoBehaviour
                     {
                         tile.MergeTile(possibleNode.OccupiedTile);
                     }
-                    else if (possibleNode.OccupiedTile == null)
+                    else if (possibleNode.OccupiedTile == null || tileLast.broken == true)
                     {
                         next = possibleNode;
                         count++;
@@ -327,7 +329,7 @@ public class GameManager : MonoBehaviour
                 }
                 if (tile.value == 0 && count > 1)
                 {
-                    if (!crateHits) { tile.crateHitCount++; crateHits = true; }
+                    if (!crateHits) { tile.crateHitCount++; crateHits = true;}
                     if (tile.crateHitCount == 2 && !tile.broken)
                     {
                         if (!brokenCrates.Contains(tile))
