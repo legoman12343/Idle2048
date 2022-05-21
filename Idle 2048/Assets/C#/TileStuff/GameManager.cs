@@ -68,16 +68,10 @@ public class GameManager : MonoBehaviour
 
     public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
     
+   
 
     void Start()
     {
-        width = (Screen.width / 220f);
-        height = (Screen.height / 330);
-        Rightvec = new Vector2(width, 0);
-        Leftvec = new Vector2(-width, 0);
-        Upvec = new Vector2(0, height);
-        Downvec = new Vector2(0, -height);
-
         crateChance = 1.0f;
         crateMax = 1;
         crate = 1;
@@ -154,13 +148,21 @@ public class GameManager : MonoBehaviour
             {
                 var node = Instantiate(nodePrefab, new Vector2(gap * x + ((2 * x) - 1)*half + v[0].x, gap * y + ((2 * y) - 1) * half + v[0].y), Quaternion.identity);
                 RectTransform transform = node.GetComponent<RectTransform>();
-                var a = (transform.localScale.x / Screen.width)* Screen.width;
-                var b = (transform.localScale.y / Screen.height)*Screen.height;
+                var a = (transform.localScale.x / Screen.width)* Screen.width*1.35f;
+                var b = (transform.localScale.y / Screen.height)*Screen.height*1.35f;
                 transform.localScale = new Vector3(a, b, transform.localScale.z);
                 transform.sizeDelta = new Vector2((Screen.width / 100) * 20,(Screen.width / 100) * 20); 
                 nodes.Add(node);
             }
         }
+        //dfgh
+        float width = nodes[4].GetComponent<Transform>().position.x - nodes[0].GetComponent<Transform>().position.x;
+        float height = nodes[1].GetComponent<Transform>().position.y - nodes[0].GetComponent<Transform>().position.y;
+
+        Rightvec = new Vector2(width, 0);
+        Leftvec = new Vector2(-width, 0);
+        Upvec = new Vector2(0, height);
+        Downvec = new Vector2(0, -height);
 
         ChangeState(GameState.SpawningBlocks);
     }
@@ -210,10 +212,10 @@ public class GameManager : MonoBehaviour
             tile.monsterScript = monster;
             crate -= 1;
             RectTransform transform = tile.GetComponent<RectTransform>();
-            var a = transform.localScale.x / Screen.width;
-            var b = transform.localScale.y / Screen.height;
+            var a = (transform.localScale.x / Screen.width) * Screen.width * 1.35f;
+            var b = (transform.localScale.y / Screen.height) * Screen.height * 1.35f;
             transform.localScale = new Vector3(a, b, transform.localScale.z);
-            transform.sizeDelta = new Vector2((Screen.width / 100) * 17.46f, (Screen.width / 100) * 17.46f);
+            transform.sizeDelta = new Vector2((Screen.width / 100) * 20, (Screen.width / 100) * 20);
             tiles.Add(tile);
         }
         else
@@ -224,10 +226,10 @@ public class GameManager : MonoBehaviour
             tile.SetTile(node);
             tile.monsterScript = monster;
             RectTransform transform = tile.GetComponent<RectTransform>();
-            var a = transform.localScale.x / Screen.width;
-            var b = transform.localScale.y / Screen.height;
+            var a = (transform.localScale.x / Screen.width) * Screen.width * 1.35f;
+            var b = (transform.localScale.y / Screen.height) * Screen.height * 1.35f;
             transform.localScale = new Vector3(a, b, transform.localScale.z);
-            transform.sizeDelta = new Vector2((Screen.width / 100) * 17.46f, (Screen.width / 100) * 17.46f);
+            transform.sizeDelta = new Vector2((Screen.width / 100) * 20, (Screen.width / 100) * 20);
             tiles.Add(tile);
         }
         
@@ -349,6 +351,30 @@ public class GameManager : MonoBehaviour
             removeTile(tiles[0]);
         }
         crate = crateMax;
+    }
+
+    public void directionLeft()
+    {
+        direction = Leftvec;
+        hasMoved = true;
+    }
+
+    public void directionRight()
+    {
+        direction = Rightvec;
+        hasMoved = true;
+    }
+
+    public void directionUp()
+    {
+        direction = Upvec;
+        hasMoved = true;
+    }
+
+    public void directionDown()
+    {
+        direction = Downvec;
+        hasMoved = true;
     }
 
     public IEnumerator damageMonster(float v)

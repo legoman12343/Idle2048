@@ -44,26 +44,22 @@ public class Swipe : MonoBehaviour
                 if (startPos.x > endPos.x && startPos.x - endPos.x > dragDistance)
 
                 {
-                    gm.direction = Leftvec;
-                    gm.hasMoved = true;
+                    gm.directionLeft();
                     hasMoved = true;
                 }
                 else if (startPos.x < endPos.x && endPos.x - startPos.x > dragDistance)
                 {
-                    gm.direction = Rightvec;
-                    gm.hasMoved = true;
+                    gm.directionRight();
                     hasMoved = true;
                 }
                 else if (startPos.y > endPos.y && startPos.y - endPos.y > dragDistance)
                 {
-                    gm.direction = Downvec;
-                    gm.hasMoved = true;
+                    gm.directionDown();
                     hasMoved = true;
                 }
                 else if (startPos.y < endPos.y && endPos.y - startPos.y > dragDistance)
                 {
-                    gm.direction = Upvec;
-                    gm.hasMoved = true;
+                    gm.directionUp();
                     hasMoved = true;
                 }
 
