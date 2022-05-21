@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "1A131FDF6004JB",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 4343,
+        "processId": 16017,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -96,6 +96,12 @@
             "deviceId": "1A131FDF6004JB",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 4343,
+            "exited": false
+        },
+        {
+            "deviceId": "1A131FDF6004JB",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 16017,
             "exited": false
         }
     ],

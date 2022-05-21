@@ -22,6 +22,8 @@ public class Tile : MonoBehaviour
     public bool silver;
     public bool broken = false;
     public ParticleSystem particles;
+    private ParticleSystem.EmissionModule em;
+    public float dur;
 
     public void init(TileType type)
     {
@@ -36,7 +38,7 @@ public class Tile : MonoBehaviour
         {
             text.text = value.ToString();
         }
-        
+        em = particles.emission;
     }
 
     public void SetTile(Node node)
@@ -63,10 +65,8 @@ public class Tile : MonoBehaviour
 
     IEnumerator playParticles()
     {
-        var em = particles.emission;
-        var dur = particles.duration;
         em.enabled = true;
-
+        particles.Play();
         yield return new WaitForSeconds(dur);
         em.enabled = false;
     }
