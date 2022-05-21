@@ -305,8 +305,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < orderedTiles.Count; i++)
         {
             var tile = orderedTiles[i];
-            var tileLast = orderedTiles[i];
-            if (i > 0) tileLast = orderedTiles[i - 1];
+            
             crateHits = false;
             count = 0;
             var next = tile.Node;
@@ -317,11 +316,11 @@ public class GameManager : MonoBehaviour
                 var possibleNode = GetNodeAtPosition(next.Pos + dir);
                 if (possibleNode != null)
                 {
-                    if (possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value) && tile.value != 0)
+                    if (possibleNode.OccupiedTile != null && possibleNode.OccupiedTile.canMerge(tile.value) && tile.value != 0) 
                     {
                         tile.MergeTile(possibleNode.OccupiedTile);
                     }
-                    else if (possibleNode.OccupiedTile == null || tileLast.broken == true)
+                    else if (possibleNode.OccupiedTile == null)
                     {
                         next = possibleNode;
                         count++;
