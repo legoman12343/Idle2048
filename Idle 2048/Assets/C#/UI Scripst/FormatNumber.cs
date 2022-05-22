@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Numerics;
 
 public class FormatNumber : MonoBehaviour
 {
@@ -35,6 +36,29 @@ public class FormatNumber : MonoBehaviour
         int pos = -1;
         int formatNum = (int)number;
         int originalNumber = formatNum;
+
+        if (formatNum >= 1000) { highNum = true; }
+
+        while (formatNum >= 1000) { formatNum /= 1000; pos++; }
+
+        if (!highNum) { return originalNumber.ToString(); }
+
+        string output = originalNumber.ToString("F0").Substring(0, 3);
+
+        if (word) { output = output + words[pos]; }
+        else { output = output + letters[pos]; }
+
+        if (formatNum < 10) { return output.Insert(1, "."); }
+        if (formatNum < 100) { return output.Insert(2, "."); }
+        return output;
+    }
+
+    public string formatNumber(BigInteger number, bool word = false)
+    {
+        bool highNum = false;
+        int pos = -1;
+        BigInteger formatNum = number;
+        BigInteger originalNumber = formatNum;
 
         if (formatNum >= 1000) { highNum = true; }
 

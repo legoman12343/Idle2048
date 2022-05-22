@@ -16,6 +16,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     private bool adReady;
     private float gemTimer;
     public OfflineDaily od;
+    public bool showAds;
 
 
 #if UNITY_IOS
@@ -37,39 +38,65 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         gemAdButton.SetActive(false);
         adReady = false;
         gemTimer = 180f;
+        showAds = true;
     }
 
     public void PlayCrateAd()
     {
-        if (Advertisement.IsReady(rewardAd))
+        if (showAds)
         {
-            adReady = false;
-            Advertisement.Show(rewardAd);
-            crate = true;
+            if (Advertisement.IsReady(rewardAd))
+            {
+                adReady = false;
+                Advertisement.Show(rewardAd);
+                crate = true;
+            }
         }
+        else 
+        {
+            crate = true;
+            claimAdReward();
+        }
+
     }
 
 
     public void PlayGemAd()
     {
-        if (Advertisement.IsReady(rewardAd))
+        if (showAds)
         {
-            Advertisement.Show(rewardAd);
-            gem = true;
+            if (Advertisement.IsReady(rewardAd))
+            {
+                Advertisement.Show(rewardAd);
+                gem = true;
+            }
         }
         else
-            Debug.Log("Ad not ready");
+        {
+            gem = true;
+            claimAdReward();
+        }
     }
     
     public void PlayOfflineAd()
     {
-        if (Advertisement.IsReady(rewardAd))
+        if (showAds)
         {
-            Advertisement.Show(rewardAd);
-            offline = true;
+            if (Advertisement.IsReady(rewardAd))
+            {
+                Advertisement.Show(rewardAd);
+                offline = true;
+            }
+            else
+            {
+                Debug.Log("Ad not ready");
+            }
         }
         else
-            Debug.Log("Ad not ready");
+        {
+            offline = true;
+            claimAdReward();
+        }
     } 
 
     public void OnUnityAdsReady(string placementID)
@@ -91,22 +118,29 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     {
         if (placementID == rewardAd && showResult == ShowResult.Finished)
         {
-            if (crate)
-            {
-                gm.silverCrateCount += 3;
-                crate = false;
-                StartCoroutine(showCrateAd());
-            }
-            else if (gem)
-            {
-                gems.addGems(5);
-                gem = false;
-            }
-            else if(offline)
-            {
-                offline = false;
-                od.claimEarningsVideo();                
-            }
+            claimAdReward();
+        }
+    }
+
+    private void claimAdReward()
+    {
+        if (crate)
+        {
+            gm.silverCrateCount += 3;
+            crate = false;
+            crateAdButton.SetActive(false);
+            StartCoroutine(showCrateAd());
+        }
+        else if (gem)
+        {
+            gems.addGems(5);
+            gem = false;
+            gemAdButton.SetActive(false);
+        }
+        else if (offline)
+        {
+            offline = false;
+            od.claimEarningsVideo();
         }
     }
 

@@ -9756,6 +9756,7 @@ GameObject:
   - component: {fileID: 89904396574188651}
   - component: {fileID: 78530102212695371}
   - component: {fileID: 3294602587998992660}
+  - component: {fileID: -94907269981918055}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -9816,6 +9817,7 @@ MonoBehaviour:
   particles: {fileID: 6143573630078847997}
   crateDestroyParticles: {fileID: 5089783901102553195}
   dur: 2
+  fn: {fileID: -94907269981918055}
 --- !u!50 &3294602587998992660
 Rigidbody2D:
   serializedVersion: 4
@@ -9837,6 +9839,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-94907269981918055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523226228175924865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8b484845eb66349ad581cf48044eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4523226229229496166
 GameObject:
   m_ObjectHideFlags: 0

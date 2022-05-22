@@ -26,6 +26,7 @@ public class Tile : MonoBehaviour
     private ParticleSystem.EmissionModule em;
     private ParticleSystem.EmissionModule crateEm;
     public float dur;
+    public FormatNumber fn;
 
     public void init(TileType type)
     {
@@ -38,7 +39,7 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            text.text = value.ToString();
+            text.text = fn.formatNumber(value,false);
         }
         em = particles.emission;
         crateEm = crateDestroyParticles.emission;
@@ -156,7 +157,7 @@ public class Tile : MonoBehaviour
 
     public void updateNumber()
     {
-        text.text = value.ToString();
+        text.text = fn.formatNumber(value, false);
         renderer.color = gm.GetTileTypeValue(value).colour;
     }
 
