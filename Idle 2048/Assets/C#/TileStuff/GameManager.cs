@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
     public AudioSource moveTileSound;
     public AudioSource combineTileSound;
     public AudioSource crateCrash;
+    public int movesNeeded;
 
 
     public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
@@ -77,9 +78,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        movesNeeded = 2;
         round = 0;
         gridSizeUp = false;
-        crateChance = 0f;
+        crateChance = 1f;
         crateMax = 1;
         crate = 1;
         ASMultiplier = 0.0f;
@@ -334,7 +336,7 @@ public class GameManager : MonoBehaviour
                 if (tile.value == 0 && count > 1)
                 {
                     if (!crateHits) { tile.crateHitCount++; crateCrash.Play(); crateHits = true;}
-                    if (tile.crateHitCount == 2 && !tile.broken)
+                    if (tile.crateHitCount == movesNeeded && !tile.broken)
                     {
                         if (!brokenCrates.Contains(tile))
                         {
@@ -342,7 +344,7 @@ public class GameManager : MonoBehaviour
                             brokenCrates.Add(tile);
                         }
                     }
-                    else if (tile.crateHitCount == 1)
+                    else
                     {
                         StartCoroutine(tile.changeCrateImage());
                     }

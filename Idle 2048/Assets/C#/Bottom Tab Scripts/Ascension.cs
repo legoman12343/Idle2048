@@ -1129,6 +1129,8 @@ public class Ascension : MonoBehaviour
             tempObject = buttonList[35].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(false);
             popUpList[35].SetActive(false);
+
+            gameManager.movesNeeded = 1;
         }
     }
    
