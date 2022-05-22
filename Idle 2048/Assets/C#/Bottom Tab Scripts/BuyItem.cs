@@ -139,7 +139,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum-1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             price *= 100000;
             updatePriceUpgrades();
             gm.mergeUpgradeChance += 0.1f;
@@ -151,7 +151,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             bought = true;
             gm.randomShift = true;
             gm.showButton();
@@ -165,7 +165,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             bought = true;
             damage.changeMultiplier(0.1f);
             panel.SetActive(false);
@@ -177,7 +177,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             bought = true;
             damage.changeItemMultiplier(0,1f);
             panel.SetActive(false);
@@ -189,7 +189,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             bought = true;
             gm.instantCrateChance = 0.1f;
             panel.SetActive(false);
@@ -201,7 +201,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             ability1.buyAbility1();
             panel.SetActive(false);
         }
@@ -212,7 +212,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             ability2.buyAbility2();
             panel.SetActive(false);
         }
@@ -223,7 +223,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             ability3.buyAbility3();
             panel.SetActive(false);
         }
@@ -236,7 +236,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[0] *= 2;
             panel.SetActive(false);
         }
@@ -247,7 +247,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[0] *= 2;
             panel.SetActive(false);
         }
@@ -258,7 +258,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[0] *= 2;
             panel.SetActive(false);
         }
@@ -271,7 +271,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[0] *= 2;
             panel.SetActive(false);
         }
@@ -282,7 +282,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[0] *= 2;
             panel.SetActive(false);
         }
@@ -293,7 +293,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[0] *= 2;
             panel.SetActive(false);
         }
@@ -304,7 +304,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[1] *= 2;
             panel.SetActive(false);
         }
@@ -315,7 +315,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[1] *= 2;
             panel.SetActive(false);
         }
@@ -326,7 +326,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[1] *= 2;
             panel.SetActive(false);
         }
@@ -337,7 +337,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[1] *= 2;
             panel.SetActive(false);
         }
@@ -348,7 +348,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[1] *= 2;
             panel.SetActive(false);
         }
@@ -359,7 +359,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[1] *= 2;
             panel.SetActive(false);
         }
@@ -370,7 +370,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[2] *= 2;
             panel.SetActive(false);
         }
@@ -381,7 +381,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[2] *= 2;
             panel.SetActive(false);
         }
@@ -392,7 +392,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[2] *= 2;
             panel.SetActive(false);
         }
@@ -403,7 +403,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[2] *= 2;
             panel.SetActive(false);
         }
@@ -414,7 +414,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[2] *= 2;
             panel.SetActive(false);
         }
@@ -425,7 +425,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[2] *= 2;
             panel.SetActive(false);
         }
@@ -436,7 +436,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[3] *= 2;
             panel.SetActive(false);
         }
@@ -447,7 +447,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[3] *= 2;
             panel.SetActive(false);
         }
@@ -458,7 +458,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[3] *= 2;
             panel.SetActive(false);
         }
@@ -469,7 +469,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[3] *= 2;
             panel.SetActive(false);
         }
@@ -480,7 +480,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[3] *= 2;
             panel.SetActive(false);
         }
@@ -491,7 +491,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[3] *= 2;
             panel.SetActive(false);
         }
@@ -502,7 +502,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[4] *= 2;
             panel.SetActive(false);
         }
@@ -513,7 +513,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[4] *= 2;
             panel.SetActive(false);
         }
@@ -524,7 +524,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[4] *= 2;
             panel.SetActive(false);
         }
@@ -535,7 +535,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[4] *= 2;
             panel.SetActive(false);
         }
@@ -546,7 +546,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[4] *= 2;
             panel.SetActive(false);
         }
@@ -557,7 +557,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[4] *= 2;
             panel.SetActive(false);
         }
@@ -568,7 +568,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[5] *= 2;
             panel.SetActive(false);
         }
@@ -579,7 +579,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[5] *= 2;
             panel.SetActive(false);
         }
@@ -590,7 +590,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[5] *= 2;
             panel.SetActive(false);
         }
@@ -601,7 +601,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[5] *= 2;
             panel.SetActive(false);
         }
@@ -612,7 +612,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[5] *= 2;
             panel.SetActive(false);
         }
@@ -623,7 +623,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[5] *= 2;
             panel.SetActive(false);
         }
@@ -634,7 +634,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[6] *= 2;
             panel.SetActive(false);
         }
@@ -645,7 +645,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[6] *= 2;
             panel.SetActive(false);
         }
@@ -656,7 +656,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[6] *= 2;
             panel.SetActive(false);
         }
@@ -667,7 +667,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[6] *= 2;
             panel.SetActive(false);
         }
@@ -677,7 +677,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[6] *= 2;
             panel.SetActive(false);
         }
@@ -688,7 +688,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[6] *= 2;
             panel.SetActive(false);
         }
@@ -700,7 +700,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[7] *= 2;
             panel.SetActive(false);
         }
@@ -711,7 +711,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[7] *= 2;
             panel.SetActive(false);
         }
@@ -722,7 +722,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[7] *= 2;
             panel.SetActive(false);
         }
@@ -733,7 +733,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[7] *= 2;
             panel.SetActive(false);
         }
@@ -744,7 +744,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[7] *= 2;
             panel.SetActive(false);
         }
@@ -755,7 +755,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[7] *= 2;
             panel.SetActive(false);
         }
@@ -766,7 +766,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[8] *= 2;
             panel.SetActive(false);
         }
@@ -777,7 +777,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[8] *= 2;
             panel.SetActive(false);
         }
@@ -788,7 +788,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[8] *= 2;
             panel.SetActive(false);
         }
@@ -799,7 +799,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[8] *= 2;
             panel.SetActive(false);
         }
@@ -810,7 +810,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[8] *= 2;
             panel.SetActive(false);
         }
@@ -821,7 +821,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[8] *= 2;
             panel.SetActive(false);
         }
@@ -832,7 +832,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[9] *= 2;
             panel.SetActive(false);
         }
@@ -843,7 +843,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[9] *= 2;
             panel.SetActive(false);
         }
@@ -854,7 +854,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[9] *= 2;
             panel.SetActive(false);
         }
@@ -865,7 +865,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[9] *= 2;
             panel.SetActive(false);
         }
@@ -876,7 +876,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[9] *= 2;
             panel.SetActive(false);
         }
@@ -887,7 +887,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[9] *= 2;
             panel.SetActive(false);
         }
@@ -898,7 +898,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[10] *= 2;
             panel.SetActive(false);
         }
@@ -909,7 +909,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[10] *= 2;
             panel.SetActive(false);
         }
@@ -920,7 +920,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[10] *= 2;
             panel.SetActive(false);
         }
@@ -931,7 +931,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[10] *= 2;
             panel.SetActive(false);
         }
@@ -942,7 +942,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[10] *= 2;
             panel.SetActive(false);
         }
@@ -953,7 +953,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[10] *= 2;
             panel.SetActive(false);
         }
@@ -964,7 +964,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[11] *= 2;
             panel.SetActive(false);
         }
@@ -975,7 +975,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[11] *= 2;
             panel.SetActive(false);
         }
@@ -986,7 +986,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[11] *= 2;
             panel.SetActive(false);
         }
@@ -997,7 +997,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[11] *= 2;
             panel.SetActive(false);
         }
@@ -1008,7 +1008,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[11] *= 2;
             panel.SetActive(false);
         }
@@ -1019,7 +1019,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[11] *= 2;
             panel.SetActive(false);
         }
@@ -1030,7 +1030,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[12] *= 2;
             panel.SetActive(false);
         }
@@ -1041,7 +1041,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[12] *= 2;
             panel.SetActive(false);
         }
@@ -1052,7 +1052,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[12] *= 2;
             panel.SetActive(false);
         }
@@ -1063,7 +1063,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[12] *= 2;
             panel.SetActive(false);
         }
@@ -1074,7 +1074,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[12] *= 2;
             panel.SetActive(false);
         }
@@ -1085,7 +1085,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[12] *= 2;
             panel.SetActive(false);
         }
@@ -1096,7 +1096,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[13] *= 2;
             panel.SetActive(false);
         }
@@ -1107,7 +1107,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[13] *= 2;
             panel.SetActive(false);
         }
@@ -1118,7 +1118,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[13] *= 2;
             panel.SetActive(false);
         }
@@ -1129,7 +1129,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[13] *= 2;
             panel.SetActive(false);
         }
@@ -1140,7 +1140,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[13] *= 2;
             panel.SetActive(false);
         }
@@ -1151,7 +1151,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[13] *= 2;
             panel.SetActive(false);
         }
@@ -1162,7 +1162,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[14] *= 2;
             panel.SetActive(false);
         }
@@ -1173,7 +1173,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[14] *= 2;
             panel.SetActive(false);
         }
@@ -1184,7 +1184,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[14] *= 2;
             panel.SetActive(false);
         }
@@ -1195,7 +1195,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[14] *= 2;
             panel.SetActive(false);
         }
@@ -1206,7 +1206,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[14] *= 2;
             panel.SetActive(false);
         }
@@ -1217,7 +1217,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[14] *= 2;
             panel.SetActive(false);
         }
@@ -1228,7 +1228,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[15] *= 2;
             panel.SetActive(false);
         }
@@ -1239,7 +1239,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[15] *= 2;
             panel.SetActive(false);
         }
@@ -1250,7 +1250,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[15] *= 2;
             panel.SetActive(false);
         }
@@ -1261,7 +1261,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[15] *= 2;
             panel.SetActive(false);
         }
@@ -1272,7 +1272,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[15] *= 2;
             panel.SetActive(false);
         }
@@ -1283,7 +1283,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[15] *= 2;
             panel.SetActive(false);
         }
@@ -1295,7 +1295,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[16] *= 2;
             panel.SetActive(false);
         }
@@ -1306,7 +1306,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[16] *= 2;
             panel.SetActive(false);
         }
@@ -1317,7 +1317,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[16] *= 2;
             panel.SetActive(false);
         }
@@ -1328,7 +1328,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[16] *= 2;
             panel.SetActive(false);
         }
@@ -1339,7 +1339,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[16] *= 2;
             panel.SetActive(false);
         }
@@ -1350,7 +1350,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[16] *= 2;
             panel.SetActive(false);
         }
@@ -1361,7 +1361,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[17] *= 2;
             panel.SetActive(false);
         }
@@ -1372,7 +1372,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[17] *= 2;
             panel.SetActive(false);
         }
@@ -1383,7 +1383,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[17] *= 2;
             panel.SetActive(false);
         }
@@ -1394,7 +1394,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[17] *= 2;
             panel.SetActive(false);
         }
@@ -1405,7 +1405,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[17] *= 2;
             panel.SetActive(false);
         }
@@ -1416,7 +1416,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[17] *= 2;
             panel.SetActive(false);
         }
@@ -1427,7 +1427,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[18] *= 2;
             panel.SetActive(false);
         }
@@ -1438,7 +1438,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[18] *= 2;
             panel.SetActive(false);
         }
@@ -1449,7 +1449,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[18] *= 2;
             panel.SetActive(false);
         }
@@ -1460,7 +1460,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[18] *= 2;
             panel.SetActive(false);
         }
@@ -1471,7 +1471,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[18] *= 2;
             panel.SetActive(false);
         }
@@ -1482,7 +1482,7 @@ public class BuyItem : MonoBehaviour
         if (coinsDisplay.Coins >= price)
         {
             coinsDisplay.addCoins(-price);
-            coinsDisplay.pricesUpgrades[upgradeNum - 1] == price);
+            coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
             damage.itemMultipliers[18] *= 2;
             panel.SetActive(false);
         }
