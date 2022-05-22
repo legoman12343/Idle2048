@@ -11,6 +11,8 @@ public class Ascension : MonoBehaviour
 
     [SerializeField] public List<GameObject> popUpList;
     [SerializeField] public List<Image> buttonList;
+    [SerializeField] public List<GameObject> upgradesList;
+    [SerializeField] public List<GameObject> gearList;
     private Color32 Green = new Color32(37, 166, 12, 255);
     private Color32 RedButton = new Color32(178, 18, 18, 255);
     private Color32 RedSlider = new Color32(212, 27, 27, 255);
@@ -26,7 +28,6 @@ public class Ascension : MonoBehaviour
     private int cost;
     private float timer;
     public Sprite redSliderSprite;
-    public float discount;
 
     public GameManager gameManager;
     public MonsterPrefabStuff monsterPrefabStuff;
@@ -41,10 +42,12 @@ public class Ascension : MonoBehaviour
     private bool tileLevelUnlock2 = false;
     private bool moneyDamageUnlock1 = false;
     private bool moneyDamageUnlock2 = false;
-
     private bool tileLevelUnlock = false;
     private bool biggerGridUnlock = false;
     private bool moneyDamageUnlock = false;
+    private bool openOnceTileLevel = false;
+    private bool openOnceBiggerGrid = false;
+    private bool openOnceMoneyDamage = false;
 
 
     //ascension buttons
@@ -375,8 +378,9 @@ public class Ascension : MonoBehaviour
         currentButton = 8;
         openAndClose();
         lastButton = 8;
-        if (biggerGridUnlock1 && biggerGridUnlock2)
+        if (biggerGridUnlock1 && biggerGridUnlock2 && !openOnceBiggerGrid)
         {
+            openOnceBiggerGrid = true;
             tempObject = buttonList[7].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
         }
@@ -506,8 +510,9 @@ public class Ascension : MonoBehaviour
         currentButton = 13;
         openAndClose();
         lastButton = 13;
-        if (tileLevelUnlock1 && tileLevelUnlock2)
+        if (tileLevelUnlock1 && tileLevelUnlock2 && !openOnceTileLevel)
         {
+            openOnceTileLevel = true;
             tempObject = buttonList[12].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
         }
@@ -618,7 +623,17 @@ public class Ascension : MonoBehaviour
             tempObject.SetActive(false);
             popUpList[15].SetActive(false);
 
-            discount += 0.1f;
+            
+            for (int i = 0; i < upgradesList.Count; i++)
+            {
+                buyItem = upgradesList[i].GetComponent<BuyItem>();
+                buyItem.updateDiscount(-0.1f);
+            }
+            for (int i = 0; i < gearList.Count; i++)
+            {
+                buyItem = gearList[i].GetComponent<BuyItem>();
+                buyItem.updateDiscount(-0.1f);
+            }
         }
     }
     public void moneyButton4a() {
@@ -828,8 +843,9 @@ public class Ascension : MonoBehaviour
         currentButton = 25;
         openAndClose();
         lastButton = 25;
-        if (moneyDamageUnlock1 && moneyDamageUnlock2)
+        if (moneyDamageUnlock1 && moneyDamageUnlock2 && !openOnceMoneyDamage)
         {
+            openOnceMoneyDamage = true;
             tempObject = buttonList[24].transform.Find("PopUp/Button_Confirm").gameObject;
             tempObject.SetActive(true);
         }
