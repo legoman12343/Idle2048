@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Security.Cryptography;
 using TMPro;
 using System.Threading;
+using System.Numerics;
 
 public class Ascension : MonoBehaviour
 {
@@ -19,8 +20,6 @@ public class Ascension : MonoBehaviour
     [SerializeField] public List<Slider> SliderList;
     private int lastButton;
     private int currentButton;
-    public int ascensionCoinsHave;
-    public int ascensionCoinsToGet = 1_000_000;
     public TextMeshProUGUI ascensionCoinsHaveDisplay;
     public Text ascensionCoinsToGetDisplay;
     private bool firstAscension = true;
@@ -49,6 +48,8 @@ public class Ascension : MonoBehaviour
     private bool openOnceBiggerGrid = false;
     private bool openOnceMoneyDamage = false;
 
+    public BigInteger ascensionCoinsHave = new BigInteger();
+    public BigInteger ascensionCoinsToGet = new BigInteger(1000000);
 
     //ascension buttons
     public void openAscensionPopUp()
@@ -61,8 +62,8 @@ public class Ascension : MonoBehaviour
     }
     public void buyAscension()
     {
-       if (ascensionCoinsToGet != 0)
-       {
+        if (ascensionCoinsToGet != 0)
+        {
             ascensionCoinsHave += ascensionCoinsToGet;
             ascensionCoinsToGet = 0;
             popUpList[36].gameObject.SetActive(false);
@@ -123,6 +124,11 @@ public class Ascension : MonoBehaviour
     }
 
     string FormatNumber(float num)
+    {
+        return formatNumber.formatNumber(num, true);
+    }
+
+    string FormatNumber(BigInteger num)
     {
         return formatNumber.formatNumber(num, true);
     }
@@ -624,12 +630,12 @@ public class Ascension : MonoBehaviour
             popUpList[15].SetActive(false);
 
             
-            for (int i = 0; i < upgradesList.Count; i++)
+            for (int i = 0; i < upgradesList.Count - 1; i++)
             {
                 buyItem = upgradesList[i].GetComponent<BuyItem>();
                 buyItem.updateDiscount(-0.1f);
             }
-            for (int i = 0; i < gearList.Count; i++)
+            for (int i = 0; i < gearList.Count - 1; i++)
             {
                 buyItem = gearList[i].GetComponent<BuyItem>();
                 buyItem.updateDiscount(-0.1f);

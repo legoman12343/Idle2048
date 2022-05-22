@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Numerics;
 
 public class BuyItem : MonoBehaviour
 {
-    public float price;
+    public BigInteger price = new BigInteger();
+    public BigInteger priceTemp = new BigInteger();
     public CoinsDisplay coinsDisplay;
     public Text ItemDisplayTXT;
     public Text priceText;
@@ -29,7 +31,7 @@ public class BuyItem : MonoBehaviour
     public Ability1 ability1;
     public Ability2 ability2;
     public Ability3 ability3;
-    float originalPrice;
+    public BigInteger originalPrice = new BigInteger();
     float discount = 1.0f;
     public FormatNumber fn;
     private float crateChanceStart;
@@ -52,8 +54,16 @@ public class BuyItem : MonoBehaviour
 
     public void updateDiscount(float d)
     {
-        discount += d;
-        price = originalPrice * discount;
+        priceTemp = price;
+        priceTemp *= 10;
+        d *= 10;
+        BigInteger bigIntFromDouble = new BigInteger(d);
+        priceTemp *= bigIntFromDouble;
+        double result = (double)priceTemp;
+        result /= 100;
+        result++;
+        BigInteger resultBig = new BigInteger(result);
+        price = originalPrice * resultBig;
 
         if (upgrade)
             updatePriceUpgrades();
@@ -87,13 +97,18 @@ public class BuyItem : MonoBehaviour
 
             dpsValue = baseDamage * ItemOwned * multiplier;
             ItemDisplayTXT.text = "X " + ItemOwned.ToString();
-            
-            price *= priceIncrement;
-            if (price.ToString().Contains("."))
-            {
-                temp = (int)Math.Ceiling(price);
-                price = (float)temp;
-            } 
+
+            priceTemp = price;
+            priceTemp *= 100;
+            priceIncrement *= 100;
+            BigInteger bigIntFromDouble = new BigInteger(priceIncrement);
+            priceTemp *= bigIntFromDouble;
+            double result = (double)priceTemp;
+            result /= 10000;
+            BigInteger resultBig = new BigInteger(result);
+
+            price *= resultBig;
+
             if(upgrade)
                 updatePriceUpgrades();
             else
