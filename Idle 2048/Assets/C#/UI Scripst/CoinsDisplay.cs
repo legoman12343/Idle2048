@@ -11,9 +11,9 @@ public class CoinsDisplay : MonoBehaviour
     public TextMeshProUGUI CoinsDisplayTXT;
     public BigInteger Coins = new BigInteger();
     public BigInteger CoinsTemp = new BigInteger();
-    public List<BigInteger> prices;
+    public List<BigInteger> prices = new List<BigInteger>();
     public List<Image> colours;
-    public List<BigInteger> pricesUpgrades;
+    public List<BigInteger> pricesUpgrades = new List<BigInteger>();
     public List<Image> coloursUpgrades;
     public Color red;
     public Color green;
@@ -33,7 +33,7 @@ public class CoinsDisplay : MonoBehaviour
         prices.Add(20000);
         prices.Add(100000);
         prices.Add(400000);
-        prices.Add(25000000);
+        prices.Add(2500000);
         prices.Add(15000000);
         prices.Add(100000000);
         prices.Add(800000000);
@@ -168,12 +168,11 @@ public class CoinsDisplay : MonoBehaviour
         pricesUpgrades.Add(100);
         pricesUpgrades.Add(100);
         pricesUpgrades.Add(100);
+        pricesUpgrades.Add(100);
+        pricesUpgrades.Add(100);
       
-        
-
-
         Coins = 0;
-        string coinsTXT = fn.formatNumber(Coins,true);
+        string coinsTXT = fn.formatNumberBigNumber(Coins,true); 
         CoinsDisplayTXT.text = coinsTXT;
         StartCoroutine(updateButtons());
     }
@@ -182,7 +181,7 @@ public class CoinsDisplay : MonoBehaviour
     public void addCoins(int n)
     {
         Coins += n;
-        string coinsTXT = fn.formatNumber(Coins,true);
+        string coinsTXT = fn.formatNumberBigNumber(Coins,true);
         CoinsDisplayTXT.text = coinsTXT;
         if (Coins >= ((10 ^ 12) * (((ascensionScript.ascensionCoinsHave + 1) ^ 3) - (ascensionScript.ascensionCoinsHave ^ 3)))) ascensionScript.ascensionCoinsHave++;
         StartCoroutine(updateButtons());
@@ -199,7 +198,7 @@ public class CoinsDisplay : MonoBehaviour
         CoinsTemp /= 10000;
         
         Coins = CoinsTemp;
-        string coinsTXT = fn.formatNumber(Coins,true);
+        string coinsTXT = fn.formatNumberBigNumber(Coins,true);
         CoinsDisplayTXT.text = coinsTXT;
         if (Coins >= ((10 ^ 12) * (((ascensionScript.ascensionCoinsHave + 1) ^ 3) - (ascensionScript.ascensionCoinsHave ^ 3)))) ascensionScript.ascensionCoinsHave++;
         StartCoroutine(updateButtons());
@@ -208,7 +207,7 @@ public class CoinsDisplay : MonoBehaviour
     public void addCoins(BigInteger n)
     {
         Coins += n;
-        string coinsTXT = fn.formatNumber(Coins, true);
+        string coinsTXT = fn.formatNumberBigNumber(Coins, true);
         CoinsDisplayTXT.text = coinsTXT;
         if (Coins >= ((10 ^ 12) * (((ascensionScript.ascensionCoinsHave + 1) ^ 3) - (ascensionScript.ascensionCoinsHave ^ 3)))) ascensionScript.ascensionCoinsHave++;
         StartCoroutine(updateButtons());

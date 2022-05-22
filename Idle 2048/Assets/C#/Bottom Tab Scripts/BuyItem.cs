@@ -38,19 +38,27 @@ public class BuyItem : MonoBehaviour
 
     void Start()
     {
+        if (upgrade)
+        {
+            price = coinsDisplay.pricesUpgrades[upgradeNum - 1];
+        }
+        else
+        {
+            price = coinsDisplay.prices[itemNumber];
+        }
         originalPrice = price;
         multiplier = 1f;
         baseDamage = dpsValue;
         bought = false;
         ItemOwned = 0;
-        if(!upgrade) ItemDisplayTXT.text = "X " + ItemOwned.ToString();
+        if (!upgrade) ItemDisplayTXT.text = "X " + ItemOwned.ToString();
 
         priceIncrement = 1.05f;
 
         if (upgrade) updatePriceUpgrades();
         else updatePrice();
-
     }
+
 
     public void updateDiscount(float d)
     {
@@ -118,15 +126,15 @@ public class BuyItem : MonoBehaviour
 
     public void updatePrice()
     {
-        priceText.text = fn.formatNumber(price, false) + " Coins";
+        priceText.text = fn.formatNumberBigNumber(price, false) + " Coins";
         DPStext.text = fn.formatNumber(dpsValue,false);
-        coinsDisplay.prices[upgradeNum-1] = (int)price;
+        coinsDisplay.prices[itemNumber] = price;
     }
 
     public void updatePriceUpgrades()
     {
-        priceText.text = fn.formatNumber(price,false) + " Coins";
-        coinsDisplay.pricesUpgrades[upgradeNum - 1] = (int)price;
+        priceText.text = fn.formatNumberBigNumber(price,false) + " Coins";
+        coinsDisplay.pricesUpgrades[upgradeNum - 1] = price;
     }
 
     public void buyCrate()

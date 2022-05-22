@@ -53,12 +53,12 @@ public class FormatNumber : MonoBehaviour
         return output;
     }
 
-    public string formatNumber(BigInteger number, bool word = false)
+    public string formatNumberBigNumber(BigInteger number, bool word = false)
     {
         bool highNum = false;
         int pos = -1;
-        BigInteger formatNum = number;
-        BigInteger originalNumber = formatNum;
+        BigInteger formatNum = new BigInteger((int)number);
+        BigInteger originalNumber = new BigInteger((int)number);
 
         if (formatNum >= 1000) { highNum = true; }
 

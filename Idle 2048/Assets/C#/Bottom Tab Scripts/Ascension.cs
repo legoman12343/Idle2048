@@ -57,7 +57,7 @@ public class Ascension : MonoBehaviour
         currentButton = 37;
         openAndClose();
         lastButton = 37;
-        string ascensionCoinsToGetString = formatNumber.formatNumber(ascensionCoinsToGet, false);  
+        string ascensionCoinsToGetString = formatNumber.formatNumberBigNumber(ascensionCoinsToGet, false);  
         ascensionCoinsToGetDisplay.text = ascensionCoinsToGetString;
     }
     public void buyAscension()
@@ -67,7 +67,7 @@ public class Ascension : MonoBehaviour
             ascensionCoinsHave += ascensionCoinsToGet;
             ascensionCoinsToGet = 0;
             popUpList[36].gameObject.SetActive(false);
-            string ascensionCoinsHaveString = FormatNumber(ascensionCoinsHave);
+            string ascensionCoinsHaveString = formatNumber.formatNumberBigNumber(ascensionCoinsHave);
             ascensionCoinsHaveDisplay.text = ascensionCoinsHaveString;
             if (firstAscension == true)
             {
@@ -130,7 +130,7 @@ public class Ascension : MonoBehaviour
 
     string FormatNumber(BigInteger num)
     {
-        return formatNumber.formatNumber(num, true);
+        return formatNumber.formatNumberBigNumber(num, true);
     }
 
     private IEnumerator buyAnimation(Slider _slider, Image _button)
