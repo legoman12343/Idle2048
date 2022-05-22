@@ -110,7 +110,8 @@ public class MonsterPrefabStuff : MonoBehaviour
         bossDead = true;
         bool coinsMade = false;
         if (duck) { quest.updateDuckQuest(1); duck = false; }
-            
+        if (deathSound != null) deathSound.Play();
+
         //death animation script
         monster[0].GetComponent<Monster>().Die();
         //make coins splash
@@ -134,17 +135,18 @@ public class MonsterPrefabStuff : MonoBehaviour
         
         //wait
         yield return new WaitForSeconds(1.1f);
-        var deadMonster = monster[0];
-        deadMonster.transform.DOMove(monsterSpawnPointLeft.position, 1f);
+        monster[0].transform.DOMove(monsterSpawnPointLeft.position, 1f);
         if (level.level == level.levelMax && level.killCount == level.requiredKills && level.ProgressMode == true) level.killCount = 0;
+        GameObject deadMonster = monster[0];
+        monster.RemoveAt(0);
         spawnMonster();
         level.LevelUpdate();
         yield return new WaitForSeconds(1f);
         //destroy obj
-        while(monster.Count > 1)
+        Destroy(deadMonster);
+        while (monster.Count > 1)
         {
             Destroy(monster[0]);
-            monster.RemoveAt(0);
         }
     }
 
