@@ -9,9 +9,9 @@ public class CoinsDisplay : MonoBehaviour
 
     public TextMeshProUGUI CoinsDisplayTXT;
     public float Coins;
-    public List<int> prices;
+    public List<float> prices;
     public List<Image> colours;
-    public List<int> pricesUpgrades;
+    public List<float> pricesUpgrades;
     public List<Image> coloursUpgrades;
     public Color red;
     public Color green;
