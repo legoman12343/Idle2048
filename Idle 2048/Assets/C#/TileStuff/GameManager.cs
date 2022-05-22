@@ -72,7 +72,24 @@ public class GameManager : MonoBehaviour
     public int movesNeeded;
 
 
-    public TileType GetTileTypeValue(float value) => types.First(types => types.value == value);
+    public TileType GetTileTypeValue(float value)
+    {
+        while (value > types[types.Count - 1].value)
+        {
+            TileType crate = types[0];
+            types.RemoveAt(0);
+            TileType newType = new TileType();
+            int index = types.Count - 1;
+            newType.value = types[index].value * 2;
+            index++;
+            while (index > 18) { index -= 19; }
+            
+            newType.colour = types[index].colour;
+            types.Add(newType);
+            types.Insert(0, crate);
+        }
+        return types.First(types => types.value == value);
+    }
     
    
 
