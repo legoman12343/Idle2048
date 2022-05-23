@@ -75,30 +75,24 @@ public class GameManager : MonoBehaviour
     public AudioSource combineTileSound;
     public AudioSource crateCrash;
     public int movesNeeded;
-    public bool hasStarted = false;
 
 
     public TileType GetTileTypeValue(BigInteger value)
     {
-        if(!hasStarted)
-        {
-            return new TileType();
-        }
-        int count = 0;
-        while (value > types[types.Count - 1].value && count < 10)
+        while (value > types[types.Count - 1].value)
         {
             int index = types.Count - 1;
 
             TileType newTile = new TileType();
             newTile.value = types[index].value * 2;
-            Debug.Log(types.Count);
+
+            index++;
 
             while (index > 19) index -= 19;
 
             newTile.colour = types[index].colour;
 
             types.Add(newTile);
-            count++;
         }
 
         return types.First(type => type.value == value);
@@ -108,8 +102,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        TileType y = new TileType();
+        y.value = 0;
+        y.colour = types[0].colour;
+        types[0] = y;
+
         BigInteger x = 1;
-        for (int i = 1; i < types.Count - 1; i++)
+
+        for (int i = 1; i < types.Count; i++)
         {
             TileType t = new TileType();
             t.value = x;
@@ -117,7 +117,6 @@ public class GameManager : MonoBehaviour
             types[i] = t;
             x *= 2;
         }
-        hasStarted = true;
 
         startingValue = 1;
         movesNeeded = 2;
