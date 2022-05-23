@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using LootLocker.Requests;
 using TMPro;
+using System.Numerics;
 
 public class LeaderboardController : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class LeaderboardController : MonoBehaviour
     public GameObject top;
     public Image topImg;
     public Image youImg;
+    public FormatNumber fn;
 
     // Start is called before the first frame update
     private void Start()
@@ -181,12 +183,13 @@ public class LeaderboardController : MonoBehaviour
 
     public void SubmitScore()
     {
-        int score = (int)Math.Ceiling(damage.getDPS());
+        /*
+        BigInteger score = damage.getDPS();
         LootLockerSDKManager.GetMemberRank(ID.ToString(), PlayerPrefs.GetString("PlayerID"), (response) =>
         {
             if (response.score < score && response.success)
             {
-                LootLockerSDKManager.SubmitScore(PlayerPrefs.GetString("PlayerID"), score, ID, (response) =>
+                LootLockerSDKManager.SubmitScore(PlayerPrefs.GetString("PlayerID"), fn.formatNumberBigNumber(score), ID, (response) =>
                 {
                     if (response.success)
                     {
@@ -198,7 +201,7 @@ public class LeaderboardController : MonoBehaviour
                     }
                 });
             }
-        });        
+        });   */     
     }
 
 

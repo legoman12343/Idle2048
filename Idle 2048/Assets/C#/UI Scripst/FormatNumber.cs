@@ -57,8 +57,8 @@ public class FormatNumber : MonoBehaviour
     {
         bool highNum = false;
         int pos = -1;
-        BigInteger formatNum = new BigInteger((int)number);
-        BigInteger originalNumber = new BigInteger((int)number);
+        BigInteger formatNum = number;
+        BigInteger originalNumber = number;
 
         if (formatNum >= 1000) { highNum = true; }
 

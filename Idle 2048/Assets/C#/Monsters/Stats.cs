@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Numerics;
 
 public class Stats : MonoBehaviour
 {
-    public float currentHealth;
-    public int coins;
-    public int totalHealth;
+    public BigInteger currentHealth;
+    public BigInteger coins;
+    public BigInteger totalHealth;
     public HealthBarScript healthBar;
     public MonsterPrefabStuff monsterScript;
     private bool respawn = true;
@@ -19,6 +20,7 @@ public class Stats : MonoBehaviour
     public TextMeshProUGUI timerText;
     private float timer;
     public AudioSource deathSound;
+    public bool bigInt;
 
     public void Init()
     {
@@ -36,8 +38,22 @@ public class Stats : MonoBehaviour
             timerText.gameObject.SetActive(true);
         }
         currentHealth = totalHealth;
-        healthBar.health = totalHealth;
-        healthBar.totalHealth = totalHealth;
+        if (totalHealth > 1000000000)
+        {
+            bigInt = true;
+            healthBar.bigInt = true;
+            healthBar.healthBI = totalHealth;
+            healthBar.totalHealthBI = totalHealth;
+        }
+        else
+        {
+            bigInt = false;
+            int temp = (int)totalHealth;
+            healthBar.bigInt = false;
+            healthBar.health = temp;
+            healthBar.totalHealth = temp;
+        }
+        
         respawn = false;
         coroutine = bossTimer();
         if(boss == true)

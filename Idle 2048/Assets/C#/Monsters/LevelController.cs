@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Numerics;
 
 public class LevelController : MonoBehaviour
 {
@@ -111,7 +112,7 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    public int getMonsterHealth()
+    public BigInteger getMonsterHealth()
     {
         if (level <= 140)
         {
@@ -121,13 +122,13 @@ public class LevelController : MonoBehaviour
         else
         {
             double temp = Convert.ToDouble(level);
-            return (int)Math.Ceiling((10.00 * (139.00 + Math.Pow(1.55, 139.00) * Math.Pow(1.145, (temp - 140.00)))));
+            return new BigInteger(Math.Ceiling((10.00 * (139.00 + Math.Pow(1.55, 139.00) * Math.Pow(1.145, (temp - 140.00))))));
         }
     }
 
-    public int getMonsterCoins()
+    public BigInteger getMonsterCoins()
     {
-        int temp = (int)Math.Ceiling(Convert.ToDouble(getMonsterHealth() / 15));
+        BigInteger temp = getMonsterHealth() / 15;
         if(temp > 0)
         {
             return temp;

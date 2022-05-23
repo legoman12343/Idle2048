@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Vector3 = UnityEngine.Vector3;
+using Vector2 = UnityEngine.Vector2;
 
 public class OfflineDaily : MonoBehaviour
 {
@@ -142,8 +145,8 @@ public class OfflineDaily : MonoBehaviour
 				}
 			case RewardType.TimeSkip:
 				{
-					int money = (int)Math.Ceiling(reward.Multiplier * (damage.getDPS() / level.getMonsterHealth()) * 60 * level.getMonsterCoins());
-					moneyScript.addCoins(money);
+					BigInteger money = (int)(reward.Multiplier * 100) * ((damage.getDPS()) / (level.getMonsterHealth())) * 60 *60 * level.getMonsterCoins();
+					moneyScript.addCoins(money/100);
 					reward.Multiplier *= 1.5f;
 					break;
 				}

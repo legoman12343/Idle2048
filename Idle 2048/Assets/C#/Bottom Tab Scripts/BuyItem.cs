@@ -15,7 +15,7 @@ public class BuyItem : MonoBehaviour
     public Text priceText;
     public Text DPStext;
     public int ItemOwned;
-    public float dpsValue;
+    public BigInteger dpsValue;
     public Damage damage;
     private float priceIncrement;
     public int itemNumber;
@@ -24,7 +24,7 @@ public class BuyItem : MonoBehaviour
     public int upgradeNum;
     public bool upgrade;
     public GameObject panel;
-    public float baseDamage;
+    public BigInteger baseDamage;
     public float multiplier;
     public AdManager ads;
     public NotificationAnimation upgradeAnimation;
@@ -103,7 +103,9 @@ public class BuyItem : MonoBehaviour
                 damage.gearUpgrades[((itemNumber+1) * 4) - 1].SetActive(true);
             }
 
-            dpsValue = baseDamage * ItemOwned * multiplier;
+            BigInteger m = new BigInteger(multiplier);
+            m *= 100;
+            dpsValue = (baseDamage * ItemOwned * m)/100;
             ItemDisplayTXT.text = "X " + ItemOwned.ToString();
 
             priceTemp = price;
@@ -127,7 +129,7 @@ public class BuyItem : MonoBehaviour
     public void updatePrice()
     {
         priceText.text = fn.formatNumberBigNumber(price, false) + " Coins";
-        DPStext.text = fn.formatNumber(dpsValue,false);
+        DPStext.text = fn.formatNumberBigNumber(dpsValue,false);
         coinsDisplay.prices[itemNumber] = price;
     }
 

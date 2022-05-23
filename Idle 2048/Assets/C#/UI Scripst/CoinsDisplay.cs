@@ -216,7 +216,7 @@ public class CoinsDisplay : MonoBehaviour
     public IEnumerator updateButtons()
     {
         bool check = false;
-        for (int i = 0; i < prices.Count; i++)
+        for (int i = 0; i < prices.Count-1; i++)
         {
             if (Coins >= prices[i])
             {
@@ -231,7 +231,7 @@ public class CoinsDisplay : MonoBehaviour
                 colours[i].color = red;
         }
 
-        for (int i = 0; i < pricesUpgrades.Count; i++)
+        for (int i = 0; i < pricesUpgrades.Count-1; i++)
         {
             if (Coins >= pricesUpgrades[i])
             {

@@ -10,7 +10,7 @@ public class AchievementsAndOptionsForExtra : MonoBehaviour
 
     public void openOptions()
     {
-        if (optionsTab.active)
+        if (optionsTab.activeSelf)
         {
             optionsTab.SetActive(false);
         }
@@ -22,7 +22,7 @@ public class AchievementsAndOptionsForExtra : MonoBehaviour
 
     public void openAchievements()
     {
-        if (achievementsTab.active)
+        if (achievementsTab.activeSelf)
         {
             achievementsTab.SetActive(false);
         }

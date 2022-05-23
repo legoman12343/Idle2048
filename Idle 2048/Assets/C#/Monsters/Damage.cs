@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Numerics;
+using System;
 
 public class Damage : MonoBehaviour
 {
     public FormatNumber fn;
     public TextMeshProUGUI dpsCounter;
-    public List<float> itemDamage;
-    public List<float> itemMultipliers;
+    public List<BigInteger> itemDamage = new List<BigInteger>();
+    public List<float> itemMultipliers = new List<float>();
     public float multiplier;
     public float ASmultiplier;
     [SerializeField] public List<GameObject> gearUpgrades;
@@ -17,6 +19,10 @@ public class Damage : MonoBehaviour
     {
         ASmultiplier = 1f;
         multiplier = 1f;
+        for (int i = 0; i < 19; i++)
+        {
+            itemDamage.Add(0);
+        }
         for (int i = 0; i < itemDamage.Count; i++)
         {
             itemMultipliers.Add(1f);
@@ -25,13 +31,14 @@ public class Damage : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void changeDPS()
     {
-        string t = fn.formatNumber(getDPS(),true);
+        string t = fn.formatNumberBigNumber(getDPS(), true);
         dpsCounter.text = t;
     }
 
-    
+
     public void changeItemMultiplier(int i, float n)
     {
         itemMultipliers[i] += n;
@@ -50,29 +57,34 @@ public class Damage : MonoBehaviour
         changeDPS();
     }
 
-
-    public void addDPS(float n, int index)
+    public void addDPS(BigInteger n, int index)
     {
         itemDamage[index] += n;
         changeDPS();
     }
 
-    public void setDPS(float n, int index)
+    public void setDPS(BigInteger n, int index)
     {
         itemDamage[index] = n;
         changeDPS();
     }
 
-    public float getDPS()
+    public BigInteger getDPS()
     {
-        float total = 1f;
-        foreach(float i in itemDamage)
+        BigInteger total = 1;
+        foreach(BigInteger i in itemDamage)
             total += i;
 
         for (int i = 0; i < itemDamage.Count; i++)
         {
-            total += itemDamage[i] * itemMultipliers[0];
+            BigInteger m = new BigInteger(itemMultipliers[i]);
+            m *= 100;
+            total += (itemDamage[i] * m)/100;
         }
-        return total * multiplier * ASmultiplier;
+        BigInteger asm = new BigInteger(ASmultiplier);
+        asm *= 100;
+        BigInteger mu = new BigInteger(multiplier);
+        mu *= 100;
+        return (total * mu * asm)/10000;
     }
 }

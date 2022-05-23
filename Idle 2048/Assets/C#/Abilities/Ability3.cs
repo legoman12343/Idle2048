@@ -12,7 +12,6 @@ public class Ability3 : MonoBehaviour
     public Slider slider;
     public GameObject ability;
     public float sliderMax = 2f;
-    private bool bought = false;
     private bool active = false;
     public GameManager gm;
 
@@ -69,7 +68,6 @@ public class Ability3 : MonoBehaviour
     public void buyAbility3()
     {
         ability.SetActive(true);
-        bought = true;
         StartCoroutine(cooldownAbility());
     }
 }

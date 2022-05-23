@@ -130,7 +130,7 @@ public class MonsterPrefabStuff : MonoBehaviour
             }
             coinsMade = true;
             //add coins to total
-            moneyScript.addCoins(monster[0].GetComponent<Stats>().coins * multiplier);
+            moneyScript.addCoins((monster[0].GetComponent<Stats>().coins * (int)(multiplier*100))/100);
         }
         
         //wait

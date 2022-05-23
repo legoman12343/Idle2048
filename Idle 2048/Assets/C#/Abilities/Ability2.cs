@@ -13,7 +13,6 @@ public class Ability2 : MonoBehaviour
     public Slider slider;
     public GameObject ability;
     public float sliderMax = 2f;
-    private bool bought = false;
     private bool active = false;
     public GameManager gm;
     private float tempSpeed;
@@ -72,7 +71,6 @@ public class Ability2 : MonoBehaviour
     public void buyAbility2()
     {
         ability.SetActive(true);
-        bought = true;
         StartCoroutine(cooldownAbility());
     }
 }
