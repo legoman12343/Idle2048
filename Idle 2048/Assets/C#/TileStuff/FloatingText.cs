@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Numerics;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class FloatingText : MonoBehaviour
 {
@@ -10,13 +12,14 @@ public class FloatingText : MonoBehaviour
     private float travelTime = 1.0f;
     public Transform endPoint;
     private Color32 Red = new Color32(255, 0, 0, 255);
+    public FormatNumber fn;
 
-    public void Init(float value, bool hitCrit)
+    public void Init(BigInteger value, bool hitCrit)
     {
 
         _text = GetComponent<TextMeshPro>();
 
-        _text.text = value.ToString();
+        _text.text = fn.formatNumberBigNumber(value,false);
 
         if (hitCrit) _text.color = Red;
         

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Random = UnityEngine.Random;
+using System.Numerics;
+using Vector2 = UnityEngine.Vector2;
 
 public class Tile : MonoBehaviour
 {
-    public int value;
+    public BigInteger value;
     public Node Node;
     public Tile MergingTile;
     public bool Merging;
@@ -39,7 +41,7 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            text.text = fn.formatNumber(value,false);
+            text.text = fn.formatNumberBigNumber(value,false);
         }
         em = particles.emission;
         crateEm = crateDestroyParticles.emission;
@@ -75,7 +77,7 @@ public class Tile : MonoBehaviour
         em.enabled = false;
     }
 
-    public bool canMerge(int Value) => Value == value && !Merging && MergingTile == null;
+    public bool canMerge(BigInteger Value) => Value == value && !Merging && MergingTile == null;
 
     public void setCrateSprite(Sprite c)
     {
@@ -157,7 +159,7 @@ public class Tile : MonoBehaviour
 
     public void updateNumber()
     {
-        text.text = fn.formatNumber(value, false);
+        text.text = fn.formatNumberBigNumber(value, false);
         renderer.color = gm.GetTileTypeValue(value).colour;
     }
 

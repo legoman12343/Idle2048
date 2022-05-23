@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,10 @@ using System.Security.Cryptography;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Vector3 = UnityEngine.Vector3;
+using Vector2 = UnityEngine.Vector2;
+using Quaternion = UnityEngine.Quaternion;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +25,7 @@ public class GameManager : MonoBehaviour
     private Vector2 Downvec;
     public GameObject floatingTextPrefab;
     public float chance;
-    public int startingValue;
+    public BigInteger startingValue;
     private List<Node> nodes;
     private List<Tile> tiles;
     private List<Tile> brokenCrates;
@@ -72,7 +77,7 @@ public class GameManager : MonoBehaviour
     public int movesNeeded;
 
 
-    public TileType GetTileTypeValue(float value)
+    public TileType GetTileTypeValue(BigInteger value)
     {
         while (value > types[types.Count - 1].value)
         {
@@ -95,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        startingValue = 2048;
         movesNeeded = 2;
         round = 0;
         gridSizeUp = false;
@@ -243,7 +249,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void spawnTile(Node node, float value, bool merging)
+    void spawnTile(Node node, BigInteger value, bool merging)
     {
         if ((Random.value < crateChance || (Random.value < instantCrateChance && previousCrate)) && crate != 0 && merging == false)
         {
@@ -411,22 +417,23 @@ public class GameManager : MonoBehaviour
 
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
-            float newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
-            quest.updateMergeDamage(newValue + mergeDamageMultiplier);
-            quest.updateTileLevel(newValue);
-            spawnTile(baseTile.Node, newValue, true);
-            if (Random.value < criticalHitChance) hitCrit = true;
-            else hitCrit = false;
-            if (hitCrit) newValue *= 5;
-            newValue += ASMultiplier;
-            StartCoroutine(damageMonster(newValue));
-            var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
-            var floatingScript = text.GetComponent<FloatingText>();
-            floatingScript.endPoint = endPoint;
-            floatingScript.Init(newValue, hitCrit);
+        BigInteger newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
+        quest.updateMergeDamage(newValue + mergeDamageMultiplier);
+        quest.updateTileLevel(newValue);
+        spawnTile(baseTile.Node, newValue, true);
+        if (Random.value < criticalHitChance) hitCrit = true;
+        else hitCrit = false;
+        if (hitCrit) newValue *= 5;
+        newValue *= (int)(ASMultiplier * 100);
+        newValue /= 100;
+        StartCoroutine(damageMonster(newValue));
+        var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
+        var floatingScript = text.GetComponent<FloatingText>();
+        floatingScript.endPoint = endPoint;
+        floatingScript.Init(newValue, hitCrit);
 
-            removeTile(mergingTile);
-            removeTile(baseTile);
+        removeTile(mergingTile);
+        removeTile(baseTile);
     }
 
     void removeTile(Tile tile)
@@ -478,10 +485,17 @@ public class GameManager : MonoBehaviour
         hasMoved = true;
     }
 
-    public IEnumerator damageMonster(float v)
+    public IEnumerator damageMonster(BigInteger v)
     {
         yield return new WaitForSeconds(1f);
-        healthBar.health -= v;
+        if (v > 1000000000)
+        {
+            healthBar.healthBI -= v;
+        }
+        else
+        {
+            healthBar.health -= (float)v;
+        }
     }
 
     public void DoubleTiles(int n)
@@ -597,7 +611,7 @@ public class GameManager : MonoBehaviour
 
 public struct TileType
 {
-    public int value;
+    public BigInteger value;
     public Color colour;
 }
 

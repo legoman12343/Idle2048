@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,11 +14,11 @@ public class Quests : MonoBehaviour
     private int bossKillCount;
     private int bossKillTarget;
     private bool bossKillCompleted;
-    private float mergeDamage;
+    private BigInteger mergeDamage;
     private int mergeDamageTarget;
     private bool mergeDamageCompleted;
-    private float tileLevel;
-    private int tileLevelTarget;
+    private BigInteger tileLevel;
+    private BigInteger tileLevelTarget;
     private bool tileLevelCompleted;
     private int crateCount;
     private int crateTarget;
@@ -109,20 +110,20 @@ public class Quests : MonoBehaviour
     {
         tileLevel = 0;
         tileLevelTarget = 1024;
-        progressbars[3].slider.maxValue = tileLevelTarget;
+        progressbars[3].slider.maxValue = 100;
         progressbars[3].slider.value = 0;
         progressbars[3].button.SetActive(false);
         progressbars[3].text.text = tileLevel.ToString() + " of " + tileLevelTarget.ToString();
         tileLevelCompleted = false;
     }
 
-    public void updateTileLevel(float n)
+    public void updateTileLevel(BigInteger n)
     {
         if (tileLevel < n)
         {
             tileLevel = n;
             progressbar bar = progressbars[3];
-            bar.slider.value = tileLevel;
+            bar.slider.value = (float)(tileLevel/ tileLevelTarget) *100;
             bar.text.text = tileLevel.ToString() + " of " + tileLevelTarget.ToString();
             if (tileLevelTarget <= tileLevel && bar.state == 0 && !tileLevelCompleted)
             {
@@ -146,18 +147,18 @@ public class Quests : MonoBehaviour
     {
         mergeDamage = 0;
         mergeDamageTarget = 1000;
-        progressbars[2].slider.maxValue = mergeDamageTarget;
+        progressbars[2].slider.maxValue = 100;
         progressbars[2].slider.value = 0;
         progressbars[2].button.SetActive(false);
         progressbars[2].text.text = mergeDamage.ToString() + " of " + mergeDamageTarget.ToString();
         mergeDamageCompleted = false;
     }
 
-    public void updateMergeDamage(float n)
+    public void updateMergeDamage(BigInteger n)
     {
         mergeDamage += n;
         progressbar bar = progressbars[2];
-        bar.slider.value = mergeDamage;
+        bar.slider.value = (float)(mergeDamage / mergeDamageTarget) * 100;
         bar.text.text = mergeDamage.ToString() + " of " + mergeDamageTarget.ToString();
         if (mergeDamageTarget <= mergeDamage && bar.state == 0 && !mergeDamageCompleted)
         {
