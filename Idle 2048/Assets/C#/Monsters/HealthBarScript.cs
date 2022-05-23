@@ -62,33 +62,46 @@ public class HealthBarScript : MonoBehaviour
 
     void updateNumber()
     {
-        string healthString;
-        if (health < 0)
-        {
-            healthString = fn.formatNumber(0);
-            
-        }
-        else
-        {
-            healthString = fn.formatNumber(health);
-        }
-        if (!healthString.Contains("."))
-        {
-            if (numbers.Contains(healthString[healthString.Length-1].ToString()))
-            {
-                healthString += ".0";
-            }
-            else 
-            {
-                string letter = healthString[healthString.Length - 1].ToString();
-                healthString = healthString.Remove(healthString.Length - 1, 1);
-                healthString += ".0" + letter;
-            }
-        }
+        
 
-        string total = fn.formatNumber(totalHealth);
+        if (!bigInt)
+        {
+            string healthString;
+            if (health < 1000)
+            {
+                float temp = (int)Math.Round(health * 10);
+                healthString = fn.formatNumber(temp / 10);
+                if ((temp/10) % 1 == 0)
+                {
+                    healthString += ".0";
+                }
+            }else
+            {
+                healthString = fn.formatNumber(health);
+            }
+            string total = fn.formatNumber(totalHealth);
+            if (health < 0)
+            {
+                healthCounter.text = "0/" + total;
+            }
+            else
+            {
+                healthCounter.text = healthString + "/" + total;
+            }
+        }else
+        {
+            string healthString = fn.formatNumberBigNumber(healthBI);
+            string total = fn.formatNumberBigNumber(totalHealthBI);
 
-        healthCounter.text = healthString + "/" + total;
+            if (health < 0)
+            {
+                healthCounter.text = "0/" + total;
+            }
+            else
+            {
+                healthCounter.text = healthString + "/" + total;
+            }
+        }
     }
 
 }

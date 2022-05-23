@@ -6,7 +6,6 @@ using Random = UnityEngine.Random;
 public class CoinScript : MonoBehaviour
 {
     public Transform objTransform;
-    private float timePast = 0;
     private Vector2 force;
 
     void Start()

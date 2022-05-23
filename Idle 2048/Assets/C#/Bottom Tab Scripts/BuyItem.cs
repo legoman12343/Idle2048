@@ -32,7 +32,6 @@ public class BuyItem : MonoBehaviour
     public Ability2 ability2;
     public Ability3 ability3;
     public BigInteger originalPrice = new BigInteger();
-    float discount = 1.0f;
     public FormatNumber fn;
     private float crateChanceStart;
 
@@ -83,7 +82,6 @@ public class BuyItem : MonoBehaviour
     {
         if (coinsDisplay.Coins >= price)
         {
-            int temp;
             damage.addDPS(dpsValue, itemNumber);
             coinsDisplay.addCoins(-price);
             ItemOwned++;

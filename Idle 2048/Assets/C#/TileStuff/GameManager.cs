@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public TileType GetTileTypeValue(BigInteger value)
     {
+        /*
         while (value > types[types.Count - 1].value)
         {
             TileType crate = types[0];
@@ -92,22 +93,33 @@ public class GameManager : MonoBehaviour
             newType.colour = types[index].colour;
             types.Add(newType);
             types.Insert(0, crate);
-        }
-        return types.First(types => types.value == value);
+        }*/
+        return types.First(type => type.value == value);
     }
     
    
 
     void Start()
     {
-        startingValue = 2048;
+        BigInteger x = 1;
+        for (int i = 1; i < types.Count - 1; i++)
+        {
+            TileType t = new TileType();
+            t.value = x;
+            t.colour = types[i].colour;
+            types[i] = t;
+            x *= 2;
+        }
+
+
+        startingValue = 1;
         movesNeeded = 2;
         round = 0;
         gridSizeUp = false;
         crateChance = 1f;
         crateMax = 1;
         crate = 1;
-        ASMultiplier = 0.0f;
+        ASMultiplier = 1.0f;
         travelTime = 0.2f;
         tileValue = 1;
         previousCrate = false;
@@ -395,7 +407,6 @@ public class GameManager : MonoBehaviour
             brokenCrates[0].DestroyCrate();
             brokenCrates.RemoveAt(0);
             crate += 1;
-            Debug.Log(crate);
         }
 
         sequence.OnComplete(() =>

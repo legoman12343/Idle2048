@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPoint: {fileID: 0}
+  fn: {fileID: 772826830599211366}
 --- !u!114 &772826830599211366
 MonoBehaviour:
   m_ObjectHideFlags: 0

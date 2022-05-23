@@ -34,14 +34,14 @@ public class FormatNumber : MonoBehaviour
     {
         bool highNum = false;
         int pos = -1;
-        int formatNum = (int)number;
-        int originalNumber = formatNum;
+        float formatNum = number;
+        float originalNumber = formatNum;
 
         if (formatNum >= 1000) { highNum = true; }
 
-        while (formatNum >= 1000) { formatNum /= 1000; pos++; }
-
         if (!highNum) { return originalNumber.ToString(); }
+
+        while (formatNum >= 1000) { formatNum /= 1000; pos++; }        
 
         string output = originalNumber.ToString("F0").Substring(0, 3);
 
