@@ -9,7 +9,7 @@ using System.Numerics;
 public class BuyItem : MonoBehaviour
 {
     public BigInteger price = new BigInteger();
-    public BigInteger priceTemp = new BigInteger();
+    public BigInteger originalPrice = new BigInteger();
     public CoinsDisplay coinsDisplay;
     public Text ItemDisplayTXT;
     public Text priceText;
@@ -31,7 +31,6 @@ public class BuyItem : MonoBehaviour
     public Ability1 ability1;
     public Ability2 ability2;
     public Ability3 ability3;
-    public BigInteger originalPrice = new BigInteger();
     public FormatNumber fn;
     private float crateChanceStart;
 
@@ -43,6 +42,7 @@ public class BuyItem : MonoBehaviour
         }
         else
         {
+            dpsValue = coinsDisplay.damageValues[itemNumber];
             price = coinsDisplay.prices[itemNumber];
         }
         originalPrice = price;
@@ -52,7 +52,7 @@ public class BuyItem : MonoBehaviour
         ItemOwned = 0;
         if (!upgrade) ItemDisplayTXT.text = "X " + ItemOwned.ToString();
 
-        priceIncrement = 1.05f;
+        priceIncrement = 1.07f;
 
         if (upgrade) updatePriceUpgrades();
         else updatePrice();
@@ -61,16 +61,10 @@ public class BuyItem : MonoBehaviour
 
     public void updateDiscount(float d)
     {
-        priceTemp = price;
-        priceTemp *= 10;
-        d *= 10;
+        d = (1 - d)*10;
         BigInteger bigIntFromDouble = new BigInteger(d);
-        priceTemp *= bigIntFromDouble;
-        double result = (double)priceTemp;
-        result /= 100;
-        result++;
-        BigInteger resultBig = new BigInteger(result);
-        price = originalPrice * resultBig;
+        price *= bigIntFromDouble;
+        price /= 10;
 
         if (upgrade)
             updatePriceUpgrades();
@@ -101,21 +95,13 @@ public class BuyItem : MonoBehaviour
                 damage.gearUpgrades[((itemNumber+1) * 4) - 1].SetActive(true);
             }
 
-            BigInteger m = new BigInteger(multiplier);
-            m *= 100;
+            BigInteger m = new BigInteger(multiplier * 100);
             dpsValue = (baseDamage * ItemOwned * m)/100;
             ItemDisplayTXT.text = "X " + ItemOwned.ToString();
 
-            priceTemp = price;
-            priceTemp *= 100;
-            priceIncrement *= 100;
-            BigInteger bigIntFromDouble = new BigInteger(priceIncrement);
-            priceTemp *= bigIntFromDouble;
-            double result = (double)priceTemp;
-            result /= 10000;
-            BigInteger resultBig = new BigInteger(result);
-
-            price *= resultBig;
+            BigInteger a = new BigInteger(100*(Math.Pow(priceIncrement , ItemOwned - 1)));
+            Debug.Log(a);
+            price = (a* originalPrice)/100;
 
             if(upgrade)
                 updatePriceUpgrades();

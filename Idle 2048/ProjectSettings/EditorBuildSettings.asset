@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Josh.unity
-    guid: 33c685fd4f5d61c428377ef059f8c4e2
+    guid: 379cb17a66935184d92bcd13dee29757
   m_configObjects: {}

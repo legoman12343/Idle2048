@@ -12,6 +12,7 @@ public class CoinsDisplay : MonoBehaviour
     public BigInteger Coins = new BigInteger();
     public BigInteger CoinsTemp = new BigInteger();
     public List<BigInteger> prices = new List<BigInteger>();
+    public List<BigInteger> damageValues = new List<BigInteger>();
     public List<Image> colours;
     public List<BigInteger> pricesUpgrades = new List<BigInteger>();
     public List<Image> coloursUpgrades;
@@ -25,6 +26,29 @@ public class CoinsDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damageValues.Add(1);
+        damageValues.Add(7);
+        damageValues.Add(25);
+        damageValues.Add(75);
+        damageValues.Add(250);
+        damageValues.Add(1000);
+        damageValues.Add(4000);
+        damageValues.Add(11000);
+        damageValues.Add(48000);
+        damageValues.Add(190000);
+        damageValues.Add(800000);
+        damageValues.Add(3700000);
+        damageValues.Add(17000000);
+        damageValues.Add(70000000);
+        damageValues.Add(460000000);
+        damageValues.Add(3100000000);
+        damageValues.Add(20000000000);
+        damageValues.Add(135000000000);
+        damageValues.Add(820000000000);
+
+
+
+
         prices.Add(5);
         prices.Add(50);
         prices.Add(250);
