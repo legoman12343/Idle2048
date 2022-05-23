@@ -39,8 +39,21 @@ public class MonsterPrefabStuff : MonoBehaviour
         duck = false;
     }
 
+    public IEnumerator removeDeadMonster(GameObject Monster, bool dir)
+    {
+        if (!dir) Monster.transform.DOMove(monsterSpawnPointLeft.position, 1f);
+        else Monster.transform.DOMove(monsterSpawnPointRight.position, 1f);
+        yield return new WaitForSeconds(1f);
+        Destroy(Monster);
+    }
+
     public void spawnMonster()
     {
+        while (monster.Count != 0)
+        {
+            StartCoroutine(removeDeadMonster(monster[0], backLevel));
+            monster.RemoveAt(0);
+        }
         if (backLevel == true)
         {
             spawnPoint = monsterSpawnPointLeft.position;
@@ -81,25 +94,16 @@ public class MonsterPrefabStuff : MonoBehaviour
         monster[monster.Count - 1].transform.DOMove(monsterBattlePoint.position, 1f);
     }
 
-    public IEnumerator DecreaseLevel()
+    public void DecreaseLevel()
     {
-        var deadMonster = monster[0];
-        deadMonster.transform.DOMove(monsterSpawnPointRight.position, 1f);
         backLevel = true;
         spawnMonster();
-        yield return new WaitForSeconds(1f);
-        monster.Remove(deadMonster);
-        Destroy(deadMonster);
     }
 
-    public IEnumerator IncreaseLevel()
+    public void IncreaseLevel()
     {
-        var deadMonster = monster[0];
-        deadMonster.transform.DOMove(monsterSpawnPointLeft.position, 1f);
+        backLevel = false;
         spawnMonster();
-        yield return new WaitForSeconds(1f);
-        monster.Remove(deadMonster);
-        Destroy(deadMonster);
     }
 
     //coroutine for death
@@ -135,19 +139,10 @@ public class MonsterPrefabStuff : MonoBehaviour
         
         //wait
         yield return new WaitForSeconds(1.1f);
-        monster[0].transform.DOMove(monsterSpawnPointLeft.position, 1f);
         if (level.level == level.levelMax && level.killCount == level.requiredKills && level.ProgressMode == true) level.killCount = 0;
-        GameObject deadMonster = monster[0];
-        monster.RemoveAt(0);
+        backLevel = false;
         spawnMonster();
         level.LevelUpdate();
-        yield return new WaitForSeconds(1f);
-        //destroy obj
-        Destroy(deadMonster);
-        while (monster.Count > 1)
-        {
-            Destroy(monster[0]);
-        }
     }
 
 

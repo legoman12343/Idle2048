@@ -55,6 +55,20 @@ public class LevelController : MonoBehaviour
         }
     }
 
+    public void reset()
+    {
+        ProgressMode = true;
+        level = 1;
+        levelMax = 1;
+        killCount = 0;
+        requiredKills = 10;
+        killSlider.value = killCount;
+        levelCountCurrent.text = level.ToString();
+        levelCountNext.text = (level + 1).ToString();
+        UpdateStuff();
+        MonsterScript.spawnMonster();
+    }
+
     void UpdateStuff()
     {
         if (level == 1) backButton.SetActive(false);
@@ -74,7 +88,7 @@ public class LevelController : MonoBehaviour
         ProgressMode = false;
         progressModeCancel.SetActive(true);
         forwardsButton.SetActive(true);
-        StartCoroutine (MonsterScript.DecreaseLevel());
+        MonsterScript.DecreaseLevel();
         UpdateStuff();
         levelCountCurrent.text = level.ToString();
         levelCountNext.text = (level + 1).ToString();
@@ -92,7 +106,7 @@ public class LevelController : MonoBehaviour
             progressModeCancel.SetActive(false);
         }
         killSlider.value = killCount;
-        StartCoroutine (MonsterScript.IncreaseLevel());
+        MonsterScript.IncreaseLevel();
         UpdateStuff();
         levelCountCurrent.text = level.ToString();
         levelCountNext.text = (level + 1).ToString();

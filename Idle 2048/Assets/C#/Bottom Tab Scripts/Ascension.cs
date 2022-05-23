@@ -34,6 +34,8 @@ public class Ascension : MonoBehaviour
     public BuyItem buyItemCrate;
     public Damage damageScript;
     public FormatNumber formatNumber;
+    public LevelController levelController;
+    public CoinsDisplay coinsDisplay;
 
     private bool biggerGridUnlock1 = false;
     private bool biggerGridUnlock2 = false;
@@ -120,6 +122,9 @@ public class Ascension : MonoBehaviour
             //----------------------//
             //----- reset game------//
             //---------------------//
+            levelController.reset();
+            coinsDisplay.reset();
+            gameManager.makeGrid();
        }
     }
 

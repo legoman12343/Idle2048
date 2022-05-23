@@ -24,8 +24,16 @@ public class CoinsDisplay : MonoBehaviour
     public FormatNumber fn;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
+        reset();
+    }
+
+    public void reset()
+    {
+        while (damageValues.Count > 0) damageValues.RemoveAt(0);
+        while (prices.Count > 0) prices.RemoveAt(0);
+        while (pricesUpgrades.Count > 0) pricesUpgrades.RemoveAt(0);
         damageValues.Add(1);
         damageValues.Add(7);
         damageValues.Add(25);
@@ -45,9 +53,6 @@ public class CoinsDisplay : MonoBehaviour
         damageValues.Add(20000000000);
         damageValues.Add(135000000000);
         damageValues.Add(820000000000);
-
-
-
 
         prices.Add(5);
         prices.Add(50);
@@ -194,13 +199,12 @@ public class CoinsDisplay : MonoBehaviour
         pricesUpgrades.Add(100);
         pricesUpgrades.Add(100);
         pricesUpgrades.Add(100);
-      
+
         Coins = 0;
-        string coinsTXT = fn.formatNumberBigNumber(Coins,true); 
+        string coinsTXT = fn.formatNumberBigNumber(Coins, true);
         CoinsDisplayTXT.text = coinsTXT;
         StartCoroutine(updateButtons());
     }
-
 
     public void addCoins(int n)
     {
