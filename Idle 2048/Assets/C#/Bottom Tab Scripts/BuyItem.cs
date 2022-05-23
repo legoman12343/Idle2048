@@ -72,6 +72,17 @@ public class BuyItem : MonoBehaviour
             updatePrice();
     }
 
+    public void reset()
+    {
+        price = originalPrice;
+        ItemOwned = 0;
+        dpsValue = baseDamage;
+        bought = false;
+        if (!upgrade) ItemDisplayTXT.text = "X " + ItemOwned.ToString();
+        if (upgrade) updatePriceUpgrades();
+        else updatePrice();
+    }
+
     public void buyItem()
     {
         if (coinsDisplay.Coins >= price)
@@ -100,7 +111,6 @@ public class BuyItem : MonoBehaviour
             ItemDisplayTXT.text = "X " + ItemOwned.ToString();
 
             BigInteger a = new BigInteger(100*(Math.Pow(priceIncrement , ItemOwned - 1)));
-            Debug.Log(a);
             price = (a* originalPrice)/100;
 
             if(upgrade)

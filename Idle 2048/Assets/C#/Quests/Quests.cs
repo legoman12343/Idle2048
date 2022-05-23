@@ -30,6 +30,11 @@ public class Quests : MonoBehaviour
 
     void Start()
     {
+        init();
+    }
+
+    public void init()
+    {
         initKillMonsters();
         initKillBoss();
         initMergeDamage();
@@ -42,6 +47,7 @@ public class Quests : MonoBehaviour
     {
         duckCount = 0;
         duckTarget = 10;
+        progressbars[5].tab.SetActive(true);
         progressbars[5].slider.maxValue = duckTarget;
         progressbars[5].slider.value = 0;
         progressbars[5].button.SetActive(false);
@@ -76,6 +82,7 @@ public class Quests : MonoBehaviour
     {
         crateCount = 0;
         crateTarget = 20;
+        progressbars[4].tab.SetActive(true);
         progressbars[4].slider.maxValue = crateTarget;
         progressbars[4].slider.value = 0;
         progressbars[4].button.SetActive(false);
@@ -110,6 +117,7 @@ public class Quests : MonoBehaviour
     {
         tileLevel = 0;
         tileLevelTarget = 1024;
+        progressbars[3].tab.SetActive(true);
         progressbars[3].slider.maxValue = 100;
         progressbars[3].slider.value = 0;
         progressbars[3].button.SetActive(false);
@@ -147,6 +155,7 @@ public class Quests : MonoBehaviour
     {
         mergeDamage = 0;
         mergeDamageTarget = 1000;
+        progressbars[2].tab.SetActive(true);
         progressbars[2].slider.maxValue = 100;
         progressbars[2].slider.value = 0;
         progressbars[2].button.SetActive(false);
@@ -177,10 +186,11 @@ public class Quests : MonoBehaviour
         questAnimation.stopAnimation();
     }
 
-        private void initKillBoss()
+    private void initKillBoss()
     {
         bossKillCount = 0;
         bossKillTarget = 5;
+        progressbars[1].tab.SetActive(true);
         progressbars[1].slider.maxValue = bossKillTarget;
         progressbars[1].slider.value = 0;
         progressbars[1].button.SetActive(false);
@@ -215,6 +225,7 @@ public class Quests : MonoBehaviour
     {
         monsterKillCount = 0;
         monsterKillTarget = 100;
+        progressbars[0].tab.SetActive(true);
         progressbars[0].slider.maxValue = monsterKillTarget;
         progressbars[0].slider.value = 0;
         progressbars[0].button.SetActive(false);

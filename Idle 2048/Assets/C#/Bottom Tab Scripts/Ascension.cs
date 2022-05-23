@@ -13,6 +13,7 @@ public class Ascension : MonoBehaviour
     [SerializeField] public List<GameObject> popUpList;
     [SerializeField] public List<Image> buttonList;
     [SerializeField] public List<GameObject> upgradesList;
+    [SerializeField] public List<GameObject> upgradesListObject;
     [SerializeField] public List<GameObject> gearList;
     private Color32 Green = new Color32(37, 166, 12, 255);
     private Color32 RedButton = new Color32(178, 18, 18, 255);
@@ -36,6 +37,7 @@ public class Ascension : MonoBehaviour
     public FormatNumber formatNumber;
     public LevelController levelController;
     public CoinsDisplay coinsDisplay;
+    public Quests quests;
 
     private bool biggerGridUnlock1 = false;
     private bool biggerGridUnlock2 = false;
@@ -67,7 +69,7 @@ public class Ascension : MonoBehaviour
         if (ascensionCoinsToGet != 0)
         {
             ascensionCoinsHave += ascensionCoinsToGet;
-            ascensionCoinsToGet = 0;
+            ascensionCoinsToGet = 1;
             popUpList[36].gameObject.SetActive(false);
             string ascensionCoinsHaveString = formatNumber.formatNumberBigNumber(ascensionCoinsHave);
             ascensionCoinsHaveDisplay.text = ascensionCoinsHaveString;
@@ -122,10 +124,35 @@ public class Ascension : MonoBehaviour
             //----------------------//
             //----- reset game------//
             //---------------------//
+            //Reset Level
             levelController.reset();
+            //Reset Coins
             coinsDisplay.reset();
+            //Removes Tile From Grid
+            gameManager.clearLists();
+            //Create Grid
             gameManager.makeGrid();
-       }
+            //Deactivates All Upgrades
+            for (int i = 0; i < upgradesListObject.Count; i++)
+            {
+                upgradesListObject[i].SetActive(false);
+            }
+            //Resets gear and upgrades
+            for (int i = 0; i < upgradesList.Count; i++)
+            {
+                buyItem = upgradesList[i].GetComponent<BuyItem>();
+                buyItem.reset();
+            }
+            for (int i = 0; i < gearList.Count; i++)
+            {
+                buyItem = gearList[i].GetComponent<BuyItem>();
+                buyItem.reset();
+            }
+            //Resets Damage
+            damageScript.ascend();
+            //Resets Quests
+            quests.init();
+        }
     }
 
     string FormatNumber(float num)

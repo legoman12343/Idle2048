@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     public GameObject floatingTextPrefab;
     public float chance;
     public BigInteger startingValue;
-    private List<Node> nodes;
-    private List<Tile> tiles;
+    public List<Node> nodes;
+    public List<Tile> tiles;
     private List<Tile> brokenCrates;
     private GameState state;
     private int round;
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         movesNeeded = 2;
         round = 0;
         gridSizeUp = false;
-        crateChance = 1f;
+        crateChance = 0f;
         crateMax = 1;
         crate = 1;
         ASMultiplier = 1.0f;
@@ -178,6 +178,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void clearLists()
+    {
+        while (tiles.Count() > 0)
+        {
+            Destroy(tiles[0].gameObject);
+            tiles.RemoveAt(0);
+        }
+        while (nodes.Count > 0)
+        {
+            Destroy(nodes[0].gameObject);
+            nodes.RemoveAt(0);
+        }
+        crate = crateMax;
+    }
 
     public void makeGrid()
     {
@@ -210,17 +224,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            while (tiles.Count() > 0)
-            {
-                Destroy(tiles[0].gameObject);
-                tiles.RemoveAt(0);
-            }
-            while (nodes.Count > 0)
-            {
-                Destroy(nodes[0].gameObject);
-                nodes.RemoveAt(0);
-            }
-            crate = crateMax;
+            clearLists();
             float half = 0.5f;
             float gap = (w - half * 10) / 6;
             for (int x = 1; x < 6; x++)
