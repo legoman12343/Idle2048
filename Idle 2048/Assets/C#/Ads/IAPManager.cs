@@ -36,4 +36,10 @@ public class IAPManager : MonoBehaviour
         Debug.Log("BuyGems4");
         gems.addGems(1100);
     }
+
+    public void BuyGems5()
+    {
+        Debug.Log("BuyGems5");
+        gems.addGems(2000);
+    }
 }

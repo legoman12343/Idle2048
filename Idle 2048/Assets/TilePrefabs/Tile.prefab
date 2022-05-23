@@ -9800,7 +9800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76c49924640e00408c77fa0a425c596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
   Node: {fileID: 0}
   MergingTile: {fileID: 0}
   Merging: 0

@@ -28,17 +28,34 @@ public class Gems : MonoBehaviour
 
     public void timeSkip1()
     {
-        calculateMoney(1);
+        if (gems >= 20)
+        {
+            calculateMoney(1);
+        }
     }
 
     public void timeSkip2()
     {
-        calculateMoney(10);
+        if (gems >= 200)
+        {
+            calculateMoney(12);
+        }
     }
 
     public void timeSkip3()
     {
-        calculateMoney(24);
+        if (gems >= 375)
+        {
+            calculateMoney(24);
+        }
+    }
+
+    public void timeSkip4()
+    {
+        if (gems >= 600)
+        {
+            calculateMoney(48);
+        }
     }
 
     public void calculateMoney(int time)
@@ -49,7 +66,7 @@ public class Gems : MonoBehaviour
        // dps /= 10000;
         BigInteger money = ((time * 60 * 60) / (health / dps)) * level.getMonsterCoins();
         
-        moneyScript.addCoins(money/100);
+        moneyScript.addCoins(money);
     }
 
 }
