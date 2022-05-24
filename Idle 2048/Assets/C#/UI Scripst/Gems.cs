@@ -12,6 +12,7 @@ public class Gems : MonoBehaviour
     public LevelController level;
     public Damage damage;
     public CoinsDisplay moneyScript;
+    public LevelController levelController;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class Gems : MonoBehaviour
         if (gems >= 20)
         {
             calculateMoney(1);
+            gems -= 20;
         }
     }
 
@@ -39,6 +41,7 @@ public class Gems : MonoBehaviour
         if (gems >= 200)
         {
             calculateMoney(12);
+            gems -= 200;
         }
     }
 
@@ -47,6 +50,7 @@ public class Gems : MonoBehaviour
         if (gems >= 375)
         {
             calculateMoney(24);
+            gems -= 375;
         }
     }
 
@@ -55,15 +59,70 @@ public class Gems : MonoBehaviour
         if (gems >= 600)
         {
             calculateMoney(48);
+            gems -= 600;
+        }
+    }
+
+    public void InstantAscension50()
+    {
+        if (gems >= 400)
+        {
+            Debug.Log("Instant Ascension 50");
+            gems -= 400;
+        }
+    }
+
+    public void InstantAscension100()
+    {
+        if (gems >= 400)
+        {
+            Debug.Log("Instant Ascension 100");
+            gems -= 400;
+        }
+    }
+
+    public void InfusePoints3()
+    {
+        if (gems >= 600)
+        {
+            Debug.Log("Infuse Points 3");
+            gems -= 600;
+        }
+    }
+
+    public void background1()
+    {
+        if (gems >= 600)
+        {
+            Debug.Log("background1 preview");
+        }
+    }
+
+
+    public void doubleCoins()
+    {
+        if (gems >= 400)
+        {
+            levelController.permMultiplierCoins = 15;
+            gems -= 400;
+        }
+    }
+
+
+    //INSERT FUNC
+    public void doubleDPS()
+    {
+        if (gems >= 400)
+        {
+            Debug.Log("Double DPS");
+            gems -= 400;
         }
     }
 
     public void calculateMoney(int time)
     {
         BigInteger health = level.getMonsterHealth();
-       // health /= 10000;
         BigInteger dps = damage.getDPS();
-       // dps /= 10000;
         BigInteger money = ((time * 60 * 60) / (health / dps)) * level.getMonsterCoins();
         
         moneyScript.addCoins(money);

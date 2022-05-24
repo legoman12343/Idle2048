@@ -23,9 +23,12 @@ public class LevelController : MonoBehaviour
     public Sprite Complete;
     public Sprite notComplete;
     public GameObject levelCountNextOb;
+    public int permMultiplierCoins;
+
     // Start is called before the first frame update
     void Start()
     {
+        permMultiplierCoins = 10;
         ProgressMode = true;
         requiredKills = 10;
         levelMax = 1;
@@ -142,7 +145,7 @@ public class LevelController : MonoBehaviour
 
     public BigInteger getMonsterCoins()
     {
-        BigInteger temp = getMonsterHealth() / 15;
+        BigInteger temp = ((getMonsterHealth() / 15) * permMultiplierCoins)/10;
         if(temp > 0)
         {
             return temp;

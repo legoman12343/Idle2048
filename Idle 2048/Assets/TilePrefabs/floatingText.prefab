@@ -188,6 +188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endPoint: {fileID: 0}
   fn: {fileID: 772826830599211366}
+  transform: {fileID: 3501355213614746256}
+  particlePrefab: {fileID: 5495994426939330299, guid: e33c7e73c6e4faf4ca13798cbc876f6d, type: 3}
 --- !u!114 &772826830599211366
 MonoBehaviour:
   m_ObjectHideFlags: 0

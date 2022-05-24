@@ -13,10 +13,14 @@ public class FloatingText : MonoBehaviour
     public Transform endPoint;
     private Color32 Red = new Color32(255, 0, 0, 255);
     public FormatNumber fn;
+    public Transform transform;
+    public GameObject particlePrefab;
+    private BigInteger value;
+    public HealthBarScript healthBar;
 
-    public void Init(BigInteger value, bool hitCrit)
+    public void Init(BigInteger Value, bool hitCrit)
     {
-
+        value = Value;
         _text = GetComponent<TextMeshPro>();
 
         _text.text = fn.formatNumberBigNumber(value,false);
@@ -27,6 +31,31 @@ public class FloatingText : MonoBehaviour
 
         sequence.Insert(0, _text.transform.DOMove(new Vector3(endPoint.position.x, endPoint.position.y+0.8f, endPoint.position.z), travelTime).SetEase(Ease.InQuad));
 
-        sequence.OnComplete(() => Destroy(gameObject));
+        sequence.OnComplete(() => finish());
+    }
+
+    private void finish()
+    {
+        if (damageMonster(value))
+        {
+            Instantiate(particlePrefab, transform.position, UnityEngine.Quaternion.identity);
+        }
+        Destroy(gameObject);
+    }
+
+    public bool damageMonster(BigInteger v)
+    {
+        if (healthBar.isDead) return false;
+
+        if (v > 1000000000)
+        {
+            healthBar.healthBI -= v;
+            
+        }
+        else
+        {
+            healthBar.health -= (float)v;
+        }
+        return true;
     }
 }

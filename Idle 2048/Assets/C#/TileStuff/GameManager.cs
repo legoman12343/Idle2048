@@ -447,9 +447,9 @@ public class GameManager : MonoBehaviour
         if (hitCrit) newValue *= 5;
         newValue *= (int)(ASMultiplier * 100);
         newValue /= 100;
-        StartCoroutine(damageMonster(newValue));
         var text = Instantiate(floatingTextPrefab, baseTile.Pos, Quaternion.identity);
         var floatingScript = text.GetComponent<FloatingText>();
+        floatingScript.healthBar = healthBar;
         floatingScript.endPoint = endPoint;
         floatingScript.Init(newValue, hitCrit);
 
@@ -504,19 +504,6 @@ public class GameManager : MonoBehaviour
     {
         direction = Downvec;
         hasMoved = true;
-    }
-
-    public IEnumerator damageMonster(BigInteger v)
-    {
-        yield return new WaitForSeconds(1f);
-        if (v > 1000000000)
-        {
-            healthBar.healthBI -= v;
-        }
-        else
-        {
-            healthBar.health -= (float)v;
-        }
     }
 
     public void DoubleTiles(int n)
