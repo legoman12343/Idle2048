@@ -44,6 +44,7 @@ public class NotificationAnimation : MonoBehaviour
         {
             StopCoroutine(routine);
             icon.SetActive(false);
+            check = false;
         }
     }
 }

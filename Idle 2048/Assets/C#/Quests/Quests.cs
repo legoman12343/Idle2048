@@ -45,9 +45,12 @@ public class Quests : MonoBehaviour
 
     private void initDuckQuest()
     {
+        progressbar bar = progressbars[5];
+        bar.state = 0;
         duckCount = 0;
         duckTarget = 10;
         progressbars[5].tab.SetActive(true);
+        bar.sliderParent.SetActive(true);
         progressbars[5].slider.maxValue = duckTarget;
         progressbars[5].slider.value = 0;
         progressbars[5].button.SetActive(false);
@@ -80,9 +83,12 @@ public class Quests : MonoBehaviour
 
     private void initOpenCrates()
     {
+        progressbar bar = progressbars[4];
+        bar.state = 0;
         crateCount = 0;
         crateTarget = 20;
         progressbars[4].tab.SetActive(true);
+        bar.sliderParent.SetActive(true);
         progressbars[4].slider.maxValue = crateTarget;
         progressbars[4].slider.value = 0;
         progressbars[4].button.SetActive(false);
@@ -115,9 +121,12 @@ public class Quests : MonoBehaviour
 
     private void initTileLevel()
     {
+        progressbar bar = progressbars[3];
+        bar.state = 0;
         tileLevel = 0;
         tileLevelTarget = 1024;
         progressbars[3].tab.SetActive(true);
+        bar.sliderParent.SetActive(true);
         progressbars[3].slider.maxValue = 100;
         progressbars[3].slider.value = 0;
         progressbars[3].button.SetActive(false);
@@ -153,9 +162,12 @@ public class Quests : MonoBehaviour
 
     private void initMergeDamage()
     {
+        progressbar bar = progressbars[2];
+        bar.state = 0;
         mergeDamage = 0;
         mergeDamageTarget = 1000;
         progressbars[2].tab.SetActive(true);
+        bar.sliderParent.SetActive(true);
         progressbars[2].slider.maxValue = 100;
         progressbars[2].slider.value = 0;
         progressbars[2].button.SetActive(false);
@@ -188,9 +200,12 @@ public class Quests : MonoBehaviour
 
     private void initKillBoss()
     {
+        progressbar bar = progressbars[1];
+        bar.state = 0;
         bossKillCount = 0;
         bossKillTarget = 5;
         progressbars[1].tab.SetActive(true);
+        bar.sliderParent.SetActive(true);
         progressbars[1].slider.maxValue = bossKillTarget;
         progressbars[1].slider.value = 0;
         progressbars[1].button.SetActive(false);
@@ -223,9 +238,11 @@ public class Quests : MonoBehaviour
 
     private void initKillMonsters()
     {
+        progressbar bar = progressbars[0];
         monsterKillCount = 0;
         monsterKillTarget = 100;
         progressbars[0].tab.SetActive(true);
+        bar.sliderParent.SetActive(true);
         progressbars[0].slider.maxValue = monsterKillTarget;
         progressbars[0].slider.value = 0;
         progressbars[0].button.SetActive(false);

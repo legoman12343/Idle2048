@@ -36,6 +36,12 @@ public class BuyItem : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(StartCo());
+    }
+
+    private IEnumerator StartCo()
+    {
+        yield return new WaitForSeconds(0.5f);
         if (upgrade)
         {
             price = coinsDisplay.pricesUpgrades[upgradeNum - 1];
@@ -55,9 +61,8 @@ public class BuyItem : MonoBehaviour
         priceIncrement = 1.07f;
 
         if (upgrade) updatePriceUpgrades();
-        else updatePrice();
+        else updatePriceStart();
     }
-
 
     public void updateDiscount(float d)
     {
@@ -80,7 +85,7 @@ public class BuyItem : MonoBehaviour
         bought = false;
         if (!upgrade) ItemDisplayTXT.text = "X " + ItemOwned.ToString();
         if (upgrade) updatePriceUpgrades();
-        else updatePrice();
+        else updatePriceStart();
     }
 
     public void buyItem()
@@ -118,6 +123,13 @@ public class BuyItem : MonoBehaviour
             else
                 updatePrice();
         }
+    }
+
+    public void updatePriceStart()
+    {
+        priceText.text = fn.formatNumberBigNumber(price, false) + " Coins";
+        DPStext.text = "(" + fn.formatNumberBigNumber(dpsValue, false) + ")";
+        coinsDisplay.prices[itemNumber] = price;
     }
 
     public void updatePrice()
