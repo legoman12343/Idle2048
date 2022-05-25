@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: FredokaOne 1
   m_EditorClassIdentifier: 
-  hashCode: -958707404
+  hashCode: -355311067
   material: {fileID: 8311910087866534304}
-  materialHashCode: 1551065492
+  materialHashCode: -440207899
   m_Version: 1.1.0
   m_SourceFontFileGUID: 7c134f0168e0486468b38a74a37305bb
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 7c134f0168e0486468b38a74a37305bb, type: 3}
@@ -2692,7 +2692,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.183
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9375

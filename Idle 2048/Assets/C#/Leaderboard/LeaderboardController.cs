@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using LootLocker.Requests;
 using TMPro;
 using System.Numerics;
+using Vector3 = UnityEngine.Vector3;
+using Vector2 = UnityEngine.Vector2;
 
 public class LeaderboardController : MonoBehaviour
 {
@@ -29,10 +31,13 @@ public class LeaderboardController : MonoBehaviour
     public Image topImg;
     public Image youImg;
     public FormatNumber fn;
+    private Vector3 startScale;
 
     // Start is called before the first frame update
     private void Start()
     {
+        startScale = new Vector3(0.95581f, 2.082471f, 0.95581f);
+        leaderboardWindow.GetComponent<Transform>().localScale = Vector3.zero;
         you.SetActive(false);
         top.SetActive(false);
         leaderboardWindow.SetActive(false);
@@ -73,6 +78,8 @@ public class LeaderboardController : MonoBehaviour
     public void open()
     {
         leaderboardWindow.SetActive(true);
+        LeanTween.scale(leaderboardWindow, startScale, 0.2f);
+
         if(!menu)
         {
             you.SetActive(false);
@@ -88,9 +95,14 @@ public class LeaderboardController : MonoBehaviour
         
     }
 
-    public void close()
+    public void deactivate()
     {
         leaderboardWindow.SetActive(false);
+    }
+
+    public void close()
+    {
+        LeanTween.scale(leaderboardWindow, Vector2.zero, 0.2f).setOnComplete(deactivate);
     }
 
 

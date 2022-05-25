@@ -36,7 +36,7 @@ public class WorldTimeAPI : MonoBehaviour
 
 	const string API_URL = "http://worldtimeapi.org/api/ip";
 
-	[HideInInspector] public bool IsTimeLodaed = false;
+	[HideInInspector] public bool IsTimeLoaded = false;
 
 	private DateTime _currentDateTime = DateTime.Now;
 
@@ -73,7 +73,7 @@ public class WorldTimeAPI : MonoBehaviour
 			//timeData.datetime value is : 2020-08-14T15:54:04+01:00
 
 			_currentDateTime = ParseDateTime(timeData.datetime);
-			IsTimeLodaed = true;
+			IsTimeLoaded = true;
 
 			Debug.Log("Success.");
 		}
@@ -90,22 +90,3 @@ public class WorldTimeAPI : MonoBehaviour
 		return DateTime.Parse(string.Format("{0} {1}", date, time));
 	}
 }
-
-
-/* API (json)
-{
-	"abbreviation" : "+01",
-	"client_ip"    : "190.107.125.48",
-	"datetime"     : "2020-08-14T15:544:04+01:00",
-	"dst"          : false,
-	"dst_from"     : null,
-	"dst_offset"   : 0,
-	"dst_until"    : null,
-	"raw_offset"   : 3600,
-	"timezone"     : "Asia/Brunei",
-	"unixtime"     : 1595601262,
-	"utc_datetime" : "2020-08-14T15:54:04+00:00",
-	"utc_offset"   : "+01:00"
-}
-We only need "datetime" property.
-*/

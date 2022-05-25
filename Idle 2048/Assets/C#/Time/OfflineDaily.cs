@@ -14,9 +14,9 @@ public class OfflineDaily : MonoBehaviour
 	public LevelController level;
 	public Damage damage;
 	public AdManager ads;
-	public int money;
+	public BigInteger money;
 	public CoinsDisplay moneyScript;
-	public float multiplier;
+	public int multiplier;
 	public GameObject offlineWindow;
 	public Sprite greyButton;
 	public GameObject doubleButton;
@@ -26,11 +26,13 @@ public class OfflineDaily : MonoBehaviour
 	public GameObject dailyClaimButton;
 	public GameObject dailyAlertButton;
 	public Text wang;
+	public Text time;
 	[SerializeField] private List<Rewards> rewards;
 	[SerializeField] private List<RectTransform> positions;
 	public GameManager gm;
 	private Vector3 windowScale;
 	public NotificationAnimation dailyAnimation;
+	public FormatNumber fn;
 
 	void Start()
 	{
@@ -38,8 +40,8 @@ public class OfflineDaily : MonoBehaviour
 		dailyAlertButton.SetActive(true);
 		offlineWindow.SetActive(true);
 		oldtime = DateTime.Now;
-		multiplier = 0.2f;
-		offlineEarnings();
+		multiplier = 2;
+		StartCoroutine(offlineEarnings());
 		InvokeRepeating("CheckDailyReward", 0f, 2f);
 		StartCoroutine(initAnimation());
 	}
@@ -51,9 +53,7 @@ public class OfflineDaily : MonoBehaviour
 		{
 			yield return new WaitForSeconds(0.5f);
 			c = dailyAnimation.startAnimation();
-
-		}
-		
+		}		
 	}
 	
 
@@ -65,7 +65,7 @@ public class OfflineDaily : MonoBehaviour
 	void CheckDailyReward()
 	{
 		int nextDay;
-		if (WorldTimeAPI.Instance.IsTimeLodaed)
+		if (WorldTimeAPI.Instance.IsTimeLoaded)
 		{
 			DateTime currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
 
@@ -94,20 +94,20 @@ public class OfflineDaily : MonoBehaviour
 		bool completed = false;
 		while (!completed)
 		{
-			yield return new WaitForSeconds(0.1f);
-			if (WorldTimeAPI.Instance.IsTimeLodaed)
-			{/*
+			if (WorldTimeAPI.Instance.IsTimeLoaded)
+			{
 				DateTime currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
 				completed = true;
-				float ttk = (float)level.getMonsterHealth() / (float)damage.getDPS();
 				var difference = currentDateTime - oldtime;
-				float seconds = (float)difference.TotalSeconds;
-				int kills = (int)Math.Ceiling(seconds / ttk);
-				money = (int)Math.Ceiling(kills * level.getMonsterCoins() * multiplier); */
-				money = 1000;
-				wang.text = money.ToString();
+				time.text = difference.ToString();
+				BigInteger seconds =  new BigInteger(difference.TotalSeconds);
+
+				money = (((seconds) / (level.getMonsterHealth() / damage.getDPS())) * level.getMonsterCoins() * multiplier)/10;
+
+				wang.text = fn.formatNumberBigNumber(money,false);
 				completed = true;
 			}
+			yield return new WaitForSeconds(0.1f);
 		}
 	}
 

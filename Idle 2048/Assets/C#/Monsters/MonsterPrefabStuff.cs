@@ -29,6 +29,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     public TextMeshProUGUI timerText;
     public bool giveMoney;
     public AudioSource deathSound;
+    public bool sounds = true;
 
     void Start()
     {
@@ -114,7 +115,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         bossDead = true;
         bool coinsMade = false;
         if (duck) { quest.updateDuckQuest(1); duck = false; }
-        if (deathSound != null) deathSound.Play();
+        if (deathSound != null && sounds) deathSound.Play();
 
         //death animation script
         monster[0].GetComponent<Monster>().Die();
