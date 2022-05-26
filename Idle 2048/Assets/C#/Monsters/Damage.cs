@@ -102,7 +102,7 @@ public class Damage : MonoBehaviour
 
         for (int i = 0; i < itemDamage.Count; i++)
         {
-            BigInteger m = new BigInteger(itemMultipliers[i]);
+            BigInteger m = new BigInteger(itemMultipliers[i] * (itemInfuse[i] * 100));
             m *= 100;
             total += (itemDamage[i] * m)/100;
         }

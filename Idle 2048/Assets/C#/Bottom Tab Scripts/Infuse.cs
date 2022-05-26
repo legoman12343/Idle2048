@@ -12,8 +12,17 @@ public class Infuse : MonoBehaviour
 
     public Text textInfuse;
     public Text textBits;
-    public GameObject mainWindow;
-    public GameObject infuseWindow;
+
+    public GameObject GearPanel;
+    public GameObject InfoPanel;
+    private bool infoOpen;
+
+    public GameObject UpgradeTitle;
+    public GameObject GearTitle;
+    public GameObject infuseTitle;
+    public GameObject infoButton;
+    public List<GameObject> infusePhase = new List<GameObject>();
+    public List<GameObject> buyPhase = new List<GameObject>();
 
     public Damage damage;
 
@@ -30,6 +39,7 @@ public class Infuse : MonoBehaviour
         infuseBits = 0;
         infuseCoins = 0;
         open = false;
+        infoOpen = false;
     }
 
     public void craftInfuseCoin()
@@ -42,17 +52,43 @@ public class Infuse : MonoBehaviour
         }
     }
 
+    public void clickInfo()
+    {
+        if (infoOpen)
+        {
+            infoOpen = false;
+            GearPanel.SetActive(true);
+            InfoPanel.SetActive(false);
+        }
+        else
+        {
+            infoOpen = true;
+            GearPanel.SetActive(false);
+            InfoPanel.SetActive(true);
+        }
+    }
+
     public void clickInfuse()
     {
         if(open)
         {
-            mainWindow.SetActive(true);
-            infuseWindow.SetActive(false);
+            open = false;
+            UpgradeTitle.SetActive(true);
+            GearTitle.SetActive(true);
+            infuseTitle.SetActive(false);
+            infoButton.SetActive(false);
+            for (int x = 0; x < infusePhase.Count; x++) infusePhase[x].SetActive(false);
+            for (int x = 0; x < buyPhase.Count; x++) buyPhase[x].SetActive(true);
         }
         else
         {
-            mainWindow.SetActive(false);
-            infuseWindow.SetActive(true);
+            open = true;
+            UpgradeTitle.SetActive(false);
+            GearTitle.SetActive(false);
+            infuseTitle.SetActive(true);
+            infoButton.SetActive(true);
+            for (int x = 0; x < infusePhase.Count; x++) infusePhase[x].SetActive(true);
+            for (int x = 0; x < buyPhase.Count; x++) buyPhase[x].SetActive(false);
         }
     }
 
