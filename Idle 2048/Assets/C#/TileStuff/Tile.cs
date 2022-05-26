@@ -91,7 +91,7 @@ public class Tile : MonoBehaviour
 
     public void crateReward()
     {
-        gm.quest.updateOpenCrates(1);
+        //gm.quest.updateOpenCrates(1);
         if (silver)
         {
             switch (Random.value)

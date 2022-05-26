@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     public float mergeUpgradeChance;
     public float criticalHitChance;
     public int silverCrateCount = 0;
-    public Quests quest;
+    //public Quests quest;
     public bool randomShift = false;
     public float randomShiftTimer = 0f;
     private bool buttonOn = false;
@@ -439,8 +439,8 @@ public class GameManager : MonoBehaviour
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
         BigInteger newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
-        quest.updateMergeDamage(newValue + mergeDamageMultiplier);
-        quest.updateTileLevel(newValue);
+        //quest.updateMergeDamage(newValue + mergeDamageMultiplier);
+        //quest.updateTileLevel(newValue);
         spawnTile(baseTile.Node, newValue, true);
         if (Random.value < criticalHitChance) hitCrit = true;
         else hitCrit = false;

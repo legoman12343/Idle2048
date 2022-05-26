@@ -37,7 +37,7 @@ public class Ascension : MonoBehaviour
     public FormatNumber formatNumber;
     public LevelController levelController;
     public CoinsDisplay coinsDisplay;
-    public Quests quests;
+    //public Quests quests;
 
     private bool biggerGridUnlock1 = false;
     private bool biggerGridUnlock2 = false;
@@ -151,7 +151,7 @@ public class Ascension : MonoBehaviour
             //Resets Damage
             damageScript.ascend();
             //Resets Quests
-            quests.init();
+            //quests.init();
         }
     }
 
