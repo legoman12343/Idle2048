@@ -100,15 +100,15 @@ public class Damage : MonoBehaviour
 
     public BigInteger getDPS()
     {
-        BigInteger total = 1;
+        BigInteger total;
         foreach(BigInteger i in itemDamage)
             total += i;
-
+        total = 0;
         for (int i = 0; i < itemDamage.Count; i++)
         {
-            BigInteger m = new BigInteger(100 * itemMultipliers[i] );
+            BigInteger m = new BigInteger(100 * itemMultipliers[i]);
             total += (itemDamage[i] * m)/100;
-            //* (itemInfuse[i] * 100)
+            total *= (itemInfuse[i]);
         }
         BigInteger asm = new BigInteger(ASmultiplier * 100);
         BigInteger mu = new BigInteger(multiplier * 100);

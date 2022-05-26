@@ -19,6 +19,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     public HealthBarScript healthBar;
     //coin splash
     public GameObject coinPrefab;
+    public Infuse infuse;
     public CoinsDisplay moneyScript;
     public float multiplier;
     bool backLevel;
@@ -121,7 +122,7 @@ public class MonsterPrefabStuff : MonoBehaviour
 
         if(level.level == level.levelMax && Random.value < infuseChance)
         {
-             
+            infuse.increaseScraps();
         }
 
         //death animation script
