@@ -18,10 +18,8 @@ public class CoinScript : MonoBehaviour
     {
         float x, y;
         
-        do
-        {
-            x = Random.Range(-1f, 1f);
-        } while (x < 0.5f && x > -0.5f);
+        do{ x = Random.Range(-1f, 1f);} while (x < 0.5f && x > -0.5f);
+
         y = Random.Range(11.5f, 13.5f);
 
         force = new Vector2(x,y);
@@ -29,7 +27,7 @@ public class CoinScript : MonoBehaviour
         rb.AddForce(force * 2f, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(Random.Range(0.7f, 1.2f));
-        //rb.bodyType = RigidbodyType2D.Kinematic;
+        
         yield return new WaitForSeconds(Random.Range(0.5f, 1.2f));
         Destroy(gameObject);
     }

@@ -21,6 +21,9 @@ public class HealthBarScript : MonoBehaviour
     public bool bigInt;
     public FormatNumber fn;
 
+    public BigInteger bigDPS = 0;
+    public float smallDPS = 0f;
+
     void Start()
     {
         var t = Time.deltaTime;
@@ -32,7 +35,7 @@ public class HealthBarScript : MonoBehaviour
     {
         if (!bigInt)
         {
-            health -= (float)damage.getDPS() * damage.multiplier * Time.deltaTime;
+            health -= smallDPS *  Time.deltaTime;
             if (health <= 0 && isDead == false)
             {
                 isDead = true;
@@ -42,13 +45,10 @@ public class HealthBarScript : MonoBehaviour
         }
         else
         {
-            BigInteger d = damage.getDPS();
-            BigInteger dm = new BigInteger(damage.multiplier * 1000);
-            BigInteger t = new BigInteger(Time.deltaTime * 10000000);
+            BigInteger t = new BigInteger(Time.deltaTime * 100000);
 
-
-            BigInteger temp = d * dm * t;
-            healthBI -= temp / 10000000000;
+            BigInteger temp = bigDPS * t;
+            healthBI -= temp / 100000;
             if (healthBI <= 0 && isDead == false)
             {
                 isDead = true;
@@ -62,8 +62,6 @@ public class HealthBarScript : MonoBehaviour
 
     void updateNumber()
     {
-        
-
         if (!bigInt)
         {
             string healthString;

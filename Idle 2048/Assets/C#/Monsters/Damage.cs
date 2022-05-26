@@ -17,6 +17,7 @@ public class Damage : MonoBehaviour
     [SerializeField] public List<GameObject> gearUpgrades;
     [SerializeField] public List<GameObject> gear;
     private BuyItem buyItem;
+    public HealthBarScript health;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +60,11 @@ public class Damage : MonoBehaviour
 
     void changeDPS()
     {
-        string t = fn.formatNumberBigNumber(getDPS(), true);
+        BigInteger number = getDPS();
+        string t = fn.formatNumberBigNumber(number, true);
         dpsCounter.text = t;
+        if (health.bigInt) { health.bigDPS = number; }
+        else { float n = (float)number; health.smallDPS = n; }
     }
 
 
@@ -102,14 +106,12 @@ public class Damage : MonoBehaviour
 
         for (int i = 0; i < itemDamage.Count; i++)
         {
-            BigInteger m = new BigInteger(itemMultipliers[i] * (itemInfuse[i] * 100));
-            m *= 100;
+            BigInteger m = new BigInteger(100 * itemMultipliers[i] );
             total += (itemDamage[i] * m)/100;
+            //* (itemInfuse[i] * 100)
         }
-        BigInteger asm = new BigInteger(ASmultiplier);
-        asm *= 100;
-        BigInteger mu = new BigInteger(multiplier);
-        mu *= 100;
-        return (total * mu * asm)/10000;
+        BigInteger asm = new BigInteger(ASmultiplier * 100);
+        BigInteger mu = new BigInteger(multiplier * 100);
+        return ((total * mu * asm)/10000);
     }
 }
