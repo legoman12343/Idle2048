@@ -30,9 +30,11 @@ public class MonsterPrefabStuff : MonoBehaviour
     public bool giveMoney;
     public AudioSource deathSound;
     public bool sounds = true;
+    public float infuseChance;
 
     void Start()
     {
+        infuseChance = 0.001f;
         backLevel = false;
         spawnMonster();
         //coin multiplier for crates
@@ -116,6 +118,11 @@ public class MonsterPrefabStuff : MonoBehaviour
         bool coinsMade = false;
         if (duck) { quest.updateDuckQuest(1); duck = false; }
         if (deathSound != null && sounds) deathSound.Play();
+
+        if(level.level == level.levelMax && Random.value < infuseChance)
+        {
+             
+        }
 
         //death animation script
         monster[0].GetComponent<Monster>().Die();

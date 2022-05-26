@@ -15,6 +15,11 @@ public class Ability1 : MonoBehaviour
     private bool active = false;
     public Damage damage;
 
+    public Image img;
+
+    private Color32 grey = new Color32(128, 128, 128, 255);
+    private Color32 white = new Color32(255, 255, 255, 255);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,7 @@ public class Ability1 : MonoBehaviour
         slider.maxValue = sliderMax;
         cooldownTimer -= Time.deltaTime;
         cooldownTimer = 0f;
+        img.color = grey;
         while (cooldownTimer < sliderMax)
         {
             cooldownTimer += 0.5f;
@@ -35,6 +41,7 @@ public class Ability1 : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         active = true;
+        img.color = white;
     }
 
     public void pressAbility1()

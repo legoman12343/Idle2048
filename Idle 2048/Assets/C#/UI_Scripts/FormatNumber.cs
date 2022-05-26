@@ -41,12 +41,14 @@ public class FormatNumber : MonoBehaviour
 
         if (!highNum) { return originalNumber.ToString(); }
 
-        while (formatNum >= 1000) { formatNum /= 1000; pos++; }        
+        while (formatNum >= 1000) { formatNum /= 1000; pos++; }
 
         string output = originalNumber.ToString("F0").Substring(0, 3);
 
         if (word) { output = output + words[pos]; }
         else { output = output + letters[pos]; }
+
+
 
         if (formatNum < 10) { return output.Insert(1, "."); }
         if (formatNum < 100) { return output.Insert(2, "."); }
@@ -68,8 +70,15 @@ public class FormatNumber : MonoBehaviour
 
         string output = originalNumber.ToString("F0").Substring(0, 3);
 
-        if (word) { output = output + words[pos]; }
-        else { output = output + letters[pos]; }
+        if (pos <= letters.Length - 1)
+        {
+            if (word) { output = output + words[pos]; }
+            else { output = output + letters[pos]; }
+        }
+        else
+        {
+            output = output + "e" + pos * 3;
+        }
 
         if (formatNum < 10) { return output.Insert(1, "."); }
         if (formatNum < 100) { return output.Insert(2, "."); }

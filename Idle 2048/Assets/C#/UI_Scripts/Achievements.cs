@@ -14,13 +14,13 @@ public class Achievements : MonoBehaviour
         window.GetComponent<Transform>().localScale = Vector3.zero;
     }
 
-    public void openSettings()
+    public void openAchievements()
     {
         window.SetActive(true);
         LeanTween.scale(window, startScale, 0.2f);
     }
 
-    public void closeSettings()
+    public void closeAchievements()
     {
         LeanTween.scale(window, Vector2.zero, 0.2f).setOnComplete(deactivate);
     }

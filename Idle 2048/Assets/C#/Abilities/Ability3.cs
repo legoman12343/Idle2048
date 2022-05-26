@@ -14,6 +14,9 @@ public class Ability3 : MonoBehaviour
     public float sliderMax = 2f;
     private bool active = false;
     public GameManager gm;
+    public Image img;
+    private Color32 grey = new Color32(128, 128, 128, 255);
+    private Color32 white = new Color32(255, 255, 255, 255);
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +31,14 @@ public class Ability3 : MonoBehaviour
         slider.maxValue = sliderMax;
         cooldownTimer -= Time.deltaTime;
         cooldownTimer = 0f;
+        img.color = grey;
         while (cooldownTimer < sliderMax)
         {
             cooldownTimer += 0.5f;
             slider.value = cooldownTimer;
             yield return new WaitForSeconds(0.5f);
         }
+        img.color = white;
         active = true;
     }
 

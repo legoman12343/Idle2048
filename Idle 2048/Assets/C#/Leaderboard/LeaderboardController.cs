@@ -12,8 +12,8 @@ using Vector2 = UnityEngine.Vector2;
 public class LeaderboardController : MonoBehaviour
 {
     public string MemberID;
-    public Damage damage;
-    public int ID;
+    public LevelController level;
+    public int ID = 3116;
     int MaxScores = 15;
     [SerializeField] private List<Text> Rank;
     [SerializeField] private List<Text> Name;
@@ -107,6 +107,7 @@ public class LeaderboardController : MonoBehaviour
 
 
 
+
     public void ShowScoresTop()
     {
         LootLockerSDKManager.GetScoreList(ID, MaxScores, (response) =>
@@ -122,7 +123,7 @@ public class LeaderboardController : MonoBehaviour
                           Name[i].text = (scores[i].player.name).ToString();
 
                       Rank[i].text = (scores[i].rank).ToString();                      
-                      Value[i].text = (scores[i].score).ToString();
+                      Value[i].text = (fn.formatNumber(scores[i].score)).ToString();
                   }
 
                   if (scores.Length < MaxScores)
@@ -163,7 +164,7 @@ public class LeaderboardController : MonoBehaviour
                                 NameYou[i].text = (scores[i].player.name).ToString();
 
                             RankYou[i].text = (scores[i].rank).ToString();
-                            ValueYou[i].text = (scores[i].score).ToString();
+                            ValueYou[i].text = (fn.formatNumber(scores[i].score)).ToString();
                         }
 
                         if (scores.Length < MaxScores)
@@ -195,13 +196,13 @@ public class LeaderboardController : MonoBehaviour
 
     public void SubmitScore()
     {
-        /*
-        BigInteger score = damage.getDPS();
+        
+        int score = level.levelMax;
         LootLockerSDKManager.GetMemberRank(ID.ToString(), PlayerPrefs.GetString("PlayerID"), (response) =>
         {
             if (response.score < score && response.success)
             {
-                LootLockerSDKManager.SubmitScore(PlayerPrefs.GetString("PlayerID"), fn.formatNumberBigNumber(score), ID, (response) =>
+                LootLockerSDKManager.SubmitScore(PlayerPrefs.GetString("PlayerID"), score, ID, (response) =>
                 {
                     if (response.success)
                     {
@@ -213,7 +214,7 @@ public class LeaderboardController : MonoBehaviour
                     }
                 });
             }
-        });   */     
+        });   
     }
 
 

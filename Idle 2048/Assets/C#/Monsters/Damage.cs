@@ -11,6 +11,7 @@ public class Damage : MonoBehaviour
     public TextMeshProUGUI dpsCounter;
     public List<BigInteger> itemDamage = new List<BigInteger>();
     public List<float> itemMultipliers = new List<float>();
+    public List<int> itemInfuse = new List<int>();
     public float multiplier;
     public float ASmultiplier;
     [SerializeField] public List<GameObject> gearUpgrades;
