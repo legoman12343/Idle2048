@@ -20,7 +20,6 @@ public class Infuse : MonoBehaviour
     public GameObject UpgradeTitle;
     public GameObject GearTitle;
     public GameObject infuseTitle;
-    public GameObject infoButton;
     public List<GameObject> infusePhase = new List<GameObject>();
     public List<GameObject> buyPhase = new List<GameObject>();
 
@@ -76,7 +75,6 @@ public class Infuse : MonoBehaviour
             UpgradeTitle.SetActive(true);
             GearTitle.SetActive(true);
             infuseTitle.SetActive(false);
-            infoButton.SetActive(false);
             for (int x = 0; x < infusePhase.Count; x++) infusePhase[x].SetActive(false);
             for (int x = 0; x < buyPhase.Count; x++) buyPhase[x].SetActive(true);
         }
@@ -86,7 +84,6 @@ public class Infuse : MonoBehaviour
             UpgradeTitle.SetActive(false);
             GearTitle.SetActive(false);
             infuseTitle.SetActive(true);
-            infoButton.SetActive(true);
             for (int x = 0; x < infusePhase.Count; x++) infusePhase[x].SetActive(true);
             for (int x = 0; x < buyPhase.Count; x++) buyPhase[x].SetActive(false);
         }
