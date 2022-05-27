@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class Infuse : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class Infuse : MonoBehaviour
     public GameObject infuseTitle;
     public GameObject buyButton;
     public GameObject sellButton;
+    public Transform craftOrbObj;
+    public List<Transform> infuseBitPosition = new List<Transform>();
     public List<GameObject> infusePhase = new List<GameObject>();
     public List<GameObject> buyPhase = new List<GameObject>();
     public List<GameObject> infuseBitsImg = new List<GameObject>();
@@ -150,6 +153,11 @@ public class Infuse : MonoBehaviour
 
     public void craftOrb()
     {
+        StartCoroutine(craftOrbCo());
+    }
+
+    public IEnumerator craftOrbCo()
+    {
         if (infuseBits > 8)
         {
             infuseBits -= 9;
@@ -157,6 +165,7 @@ public class Infuse : MonoBehaviour
             textBits.text = fn.formatNumber(infuseBits);
             textInfuse.text = fn.formatNumber(infuseCoins);
             //Animate Here//
+            for (int x = 0; x < infuseBitsImg.Count; x++) infuseBitsImg[x].transform.DOMove(craftOrbObj.position, 2f);
             for (int x = 0; x < infuseBitsImg.Count; x++) infuseBitsImg[x].SetActive(false);
             for (int x = 0; x < infuseBits; x++) { infuseBitsImg[x].SetActive(true); if (x == 8) x = infuseBits; }
         }
