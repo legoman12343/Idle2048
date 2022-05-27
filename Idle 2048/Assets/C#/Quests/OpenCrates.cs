@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Numerics;
+using QUEST;
+using Vector3 = UnityEngine.Vector3;
+
 
 public class OpenCrates : MonoBehaviour
 {
@@ -15,6 +18,7 @@ public class OpenCrates : MonoBehaviour
 
     public void init(int target, NotificationAnimation na)
     {
+        notificationAnimation = na;
         bar.state = 0;
         Count = 0;
         Target = target;
@@ -26,6 +30,8 @@ public class OpenCrates : MonoBehaviour
         bar.text.text = Count.ToString() + " of " + Target.ToString();
         bar.title.text = "Destroy " + target + " Crates";
         bar.description.text = "In order to complete this quest, you must smash " + target.ToString() + " crates";
+        Vector3 v = bar.tab.GetComponent<Transform>().position;
+        v = new Vector3(v.x, v.y, 0);
         Completed = false;
     }
 

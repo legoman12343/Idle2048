@@ -5,6 +5,7 @@ using TMPro;
 using Random = UnityEngine.Random;
 using System.Numerics;
 using Vector2 = UnityEngine.Vector2;
+using QUEST;
 
 public class Tile : MonoBehaviour
 {
@@ -91,7 +92,7 @@ public class Tile : MonoBehaviour
 
     public void crateReward()
     {
-        //gm.quest.updateOpenCrates(1);
+        gm.quest.update(QuestType.openCrate, 1);
         if (silver)
         {
             switch (Random.value)

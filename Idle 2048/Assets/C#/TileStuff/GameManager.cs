@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 using Quaternion = UnityEngine.Quaternion;
+using QUEST;
 
 
 public class GameManager : MonoBehaviour
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     public float mergeUpgradeChance;
     public float criticalHitChance;
     public int silverCrateCount = 0;
-    //public Quests quest;
+    public QuestManager quest;
     public bool randomShift = false;
     public float randomShiftTimer = 0f;
     private bool buttonOn = false;
@@ -439,8 +440,8 @@ public class GameManager : MonoBehaviour
     void mergeTiles(Tile baseTile, Tile mergingTile)
     {
         BigInteger newValue = baseTile.value * 2 * (Random.value < mergeUpgradeChance ? 2 : 1);
-        //quest.updateMergeDamage(newValue + mergeDamageMultiplier);
-        //quest.updateTileLevel(newValue);
+        quest.update(QuestType.mergeDamage, newValue + mergeDamageMultiplier);
+        quest.update(QuestType.highScore, newValue);
         spawnTile(baseTile.Node, newValue, true);
         if (Random.value < criticalHitChance) hitCrit = true;
         else hitCrit = false;

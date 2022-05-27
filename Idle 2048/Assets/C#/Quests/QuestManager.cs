@@ -9,6 +9,7 @@ using System.Numerics;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 using Quaternion = UnityEngine.Quaternion;
+using QUEST;
 
 public class QuestManager : MonoBehaviour
 {
@@ -84,9 +85,9 @@ public class QuestManager : MonoBehaviour
     }
 
 
-    public void updateList(QuestType t, int x)
+    public void update(QuestType t, int x)
     {
-        List<quest> temp = new List<quest>(quests);
+        List<quest> temp = new List<quest>();
         foreach (quest item in quests)
         {
             if(item.type == t)
@@ -144,9 +145,9 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void updateList(QuestType t, BigInteger x)
+    public void update(QuestType t, BigInteger x)
     {
-        List<quest> temp = new List<quest>(quests);
+        List<quest> temp = new List<quest>();
         foreach (var item in quests)
         {
             if (item.type == t)
@@ -193,9 +194,10 @@ public class QuestManager : MonoBehaviour
 }
 
 
+namespace QUEST
+{
 
-
-[Serializable]
+    [Serializable]
 public enum QuestType
 {
     killMonster,
@@ -212,22 +214,25 @@ public enum QuestType
     findScraps,
     ability
 }
-[Serializable]
-public struct quest
-{
-    public QuestType type;
-    public GameObject obj;
-}
 
-[Serializable]
-public struct progressbar
-{
-    public Text text;
-    public Text description;
-    public Text title;
-    public GameObject sliderParent;
-    public GameObject tab;
-    public GameObject button;
-    public Slider slider;
-    public int state;
+
+    [Serializable]
+    public struct quest
+    {
+        public QuestType type;
+        public GameObject obj;
+    }
+
+    [Serializable]
+    public struct progressbar
+    {
+        public Text text;
+        public Text description;
+        public Text title;
+        public GameObject sliderParent;
+        public GameObject tab;
+        public GameObject button;
+        public Slider slider;
+        public int state;
+    }
 }

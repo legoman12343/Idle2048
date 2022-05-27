@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using QUEST;
+using Vector3 = UnityEngine.Vector3;
 
 public class KillMonstersQuest : MonoBehaviour
 {
@@ -31,6 +33,7 @@ public class KillMonstersQuest : MonoBehaviour
 
     public void init(int target, NotificationAnimation na)
     {
+        notificationAnimation = na;
         Count = 0;
         Target = target;
         bar.tab.SetActive(true);
@@ -41,6 +44,8 @@ public class KillMonstersQuest : MonoBehaviour
         bar.text.text = Count.ToString() + " of " + Target.ToString();
         bar.title.text = "Kill " + target + " Monsters";
         bar.description.text = "In order to complete this quest, you must kill " + target.ToString() + " monsters.";
+        Vector3 v = bar.tab.GetComponent<Transform>().position;
+        v = new Vector3(v.x, v.y, 0);
         Completed = false;
     }
 

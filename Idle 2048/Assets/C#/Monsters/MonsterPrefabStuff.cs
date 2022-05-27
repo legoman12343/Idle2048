@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 using Assets.FantasyMonsters.Scripts;
 using DG.Tweening;
 using TMPro;
+using QUEST;
 
 public class MonsterPrefabStuff : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class MonsterPrefabStuff : MonoBehaviour
     public float multiplier;
     bool backLevel;
     private Vector3 spawnPoint;
-    //public Quests quest;
+    public QuestManager quest;
     bool duck;
     public bool bossDead;
     public TextMeshProUGUI timerText;
@@ -92,7 +93,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         stats.healthBar = healthBar;
         stats.monsterScript = this;
         stats.level = level;
-       // stats.quest = quest;
+        stats.quest = quest;
         healthBar.isDead = false;
         stats.Init();
         monster[monster.Count - 1].transform.DOMove(monsterBattlePoint.position, 1f);
@@ -117,7 +118,7 @@ public class MonsterPrefabStuff : MonoBehaviour
         level.LevelUpdate();
         bossDead = true;
         bool coinsMade = false;
-        //if (duck) { quest.updateDuckQuest(1); duck = false; }
+        if (duck) { quest.update(QuestType.killDucks, 1); duck = false; }
         if (deathSound != null && sounds) deathSound.Play();
 
         if(level.level == level.levelMax && Random.value < infuseChance)

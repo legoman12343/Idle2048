@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: open some crates
       objectReference: {fileID: 0}
+    - target: {fileID: 2152450331270498784, guid: 443f19f8247e88049b379cac24fbb010, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 7570203012873609292, guid: 443f19f8247e88049b379cac24fbb010, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

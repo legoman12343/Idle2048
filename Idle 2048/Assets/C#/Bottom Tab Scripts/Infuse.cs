@@ -164,6 +164,7 @@ public class Infuse : MonoBehaviour
             infuseCoins += 1;
             textBits.text = fn.formatNumber(infuseBits);
             textInfuse.text = fn.formatNumber(infuseCoins);
+            yield return null;
             //Animate Here//
             for (int x = 0; x < infuseBitsImg.Count; x++) infuseBitsImg[x].transform.DOMove(craftOrbObj.position, 2f);
             for (int x = 0; x < infuseBitsImg.Count; x++) infuseBitsImg[x].SetActive(false);

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Numerics;
+using QUEST;
 
 public class Stats : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Stats : MonoBehaviour
     public LevelController level;
     public bool boss;
     private IEnumerator coroutine;
-    //public Quests quest;
+    public QuestManager quest;
     public TextMeshProUGUI timerText;
     private float timer;
     public AudioSource deathSound;
@@ -72,11 +73,11 @@ public class Stats : MonoBehaviour
             {
                 timerText.gameObject.SetActive(false);
                 StopCoroutine(coroutine);
-                //quest.updateKillBossQuest(1);
+                quest.update(QuestType.killBoss, 1);
             }
             else
             {
-                //quest.updateKillMonstersQuest(1);
+                quest.update(QuestType.killMonster,1);
             }
             monsterScript.giveMoney = true;
             StartCoroutine(monsterScript.respawnMonster());

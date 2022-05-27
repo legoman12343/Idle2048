@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Numerics;
+using QUEST;
 
 public class HighTile : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class HighTile : MonoBehaviour
 
     public void init(BigInteger target, NotificationAnimation na)
     {
+        notificationAnimation = na;
         bar.state = 0;
         Count = 0;
         Target = target;
@@ -21,7 +23,7 @@ public class HighTile : MonoBehaviour
         bar.slider.value = 0;
         bar.button.SetActive(false);
         bar.text.text = Count.ToString() + " of " + Target.ToString();
-        bar.title.text = "Get a Tile Tf Value " + target;
+        bar.title.text = "Get a Tile Of Value " + target;
         bar.description.text = "For this quest, you need to get a tile with value " + target.ToString();
         Completed = false;
     }

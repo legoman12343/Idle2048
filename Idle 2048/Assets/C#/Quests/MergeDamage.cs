@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Numerics;
+using QUEST;
+using Vector3 = UnityEngine.Vector3;
 
 public class MergeDamage : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class MergeDamage : MonoBehaviour
 
     public void init(BigInteger target, NotificationAnimation na)
     {
+        notificationAnimation = na;
         bar.state = 0;
         Count = 0;
         Target = target;
@@ -26,6 +29,8 @@ public class MergeDamage : MonoBehaviour
         bar.text.text = Count.ToString() + " of " + Target.ToString();
         bar.title.text = "Do " + target + " Merge Damage";
         bar.description.text = "To complete this quest, do " + target.ToString() + " damage by merging tiles.";
+        Vector3 v = bar.tab.GetComponent<Transform>().position;
+        v = new Vector3(v.x, v.y, 0);
         Completed = false;
     }
 

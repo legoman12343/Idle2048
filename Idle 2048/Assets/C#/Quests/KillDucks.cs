@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Numerics;
+using QUEST;
+using Vector3 = UnityEngine.Vector3;
 
 public class KillDucks : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class KillDucks : MonoBehaviour
 
     public void init(int target, NotificationAnimation na)
     {
+        notificationAnimation = na;
         bar.state = 0;
         Count = 0;
         Target = target;
@@ -25,6 +28,8 @@ public class KillDucks : MonoBehaviour
         bar.text.text = Count.ToString() + " of " + Target.ToString();
         bar.title.text = "Kill " + target + " Ducks";
         bar.description.text = "In order to complete this quest, you must become a monster and kill " + target.ToString() + " ducks";
+        Vector3 v = bar.tab.GetComponent<Transform>().position;
+        v = new Vector3(v.x, v.y, 0);
         Completed = false;
     }
 
