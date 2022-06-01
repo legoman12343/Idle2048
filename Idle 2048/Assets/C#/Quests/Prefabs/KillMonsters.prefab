@@ -1037,9 +1037,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Quests, Assembly-CSharp
-        m_MethodName: claimKillMonsters
+      - m_Target: {fileID: -8893704536559218747}
+        m_TargetAssemblyTypeName: KillMonstersQuest, Assembly-CSharp
+        m_MethodName: claim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

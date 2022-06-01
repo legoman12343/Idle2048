@@ -13,11 +13,13 @@ public class KillMonstersQuest : MonoBehaviour
     public NotificationAnimation notificationAnimation;
 
     public QuestManager qm;
+    private int questNumber;
 
-    public bool update(int n)
+    public void update(int n)
     {
         Count += n;
-        bar.slider.value = Count;
+        float temp = (float)((Count * 100) / Target);
+        bar.slider.value = temp;
         bar.text.text = Count.ToString() + " of " + Target.ToString();
         if (Target <= Count && bar.state == 0 && !Completed)
         {
@@ -26,19 +28,18 @@ public class KillMonstersQuest : MonoBehaviour
             bar.state = 1;
             notificationAnimation.startAnimation();
             Completed = true;
-            return true;
         }
-        return false;
     }
 
-    public void init(int target, NotificationAnimation na)
+    public void init(int target, NotificationAnimation na, int questID)
     {
+        questNumber = questID;
         notificationAnimation = na;
         Count = 0;
         Target = target;
         bar.tab.SetActive(true);
         bar.sliderParent.SetActive(true);
-        bar.slider.maxValue = Target;
+        bar.slider.maxValue = 100;
         bar.slider.value = 0;
         bar.button.SetActive(false);
         bar.text.text = Count.ToString() + " of " + Target.ToString();
@@ -51,9 +52,7 @@ public class KillMonstersQuest : MonoBehaviour
 
     public void claim()
     {
-        notificationAnimation.stopAnimation();
-        //reward
-        Destroy(gameObject);
+        qm.claimQuest(questNumber);
     }
 
 }

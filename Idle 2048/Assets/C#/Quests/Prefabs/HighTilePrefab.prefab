@@ -234,21 +234,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Quests, Assembly-CSharp
-        m_MethodName: claimKillMonsters
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: onClick
+      - m_Target: {fileID: 7391882059363830491}
+        m_TargetAssemblyTypeName: HighTile, Assembly-CSharp
+        m_MethodName: claimTileLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1160,6 +1148,7 @@ MonoBehaviour:
     slider: {fileID: 4892777764666363328}
     state: 0
   notificationAnimation: {fileID: 0}
+  qm: {fileID: 0}
 --- !u!1 &9009874619166323796
 GameObject:
   m_ObjectHideFlags: 0

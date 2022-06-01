@@ -14,17 +14,20 @@ public class OpenCrates : MonoBehaviour
     private int Target;
     private bool Completed;
     public NotificationAnimation notificationAnimation;
+    public QuestManager qm;
+    private int questNumber;
 
 
-    public void init(int target, NotificationAnimation na)
+    public void init(int target, NotificationAnimation na, int questID)
     {
+        questNumber = questID;
         notificationAnimation = na;
         bar.state = 0;
         Count = 0;
         Target = target;
         bar.tab.SetActive(true);
         bar.sliderParent.SetActive(true);
-        bar.slider.maxValue = Target;
+        bar.slider.maxValue = 100;
         bar.slider.value = 0;
         bar.button.SetActive(false);
         bar.text.text = Count.ToString() + " of " + Target.ToString();
@@ -35,10 +38,11 @@ public class OpenCrates : MonoBehaviour
         Completed = false;
     }
 
-    public bool update(int n)
+    public void update(int n)
     {
-        Count = n;
-        bar.slider.value = Count;
+        Count += n;
+        float temp = (float)((Count * 100) / Target);
+        bar.slider.value = temp;
         bar.text.text = Count.ToString() + " of " + Target.ToString();
         if (Target <= Count && bar.state == 0 && !Completed)
         {
@@ -47,15 +51,11 @@ public class OpenCrates : MonoBehaviour
             bar.state = 1;
             notificationAnimation.startAnimation();
             Completed = true;
-            return true;
         }
-        return false;
     }
 
     public void claimOpenCrates()
     {
-        notificationAnimation.stopAnimation();
-        //reward
-        Destroy(gameObject);
+        qm.claimQuest(questNumber);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using QUEST;
 
 public class Ability3 : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Ability3 : MonoBehaviour
     public Image img;
     private Color32 grey = new Color32(128, 128, 128, 255);
     private Color32 white = new Color32(255, 255, 255, 255);
+
+    public QuestManager qm;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +55,7 @@ public class Ability3 : MonoBehaviour
     {
         if (active)
         {
+            qm.update(QuestType.ability, 1);
             gm.mergeUpgradeChance += 1f;
             slider.maxValue = 10f;
             active = false;
@@ -65,6 +69,7 @@ public class Ability3 : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
             }
             gm.mergeUpgradeChance -= 1f;
+            qm.update(QuestType.ability, -1);
             StartCoroutine(cooldownAbility());
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using DG.Tweening;
+using QUEST;
 
 public class Infuse : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class Infuse : MonoBehaviour
     public int bitUpperBound;
     public int bitLowerBound;
 
+    public QuestManager qm;
+
     void Start()
     {
         sell = false;
@@ -64,6 +67,7 @@ public class Infuse : MonoBehaviour
     {
         if (infuseBits > 9)
         {
+            qm.update(QuestType.craftOrbs,1);
             infuseCoins ++;
             textInfuse.text = fn.formatNumber(infuseCoins);
             textBits.text = fn.formatNumber(infuseBits);
@@ -147,6 +151,7 @@ public class Infuse : MonoBehaviour
     public void increaseScraps()
     {
         infuseBits++;
+        qm.update(QuestType.findScraps, 1);
         textBits.text = fn.formatNumber(infuseBits);
         for (int x = 0; x < infuseBits; x++) { infuseBitsImg[x].SetActive(true); if (x == 8) x = infuseBits; }
     }
@@ -190,6 +195,7 @@ public class Infuse : MonoBehaviour
         {
             if (infuseCoins > 0)
             {
+                qm.update(QuestType.spendOrbs, 1);
                 damage.itemInfuse[index] += 1;
                 infuseCoins--;
                 textInfuse.text = fn.formatNumber(infuseCoins);

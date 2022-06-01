@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Numerics;
+using QUEST;
 
 public class BuyItem : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class BuyItem : MonoBehaviour
     public Ability3 ability3;
     public FormatNumber fn;
     private float crateChanceStart;
+    public Gear gearType;
 
     void Start()
     {
@@ -95,6 +97,11 @@ public class BuyItem : MonoBehaviour
             damage.addDPS(dpsValue, itemNumber);
             coinsDisplay.addCoins(-price);
             ItemOwned++;
+            gm.quest.update(QuestType.getGearToLevel, 1, gearType);
+            if (ItemOwned == 1)
+            {
+                gm.quest.update(QuestType.unlockGear,1, gearType);
+            }
             if(ItemOwned == 10)
             {
                 damage.gearUpgrades[((itemNumber+1) * 4) - 4].SetActive(true);

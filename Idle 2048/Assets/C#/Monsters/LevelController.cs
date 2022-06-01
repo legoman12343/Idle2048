@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Numerics;
+using QUEST;
 
 public class LevelController : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class LevelController : MonoBehaviour
     public Sprite notComplete;
     public GameObject levelCountNextOb;
     public int permMultiplierCoins;
+    public QuestManager qm;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +51,7 @@ public class LevelController : MonoBehaviour
         {
             if (killCount == requiredKills)
             {
-                if (level == levelMax) levelMax++;
+                if (level == levelMax) { levelMax++; qm.update(QuestType.completeLevels, levelMax); }
 
                 level++;
 

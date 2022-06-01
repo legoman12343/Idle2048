@@ -19,6 +19,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 4492288574017169251, guid: 443f19f8247e88049b379cac24fbb010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -7792691581760444427}
+    - target: {fileID: 4492288574017169251, guid: 443f19f8247e88049b379cac24fbb010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: claimOpenCrates
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492288574017169251, guid: 443f19f8247e88049b379cac24fbb010, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OpenCrates, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7570203012873609292, guid: 443f19f8247e88049b379cac24fbb010, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -171,6 +183,7 @@ MonoBehaviour:
     slider: {fileID: 875687804737196352}
     state: 0
   notificationAnimation: {fileID: 0}
+  qm: {fileID: 0}
 --- !u!114 &4896050694298989690 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1402175260404485823, guid: 443f19f8247e88049b379cac24fbb010, type: 3}

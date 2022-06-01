@@ -13,9 +13,11 @@ public class KillBosses : MonoBehaviour
     private int Target;
     private bool Completed;
     public NotificationAnimation notificationAnimation;
+    public QuestManager qm;
+    private int questNumber;
 
 
-    public void init(int target, NotificationAnimation na)
+    public void init(int target, NotificationAnimation na, int questID)
     {
         notificationAnimation = na;
         bar.state = 0;
@@ -34,7 +36,7 @@ public class KillBosses : MonoBehaviour
         Completed = false;
     }
 
-    public bool update(int n)
+    public void update(int n)
     {
         Count += n;
         bar.slider.value = Count;
@@ -46,15 +48,11 @@ public class KillBosses : MonoBehaviour
             bar.state = 1;
             notificationAnimation.startAnimation();
             Completed = true;
-            return true;
         }
-        return false;
     }
 
     public void claimKillBoss()
     {
-        notificationAnimation.stopAnimation();
-        //reward
-        Destroy(gameObject);
+        qm.claimQuest(questNumber);
     }
 }

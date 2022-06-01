@@ -11,9 +11,12 @@ public class HighTile : MonoBehaviour
     private BigInteger Target;
     private bool Completed;
     public NotificationAnimation notificationAnimation;
+    public QuestManager qm;
+    private int questNumber;
 
-    public void init(BigInteger target, NotificationAnimation na)
+    public void init(BigInteger target, NotificationAnimation na, int questID)
     {
+        questNumber = questID;
         notificationAnimation = na;
         bar.state = 0;
         Count = 0;
@@ -28,12 +31,11 @@ public class HighTile : MonoBehaviour
         Completed = false;
     }
 
-    public bool update(BigInteger n)
+    public void update(BigInteger n)
     {
-
-
-        Count = n;
-        bar.slider.value = (float)(Count / Target) * 100;
+        Count += n;
+        float temp = (float)((Count * 100) / Target);
+        bar.slider.value = temp;
         bar.text.text = Count.ToString() + " of " + Target.ToString();
         if (Target <= Count && bar.state == 0 && !Completed)
         {
@@ -42,16 +44,12 @@ public class HighTile : MonoBehaviour
             bar.state = 1;
             notificationAnimation.startAnimation();
             Completed = true;
-            return true;
         }
-        return false;
 
     }
 
     public void claimTileLevel()
     {
-        notificationAnimation.stopAnimation();
-        //reward
-        Destroy(gameObject);
+        qm.claimQuest(questNumber);
     }
 }

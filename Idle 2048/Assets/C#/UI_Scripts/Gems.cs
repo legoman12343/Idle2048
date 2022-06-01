@@ -20,6 +20,14 @@ public class Gems : MonoBehaviour
         gemText.text = fn.formatNumber(gems,false);
     }
 
+    public void minusGems(int n)
+    {
+        if (gems >= n)
+        {
+            gems -= n;
+            gemText.text = fn.formatNumber(gems, false);
+        }
+    }
 
     public void addGems(int n)
     {
